@@ -1,0 +1,160 @@
+{
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Parameters": {
+    "AcmCertificateArn": {
+      "ConstraintDescription": "must be valid ARN.",
+      "Default": "",
+      "Description": "ARN of a Amazon Certificate Manager certificate.",
+      "Type": "String"
+    },
+    "DistributionAliases": {
+      "ConstraintDescription": "must be comma-delimited FQDNs.",
+      "Default": "",
+      "Description": "FQDNs as aliases to the CloudFront Distribution, comma-delimited.",
+      "Type": "CommaDelimitedList"
+    }
+  },
+  "Conditions": {
+    "UseCertificateCond": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "AcmCertificateArn"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "UseDistributionAliasesCond": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Fn::Join": [
+                ",",
+                {
+                  "Ref": "DistributionAliases"
+                }
+              ]
+            },
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "Resources": {
+    "Function1": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "index.handler",
+        "Runtime": "nodejs6.10",
+        "CodeUri": "src/",
+        "Events": {
+          "GetResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/hello",
+              "Method": "get"
+            }
+          }
+        }
+      }
+    },
+    "Distribution": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "Comment": {
+            "Ref": "AWS::StackName"
+          },
+          "Aliases": {
+            "Fn::If": [
+              "UseDistributionAliasesCond",
+              {
+                "Ref": "DistributionAliases"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "DefaultCacheBehavior": {
+            "Compress": true,
+            "TargetOriginId": "ApiGateway",
+            "AllowedMethods": [
+              "HEAD",
+              "GET"
+            ],
+            "CachedMethods": [
+              "HEAD",
+              "GET"
+            ],
+            "ForwardedValues": {
+              "QueryString": true
+            },
+            "ViewerProtocolPolicy": {
+              "Fn::If": [
+                "UseDistributionAliasesCond",
+                {
+                  "Fn::If": [
+                    "UseCertificateCond",
+                    "redirect-to-https",
+                    "allow-all"
+                  ]
+                },
+                "redirect-to-https"
+              ]
+            }
+          },
+          "Origins": [
+            {
+              "Id": "ApiGateway",
+              "OriginPath": "/Prod",
+              "CustomOriginConfig": {
+                "OriginProtocolPolicy": "https-only",
+                "OriginSSLProtocols": [
+                  "TLSv1"
+                ]
+              },
+              "DomainName": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Ref": "ServerlessRestApi"
+                    },
+                    ".execute-api.",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ".amazonaws.com"
+                  ]
+                ]
+              }
+            }
+          ],
+          "ViewerCertificate": {
+            "Fn::If": [
+              "UseCertificateCond",
+              {
+                "AcmCertificateArn": {
+                  "Ref": "AcmCertificateArn"
+                },
+                "MinimumProtocolVersion": "TLSv1",
+                "SslSupportMethod": "sni-only"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
