@@ -1,35 +1,511 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html",
+  "title": "AWS CloudFormation template",
+  "description":
+    "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html",
   "type": "object",
-  "required": [
-    "Resources"
-  ],
-  "properties": {
-    "AWSTemplateFormatVersion": {
-      "description": "The AWS CloudFormation template version that the template conforms to. The template format version is not the same as the API or WSDL version. The template format version can change independently of the API and WSDL versions. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html",
-      "type": "string",
+  "required": ["Resources"],
+  "definitions": {
+    "pseudoParameters": {
+      "title": "Pseudo Parameters",
+      "description":
+        "Pseudo parameters are parameters that are predefined by AWS CloudFormation. You do not declare them in your template. Use them the same way as you would a parameter, as the argument for the Ref function. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html",
       "enum": [
-        "2010-09-09"
+        "AWS::AccountId",
+        "AWS::NotificationARNs",
+        "AWS::NoValue",
+        "AWS::Partition",
+        "AWS::Region",
+        "AWS::StackId",
+        "AWS::StackName",
+        "AWS::URLSuffix"
       ]
     },
+    "functions": {
+      "base64": {
+        "type": "object",
+        "title": "Fn::Base64",
+        "description":
+          "The intrinsic function Fn::Base64 returns the Base64 representation of the input string. This function is typically used to pass encoded data to Amazon EC2 instances by way of the UserData property. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-base64.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::Base64": {
+            "anyOf": [
+              { "type": "string" },
+              { "$ref": "#/definitions/intrinsicFunctions" }
+            ]
+          }
+        }
+      },
+      "cidr": {
+        "type": "object",
+        "title": "Fn::Cidr",
+        "description":
+          "The intrinsic function Fn::Cidr returns the specified Cidr address block. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-cidr.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::Cidr": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 3,
+            "items": [
+              {
+                "title": "ipBlock",
+                "description": "The user-specified default Cidr address block.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              },
+              {
+                "title": "count",
+                "description":
+                  "The number of subnets' Cidr block wanted. Count can be 1 to 256.",
+                "anyOf": [
+                  { "type": "number" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              },
+              {
+                "title": "sizeMask",
+                "description": "Optional. The digit covered in the subnet.",
+                "anyOf": [
+                  { "type": "number" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "findInMap": {
+        "type": "object",
+        "title": "Fn::FindInMap",
+        "description":
+          "The intrinsic function Fn::FindInMap returns the value corresponding to keys in a two-level map that is declared in the Mappings section. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::FindInMap": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": [
+              {
+                "title": "MapName",
+                "description":
+                  "The logical name of a mapping declared in the Mappings section that contains the keys and values.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              },
+              {
+                "title": "TopLevelKey",
+                "description":
+                  "The top-level key name. Its value is a list of key-value pairs.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              },
+              {
+                "title": "SecondLevelKey",
+                "description":
+                  "The second-level key name, which is set to one of the keys from the list assigned to TopLevelKey.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "getAtt": {
+        "type": "object",
+        "title": "Fn::GetAtt",
+        "description":
+          "The Fn::GetAtt intrinsic function returns the value of an attribute from a resource in the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::GetAtt": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              {
+                "title": "logicalNameOfResource",
+                "description":
+                  "The logical name (also called logical ID) of the resource that contains the attribute that you want.",
+                "type": "string"
+              },
+              {
+                "title": "attributeName",
+                "description":
+                  "The name of the resource-specific attribute whose value you want. See the resource's reference page for details about the attributes available for that resource type.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "getAZs": {
+        "type": "object",
+        "title": "Fn::GetAZs",
+        "description":
+          "The intrinsic function Fn::GetAZs returns an array that lists Availability Zones for a specified region. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getavailabilityzones.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::GetAZs": {
+            "anyOf": [
+              { "type": "string" },
+              { "$ref": "#/definitions/intrinsicFunctions" }
+            ]
+          }
+        }
+      },
+      "if": {
+        "type": "object",
+        "title": "Fn::If",
+        "description":
+          "Returns one value if the specified condition evaluates to true and another value if the specified condition evaluates to false. Currently, AWS CloudFormation supports the Fn::If intrinsic function in the metadata attribute, update policy attribute, and property values in the Resources section and Outputs sections of a template. You can use the AWS::NoValue pseudo parameter as a return value to remove the corresponding property. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-if",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::FindInMap": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": [
+              {
+                "title": "condition_name",
+                "description":
+                  "A reference to a condition in the Conditions section. Use the condition's name to reference it.",
+                "type": "string"
+              },
+              {
+                "title": "value_if_true",
+                "description":
+                  "A value to be returned if the specified condition evaluates to true.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "type": "number" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              },
+              {
+                "title": "value_if_false",
+                "description":
+                  "A value to be returned if the specified condition evaluates to false.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "type": "number" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "importValue": {
+        "type": "object",
+        "title": "Fn::ImportValue",
+        "description":
+          "The intrinsic function Fn::ImportValue returns the value of an output exported by another stack. You typically use this function to create cross-stack references. In the following example template snippets, Stack A exports VPC security group values and Stack B imports them. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::ImportValue": {
+            "anyOf": [
+              { "type": "string" },
+              { "$ref": "#/definitions/intrinsicFunctions" }
+            ]
+          }
+        }
+      },
+      "join": {
+        "type": "object",
+        "title": "Fn::Join",
+        "description":
+          "The intrinsic function Fn::Join appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::Join": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              {
+                "title": "delimiter",
+                "description":
+                  "The value you want to occur between fragments. The delimiter will occur between fragments only. It will not terminate the final value.",
+                "type": "string"
+              },
+              {
+                "title": "ListOfValues",
+                "description": "The list of values you want combined.",
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "type": "number" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    }
+                  },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "select": {
+        "type": "object",
+        "title": "Fn::Select",
+        "description":
+          "The intrinsic function Fn::Select returns a single object from a list of objects by index. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-select.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::Select": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              {
+                "title": "index",
+                "description":
+                  "The index of the object to retrieve. This must be a value from zero to N-1, where N represents the number of elements in the array.",
+                "type": ["number", "string"]
+              },
+              {
+                "title": "listOfObjects",
+                "description": "The list of values you want combined.",
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "type": "number" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    }
+                  },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "split": {
+        "type": "object",
+        "title": "Fn::Split",
+        "description":
+          "To split a string into a list of string values so that you can select an element from the resulting string list, use the Fn::Split intrinsic function. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-split.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::Split": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              {
+                "title": "delimiter",
+                "description":
+                  "A string value that determines where the source string is divided.",
+                "type": "string"
+              },
+              {
+                "title": "source string",
+                "description": "The string value that you want to split.",
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "sub": {
+        "type": "object",
+        "title": "Fn::Sub",
+        "description":
+          "The intrinsic function Fn::Sub substitutes variables in an input string with values that you specify. In your templates, you can use this function to construct commands or outputs that include values that aren't available until you create or update a stack. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html",
+        "additionalProperties": false,
+        "properties": {
+          "Fn::Sub": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [
+                  {
+                    "title": "String",
+                    "description":
+                      "A string with variables that AWS CloudFormation substitutes with their associated values at runtime. Write variables as ${MyVarName}. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. If you specify only template parameter names, resource logical IDs, and resource attributes, don't specify a key-value map.",
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "ref": {
+        "type": "object",
+        "title": "Ref",
+        "description":
+          "The intrinsic function Ref returns the value of the specified parameter or resource. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html",
+        "additionalProperties": false,
+        "properties": {
+          "Ref": {
+            "anyOf": [
+              { "type": "string" },
+              { "$ref": "#/definitions/pseudoParameters" }
+            ]
+          }
+        }
+      },
+      "and": {
+        "type": "object",
+        "title": "Fn::And",
+        "description":
+          "Returns true if all the specified conditions evaluate to true, or returns false if any one of the conditions evaluates to false. Fn::And acts as an AND operator. The minimum number of conditions that you can include is 2, and the maximum is 10. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-and",
+        "properties": {
+          "Fn::And": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 10,
+            "items": { "$ref": "#/definitions/conditionFunctions" }
+          }
+        }
+      },
+      "equals": {
+        "type": "object",
+        "title": "Fn::Equals",
+        "description":
+          "Compares if two values are equal. Returns true if the two values are equal or false if they aren't. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-equals",
+        "properties": {
+          "Fn::Equals": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "number" },
+                { "$ref": "#/definitions/intrinsicFunctions" }
+              ]
+            }
+          }
+        }
+      },
+      "not": {
+        "type": "object",
+        "title": "Fn::Not",
+        "description":
+          "Returns true for a condition that evaluates to false or returns false for a condition that evaluates to true. Fn::Not acts as a NOT operator. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-not",
+        "properties": {
+          "Fn::Not": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": { "$ref": "#/definitions/conditionFunctions" }
+          }
+        }
+      },
+      "or": {
+        "type": "object",
+        "title": "Fn::Or",
+        "description":
+          "Returns true if any one of the specified conditions evaluate to true, or returns false if all of the conditions evaluates to false. Fn::Or acts as an OR operator. The minimum number of conditions that you can include is 2, and the maximum is 10. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-or",
+        "properties": {
+          "Fn::Not": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 10,
+            "items": { "$ref": "#/definitions/conditionFunctions" }
+          }
+        }
+      }
+    },
+    "conditionFunctions": {
+      "title": "Condition Functions",
+      "description":
+        "You can use intrinsic functions, such as Fn::If, Fn::Equals, and Fn::Not, to conditionally create stack resources. These conditions are evaluated based on input parameters that you declare when you create or update a stack. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html",
+      "anyOf": [
+        { "$ref": "#/definitions/functions/and" },
+        { "$ref": "#/definitions/functions/equals" },
+        { "$ref": "#/definitions/functions/if" },
+        { "$ref": "#/definitions/functions/not" },
+        { "$ref": "#/definitions/functions/or" }
+      ]
+    },
+    "intrinsicFunctions": {
+      "title": "Intrinsic Functions",
+      "description":
+        "AWS CloudFormation provides several built-in functions that help you manage your stacks. Use intrinsic functions in your templates to assign values to properties that are not available until runtime. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html",
+      "anyOf": [
+        { "$ref": "#/definitions/functions/base64" },
+        { "$ref": "#/definitions/functions/cidr" },
+        { "$ref": "#/definitions/functions/findInMap" },
+        { "$ref": "#/definitions/functions/getAtt" },
+        { "$ref": "#/definitions/functions/getAZs" },
+        { "$ref": "#/definitions/functions/if" },
+        { "$ref": "#/definitions/functions/importValue" },
+        { "$ref": "#/definitions/functions/join" },
+        { "$ref": "#/definitions/functions/select" },
+        { "$ref": "#/definitions/functions/split" },
+        { "$ref": "#/definitions/functions/sub" },
+        { "$ref": "#/definitions/functions/ref" }
+      ]
+    }
+  },
+  "properties": {
+    "AWSTemplateFormatVersion": {
+      "description":
+        "The AWS CloudFormation template version that the template conforms to. The template format version is not the same as the API or WSDL version. The template format version can change independently of the API and WSDL versions. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html",
+      "type": "string",
+      "enum": ["2010-09-09"]
+    },
     "Description": {
-      "description": "A text string that describes the template. This section must always follow the template format version section. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-description-structure.html",
+      "description":
+        "A text string that describes the template. This section must always follow the template format version section. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-description-structure.html",
       "type": "string",
       "minLength": 0,
       "maxLength": 1024
     },
     "Metadata": {
       "type": "object",
-      "description": "Objects that provide additional information about the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html",
+      "description":
+        "Objects that provide additional information about the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html",
       "properties": {
         "AWS::CloudFormation::Init": {
           "type": "object",
-          "description": "Defines configuration tasks for the cfn-init helper script. This script is useful for configuring and installing applications on EC2 instances. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html"
+          "description":
+            "Defines configuration tasks for the cfn-init helper script. This script is useful for configuring and installing applications on EC2 instances. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html"
         },
         "AWS::CloudFormation::Interface": {
           "type": "object",
-          "description": "Defines the grouping and ordering of input parameters when they are displayed in the AWS CloudFormation console. By default, the AWS CloudFormation console alphabetically sorts parameters by their logical ID. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.html"
+          "description":
+            "Defines the grouping and ordering of input parameters when they are displayed in the AWS CloudFormation console. By default, the AWS CloudFormation console alphabetically sorts parameters by their logical ID. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.html"
         },
         "AWS::CloudFormation::Designer": {}
       },
@@ -39,54 +515,62 @@
     },
     "Parameters": {
       "type": "object",
-      "description": "Values to pass to your template at runtime (when you create or update a stack). You can refer to parameters from the Resources and Outputs sections of the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html",
+      "description":
+        "Values to pass to your template at runtime (when you create or update a stack). You can refer to parameters from the Resources and Outputs sections of the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html",
       "additionalProperties": {
         "type": "object",
-        "required": [
-          "Type"
-        ],
+        "required": ["Type"],
         "properties": {
           "AllowedPattern": {
             "type": "string",
-            "description": "A regular expression that represents the patterns to allow for String types."
+            "description":
+              "A regular expression that represents the patterns to allow for String types."
           },
           "AllowedValues": {
             "type": "array",
-            "description": "An array containing the list of values allowed for the parameter."
+            "description":
+              "An array containing the list of values allowed for the parameter."
           },
           "ConstraintDescription": {
             "type": "string",
-            "description": "A string that explains a constraint when the constraint is violated."
+            "description":
+              "A string that explains a constraint when the constraint is violated."
           },
           "Default": {
-            "type": "string",
-            "description": "A value of the appropriate type for the template to use if no value is specified when a stack is created. If you define constraints for the parameter, you must specify a value that adheres to those constraints."
+            "description":
+              "A value of the appropriate type for the template to use if no value is specified when a stack is created. If you define constraints for the parameter, you must specify a value that adheres to those constraints."
           },
           "Description": {
             "type": "string",
-            "description": "A string of up to 4000 characters that describes the parameter.",
+            "description":
+              "A string of up to 4000 characters that describes the parameter.",
             "minLength": 0,
             "maxLength": 4000
           },
           "MaxLength": {
             "type": "integer",
-            "description": "An integer value that determines the largest number of characters you want to allow for String types."
+            "description":
+              "An integer value that determines the largest number of characters you want to allow for String types."
           },
           "MaxValue": {
             "type": "number",
-            "description": "A numeric value that determines the largest numeric value you want to allow for Number types."
+            "description":
+              "A numeric value that determines the largest numeric value you want to allow for Number types."
           },
           "MinLength": {
             "type": "integer",
-            "description": "An integer value that determines the smallest number of characters you want to allow for String types."
+            "description":
+              "An integer value that determines the smallest number of characters you want to allow for String types."
           },
           "MinValue": {
             "type": "number",
-            "description": "A numeric value that determines the smallest numeric value you want to allow for Number types."
+            "description":
+              "A numeric value that determines the smallest numeric value you want to allow for Number types."
           },
           "NoEcho": {
             "type": "boolean",
-            "description": "Whether to mask the parameter value when anyone makes a call that describes the stack. If you set the value to true, the parameter value is masked with asterisks (*****)."
+            "description":
+              "Whether to mask the parameter value when anyone makes a call that describes the stack. If you set the value to true, the parameter value is masked with asterisks (*****)."
           },
           "Type": {
             "type": "string",
@@ -114,7 +598,29 @@
               "List<AWS::EC2::Subnet::Id>",
               "List<AWS::EC2::Volume::Id>",
               "List<AWS::EC2::VPC::Id>",
-              "List<AWS::Route53::HostedZone::Id>"
+              "List<AWS::Route53::HostedZone::Id>",
+              "AWS::SSM::Parameter::Name",
+              "AWS::SSM::Parameter::Value<String>",
+              "AWS::SSM::Parameter::Value<List<String>>",
+              "AWS::SSM::Parameter::Value<CommaDelimitedList>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::AvailabilityZone::Name>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::Instance::Id>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::KeyPair::KeyName>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::SecurityGroup::GroupName>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::SecurityGroup::Id>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::Subnet::Id>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::Volume::Id>",
+              "AWS::SSM::Parameter::Value<AWS::EC2::VPC::Id>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::AvailabilityZone::Name>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::Image::Id>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::Instance::Id>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::KeyPair::KeyName>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::SecurityGroup::GroupName>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::SecurityGroup::Id>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::Subnet::Id>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::Volume::Id>>",
+              "AWS::SSM::Parameter::Value<List<AWS::EC2::VPC::Id>>"
             ]
           }
         }
@@ -122,31 +628,271 @@
     },
     "Mappings": {
       "type": "object",
-      "description": "A mapping of keys and associated values that you can use to specify conditional parameter values, similar to a lookup table. You can match a key to a corresponding value by using the Fn::FindInMap intrinsic function in the Resources and Outputs section. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html",
+      "description":
+        "A mapping of keys and associated values that you can use to specify conditional parameter values, similar to a lookup table. You can match a key to a corresponding value by using the Fn::FindInMap intrinsic function in the Resources and Outputs section. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html",
       "additionalProperties": {
         "type": "object",
         "additionalProperties": {
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
           }
         }
       }
     },
     "Conditions": {
       "type": "object",
-      "description": "Conditions that control whether certain resources are created or whether certain resource properties are assigned a value during stack creation or update. For example, you could conditionally create a resource that depends on whether the stack is for a production or test environment. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html"
+      "description":
+        "Conditions that control whether certain resources are created or whether certain resource properties are assigned a value during stack creation or update. For example, you could conditionally create a resource that depends on whether the stack is for a production or test environment. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html",
+      "additionalProperties": { "$ref": "#/definitions/conditionFunctions" }
     },
     "Transform": {
-      "description": "For serverless applications (also referred to as Lambda-based applications), specifies the version of the AWS Serverless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your template. The model defines the syntax that you can use and how it is processed. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html"
+      "type": "string",
+      "description":
+        "For serverless applications (also referred to as Lambda-based applications), specifies the version of the AWS Serverless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your template. The model defines the syntax that you can use and how it is processed. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html"
     },
     "Resources": {
       "type": "object",
-      "description": "Specifies the stack resources and their properties, such as an Amazon Elastic Compute Cloud instance or an Amazon Simple Storage Service bucket. You can refer to resources in the Resources and Outputs sections of the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html"
+      "description":
+        "Specifies the stack resources and their properties, such as an Amazon Elastic Compute Cloud instance or an Amazon Simple Storage Service bucket. You can refer to resources in the Resources and Outputs sections of the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html",
+      "definitions": {
+        "resourceTypeBase": {
+          "type": "object",
+          "required": ["Type"],
+          "properties": {
+            "Conditions": {
+              "type": "string",
+              "description":
+                "Associate conditions with the resources or outputs that you want to conditionally create."
+            },
+            "CreationPolicy": {
+              "type": "object",
+              "description":
+                "Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html",
+              "properties": {
+                "AutoScalingCreationPolicy": {
+                  "type": "object",
+                  "description":
+                    "For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.",
+                  "properties": {
+                    "MinSuccessfulInstancesPercent": {
+                      "anyOf": [
+                        { "type": "integer" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ],
+                      "description":
+                        "Specifies the percentage of instances in an Auto Scaling replacement update that must signal success for the update to succeed."
+                    }
+                  }
+                },
+                "ResourceSignal": {
+                  "type": "object",
+                  "description":
+                    "When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.",
+                  "properties": {
+                    "Count": {
+                      "anyOf": [
+                        { "type": "integer" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ],
+                      "description":
+                        "The number of success signals AWS CloudFormation must receive before it sets the resource status as CREATE_COMPLETE."
+                    },
+                    "Timeout": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ],
+                      "description":
+                        "The length of time that AWS CloudFormation waits for the number of signals that was specified in the Count property."
+                    }
+                  }
+                }
+              }
+            },
+            "DeletionPolicy": {
+              "anyOf": [
+                { "type": "string" },
+                { "$ref": "#/definitions/intrinsicFunctions" }
+              ],
+              "description":
+                "With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",
+              "enum": ["Delete", "Retain", "Snapshot"]
+            },
+            "DependsOn": {
+              "description":
+                "With the DependsOn attribute you can specify that the creation of a specific resource follows another. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html",
+              "anyOf": [
+                {
+                  "anyOf": [
+                    { "type": "string" },
+                    { "$ref": "#/definitions/intrinsicFunctions" }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      { "type": "string" },
+                      { "$ref": "#/definitions/intrinsicFunctions" }
+                    ]
+                  }
+                }
+              ]
+            },
+            "Metadata": {
+              "type": "object",
+              "description":
+                "The Metadata attribute enables you to associate structured data with a resource. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html"
+            },
+            "UpdatePolicy": {
+              "type": "object",
+              "description":
+                "Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup or AWS::Lambda::Alias resource. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html",
+              "properties": {
+                "AutoScalingReplacingUpdate": {
+                  "type": "object",
+                  "description": "To specify how AWS CloudFormation handles replacement updates for an Auto Scaling group, use the AutoScalingReplacingUpdate policy.",
+                  "properties": {
+                    "WillReplace": { "type": "boolean" }
+                  }
+                },
+                "AutoScalingRollingUpdate": {
+                  "type": "object",
+                  "description": "To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy.",
+                  "properties": {
+                    "MaxBatchSize": {
+                      "anyOf": [
+                        { "type": "integer" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    },
+                    "MinInstancesInService": {
+                      "anyOf": [
+                        { "type": "integer" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    },
+                    "MinSuccessfulInstancesPercent": {
+                      "anyOf": [
+                        { "type": "integer" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    },
+                    "PauseTime": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    },
+                    "SuspendProcesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "WaitOnResourceSignals": { "type": "boolean" }
+                  }
+                },
+                "AutoScalingScheduledAction": {
+                  "type": "object",
+                  "description": "To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy.",
+                  "properties": {
+                    "IgnoreUnmodifiedGroupSizeProperties": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "CodeDeployLambdaAliasUpdate": {
+                  "type": "object",
+                  "description": "To perform an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource, use the CodeDeployLambdaAliasUpdate update policy.",
+                  "required": ["ApplicationName", "DeploymentGroupName"],
+                  "properties": {
+                    "AfterAllowTrafficHook": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    },
+                    "ApplicationName": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    },
+                    "BeforeAllowTrafficHook": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    },
+                    "DeploymentGroupName": {
+                      "anyOf": [
+                        { "type": "string" },
+                        { "$ref": "#/definitions/intrinsicFunctions" }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "resourceTypes": {},
+        "propertyTypes": {}
+      },
+      "additionalProperties": {}
     },
     "Outputs": {
       "type": "object",
-      "description": "Describes the values that are returned whenever you view your stack's properties. For example, you can declare an output for an S3 bucket name and then call the aws cloudformation describe-stacks AWS CLI command to view the name. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html"
+      "description":
+        "Describes the values that are returned whenever you view your stack's properties. For example, you can declare an output for an S3 bucket name and then call the aws cloudformation describe-stacks AWS CLI command to view the name. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["Value"],
+        "properties": {
+          "Conditions": {
+            "type": "string",
+            "description":
+              "Associate conditions with the resources or outputs that you want to conditionally create."
+          },
+          "Description": {
+            "type": "string",
+            "description":
+              "A String type that describes the output value. The description can be a maximum of 4 K in length."
+          },
+          "Value": {
+            "description":
+              "The value of the property returned by the aws cloudformation describe-stacks command. The value of an output can include literals, parameter references, pseudo-parameters, a mapping value, or intrinsic functions.",
+            "anyOf": [
+              { "type": "string" },
+              { "$ref": "#/definitions/intrinsicFunctions" }
+            ]
+          },
+          "Export": {
+            "type": "object",
+            "description":
+              "The name of the resource output to be exported for a cross-stack reference.",
+            "required": ["Name"],
+            "properties": {
+              "Name": {
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "#/definitions/intrinsicFunctions" }
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
