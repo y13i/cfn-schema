@@ -43,13 +43,11 @@ const resourceSpecUrls = {
 };
 
 readFileAsync(baseSchemaPath).then(baseJson => {
-  const baseSchema = JSON.parse(baseJson);
-
   return Promise.all(
     Object.entries(resourceSpecUrls).map(([region, resourceSpecUrl]) => {
       return axios.get(resourceSpecUrl).then(response => {
         const resourceSpec = response.data;
-        const schema = { ...baseSchema };
+        const schema = JSON.parse(baseJson);
 
         schema.description += ` automatically generated with resource specification version ${
           resourceSpec.ResourceSpecificationVersion
@@ -191,9 +189,7 @@ readFileAsync(baseSchemaPath).then(baseJson => {
         );
 
         Object.entries(resourceSpec.ResourceTypes).forEach(
-          ([resourceTypeName, resourceType]) => {
-            console.log(resourceTypeName);
-          }
+          ([resourceTypeName, resourceType]) => {}
         );
 
         return writeFileAsync(
