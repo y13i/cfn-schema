@@ -42,6 +42,14 @@ const resourceSpecUrls = {
     "https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 };
 
+function referPropertyType(resourceTypeName, itemType) {
+  if (itemType === "Tag") {
+    return "#/properties/Resources/definitions/propertyTypes/Tag";
+  }
+
+  return `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${itemType}`;
+}
+
 function appendProperty(root, propertyName, property, resourceTypeName) {
   const p = {
     title: propertyName,
@@ -109,9 +117,7 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
       }
     } else if (property.ItemType) {
       p.items = {
-        $ref: `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
-          property.ItemType
-        }`
+        $ref: referPropertyType(resourceTypeName, property.ItemType)
       };
     }
   } else if (property.Type === "Map") {
@@ -142,15 +148,11 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
       }
     } else if (property.ItemType) {
       p.additionalProperties = {
-        $ref: `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
-          property.ItemType
-        }`
+        $ref: referPropertyType(resourceTypeName, property.ItemType)
       };
     }
   } else if (property.Type) {
-    p.$ref = `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
-      property.Type
-    }`;
+    p.$ref = referPropertyType(resourceTypeName, property.Type);
   }
 }
 
@@ -215,6 +217,33 @@ readFileAsync(baseSchemaPath).then(baseJson => {
                 appendProperty(rt, propertyName, property, resourceTypeName);
               }
             );
+
+            schema.properties.Resources.definitions.resourceTypes[
+              resourceTypeName
+            ] = {
+              allOf: [
+                { $ref: "#/properties/Resources/definitions/resourceTypeBase" },
+                {
+                  required: Object.values(resourceType.Properties).some(
+                    p => p.Required
+                  )
+                    ? ["Properties"]
+                    : [],
+                  properties: {
+                    Type: {
+                      enum: [resourceTypeName]
+                    },
+                    Properties: {
+                      $ref: `#/properties/Resources/definitions/resourcePropertyTypes/${resourceTypeName}`
+                    }
+                  }
+                }
+              ]
+            };
+
+            schema.properties.Resources.additionalProperties.anyOf.push({
+              $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`
+            });
           }
         );
 

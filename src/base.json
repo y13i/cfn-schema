@@ -668,6 +668,16 @@
           "type": "object",
           "required": ["Type"],
           "properties": {
+            "Type": {
+              "type": "string",
+              "description":
+                "The resource type identifies the type of resource that you are declaring."
+            },
+            "Properties": {
+              "type": "object",
+              "description":
+                "Resource properties are additional options that you can specify for a resource."
+            },
             "Conditions": {
               "type": "string",
               "description":
@@ -851,9 +861,31 @@
           }
         },
         "resourcePropertyTypes": {},
-        "propertyTypes": {}
+        "propertyTypes": {},
+        "resourceTypes": {
+          "custom": {
+            "allOf": [
+              { "$ref": "#/properties/Resources/definitions/resourceTypeBase" },
+              {
+                "required": ["Properties"],
+                "properties": {
+                  "Type": {
+                    "type": "string",
+                    "pattern":
+                      "AWS::CloudFormation::CustomResource|Custom::[A-Za-z_@-]+",
+                    "maxLength": 60
+                  }
+                }
+              }
+            ]
+          }
+        }
       },
-      "additionalProperties": {}
+      "additionalProperties": {
+        "anyOf": [
+          { "$ref": "#/properties/Resources/definitions/resourceTypes/custom" }
+        ]
+      }
     },
     "Outputs": {
       "type": "object",
