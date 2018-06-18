@@ -219,6 +219,9 @@ readFileAsync(baseSchemaPath).then(baseJson => {
             schema.properties.Resources.definitions.resourceTypes[
               resourceTypeName
             ] = {
+              title: resourceTypeName,
+              description: resourceType.Documentation,
+
               allOf: [
                 { $ref: "#/properties/Resources/definitions/resourceTypeBase" },
                 {
