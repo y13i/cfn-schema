@@ -28,7 +28,7 @@ JSON Schema for AWS CloudFormation templates.
 
 Open Workspace Settings by pressing **Ctrl + ,** or **⌘ + ,**.
 
-Choose schema URL correspondent to AWS region you going to use and add JSON Schema setting like this.
+Choose schema URL correspondent to AWS region you are going to use and add JSON Schema setting like this.
 
 ```json
 {
