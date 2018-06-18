@@ -1,9 +1,13 @@
 const { readFile, writeFile } = require("fs");
 const { promisify } = require("util");
+const { join } = require("path");
 const axios = require("axios");
 
 const readFileAsync = promisify(readFile);
 const writeFileAsync = promisify(writeFile);
+
+const baseSchemaPath = join(__dirname, "base.json");
+const outputPath = join(__dirname, "..", "docs");
 
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
@@ -38,7 +42,7 @@ const resourceSpecUrls = {
     "https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 };
 
-readFileAsync("schema/base.json").then(baseJson => {
+readFileAsync(baseSchemaPath).then(baseJson => {
   const baseSchema = JSON.parse(baseJson);
 
   return Promise.all(
@@ -193,7 +197,7 @@ readFileAsync("schema/base.json").then(baseJson => {
         );
 
         return writeFileAsync(
-          `schema/${region}.json`,
+          join(outputPath, `${region}.json`),
           JSON.stringify(schema, undefined, 2) + "\n"
         );
       });
