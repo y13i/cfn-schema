@@ -42,6 +42,118 @@ const resourceSpecUrls = {
     "https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 };
 
+function appendProperty(root, propertyName, property, resourceTypeName) {
+  const p = {
+    title: propertyName,
+    description: `UpdateType: ${property.UpdateType}, ${property.Documentation}`
+  };
+
+  root.properties[propertyName] = p;
+
+  if (property.Required) {
+    root.required.push(propertyName);
+  }
+
+  if (property.PrimitiveType) {
+    p.anyOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
+
+    switch (property.PrimitiveType) {
+      case "String":
+        p.anyOf.push({ type: "string" });
+        break;
+      case "Long":
+      case "Integer":
+        p.anyOf.push({ type: "integer" });
+        break;
+      case "Double":
+        p.anyOf.push({ type: "number" });
+        break;
+      case "Boolean":
+        p.anyOf.push({ type: "boolean" });
+        break;
+      case "Timestamp":
+        p.anyOf.push({ type: "string" });
+        break;
+      case "Json":
+        p.anyOf.push({ type: "object" });
+        break;
+    }
+  } else if (property.Type === "List") {
+    p.type = "array";
+    p.description = `DuplicatesAllowed: ${property.DuplicatesAllowed}, ${
+      p.description
+    }`;
+
+    if (property.PrimitiveItemType) {
+      p.items = {
+        anyOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
+      };
+
+      switch (property.PrimitiveItemType) {
+        case "String":
+          p.items.anyOf.push({ type: "string" });
+          break;
+        case "Long":
+        case "Integer":
+          p.items.anyOf.push({ type: "integer" });
+          break;
+        case "Double":
+          p.items.anyOf.push({ type: "number" });
+          break;
+        case "Boolean":
+          p.items.anyOf.push({ type: "boolean" });
+          break;
+        case "Timestamp":
+          p.items.anyOf.push({ type: "string" });
+          break;
+      }
+    } else if (property.ItemType) {
+      p.items = {
+        $ref: `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
+          property.ItemType
+        }`
+      };
+    }
+  } else if (property.Type === "Map") {
+    p.type = "object";
+
+    if (property.PrimitiveItemType) {
+      p.additionalProperties = {
+        anyOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
+      };
+
+      switch (property.PrimitiveItemType) {
+        case "String":
+          p.additionalProperties.anyOf.push({ type: "string" });
+          break;
+        case "Long":
+        case "Integer":
+          p.additionalProperties.anyOf.push({ type: "integer" });
+          break;
+        case "Double":
+          p.additionalProperties.anyOf.push({ type: "number" });
+          break;
+        case "Boolean":
+          p.additionalProperties.anyOf.push({ type: "boolean" });
+          break;
+        case "Timestamp":
+          p.additionalProperties.anyOf.push({ type: "string" });
+          break;
+      }
+    } else if (property.ItemType) {
+      p.additionalProperties = {
+        $ref: `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
+          property.ItemType
+        }`
+      };
+    }
+  } else if (property.Type) {
+    p.$ref = `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
+      property.Type
+    }`;
+  }
+}
+
 readFileAsync(baseSchemaPath).then(baseJson => {
   return Promise.all(
     Object.entries(resourceSpecUrls).map(([region, resourceSpecUrl]) => {
@@ -72,124 +184,38 @@ readFileAsync(baseSchemaPath).then(baseJson => {
 
             Object.entries(property.Properties).forEach(
               ([subPropertyName, subProperty]) => {
-                const sp = {
-                  title: subPropertyName,
-                  description: `UpdateType: ${subProperty.UpdateType}, ${
-                    subProperty.Documentation
-                  }`
-                };
-
-                p.properties[subPropertyName] = sp;
-
-                if (subProperty.Required) {
-                  p.required.push(subPropertyName);
-                }
-
-                if (subProperty.PrimitiveType) {
-                  sp.anyOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
-
-                  switch (subProperty.PrimitiveType) {
-                    case "String":
-                      sp.anyOf.push({ type: "string" });
-                      break;
-                    case "Long":
-                    case "Integer":
-                      sp.anyOf.push({ type: "integer" });
-                      break;
-                    case "Double":
-                      sp.anyOf.push({ type: "number" });
-                      break;
-                    case "Boolean":
-                      sp.anyOf.push({ type: "boolean" });
-                      break;
-                    case "Timestamp":
-                      sp.anyOf.push({ type: "string" });
-                      break;
-                    case "Json":
-                      sp.anyOf.push({ type: "object" });
-                      break;
-                  }
-                } else if (subProperty.Type === "List") {
-                  sp.type = "array";
-                  sp.description = `DuplicatesAllowed: ${
-                    subProperty.DuplicatesAllowed
-                  }, ${sp.description}`;
-
-                  if (subProperty.PrimitiveItemType) {
-                    sp.items = {
-                      anyOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
-                    };
-
-                    switch (subProperty.PrimitiveItemType) {
-                      case "String":
-                        sp.items.anyOf.push({ type: "string" });
-                        break;
-                      case "Long":
-                      case "Integer":
-                        sp.items.anyOf.push({ type: "integer" });
-                        break;
-                      case "Double":
-                        sp.items.anyOf.push({ type: "number" });
-                        break;
-                      case "Boolean":
-                        sp.items.anyOf.push({ type: "boolean" });
-                        break;
-                      case "Timestamp":
-                        sp.items.anyOf.push({ type: "string" });
-                        break;
-                    }
-                  } else if (subProperty.ItemType) {
-                    sp.items = {
-                      $ref: `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
-                        subProperty.ItemType
-                      }`
-                    };
-                  }
-                } else if (subProperty.Type === "Map") {
-                  sp.type = "object";
-
-                  if (subProperty.PrimitiveItemType) {
-                    sp.additionalProperties = {
-                      anyOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
-                    };
-
-                    switch (subProperty.PrimitiveItemType) {
-                      case "String":
-                        sp.additionalProperties.anyOf.push({ type: "string" });
-                        break;
-                      case "Long":
-                      case "Integer":
-                        sp.additionalProperties.anyOf.push({ type: "integer" });
-                        break;
-                      case "Double":
-                        sp.additionalProperties.anyOf.push({ type: "number" });
-                        break;
-                      case "Boolean":
-                        sp.additionalProperties.anyOf.push({ type: "boolean" });
-                        break;
-                      case "Timestamp":
-                        sp.additionalProperties.anyOf.push({ type: "string" });
-                        break;
-                    }
-                  } else if (subProperty.ItemType) {
-                    sp.additionalProperties = {
-                      $ref: `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
-                        subProperty.ItemType
-                      }`
-                    };
-                  }
-                } else if (subProperty.Type) {
-                  sp.$ref = `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${
-                    subProperty.Type
-                  }`;
-                }
+                appendProperty(
+                  p,
+                  subPropertyName,
+                  subProperty,
+                  resourceTypeName
+                );
               }
             );
           }
         );
 
         Object.entries(resourceSpec.ResourceTypes).forEach(
-          ([resourceTypeName, resourceType]) => {}
+          ([resourceTypeName, resourceType]) => {
+            const rt = {
+              title: resourceTypeName,
+              description: resourceType.Documentation,
+              type: "object",
+              required: [],
+              properties: {},
+              additionalProperties: false
+            };
+
+            schema.properties.Resources.definitions.resourcePropertyTypes[
+              resourceTypeName
+            ] = rt;
+
+            Object.entries(resourceType.Properties).forEach(
+              ([propertyName, property]) => {
+                appendProperty(rt, propertyName, property, resourceTypeName);
+              }
+            );
+          }
         );
 
         return writeFileAsync(
