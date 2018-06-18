@@ -2,6 +2,9 @@
 
 JSON Schema for AWS CloudFormation templates.
 
+![demo1](examples/1.gif)
+![demo2](examples/2.gif)
+
 ## Schema URLs
 
 - https://y13i.github.io/cfn-schema/ap-northeast-1.json
