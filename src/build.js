@@ -43,11 +43,9 @@ const resourceSpecUrls = {
 };
 
 function referPropertyType(resourceTypeName, itemType) {
-  if (itemType === "Tag") {
-    return "#/properties/Resources/definitions/propertyTypes/Tag";
-  }
-
-  return `#/properties/Resources/definitions/propertyTypes/${resourceTypeName}.${itemType}`;
+  return `#/properties/Resources/definitions/propertyTypes/${
+    itemType === "Tag" ? "Tag" : resourceTypeName + "." + itemType
+  }`;
 }
 
 function appendProperty(root, propertyName, property, resourceTypeName) {
