@@ -40,7 +40,7 @@ Choose schema URL correspondent to AWS region you going to use and add JSON Sche
 
 Save your template file with the extension `.cfn.json`. That's it.
 
-If you prefer YAML, use [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) extension and set like this. [cf.](https://github.com/Microsoft/vscode/issues/1176).
+If you prefer YAML, use [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) extension and set like this.
 
 ```json
 {
@@ -49,6 +49,11 @@ If you prefer YAML, use [YAML Support by Red Hat](https://marketplace.visualstud
   }
 }
 ```
+
+See also...
+
+- [Editing JSON with VS Code](https://code.visualstudio.com/docs/languages/json)
+- [Support JSON Schema for YAML files](https://github.com/Microsoft/vscode/issues/1176)
 
 ### With other editors
 
@@ -61,4 +66,10 @@ If you prefer YAML, use [YAML Support by Red Hat](https://marketplace.visualstud
 
 ```sh
 npm run build
+```
+
+### Test
+
+```sh
+npm test
 ```
