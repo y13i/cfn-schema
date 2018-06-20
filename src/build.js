@@ -228,8 +228,8 @@ readFileAsync(baseSchemaPath).then(baseJson => {
                   required: Object.values(resourceType.Properties).some(
                     p => p.Required
                   )
-                    ? ["Properties"]
-                    : [],
+                    ? ["Type", "Properties"]
+                    : ["Type"],
                   properties: {
                     Type: {
                       enum: [resourceTypeName]
