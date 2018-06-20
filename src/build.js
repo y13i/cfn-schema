@@ -61,27 +61,27 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
   }
 
   if (property.PrimitiveType) {
-    p.anyOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
+    p.oneOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
 
     switch (property.PrimitiveType) {
       case "String":
-        p.anyOf.push({ type: "string" });
+        p.oneOf.push({ type: "string" });
         break;
       case "Long":
       case "Integer":
-        p.anyOf.push({ type: "integer" });
+        p.oneOf.push({ type: "integer" });
         break;
       case "Double":
-        p.anyOf.push({ type: "number" });
+        p.oneOf.push({ type: "number" });
         break;
       case "Boolean":
-        p.anyOf.push({ type: "boolean" });
+        p.oneOf.push({ type: "boolean" });
         break;
       case "Timestamp":
-        p.anyOf.push({ type: "string" });
+        p.oneOf.push({ type: "string" });
         break;
       case "Json":
-        p.anyOf.push({ type: "object" });
+        p.oneOf.push({ type: "object" });
         break;
     }
   } else if (property.Type === "List") {
@@ -92,25 +92,25 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
 
     if (property.PrimitiveItemType) {
       p.items = {
-        anyOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
+        oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
       };
 
       switch (property.PrimitiveItemType) {
         case "String":
-          p.items.anyOf.push({ type: "string" });
+          p.items.oneOf.push({ type: "string" });
           break;
         case "Long":
         case "Integer":
-          p.items.anyOf.push({ type: "integer" });
+          p.items.oneOf.push({ type: "integer" });
           break;
         case "Double":
-          p.items.anyOf.push({ type: "number" });
+          p.items.oneOf.push({ type: "number" });
           break;
         case "Boolean":
-          p.items.anyOf.push({ type: "boolean" });
+          p.items.oneOf.push({ type: "boolean" });
           break;
         case "Timestamp":
-          p.items.anyOf.push({ type: "string" });
+          p.items.oneOf.push({ type: "string" });
           break;
       }
     } else if (property.ItemType) {
@@ -123,25 +123,25 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
 
     if (property.PrimitiveItemType) {
       p.additionalProperties = {
-        anyOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
+        oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
       };
 
       switch (property.PrimitiveItemType) {
         case "String":
-          p.additionalProperties.anyOf.push({ type: "string" });
+          p.additionalProperties.oneOf.push({ type: "string" });
           break;
         case "Long":
         case "Integer":
-          p.additionalProperties.anyOf.push({ type: "integer" });
+          p.additionalProperties.oneOf.push({ type: "integer" });
           break;
         case "Double":
-          p.additionalProperties.anyOf.push({ type: "number" });
+          p.additionalProperties.oneOf.push({ type: "number" });
           break;
         case "Boolean":
-          p.additionalProperties.anyOf.push({ type: "boolean" });
+          p.additionalProperties.oneOf.push({ type: "boolean" });
           break;
         case "Timestamp":
-          p.additionalProperties.anyOf.push({ type: "string" });
+          p.additionalProperties.oneOf.push({ type: "string" });
           break;
       }
     } else if (property.ItemType) {
@@ -228,8 +228,8 @@ readFileAsync(baseSchemaPath).then(baseJson => {
                   required: Object.values(resourceType.Properties).some(
                     p => p.Required
                   )
-                    ? ["Properties"]
-                    : [],
+                    ? ["Type", "Properties"]
+                    : ["Type"],
                   properties: {
                     Type: {
                       enum: [resourceTypeName]
@@ -242,7 +242,7 @@ readFileAsync(baseSchemaPath).then(baseJson => {
               ]
             };
 
-            schema.properties.Resources.additionalProperties.anyOf.push({
+            schema.properties.Resources.additionalProperties.oneOf.push({
               $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`
             });
           }
