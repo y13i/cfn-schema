@@ -694,7 +694,7 @@
                     "For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.",
                   "properties": {
                     "MinSuccessfulInstancesPercent": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "integer" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ],
@@ -709,7 +709,7 @@
                     "When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.",
                   "properties": {
                     "Count": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "integer" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ],
@@ -717,7 +717,7 @@
                         "The number of success signals AWS CloudFormation must receive before it sets the resource status as CREATE_COMPLETE."
                     },
                     "Timeout": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "string" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ],
@@ -729,7 +729,7 @@
               }
             },
             "DeletionPolicy": {
-              "anyOf": [
+              "oneOf": [
                 { "type": "string" },
                 { "$ref": "#/definitions/intrinsicFunctions" }
               ],
@@ -740,9 +740,9 @@
             "DependsOn": {
               "description":
                 "With the DependsOn attribute you can specify that the creation of a specific resource follows another. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html",
-              "anyOf": [
+              "oneOf": [
                 {
-                  "anyOf": [
+                  "oneOf": [
                     { "type": "string" },
                     { "$ref": "#/definitions/intrinsicFunctions" }
                   ]
@@ -750,7 +750,7 @@
                 {
                   "type": "array",
                   "items": {
-                    "anyOf": [
+                    "oneOf": [
                       { "type": "string" },
                       { "$ref": "#/definitions/intrinsicFunctions" }
                     ]
@@ -782,25 +782,25 @@
                     "To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy.",
                   "properties": {
                     "MaxBatchSize": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "integer" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
                     },
                     "MinInstancesInService": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "integer" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
                     },
                     "MinSuccessfulInstancesPercent": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "integer" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
                     },
                     "PauseTime": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "string" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
@@ -831,25 +831,25 @@
                   "required": ["ApplicationName", "DeploymentGroupName"],
                   "properties": {
                     "AfterAllowTrafficHook": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "string" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
                     },
                     "ApplicationName": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "string" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
                     },
                     "BeforeAllowTrafficHook": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "string" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
                     },
                     "DeploymentGroupName": {
-                      "anyOf": [
+                      "oneOf": [
                         { "type": "string" },
                         { "$ref": "#/definitions/intrinsicFunctions" }
                       ]
@@ -882,7 +882,7 @@
         }
       },
       "additionalProperties": {
-        "anyOf": [
+        "oneOf": [
           { "$ref": "#/properties/Resources/definitions/resourceTypes/custom" }
         ]
       }
@@ -908,7 +908,7 @@
           "Value": {
             "description":
               "The value of the property returned by the aws cloudformation describe-stacks command. The value of an output can include literals, parameter references, pseudo-parameters, a mapping value, or intrinsic functions.",
-            "anyOf": [
+            "oneOf": [
               { "type": "string" },
               { "$ref": "#/definitions/intrinsicFunctions" }
             ]
@@ -920,7 +920,7 @@
             "required": ["Name"],
             "properties": {
               "Name": {
-                "anyOf": [
+                "oneOf": [
                   { "type": "string" },
                   { "$ref": "#/definitions/intrinsicFunctions" }
                 ]
