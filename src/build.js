@@ -65,23 +65,23 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
 
     switch (property.PrimitiveType) {
       case "String":
-        p.oneOf.push({ type: "string" });
+        p.oneOf.unshift({ type: "string" });
         break;
       case "Long":
       case "Integer":
-        p.oneOf.push({ type: "integer" });
+        p.oneOf.unshift({ type: "integer" });
         break;
       case "Double":
-        p.oneOf.push({ type: "number" });
+        p.oneOf.unshift({ type: "number" });
         break;
       case "Boolean":
-        p.oneOf.push({ type: "boolean" });
+        p.oneOf.unshift({ type: "boolean" });
         break;
       case "Timestamp":
-        p.oneOf.push({ type: "string" });
+        p.oneOf.unshift({ type: "string" });
         break;
       case "Json":
-        p.oneOf.push({ type: "object" });
+        p.oneOf.unshift({ type: "object" });
         break;
     }
   } else if (property.Type === "List") {
@@ -97,20 +97,20 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
 
       switch (property.PrimitiveItemType) {
         case "String":
-          p.items.oneOf.push({ type: "string" });
+          p.items.oneOf.unshift({ type: "string" });
           break;
         case "Long":
         case "Integer":
-          p.items.oneOf.push({ type: "integer" });
+          p.items.oneOf.unshift({ type: "integer" });
           break;
         case "Double":
-          p.items.oneOf.push({ type: "number" });
+          p.items.oneOf.unshift({ type: "number" });
           break;
         case "Boolean":
-          p.items.oneOf.push({ type: "boolean" });
+          p.items.oneOf.unshift({ type: "boolean" });
           break;
         case "Timestamp":
-          p.items.oneOf.push({ type: "string" });
+          p.items.oneOf.unshift({ type: "string" });
           break;
       }
     } else if (property.ItemType) {
@@ -128,20 +128,20 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
 
       switch (property.PrimitiveItemType) {
         case "String":
-          p.additionalProperties.oneOf.push({ type: "string" });
+          p.additionalProperties.oneOf.unshift({ type: "string" });
           break;
         case "Long":
         case "Integer":
-          p.additionalProperties.oneOf.push({ type: "integer" });
+          p.additionalProperties.oneOf.unshift({ type: "integer" });
           break;
         case "Double":
-          p.additionalProperties.oneOf.push({ type: "number" });
+          p.additionalProperties.oneOf.unshift({ type: "number" });
           break;
         case "Boolean":
-          p.additionalProperties.oneOf.push({ type: "boolean" });
+          p.additionalProperties.oneOf.unshift({ type: "boolean" });
           break;
         case "Timestamp":
-          p.additionalProperties.oneOf.push({ type: "string" });
+          p.additionalProperties.oneOf.unshift({ type: "string" });
           break;
       }
     } else if (property.ItemType) {
