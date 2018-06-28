@@ -42,7 +42,7 @@ const resourceSpecUrls = {
     "https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 };
 
-function getPrimitiveTypeDefinition(type) {
+function getPrimitiveTypeSchema(type) {
   switch (type) {
     case "String":
       return {
@@ -96,7 +96,7 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
   if (property.PrimitiveType) {
     p.oneOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
 
-    p.oneOf.unshift(getPrimitiveTypeDefinition(property.PrimitiveType));
+    p.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveType));
   } else if (property.Type === "List") {
     p.type = "array";
     p.description = `DuplicatesAllowed: ${property.DuplicatesAllowed}, ${
@@ -108,9 +108,7 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
         oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
       };
 
-      p.items.oneOf.unshift(
-        getPrimitiveTypeDefinition(property.PrimitiveItemType)
-      );
+      p.items.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveItemType));
     } else if (property.ItemType) {
       p.items = {
         $ref: referPropertyType(resourceTypeName, property.ItemType)
@@ -125,7 +123,7 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
       };
 
       p.additionalProperties.oneOf.unshift(
-        getPrimitiveTypeDefinition(property.PrimitiveItemType)
+        getPrimitiveTypeSchema(property.PrimitiveItemType)
       );
     } else if (property.ItemType) {
       p.additionalProperties = {
