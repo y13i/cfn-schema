@@ -42,6 +42,39 @@ const resourceSpecUrls = {
     "https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 };
 
+function getPrimitiveTypeSchema(type) {
+  switch (type) {
+    case "String":
+      return {
+        type: "string"
+      };
+    case "Long":
+    case "Integer":
+      return {
+        type: "integer"
+      };
+    case "Double":
+      return {
+        type: "number"
+      };
+    case "Boolean":
+      return {
+        type: "boolean"
+      };
+    case "Timestamp":
+      return {
+        type: "string",
+        pattern:
+          "\\d{4}-(0\\d|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d\\.\\d{3}Z",
+        default: "1970-01-01T00:00:00.000Z"
+      };
+    case "Json":
+      return {
+        type: "object"
+      };
+  }
+}
+
 function referPropertyType(resourceTypeName, itemType) {
   return `#/properties/Resources/definitions/propertyTypes/${
     itemType === "Tag" ? "Tag" : resourceTypeName + "." + itemType
@@ -63,27 +96,7 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
   if (property.PrimitiveType) {
     p.oneOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
 
-    switch (property.PrimitiveType) {
-      case "String":
-        p.oneOf.unshift({ type: "string" });
-        break;
-      case "Long":
-      case "Integer":
-        p.oneOf.unshift({ type: "integer" });
-        break;
-      case "Double":
-        p.oneOf.unshift({ type: "number" });
-        break;
-      case "Boolean":
-        p.oneOf.unshift({ type: "boolean" });
-        break;
-      case "Timestamp":
-        p.oneOf.unshift({ type: "string" });
-        break;
-      case "Json":
-        p.oneOf.unshift({ type: "object" });
-        break;
-    }
+    p.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveType));
   } else if (property.Type === "List") {
     p.type = "array";
     p.description = `DuplicatesAllowed: ${property.DuplicatesAllowed}, ${
@@ -95,24 +108,7 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
         oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
       };
 
-      switch (property.PrimitiveItemType) {
-        case "String":
-          p.items.oneOf.unshift({ type: "string" });
-          break;
-        case "Long":
-        case "Integer":
-          p.items.oneOf.unshift({ type: "integer" });
-          break;
-        case "Double":
-          p.items.oneOf.unshift({ type: "number" });
-          break;
-        case "Boolean":
-          p.items.oneOf.unshift({ type: "boolean" });
-          break;
-        case "Timestamp":
-          p.items.oneOf.unshift({ type: "string" });
-          break;
-      }
+      p.items.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveItemType));
     } else if (property.ItemType) {
       p.items = {
         $ref: referPropertyType(resourceTypeName, property.ItemType)
@@ -126,24 +122,9 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
         oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
       };
 
-      switch (property.PrimitiveItemType) {
-        case "String":
-          p.additionalProperties.oneOf.unshift({ type: "string" });
-          break;
-        case "Long":
-        case "Integer":
-          p.additionalProperties.oneOf.unshift({ type: "integer" });
-          break;
-        case "Double":
-          p.additionalProperties.oneOf.unshift({ type: "number" });
-          break;
-        case "Boolean":
-          p.additionalProperties.oneOf.unshift({ type: "boolean" });
-          break;
-        case "Timestamp":
-          p.additionalProperties.oneOf.unshift({ type: "string" });
-          break;
-      }
+      p.additionalProperties.oneOf.unshift(
+        getPrimitiveTypeSchema(property.PrimitiveItemType)
+      );
     } else if (property.ItemType) {
       p.additionalProperties = {
         $ref: referPropertyType(resourceTypeName, property.ItemType)
