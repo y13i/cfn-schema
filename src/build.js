@@ -45,18 +45,33 @@ const resourceSpecUrls = {
 function getPrimitiveTypeDefinition(type) {
   switch (type) {
     case "String":
-      return { type: "string" };
+      return {
+        type: "string"
+      };
     case "Long":
     case "Integer":
-      return { type: "integer" };
+      return {
+        type: "integer"
+      };
     case "Double":
-      return { type: "number" };
+      return {
+        type: "number"
+      };
     case "Boolean":
-      return { type: "boolean" };
+      return {
+        type: "boolean"
+      };
     case "Timestamp":
-      return { type: "string" };
+      return {
+        type: "string",
+        pattern:
+          "\\d{4}-(0\\d|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d\\.\\d{3}Z",
+        default: "1970-01-01T00:00:00.000Z"
+      };
     case "Json":
-      return { type: "object" };
+      return {
+        type: "object"
+      };
   }
 }
 
