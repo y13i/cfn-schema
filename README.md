@@ -8,19 +8,33 @@ JSON Schema for AWS CloudFormation templates.
 ## Schema URLs
 
 - https://y13i.github.io/cfn-schema/ap-northeast-1.json
+- https://y13i.github.io/cfn-schema/ap-northeast-1.min.json
 - https://y13i.github.io/cfn-schema/ap-northeast-2.json
+- https://y13i.github.io/cfn-schema/ap-northeast-2.min.json
 - https://y13i.github.io/cfn-schema/ap-south-1.json
+- https://y13i.github.io/cfn-schema/ap-south-1.min.json
 - https://y13i.github.io/cfn-schema/ap-southeast-1.json
+- https://y13i.github.io/cfn-schema/ap-southeast-1.min.json
 - https://y13i.github.io/cfn-schema/ap-southeast-2.json
+- https://y13i.github.io/cfn-schema/ap-southeast-2.min.json
 - https://y13i.github.io/cfn-schema/ca-central-1.json
+- https://y13i.github.io/cfn-schema/ca-central-1.min.json
 - https://y13i.github.io/cfn-schema/eu-central-1.json
+- https://y13i.github.io/cfn-schema/eu-central-1.min.json
 - https://y13i.github.io/cfn-schema/eu-west-1.json
+- https://y13i.github.io/cfn-schema/eu-west-1.min.json
 - https://y13i.github.io/cfn-schema/eu-west-2.json
+- https://y13i.github.io/cfn-schema/eu-west-2.min.json
 - https://y13i.github.io/cfn-schema/sa-east-1.json
+- https://y13i.github.io/cfn-schema/sa-east-1.min.json
 - https://y13i.github.io/cfn-schema/us-east-1.json
+- https://y13i.github.io/cfn-schema/us-east-1.min.json
 - https://y13i.github.io/cfn-schema/us-east-2.json
+- https://y13i.github.io/cfn-schema/us-east-2.min.json
 - https://y13i.github.io/cfn-schema/us-west-1.json
+- https://y13i.github.io/cfn-schema/us-west-1.min.json
 - https://y13i.github.io/cfn-schema/us-west-2.json
+- https://y13i.github.io/cfn-schema/us-west-2.min.json
 
 ## Usage
 
@@ -35,7 +49,7 @@ Choose schema URL correspondent to AWS region you are going to use and add JSON 
   "json.schemas": [
     {
       "fileMatch": ["*.cfn.json"],
-      "url": "https://y13i.github.io/cfn-schema/us-west-2.json"
+      "url": "https://y13i.github.io/cfn-schema/us-west-2.min.json"
     }
   ]
 }
@@ -48,7 +62,7 @@ If you prefer YAML, use [YAML Support by Red Hat](https://marketplace.visualstud
 ```json
 {
   "yaml.schemas": {
-    "https://y13i.github.io/cfn-schema/us-west-2.json": "*.cfn.yaml"
+    "https://y13i.github.io/cfn-schema/us-west-2.min.json": "*.cfn.yaml"
   }
 }
 ```

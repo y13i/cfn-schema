@@ -229,10 +229,17 @@ readFileAsync(baseSchemaPath).then(baseJson => {
           }
         );
 
-        return writeFileAsync(
-          join(outputPath, `${region}.json`),
-          JSON.stringify(schema, undefined, 2) + "\n"
-        );
+        return Promise.all([
+          writeFileAsync(
+            join(outputPath, `${region}.json`),
+            JSON.stringify(schema, undefined, 2) + "\n"
+          ),
+
+          writeFileAsync(
+            join(outputPath, `${region}.min.json`),
+            JSON.stringify(schema)
+          )
+        ]);
       });
     })
   );
