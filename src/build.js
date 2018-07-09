@@ -31,6 +31,8 @@ const resourceSpecUrls = {
     "https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Frankfurt)
   "eu-west-2":
     "https://d1742qcu2c1ncx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (London)
+  "eu-west-3":
+    "https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Paris)
   "eu-west-1":
     "https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Ireland)
   "sa-east-1":
