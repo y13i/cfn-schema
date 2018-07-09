@@ -15,6 +15,8 @@ const outputPath = join(__dirname, "..", "docs");
 const resourceSpecUrls = {
   "ap-south-1":
     "https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Mumbai)
+  "ap-northeast-3":
+    "https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Osaka-Local)
   "ap-northeast-2":
     "https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Seoul)
   "ap-southeast-2":
