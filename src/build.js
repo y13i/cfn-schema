@@ -13,28 +13,28 @@ const outputPath = join(__dirname, "..", "docs");
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
 // https://docs.aws.amazon.com/general/latest/gr/rande.html#cfn_region
 const resourceSpecUrls = {
-  "ap-south-1":
-    "https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Mumbai)
-  "ap-northeast-3":
-    "https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Osaka-Local)
-  "ap-northeast-2":
-    "https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Seoul)
-  "ap-southeast-2":
-    "https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Sydney)
-  "ap-southeast-1":
-    "https://doigdx0kgq9el.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Singapore)
   "ap-northeast-1":
     "https://d33vqc0rt9ld30.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Tokyo)
+  "ap-northeast-2":
+    "https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Seoul)
+  "ap-northeast-3":
+    "https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Osaka-Local)
+  "ap-south-1":
+    "https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Mumbai)
+  "ap-southeast-1":
+    "https://doigdx0kgq9el.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Singapore)
+  "ap-southeast-2":
+    "https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Sydney)
   "ca-central-1":
     "https://d2s8ygphhesbe7.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Canada (Central)
   "eu-central-1":
     "https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Frankfurt)
+  "eu-west-1":
+    "https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Ireland)
   "eu-west-2":
     "https://d1742qcu2c1ncx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (London)
   "eu-west-3":
     "https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Paris)
-  "eu-west-1":
-    "https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Ireland)
   "sa-east-1":
     "https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // South America (São Paulo)
   "us-east-1":
