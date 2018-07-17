@@ -151,8 +151,10 @@ readFileAsync(baseSchemaPath).then(baseJson => {
           resourceSpec.ResourceSpecificationVersion
         } ${resourceSpecUrl}`;
 
-        Object.entries(resourceSpec.PropertyTypes).forEach(
-          ([propertyName, property]) => {
+        Object.keys(resourceSpec.PropertyTypes)
+          .sort()
+          .forEach(propertyName => {
+            const property = resourceSpec.PropertyTypes[propertyName];
             const resourceTypeName = propertyName.split(".")[0];
 
             const p = {
@@ -178,11 +180,13 @@ readFileAsync(baseSchemaPath).then(baseJson => {
                 );
               }
             );
-          }
-        );
+          });
 
-        Object.entries(resourceSpec.ResourceTypes).forEach(
-          ([resourceTypeName, resourceType]) => {
+        Object.keys(resourceSpec.ResourceTypes)
+          .sort()
+          .forEach(resourceTypeName => {
+            const resourceType = resourceSpec.ResourceTypes[resourceTypeName];
+
             const rt = {
               title: resourceTypeName,
               description: resourceType.Documentation,
@@ -231,8 +235,7 @@ readFileAsync(baseSchemaPath).then(baseJson => {
             schema.properties.Resources.additionalProperties.oneOf.push({
               $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`
             });
-          }
-        );
+          });
 
         return Promise.all([
           writeFileAsync(
