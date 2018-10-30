@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.8.0 https://d1742qcu2c1ncx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.10.0 https://d1742qcu2c1ncx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -8833,16 +8833,28 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html",
             "type": "object",
             "required": [
-              "VpcId",
-              "ServiceName"
+              "ServiceName",
+              "VpcId"
             ],
             "properties": {
-              "VpcId": {
-                "title": "VpcId",
-                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid",
+              "PolicyDocument": {
+                "title": "PolicyDocument",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument",
                 "oneOf": [
                   {
-                    "type": "string"
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PrivateDnsEnabled": {
+                "title": "PrivateDnsEnabled",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -8851,7 +8863,22 @@
               },
               "RouteTableIds": {
                 "title": "RouteTableIds",
-                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -8876,48 +8903,9 @@
                   }
                 ]
               },
-              "PolicyDocument": {
-                "title": "PolicyDocument",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument",
-                "oneOf": [
-                  {
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "IsPrivateDnsEnabled": {
-                "title": "IsPrivateDnsEnabled",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-isprivatednsenabled",
-                "oneOf": [
-                  {
-                    "type": "boolean"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
               "SubnetIds": {
                 "title": "SubnetIds",
-                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
-              },
-              "SecurityGroupIds": {
-                "title": "SecurityGroupIds",
-                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -8932,46 +8920,7 @@
               },
               "VPCEndpointType": {
                 "title": "VPCEndpointType",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::EC2::VPCEndpointConnectionNotification": {
-            "title": "AWS::EC2::VPCEndpointConnectionNotification",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html",
-            "type": "object",
-            "required": [
-              "ConnectionEvents",
-              "ConnectionNotificationArn"
-            ],
-            "properties": {
-              "ConnectionEvents": {
-                "title": "ConnectionEvents",
-                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionevents",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
-              },
-              "VPCEndpointId": {
-                "title": "VPCEndpointId",
-                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-vpcendpointid",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype",
                 "oneOf": [
                   {
                     "type": "string"
@@ -8981,62 +8930,12 @@
                   }
                 ]
               },
-              "ServiceId": {
-                "title": "ServiceId",
-                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-serviceid",
+              "VpcId": {
+                "title": "VpcId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid",
                 "oneOf": [
                   {
                     "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "ConnectionNotificationArn": {
-                "title": "ConnectionNotificationArn",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionnotificationarn",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::EC2::VPCEndpointService": {
-            "title": "AWS::EC2::VPCEndpointService",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html",
-            "type": "object",
-            "required": [
-              "NetworkLoadBalancerArns"
-            ],
-            "properties": {
-              "NetworkLoadBalancerArns": {
-                "title": "NetworkLoadBalancerArns",
-                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
-              },
-              "AcceptanceRequired": {
-                "title": "AcceptanceRequired",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired",
-                "oneOf": [
-                  {
-                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -12363,6 +12262,60 @@
             },
             "additionalProperties": false
           },
+          "AWS::Events::EventBusPolicy": {
+            "title": "AWS::Events::EventBusPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "StatementId",
+              "Principal"
+            ],
+            "properties": {
+              "Condition": {
+                "title": "Condition",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Events::EventBusPolicy.Condition"
+              },
+              "Action": {
+                "title": "Action",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StatementId": {
+                "title": "StatementId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Principal": {
+                "title": "Principal",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Events::Rule": {
             "title": "AWS::Events::Rule",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html",
@@ -12685,6 +12638,18 @@
               "Enable"
             ],
             "properties": {
+              "FindingPublishingFrequency": {
+                "title": "FindingPublishingFrequency",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Enable": {
                 "title": "Enable",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable",
@@ -18634,6 +18599,174 @@
             },
             "additionalProperties": false
           },
+          "AWS::SSM::MaintenanceWindow": {
+            "title": "AWS::SSM::MaintenanceWindow",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html",
+            "type": "object",
+            "required": [
+              "AllowUnassociatedTargets",
+              "Cutoff",
+              "Schedule",
+              "Duration",
+              "Name"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AllowUnassociatedTargets": {
+                "title": "AllowUnassociatedTargets",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-allowunassociatedtargets",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Cutoff": {
+                "title": "Cutoff",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-cutoff",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Schedule": {
+                "title": "Schedule",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-schedule",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Duration": {
+                "title": "Duration",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-duration",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SSM::MaintenanceWindowTarget": {
+            "title": "AWS::SSM::MaintenanceWindowTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html",
+            "type": "object",
+            "required": [
+              "WindowId",
+              "ResourceType",
+              "Targets"
+            ],
+            "properties": {
+              "OwnerInformation": {
+                "title": "OwnerInformation",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-ownerinformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "WindowId": {
+                "title": "WindowId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-windowid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourceType": {
+                "title": "ResourceType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-resourcetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Targets": {
+                "title": "Targets",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-targets",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SSM::MaintenanceWindowTarget.Targets"
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::SSM::MaintenanceWindowTask": {
             "title": "AWS::SSM::MaintenanceWindowTask",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html",
@@ -18823,6 +18956,18 @@
                     }
                   ]
                 }
+              },
+              "RejectedPatchesAction": {
+                "title": "RejectedPatchesAction",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "PatchGroups": {
                 "title": "PatchGroups",
@@ -35797,6 +35942,51 @@
             },
             "additionalProperties": false
           },
+          "AWS::Events::EventBusPolicy.Condition": {
+            "title": "AWS::Events::EventBusPolicy.Condition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Events::Rule.EcsParameters": {
             "title": "AWS::Events::Rule.EcsParameters",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html",
@@ -42280,6 +42470,44 @@
             },
             "additionalProperties": false
           },
+          "AWS::SSM::MaintenanceWindowTarget.Targets": {
+            "title": "AWS::SSM::MaintenanceWindowTarget.Targets",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html",
+            "type": "object",
+            "required": [
+              "Key"
+            ],
+            "properties": {
+              "Values": {
+                "title": "Values",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::SSM::MaintenanceWindowTask.LoggingInfo": {
             "title": "AWS::SSM::MaintenanceWindowTask.LoggingInfo",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html",
@@ -43384,16 +43612,13 @@
           },
           "Tag": {
             "title": "Tag",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationinstance-tag.html",
             "type": "object",
-            "required": [
-              "Key",
-              "Value"
-            ],
+            "required": [],
             "properties": {
-              "Key": {
-                "title": "Key",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key",
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationinstance-tag.html#cfn-dms-replicationinstance-tag-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -43403,9 +43628,9 @@
                   }
                 ]
               },
-              "Value": {
-                "title": "Value",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value",
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationinstance-tag.html#cfn-dms-replicationinstance-tag-key",
                 "oneOf": [
                   {
                     "type": "string"
@@ -45925,56 +46150,6 @@
               }
             ]
           },
-          "AWS::EC2::VPCEndpointConnectionNotification": {
-            "title": "AWS::EC2::VPCEndpointConnectionNotification",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html",
-            "allOf": [
-              {
-                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
-              },
-              {
-                "required": [
-                  "Type",
-                  "Properties"
-                ],
-                "properties": {
-                  "Type": {
-                    "enum": [
-                      "AWS::EC2::VPCEndpointConnectionNotification"
-                    ]
-                  },
-                  "Properties": {
-                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::VPCEndpointConnectionNotification"
-                  }
-                }
-              }
-            ]
-          },
-          "AWS::EC2::VPCEndpointService": {
-            "title": "AWS::EC2::VPCEndpointService",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html",
-            "allOf": [
-              {
-                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
-              },
-              {
-                "required": [
-                  "Type",
-                  "Properties"
-                ],
-                "properties": {
-                  "Type": {
-                    "enum": [
-                      "AWS::EC2::VPCEndpointService"
-                    ]
-                  },
-                  "Properties": {
-                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::VPCEndpointService"
-                  }
-                }
-              }
-            ]
-          },
           "AWS::EC2::VPCEndpointServicePermissions": {
             "title": "AWS::EC2::VPCEndpointServicePermissions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html",
@@ -46888,6 +47063,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Elasticsearch::Domain"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Events::EventBusPolicy": {
+            "title": "AWS::Events::EventBusPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Events::EventBusPolicy"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Events::EventBusPolicy"
                   }
                 }
               }
@@ -48805,6 +49005,56 @@
               }
             ]
           },
+          "AWS::SSM::MaintenanceWindow": {
+            "title": "AWS::SSM::MaintenanceWindow",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SSM::MaintenanceWindow"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SSM::MaintenanceWindow"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::SSM::MaintenanceWindowTarget": {
+            "title": "AWS::SSM::MaintenanceWindowTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SSM::MaintenanceWindowTarget"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SSM::MaintenanceWindowTarget"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::SSM::MaintenanceWindowTask": {
             "title": "AWS::SSM::MaintenanceWindowTask",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html",
@@ -49687,12 +49937,6 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpoint"
           },
           {
-            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpointConnectionNotification"
-          },
-          {
-            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpointService"
-          },
-          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpointServicePermissions"
           },
           {
@@ -49802,6 +50046,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Elasticsearch::Domain"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Events::EventBusPolicy"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Events::Rule"
@@ -50033,6 +50280,12 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::Document"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::MaintenanceWindow"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::MaintenanceWindowTarget"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::MaintenanceWindowTask"

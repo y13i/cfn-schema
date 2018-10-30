@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.8.0 https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.10.0 https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -1033,7 +1033,7 @@
               },
               "EngineVersion": {
                 "title": "EngineVersion",
-                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion",
                 "oneOf": [
                   {
                     "type": "string"
@@ -1067,7 +1067,7 @@
               },
               "AutoMinorVersionUpgrade": {
                 "title": "AutoMinorVersionUpgrade",
-                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade",
                 "oneOf": [
                   {
                     "type": "boolean"
@@ -2589,6 +2589,601 @@
               "Name": {
                 "title": "Name",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#cfn-apigateway-vpclink-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::DirectoryConfig": {
+            "title": "AWS::AppStream::DirectoryConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html",
+            "type": "object",
+            "required": [
+              "OrganizationalUnitDistinguishedNames",
+              "ServiceAccountCredentials",
+              "DirectoryName"
+            ],
+            "properties": {
+              "OrganizationalUnitDistinguishedNames": {
+                "title": "OrganizationalUnitDistinguishedNames",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-organizationalunitdistinguishednames",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "ServiceAccountCredentials": {
+                "title": "ServiceAccountCredentials",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-serviceaccountcredentials",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::DirectoryConfig.ServiceAccountCredentials"
+              },
+              "DirectoryName": {
+                "title": "DirectoryName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-directoryname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Fleet": {
+            "title": "AWS::AppStream::Fleet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html",
+            "type": "object",
+            "required": [
+              "ComputeCapacity",
+              "InstanceType"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ComputeCapacity": {
+                "title": "ComputeCapacity",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-computecapacity",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::Fleet.ComputeCapacity"
+              },
+              "VpcConfig": {
+                "title": "VpcConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::Fleet.VpcConfig"
+              },
+              "FleetType": {
+                "title": "FleetType",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableDefaultInternetAccess": {
+                "title": "EnableDefaultInternetAccess",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-enabledefaultinternetaccess",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DomainJoinInfo": {
+                "title": "DomainJoinInfo",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-domainjoininfo",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::Fleet.DomainJoinInfo"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ImageName": {
+                "title": "ImageName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaxUserDurationInSeconds": {
+                "title": "MaxUserDurationInSeconds",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxuserdurationinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DisconnectTimeoutInSeconds": {
+                "title": "DisconnectTimeoutInSeconds",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-disconnecttimeoutinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DisplayName": {
+                "title": "DisplayName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-displayname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "InstanceType": {
+                "title": "InstanceType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-instancetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ImageArn": {
+                "title": "ImageArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::ImageBuilder": {
+            "title": "AWS::AppStream::ImageBuilder",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html",
+            "type": "object",
+            "required": [
+              "InstanceType"
+            ],
+            "properties": {
+              "ImageName": {
+                "title": "ImageName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "VpcConfig": {
+                "title": "VpcConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-vpcconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::ImageBuilder.VpcConfig"
+              },
+              "EnableDefaultInternetAccess": {
+                "title": "EnableDefaultInternetAccess",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-enabledefaultinternetaccess",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DisplayName": {
+                "title": "DisplayName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-displayname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DomainJoinInfo": {
+                "title": "DomainJoinInfo",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-domainjoininfo",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::ImageBuilder.DomainJoinInfo"
+              },
+              "AppstreamAgentVersion": {
+                "title": "AppstreamAgentVersion",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-appstreamagentversion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "InstanceType": {
+                "title": "InstanceType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-instancetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ImageArn": {
+                "title": "ImageArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Stack": {
+            "title": "AWS::AppStream::Stack",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ApplicationSettings": {
+                "title": "ApplicationSettings",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-applicationsettings",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::Stack.ApplicationSettings"
+              },
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StorageConnectors": {
+                "title": "StorageConnectors",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::Stack.StorageConnector"
+                }
+              },
+              "DeleteStorageConnectors": {
+                "title": "DeleteStorageConnectors",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-deletestorageconnectors",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UserSettings": {
+                "title": "UserSettings",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-usersettings",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppStream::Stack.UserSetting"
+                }
+              },
+              "AttributesToDelete": {
+                "title": "AttributesToDelete",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-attributestodelete",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "DisplayName": {
+                "title": "DisplayName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-displayname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RedirectURL": {
+                "title": "RedirectURL",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-redirecturl",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FeedbackURL": {
+                "title": "FeedbackURL",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-feedbackurl",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::StackFleetAssociation": {
+            "title": "AWS::AppStream::StackFleetAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html",
+            "type": "object",
+            "required": [
+              "FleetName",
+              "StackName"
+            ],
+            "properties": {
+              "FleetName": {
+                "title": "FleetName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html#cfn-appstream-stackfleetassociation-fleetname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StackName": {
+                "title": "StackName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html#cfn-appstream-stackfleetassociation-stackname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::StackUserAssociation": {
+            "title": "AWS::AppStream::StackUserAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html",
+            "type": "object",
+            "required": [
+              "UserName",
+              "StackName",
+              "AuthenticationType"
+            ],
+            "properties": {
+              "SendEmailNotification": {
+                "title": "SendEmailNotification",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-sendemailnotification",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UserName": {
+                "title": "UserName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-username",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StackName": {
+                "title": "StackName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-stackname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AuthenticationType": {
+                "title": "AuthenticationType",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-authenticationtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::User": {
+            "title": "AWS::AppStream::User",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html",
+            "type": "object",
+            "required": [
+              "UserName",
+              "AuthenticationType"
+            ],
+            "properties": {
+              "UserName": {
+                "title": "UserName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-username",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FirstName": {
+                "title": "FirstName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-firstname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MessageAction": {
+                "title": "MessageAction",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-messageaction",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "LastName": {
+                "title": "LastName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-lastname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AuthenticationType": {
+                "title": "AuthenticationType",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-authenticationtype",
                 "oneOf": [
                   {
                     "type": "string"
@@ -9594,107 +10189,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::EC2::VPCEndpointConnectionNotification": {
-            "title": "AWS::EC2::VPCEndpointConnectionNotification",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html",
-            "type": "object",
-            "required": [
-              "ConnectionEvents",
-              "ConnectionNotificationArn"
-            ],
-            "properties": {
-              "ConnectionEvents": {
-                "title": "ConnectionEvents",
-                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionevents",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
-              },
-              "VPCEndpointId": {
-                "title": "VPCEndpointId",
-                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-vpcendpointid",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "ServiceId": {
-                "title": "ServiceId",
-                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-serviceid",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "ConnectionNotificationArn": {
-                "title": "ConnectionNotificationArn",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionnotificationarn",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::EC2::VPCEndpointService": {
-            "title": "AWS::EC2::VPCEndpointService",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html",
-            "type": "object",
-            "required": [
-              "NetworkLoadBalancerArns"
-            ],
-            "properties": {
-              "NetworkLoadBalancerArns": {
-                "title": "NetworkLoadBalancerArns",
-                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
-              },
-              "AcceptanceRequired": {
-                "title": "AcceptanceRequired",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired",
-                "oneOf": [
-                  {
-                    "type": "boolean"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::EC2::VPCEndpointServicePermissions": {
             "title": "AWS::EC2::VPCEndpointServicePermissions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html",
@@ -13012,6 +13506,60 @@
             },
             "additionalProperties": false
           },
+          "AWS::Events::EventBusPolicy": {
+            "title": "AWS::Events::EventBusPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "StatementId",
+              "Principal"
+            ],
+            "properties": {
+              "Condition": {
+                "title": "Condition",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Events::EventBusPolicy.Condition"
+              },
+              "Action": {
+                "title": "Action",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StatementId": {
+                "title": "StatementId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Principal": {
+                "title": "Principal",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Events::Rule": {
             "title": "AWS::Events::Rule",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html",
@@ -13923,6 +14471,18 @@
               "Enable"
             ],
             "properties": {
+              "FindingPublishingFrequency": {
+                "title": "FindingPublishingFrequency",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Enable": {
                 "title": "Enable",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable",
@@ -19861,6 +20421,174 @@
             },
             "additionalProperties": false
           },
+          "AWS::SSM::MaintenanceWindow": {
+            "title": "AWS::SSM::MaintenanceWindow",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html",
+            "type": "object",
+            "required": [
+              "AllowUnassociatedTargets",
+              "Cutoff",
+              "Schedule",
+              "Duration",
+              "Name"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AllowUnassociatedTargets": {
+                "title": "AllowUnassociatedTargets",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-allowunassociatedtargets",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Cutoff": {
+                "title": "Cutoff",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-cutoff",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Schedule": {
+                "title": "Schedule",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-schedule",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Duration": {
+                "title": "Duration",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-duration",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SSM::MaintenanceWindowTarget": {
+            "title": "AWS::SSM::MaintenanceWindowTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html",
+            "type": "object",
+            "required": [
+              "WindowId",
+              "ResourceType",
+              "Targets"
+            ],
+            "properties": {
+              "OwnerInformation": {
+                "title": "OwnerInformation",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-ownerinformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "WindowId": {
+                "title": "WindowId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-windowid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourceType": {
+                "title": "ResourceType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-resourcetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Targets": {
+                "title": "Targets",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-targets",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SSM::MaintenanceWindowTarget.Targets"
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::SSM::MaintenanceWindowTask": {
             "title": "AWS::SSM::MaintenanceWindowTask",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html",
@@ -20122,6 +20850,18 @@
                     }
                   ]
                 }
+              },
+              "RejectedPatchesAction": {
+                "title": "RejectedPatchesAction",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "PatchGroups": {
                 "title": "PatchGroups",
@@ -22961,6 +23701,330 @@
                 "oneOf": [
                   {
                     "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::DirectoryConfig.ServiceAccountCredentials": {
+            "title": "AWS::AppStream::DirectoryConfig.ServiceAccountCredentials",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html",
+            "type": "object",
+            "required": [
+              "AccountName",
+              "AccountPassword"
+            ],
+            "properties": {
+              "AccountName": {
+                "title": "AccountName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AccountPassword": {
+                "title": "AccountPassword",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountpassword",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Fleet.ComputeCapacity": {
+            "title": "AWS::AppStream::Fleet.ComputeCapacity",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html",
+            "type": "object",
+            "required": [
+              "DesiredInstances"
+            ],
+            "properties": {
+              "DesiredInstances": {
+                "title": "DesiredInstances",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredinstances",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Fleet.DomainJoinInfo": {
+            "title": "AWS::AppStream::Fleet.DomainJoinInfo",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "OrganizationalUnitDistinguishedName": {
+                "title": "OrganizationalUnitDistinguishedName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html#cfn-appstream-fleet-domainjoininfo-organizationalunitdistinguishedname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DirectoryName": {
+                "title": "DirectoryName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html#cfn-appstream-fleet-domainjoininfo-directoryname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Fleet.VpcConfig": {
+            "title": "AWS::AppStream::Fleet.VpcConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "SubnetIds": {
+                "title": "SubnetIds",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-subnetids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-securitygroupids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::ImageBuilder.DomainJoinInfo": {
+            "title": "AWS::AppStream::ImageBuilder.DomainJoinInfo",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "OrganizationalUnitDistinguishedName": {
+                "title": "OrganizationalUnitDistinguishedName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-organizationalunitdistinguishedname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DirectoryName": {
+                "title": "DirectoryName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-directoryname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::ImageBuilder.VpcConfig": {
+            "title": "AWS::AppStream::ImageBuilder.VpcConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-securitygroupids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SubnetIds": {
+                "title": "SubnetIds",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-subnetids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Stack.ApplicationSettings": {
+            "title": "AWS::AppStream::Stack.ApplicationSettings",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html",
+            "type": "object",
+            "required": [
+              "Enabled"
+            ],
+            "properties": {
+              "SettingsGroup": {
+                "title": "SettingsGroup",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-settingsgroup",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Enabled": {
+                "title": "Enabled",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Stack.StorageConnector": {
+            "title": "AWS::AppStream::Stack.StorageConnector",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html",
+            "type": "object",
+            "required": [
+              "ConnectorType"
+            ],
+            "properties": {
+              "Domains": {
+                "title": "Domains",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-domains",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "ResourceIdentifier": {
+                "title": "ResourceIdentifier",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-resourceidentifier",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ConnectorType": {
+                "title": "ConnectorType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-connectortype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppStream::Stack.UserSetting": {
+            "title": "AWS::AppStream::Stack.UserSetting",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "Permission"
+            ],
+            "properties": {
+              "Action": {
+                "title": "Action",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-action",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Permission": {
+                "title": "Permission",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-permission",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -37657,6 +38721,51 @@
             },
             "additionalProperties": false
           },
+          "AWS::Events::EventBusPolicy.Condition": {
+            "title": "AWS::Events::EventBusPolicy.Condition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Events::Rule.EcsParameters": {
             "title": "AWS::Events::Rule.EcsParameters",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html",
@@ -45536,6 +46645,44 @@
             },
             "additionalProperties": false
           },
+          "AWS::SSM::MaintenanceWindowTarget.Targets": {
+            "title": "AWS::SSM::MaintenanceWindowTarget.Targets",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html",
+            "type": "object",
+            "required": [
+              "Key"
+            ],
+            "properties": {
+              "Values": {
+                "title": "Values",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::SSM::MaintenanceWindowTask.LoggingInfo": {
             "title": "AWS::SSM::MaintenanceWindowTask.LoggingInfo",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html",
@@ -47213,6 +48360,180 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGateway::VpcLink"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppStream::DirectoryConfig": {
+            "title": "AWS::AppStream::DirectoryConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppStream::DirectoryConfig"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppStream::DirectoryConfig"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppStream::Fleet": {
+            "title": "AWS::AppStream::Fleet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppStream::Fleet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppStream::Fleet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppStream::ImageBuilder": {
+            "title": "AWS::AppStream::ImageBuilder",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppStream::ImageBuilder"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppStream::ImageBuilder"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppStream::Stack": {
+            "title": "AWS::AppStream::Stack",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppStream::Stack"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppStream::Stack"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppStream::StackFleetAssociation": {
+            "title": "AWS::AppStream::StackFleetAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppStream::StackFleetAssociation"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppStream::StackFleetAssociation"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppStream::StackUserAssociation": {
+            "title": "AWS::AppStream::StackUserAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppStream::StackUserAssociation"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppStream::StackUserAssociation"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppStream::User": {
+            "title": "AWS::AppStream::User",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppStream::User"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppStream::User"
                   }
                 }
               }
@@ -49406,56 +50727,6 @@
               }
             ]
           },
-          "AWS::EC2::VPCEndpointConnectionNotification": {
-            "title": "AWS::EC2::VPCEndpointConnectionNotification",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html",
-            "allOf": [
-              {
-                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
-              },
-              {
-                "required": [
-                  "Type",
-                  "Properties"
-                ],
-                "properties": {
-                  "Type": {
-                    "enum": [
-                      "AWS::EC2::VPCEndpointConnectionNotification"
-                    ]
-                  },
-                  "Properties": {
-                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::VPCEndpointConnectionNotification"
-                  }
-                }
-              }
-            ]
-          },
-          "AWS::EC2::VPCEndpointService": {
-            "title": "AWS::EC2::VPCEndpointService",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html",
-            "allOf": [
-              {
-                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
-              },
-              {
-                "required": [
-                  "Type",
-                  "Properties"
-                ],
-                "properties": {
-                  "Type": {
-                    "enum": [
-                      "AWS::EC2::VPCEndpointService"
-                    ]
-                  },
-                  "Properties": {
-                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::VPCEndpointService"
-                  }
-                }
-              }
-            ]
-          },
           "AWS::EC2::VPCEndpointServicePermissions": {
             "title": "AWS::EC2::VPCEndpointServicePermissions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html",
@@ -50369,6 +51640,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Elasticsearch::Domain"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Events::EventBusPolicy": {
+            "title": "AWS::Events::EventBusPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Events::EventBusPolicy"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Events::EventBusPolicy"
                   }
                 }
               }
@@ -52510,6 +53806,56 @@
               }
             ]
           },
+          "AWS::SSM::MaintenanceWindow": {
+            "title": "AWS::SSM::MaintenanceWindow",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SSM::MaintenanceWindow"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SSM::MaintenanceWindow"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::SSM::MaintenanceWindowTarget": {
+            "title": "AWS::SSM::MaintenanceWindowTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SSM::MaintenanceWindowTarget"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SSM::MaintenanceWindowTarget"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::SSM::MaintenanceWindowTask": {
             "title": "AWS::SSM::MaintenanceWindowTask",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html",
@@ -53180,6 +54526,27 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGateway::VpcLink"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppStream::DirectoryConfig"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppStream::Fleet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppStream::ImageBuilder"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppStream::Stack"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppStream::StackFleetAssociation"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppStream::StackUserAssociation"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppStream::User"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppSync::ApiKey"
           },
           {
@@ -53444,12 +54811,6 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpoint"
           },
           {
-            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpointConnectionNotification"
-          },
-          {
-            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpointService"
-          },
-          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPCEndpointServicePermissions"
           },
           {
@@ -53559,6 +54920,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Elasticsearch::Domain"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Events::EventBusPolicy"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Events::Rule"
@@ -53817,6 +55181,12 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::Document"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::MaintenanceWindow"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::MaintenanceWindowTarget"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SSM::MaintenanceWindowTask"
