@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.11.0 https://d33vqc0rt9ld30.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.13.0 https://d33vqc0rt9ld30.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -2203,6 +2203,18 @@
                   }
                 ]
               },
+              "TracingEnabled": {
+                "title": "TracingEnabled",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-tracingenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Variables": {
                 "title": "Variables",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-variables",
@@ -3065,6 +3077,11 @@
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::DataSource.HttpConfig"
               },
+              "RelationalDatabaseConfig": {
+                "title": "RelationalDatabaseConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-relationaldatabaseconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::DataSource.RelationalDatabaseConfig"
+              },
               "LambdaConfig": {
                 "title": "LambdaConfig",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig",
@@ -3211,7 +3228,6 @@
             "type": "object",
             "required": [
               "TypeName",
-              "DataSourceName",
               "ApiId",
               "FieldName"
             ],
@@ -3240,6 +3256,11 @@
                   }
                 ]
               },
+              "PipelineConfig": {
+                "title": "PipelineConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-pipelineconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::Resolver.PipelineConfig"
+              },
               "DataSourceName": {
                 "title": "DataSourceName",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-datasourcename",
@@ -3267,6 +3288,18 @@
               "ResponseMappingTemplate": {
                 "title": "ResponseMappingTemplate",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-responsemappingtemplate",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Kind": {
+                "title": "Kind",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-kind",
                 "oneOf": [
                   {
                     "type": "string"
@@ -4748,10 +4781,7 @@
             "title": "AWS::CloudFormation::WaitCondition",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html",
             "type": "object",
-            "required": [
-              "Handle",
-              "Timeout"
-            ],
+            "required": [],
             "properties": {
               "Count": {
                 "title": "Count",
@@ -5095,6 +5125,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DatapointsToAlarm": {
+                "title": "DatapointsToAlarm",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarm-datapointstoalarm",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -5568,7 +5610,6 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html",
             "type": "object",
             "required": [
-              "ArtifactStore",
               "RoleArn",
               "Stages"
             ],
@@ -5577,6 +5618,14 @@
                 "title": "ArtifactStore",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstore",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CodePipeline::Pipeline.ArtifactStore"
+              },
+              "ArtifactStores": {
+                "title": "ArtifactStores",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstores",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CodePipeline::Pipeline.ArtifactStoreMap"
+                }
               },
               "DisableInboundStageTransitions": {
                 "title": "DisableInboundStageTransitions",
@@ -6894,6 +6943,56 @@
                     }
                   ]
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::DLM::LifecyclePolicy": {
+            "title": "AWS::DLM::LifecyclePolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ExecutionRoleArn": {
+                "title": "ExecutionRoleArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-executionrolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "State": {
+                "title": "State",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-state",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PolicyDetails": {
+                "title": "PolicyDetails",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-policydetails",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DLM::LifecyclePolicy.PolicyDetails"
               }
             },
             "additionalProperties": false
@@ -9620,6 +9719,18 @@
               "IpProtocol": {
                 "title": "IpProtocol",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-ipprotocol",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SourcePrefixListId": {
+                "title": "SourcePrefixListId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-securitygroupingress-sourceprefixlistid",
                 "oneOf": [
                   {
                     "type": "string"
@@ -15290,6 +15401,18 @@
                   }
                 ]
               },
+              "PermissionsBoundary": {
+                "title": "PermissionsBoundary",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-permissionsboundary",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Policies": {
                 "title": "Policies",
                 "description": "DuplicatesAllowed: true, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-policies",
@@ -15404,6 +15527,18 @@
               "Path": {
                 "title": "Path",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PermissionsBoundary": {
+                "title": "PermissionsBoundary",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-permissionsboundary",
                 "oneOf": [
                   {
                     "type": "string"
@@ -16033,6 +16168,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PendingWindowInDays": {
+                "title": "PendingWindowInDays",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -17927,6 +18074,18 @@
                   ]
                 }
               },
+              "BacktrackWindow": {
+                "title": "BacktrackWindow",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "BackupRetentionPeriod": {
                 "title": "BackupRetentionPeriod",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod",
@@ -17981,6 +18140,33 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableCloudwatchLogsExports": {
+                "title": "EnableCloudwatchLogsExports",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "EnableIAMDatabaseAuthentication": {
+                "title": "EnableIAMDatabaseAuthentication",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -18434,6 +18620,45 @@
                   }
                 ]
               },
+              "EnableCloudwatchLogsExports": {
+                "title": "EnableCloudwatchLogsExports",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enablecloudwatchlogsexports",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "EnableIAMDatabaseAuthentication": {
+                "title": "EnableIAMDatabaseAuthentication",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableiamdatabaseauthentication",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnablePerformanceInsights": {
+                "title": "EnablePerformanceInsights",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Engine": {
                 "title": "Engine",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engine",
@@ -18566,6 +18791,30 @@
                   }
                 ]
               },
+              "PerformanceInsightsKMSKeyId": {
+                "title": "PerformanceInsightsKMSKeyId",
+                "description": "UpdateType: Conditional, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightskmskeyid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PerformanceInsightsRetentionPeriod": {
+                "title": "PerformanceInsightsRetentionPeriod",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightsretentionperiod",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Port": {
                 "title": "Port",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port",
@@ -18596,6 +18845,26 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ProcessorFeatures": {
+                "title": "ProcessorFeatures",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-processorfeatures",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::RDS::DBInstance.ProcessorFeature"
+                }
+              },
+              "PromotionTier": {
+                "title": "PromotionTier",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-promotiontier",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -19780,6 +20049,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MultiValueAnswer": {
+                "title": "MultiValueAnswer",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-multivalueanswer",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -21343,6 +21624,18 @@
                   }
                 ]
               },
+              "VolumeSizeInGB": {
+                "title": "VolumeSizeInGB",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-volumesizeingb",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "DirectInternetAccess": {
                 "title": "DirectInternetAccess",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-directinternetaccess",
@@ -21474,6 +21767,201 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook"
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SecretsManager::ResourcePolicy": {
+            "title": "AWS::SecretsManager::ResourcePolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html",
+            "type": "object",
+            "required": [
+              "SecretId",
+              "ResourcePolicy"
+            ],
+            "properties": {
+              "SecretId": {
+                "title": "SecretId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourcePolicy": {
+                "title": "ResourcePolicy",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SecretsManager::RotationSchedule": {
+            "title": "AWS::SecretsManager::RotationSchedule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html",
+            "type": "object",
+            "required": [
+              "SecretId"
+            ],
+            "properties": {
+              "SecretId": {
+                "title": "SecretId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-secretid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RotationLambdaARN": {
+                "title": "RotationLambdaARN",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RotationRules": {
+                "title": "RotationRules",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationrules",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SecretsManager::RotationSchedule.RotationRules"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SecretsManager::Secret": {
+            "title": "AWS::SecretsManager::Secret",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "KmsKeyId": {
+                "title": "KmsKeyId",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-kmskeyid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SecretString": {
+                "title": "SecretString",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-secretstring",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "GenerateSecretString": {
+                "title": "GenerateSecretString",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-generatesecretstring",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SecretsManager::Secret.GenerateSecretString"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SecretsManager::SecretTargetAttachment": {
+            "title": "AWS::SecretsManager::SecretTargetAttachment",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html",
+            "type": "object",
+            "required": [
+              "SecretId",
+              "TargetType",
+              "TargetId"
+            ],
+            "properties": {
+              "SecretId": {
+                "title": "SecretId",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-secretid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetType": {
+                "title": "TargetType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targettype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetId": {
+                "title": "TargetId",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targetid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -22305,6 +22793,197 @@
             },
             "additionalProperties": false
           },
+          "AWS::ServiceDiscovery::Instance": {
+            "title": "AWS::ServiceDiscovery::Instance",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html",
+            "type": "object",
+            "required": [
+              "InstanceAttributes",
+              "ServiceId"
+            ],
+            "properties": {
+              "InstanceAttributes": {
+                "title": "InstanceAttributes",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceattributes",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "InstanceId": {
+                "title": "InstanceId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ServiceId": {
+                "title": "ServiceId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-serviceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ServiceDiscovery::PrivateDnsNamespace": {
+            "title": "AWS::ServiceDiscovery::PrivateDnsNamespace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html",
+            "type": "object",
+            "required": [
+              "Vpc",
+              "Name"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Vpc": {
+                "title": "Vpc",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-vpc",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ServiceDiscovery::PublicDnsNamespace": {
+            "title": "AWS::ServiceDiscovery::PublicDnsNamespace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ServiceDiscovery::Service": {
+            "title": "AWS::ServiceDiscovery::Service",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "HealthCheckCustomConfig": {
+                "title": "HealthCheckCustomConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckcustomconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ServiceDiscovery::Service.HealthCheckCustomConfig"
+              },
+              "DnsConfig": {
+                "title": "DnsConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-dnsconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ServiceDiscovery::Service.DnsConfig"
+              },
+              "NamespaceId": {
+                "title": "NamespaceId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-namespaceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "HealthCheckConfig": {
+                "title": "HealthCheckConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ServiceDiscovery::Service.HealthCheckConfig"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::StepFunctions::Activity": {
             "title": "AWS::StepFunctions::Activity",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html",
@@ -22958,6 +23637,14 @@
                   }
                 ]
               },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: true, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
               "UserName": {
                 "title": "UserName",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username",
@@ -22993,6 +23680,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "WorkspaceProperties": {
+                "title": "WorkspaceProperties",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-workspaceproperties",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WorkSpaces::Workspace.WorkspaceProperties"
               }
             },
             "additionalProperties": false
@@ -23464,6 +24156,18 @@
                 "oneOf": [
                   {
                     "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TracingEnabled": {
+                "title": "TracingEnabled",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -24639,6 +25343,67 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppSync::DataSource.AuthorizationConfig": {
+            "title": "AWS::AppSync::DataSource.AuthorizationConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html",
+            "type": "object",
+            "required": [
+              "AuthorizationType"
+            ],
+            "properties": {
+              "AwsIamConfig": {
+                "title": "AwsIamConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-awsiamconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::DataSource.AwsIamConfig"
+              },
+              "AuthorizationType": {
+                "title": "AuthorizationType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-authorizationtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppSync::DataSource.AwsIamConfig": {
+            "title": "AWS::AppSync::DataSource.AwsIamConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "SigningRegion": {
+                "title": "SigningRegion",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html#cfn-appsync-datasource-awsiamconfig-signingregion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SigningServiceName": {
+                "title": "SigningServiceName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html#cfn-appsync-datasource-awsiamconfig-signingservicename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppSync::DataSource.DynamoDBConfig": {
             "title": "AWS::AppSync::DataSource.DynamoDBConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html",
@@ -24742,6 +25507,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "AuthorizationConfig": {
+                "title": "AuthorizationConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-authorizationconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::DataSource.AuthorizationConfig"
               }
             },
             "additionalProperties": false
@@ -24757,6 +25527,107 @@
               "LambdaFunctionArn": {
                 "title": "LambdaFunctionArn",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html#cfn-appsync-datasource-lambdaconfig-lambdafunctionarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppSync::DataSource.RdsHttpEndpointConfig": {
+            "title": "AWS::AppSync::DataSource.RdsHttpEndpointConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html",
+            "type": "object",
+            "required": [
+              "AwsRegion",
+              "DbClusterIdentifier",
+              "AwsSecretStoreArn"
+            ],
+            "properties": {
+              "AwsRegion": {
+                "title": "AwsRegion",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awsregion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Schema": {
+                "title": "Schema",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-schema",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DatabaseName": {
+                "title": "DatabaseName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-databasename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DbClusterIdentifier": {
+                "title": "DbClusterIdentifier",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-dbclusteridentifier",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AwsSecretStoreArn": {
+                "title": "AwsSecretStoreArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awssecretstorearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppSync::DataSource.RelationalDatabaseConfig": {
+            "title": "AWS::AppSync::DataSource.RelationalDatabaseConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html",
+            "type": "object",
+            "required": [
+              "RelationalDatabaseSourceType"
+            ],
+            "properties": {
+              "RdsHttpEndpointConfig": {
+                "title": "RdsHttpEndpointConfig",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-rdshttpendpointconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::DataSource.RdsHttpEndpointConfig"
+              },
+              "RelationalDatabaseSourceType": {
+                "title": "RelationalDatabaseSourceType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-relationaldatabasesourcetype",
                 "oneOf": [
                   {
                     "type": "string"
@@ -24912,6 +25783,30 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppSync::Resolver.PipelineConfig": {
+            "title": "AWS::AppSync::Resolver.PipelineConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-pipelineconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Functions": {
+                "title": "Functions",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-pipelineconfig.html#cfn-appsync-resolver-pipelineconfig-functions",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
               }
             },
             "additionalProperties": false
@@ -29266,6 +30161,18 @@
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CodePipeline::Pipeline.OutputArtifact"
                 }
               },
+              "Region": {
+                "title": "Region",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-region",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "RoleArn": {
                 "title": "RoleArn",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-rolearn",
@@ -29384,6 +30291,35 @@
               "Type": {
                 "title": "Type",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CodePipeline::Pipeline.ArtifactStoreMap": {
+            "title": "AWS::CodePipeline::Pipeline.ArtifactStoreMap",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html",
+            "type": "object",
+            "required": [
+              "ArtifactStore",
+              "Region"
+            ],
+            "properties": {
+              "ArtifactStore": {
+                "title": "ArtifactStore",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-artifactstore",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CodePipeline::Pipeline.ArtifactStore"
+              },
+              "Region": {
+                "title": "Region",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-region",
                 "oneOf": [
                   {
                     "type": "string"
@@ -30786,6 +31722,171 @@
               "SSEEnabled": {
                 "title": "SSEEnabled",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html#cfn-dax-cluster-ssespecification-sseenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::DLM::LifecyclePolicy.CreateRule": {
+            "title": "AWS::DLM::LifecyclePolicy.CreateRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html",
+            "type": "object",
+            "required": [
+              "IntervalUnit",
+              "Interval"
+            ],
+            "properties": {
+              "IntervalUnit": {
+                "title": "IntervalUnit",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-intervalunit",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Times": {
+                "title": "Times",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-times",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Interval": {
+                "title": "Interval",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-interval",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::DLM::LifecyclePolicy.PolicyDetails": {
+            "title": "AWS::DLM::LifecyclePolicy.PolicyDetails",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ResourceTypes": {
+                "title": "ResourceTypes",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Schedules": {
+                "title": "Schedules",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-schedules",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DLM::LifecyclePolicy.Schedule"
+                }
+              },
+              "TargetTags": {
+                "title": "TargetTags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::DLM::LifecyclePolicy.RetainRule": {
+            "title": "AWS::DLM::LifecyclePolicy.RetainRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html",
+            "type": "object",
+            "required": [
+              "Count"
+            ],
+            "properties": {
+              "Count": {
+                "title": "Count",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-count",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::DLM::LifecyclePolicy.Schedule": {
+            "title": "AWS::DLM::LifecyclePolicy.Schedule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TagsToAdd": {
+                "title": "TagsToAdd",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
+              "CreateRule": {
+                "title": "CreateRule",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-createrule",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DLM::LifecyclePolicy.CreateRule"
+              },
+              "RetainRule": {
+                "title": "RetainRule",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-retainrule",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DLM::LifecyclePolicy.RetainRule"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CopyTags": {
+                "title": "CopyTags",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-copytags",
                 "oneOf": [
                   {
                     "type": "boolean"
@@ -33346,6 +34447,18 @@
                   }
                 ]
               },
+              "SourcePrefixListId": {
+                "title": "SourcePrefixListId",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-securitygroup-ingress-sourceprefixlistid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "SourceSecurityGroupId": {
                 "title": "SourceSecurityGroupId",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupid",
@@ -34349,6 +35462,14 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: true, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
               }
             },
             "additionalProperties": false
@@ -41656,6 +42777,11 @@
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.FirehoseAction"
               },
+              "IotAnalytics": {
+                "title": "IotAnalytics",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.IotAnalyticsAction"
+              },
               "Kinesis": {
                 "title": "Kinesis",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis",
@@ -41685,6 +42811,11 @@
                 "title": "Sqs",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.SqsAction"
+              },
+              "StepFunctions": {
+                "title": "StepFunctions",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.StepFunctionsAction"
               }
             },
             "additionalProperties": false
@@ -42109,6 +43240,42 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoT::TopicRule.IotAnalyticsAction": {
+            "title": "AWS::IoT::TopicRule.IotAnalyticsAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html",
+            "type": "object",
+            "required": [
+              "ChannelName",
+              "RoleArn"
+            ],
+            "properties": {
+              "ChannelName": {
+                "title": "ChannelName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::IoT::TopicRule.KinesisAction": {
             "title": "AWS::IoT::TopicRule.KinesisAction",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html",
@@ -42382,6 +43549,54 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoT::TopicRule.StepFunctionsAction": {
+            "title": "AWS::IoT::TopicRule.StepFunctionsAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html",
+            "type": "object",
+            "required": [
+              "RoleArn",
+              "StateMachineName"
+            ],
+            "properties": {
+              "ExecutionNamePrefix": {
+                "title": "ExecutionNamePrefix",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StateMachineName": {
+                "title": "StateMachineName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-statemachinename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::IoT::TopicRule.TopicRulePayload": {
             "title": "AWS::IoT::TopicRule.TopicRulePayload",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html",
@@ -42423,6 +43638,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "ErrorAction": {
+                "title": "ErrorAction",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.Action"
               },
               "RuleDisabled": {
                 "title": "RuleDisabled",
@@ -44332,6 +45552,18 @@
             "type": "object",
             "required": [],
             "properties": {
+              "Encrypted": {
+                "title": "Encrypted",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volumeconfiguration-encrypted",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Iops": {
                 "title": "Iops",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-iops",
@@ -44680,12 +45912,45 @@
                   }
                 ]
               },
-              "SecondsBeforeAutoPause": {
-                "title": "SecondsBeforeAutoPause",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsbeforeautopause",
+              "SecondsUntilAutoPause": {
+                "title": "SecondsUntilAutoPause",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause",
                 "oneOf": [
                   {
                     "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::RDS::DBInstance.ProcessorFeature": {
+            "title": "AWS::RDS::DBInstance.ProcessorFeature",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-value",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -45590,6 +46855,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MultiValueAnswer": {
+                "title": "MultiValueAnswer",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-multivalueanswer",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -48088,6 +49365,156 @@
             },
             "additionalProperties": false
           },
+          "AWS::SecretsManager::RotationSchedule.RotationRules": {
+            "title": "AWS::SecretsManager::RotationSchedule.RotationRules",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "AutomaticallyAfterDays": {
+                "title": "AutomaticallyAfterDays",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html#cfn-secretsmanager-rotationschedule-rotationrules-automaticallyafterdays",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SecretsManager::Secret.GenerateSecretString": {
+            "title": "AWS::SecretsManager::Secret.GenerateSecretString",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ExcludeUppercase": {
+                "title": "ExcludeUppercase",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludeuppercase",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RequireEachIncludedType": {
+                "title": "RequireEachIncludedType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-requireeachincludedtype",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "IncludeSpace": {
+                "title": "IncludeSpace",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-includespace",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ExcludeCharacters": {
+                "title": "ExcludeCharacters",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludecharacters",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "GenerateStringKey": {
+                "title": "GenerateStringKey",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-generatestringkey",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PasswordLength": {
+                "title": "PasswordLength",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-passwordlength",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ExcludePunctuation": {
+                "title": "ExcludePunctuation",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludepunctuation",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ExcludeLowercase": {
+                "title": "ExcludeLowercase",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludelowercase",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SecretStringTemplate": {
+                "title": "SecretStringTemplate",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-secretstringtemplate",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ExcludeNumbers": {
+                "title": "ExcludeNumbers",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludenumbers",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties": {
             "title": "AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html",
@@ -48159,6 +49586,153 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ServiceDiscovery::Service.DnsConfig": {
+            "title": "AWS::ServiceDiscovery::Service.DnsConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html",
+            "type": "object",
+            "required": [
+              "DnsRecords"
+            ],
+            "properties": {
+              "DnsRecords": {
+                "title": "DnsRecords",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-dnsrecords",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ServiceDiscovery::Service.DnsRecord"
+                }
+              },
+              "RoutingPolicy": {
+                "title": "RoutingPolicy",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-routingpolicy",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NamespaceId": {
+                "title": "NamespaceId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ServiceDiscovery::Service.DnsRecord": {
+            "title": "AWS::ServiceDiscovery::Service.DnsRecord",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html",
+            "type": "object",
+            "required": [
+              "Type",
+              "TTL"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TTL": {
+                "title": "TTL",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ServiceDiscovery::Service.HealthCheckConfig": {
+            "title": "AWS::ServiceDiscovery::Service.HealthCheckConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourcePath": {
+                "title": "ResourcePath",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-resourcepath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FailureThreshold": {
+                "title": "FailureThreshold",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-failurethreshold",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ServiceDiscovery::Service.HealthCheckCustomConfig": {
+            "title": "AWS::ServiceDiscovery::Service.HealthCheckCustomConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckcustomconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "FailureThreshold": {
+                "title": "FailureThreshold",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckcustomconfig.html#cfn-servicediscovery-service-healthcheckcustomconfig-failurethreshold",
+                "oneOf": [
+                  {
+                    "type": "number"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -49105,18 +50679,15 @@
             },
             "additionalProperties": false
           },
-          "Tag": {
-            "title": "Tag",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html",
+          "AWS::WorkSpaces::Workspace.WorkspaceProperties": {
+            "title": "AWS::WorkSpaces::Workspace.WorkspaceProperties",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html",
             "type": "object",
-            "required": [
-              "Key",
-              "Value"
-            ],
+            "required": [],
             "properties": {
-              "Key": {
-                "title": "Key",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key",
+              "ComputeTypeName": {
+                "title": "ComputeTypeName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename",
                 "oneOf": [
                   {
                     "type": "string"
@@ -49126,9 +50697,78 @@
                   }
                 ]
               },
+              "RootVolumeSizeGib": {
+                "title": "RootVolumeSizeGib",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RunningMode": {
+                "title": "RunningMode",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RunningModeAutoStopTimeoutInMinutes": {
+                "title": "RunningModeAutoStopTimeoutInMinutes",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UserVolumeSizeGib": {
+                "title": "UserVolumeSizeGib",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "Tag": {
+            "title": "Tag",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-tag.html",
+            "type": "object",
+            "required": [],
+            "properties": {
               "Value": {
                 "title": "Value",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-tag.html#cfn-sagemaker-endpoint-tag-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-tag.html#cfn-sagemaker-endpoint-tag-key",
                 "oneOf": [
                   {
                     "type": "string"
@@ -50318,8 +51958,7 @@
               },
               {
                 "required": [
-                  "Type",
-                  "Properties"
+                  "Type"
                 ],
                 "properties": {
                   "Type": {
@@ -51024,6 +52663,30 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::DAX::SubnetGroup"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::DLM::LifecyclePolicy": {
+            "title": "AWS::DLM::LifecyclePolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::DLM::LifecyclePolicy"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::DLM::LifecyclePolicy"
                   }
                 }
               }
@@ -55474,6 +57137,105 @@
               }
             ]
           },
+          "AWS::SecretsManager::ResourcePolicy": {
+            "title": "AWS::SecretsManager::ResourcePolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SecretsManager::ResourcePolicy"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SecretsManager::ResourcePolicy"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::SecretsManager::RotationSchedule": {
+            "title": "AWS::SecretsManager::RotationSchedule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SecretsManager::RotationSchedule"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SecretsManager::RotationSchedule"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::SecretsManager::Secret": {
+            "title": "AWS::SecretsManager::Secret",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SecretsManager::Secret"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SecretsManager::Secret"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::SecretsManager::SecretTargetAttachment": {
+            "title": "AWS::SecretsManager::SecretTargetAttachment",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SecretsManager::SecretTargetAttachment"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SecretsManager::SecretTargetAttachment"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::ServiceCatalog::AcceptedPortfolioShare": {
             "title": "AWS::ServiceCatalog::AcceptedPortfolioShare",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html",
@@ -55768,6 +57530,105 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ServiceCatalog::TagOptionAssociation"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::ServiceDiscovery::Instance": {
+            "title": "AWS::ServiceDiscovery::Instance",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ServiceDiscovery::Instance"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ServiceDiscovery::Instance"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::ServiceDiscovery::PrivateDnsNamespace": {
+            "title": "AWS::ServiceDiscovery::PrivateDnsNamespace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ServiceDiscovery::PrivateDnsNamespace"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ServiceDiscovery::PrivateDnsNamespace"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::ServiceDiscovery::PublicDnsNamespace": {
+            "title": "AWS::ServiceDiscovery::PublicDnsNamespace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ServiceDiscovery::PublicDnsNamespace"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ServiceDiscovery::PublicDnsNamespace"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::ServiceDiscovery::Service": {
+            "title": "AWS::ServiceDiscovery::Service",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ServiceDiscovery::Service"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ServiceDiscovery::Service"
                   }
                 }
               }
@@ -56456,6 +58317,9 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::DAX::SubnetGroup"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::DLM::LifecyclePolicy"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::DMS::Certificate"
           },
           {
@@ -56993,6 +58857,18 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SageMaker::NotebookInstanceLifecycleConfig"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SecretsManager::ResourcePolicy"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SecretsManager::RotationSchedule"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SecretsManager::Secret"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SecretsManager::SecretTargetAttachment"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceCatalog::AcceptedPortfolioShare"
           },
           {
@@ -57027,6 +58903,18 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceCatalog::TagOptionAssociation"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceDiscovery::Instance"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceDiscovery::PrivateDnsNamespace"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceDiscovery::PublicDnsNamespace"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceDiscovery::Service"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::StepFunctions::Activity"
