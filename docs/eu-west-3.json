@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.15.0 https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.16.0 https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -5009,6 +5009,18 @@
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DynamoDB::Table.AttributeDefinition"
                 }
               },
+              "BillingMode": {
+                "title": "BillingMode",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-billingmode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "GlobalSecondaryIndexes": {
                 "title": "GlobalSecondaryIndexes",
                 "description": "DuplicatesAllowed: true, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi",
@@ -5708,6 +5720,14 @@
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::Instance.ElasticGpuSpecification"
                 }
               },
+              "ElasticInferenceAccelerators": {
+                "title": "ElasticInferenceAccelerators",
+                "description": "DuplicatesAllowed: false, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::Instance.ElasticInferenceAccelerator"
+                }
+              },
               "HostId": {
                 "title": "HostId",
                 "description": "UpdateType: Conditional, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid",
@@ -5816,6 +5836,14 @@
                 "title": "LaunchTemplate",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-launchtemplate",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::Instance.LaunchTemplateSpecification"
+              },
+              "LicenseSpecifications": {
+                "title": "LicenseSpecifications",
+                "description": "DuplicatesAllowed: false, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-licensespecifications",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::Instance.LicenseSpecification"
+                }
               },
               "Monitoring": {
                 "title": "Monitoring",
@@ -12535,6 +12563,21 @@
                   }
                 ]
               },
+              "Layers": {
+                "title": "Layers",
+                "description": "DuplicatesAllowed: false, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
               "MemorySize": {
                 "title": "MemorySize",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize",
@@ -18531,9 +18574,7 @@
             "title": "AWS::ServiceDiscovery::Service",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html",
             "type": "object",
-            "required": [
-              "DnsConfig"
-            ],
+            "required": [],
             "properties": {
               "Description": {
                 "title": "Description",
@@ -18556,6 +18597,18 @@
                 "title": "DnsConfig",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-dnsconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ServiceDiscovery::Service.DnsConfig"
+              },
+              "NamespaceId": {
+                "title": "NamespaceId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-namespaceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "HealthCheckConfig": {
                 "title": "HealthCheckConfig",
@@ -25647,6 +25700,29 @@
             },
             "additionalProperties": false
           },
+          "AWS::EC2::Instance.ElasticInferenceAccelerator": {
+            "title": "AWS::EC2::Instance.ElasticInferenceAccelerator",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::EC2::Instance.InstanceIpv6Address": {
             "title": "AWS::EC2::Instance.InstanceIpv6Address",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html",
@@ -25705,6 +25781,29 @@
               "Version": {
                 "title": "Version",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::Instance.LicenseSpecification": {
+            "title": "AWS::EC2::Instance.LicenseSpecification",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html",
+            "type": "object",
+            "required": [
+              "LicenseConfigurationArn"
+            ],
+            "properties": {
+              "LicenseConfigurationArn": {
+                "title": "LicenseConfigurationArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html#cfn-ec2-instance-licensespecification-licenseconfigurationarn",
                 "oneOf": [
                   {
                     "type": "string"
@@ -41338,8 +41437,7 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html",
             "type": "object",
             "required": [
-              "DnsRecords",
-              "NamespaceId"
+              "DnsRecords"
             ],
             "properties": {
               "DnsRecords": {
@@ -47509,8 +47607,7 @@
               },
               {
                 "required": [
-                  "Type",
-                  "Properties"
+                  "Type"
                 ],
                 "properties": {
                   "Type": {
