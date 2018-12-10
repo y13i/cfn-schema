@@ -140,115 +140,123 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
   }
 }
 
-readFileAsync(baseSchemaPath).then(baseJson => {
-  return Promise.all(
-    Object.entries(resourceSpecUrls).map(([region, resourceSpecUrl]) => {
-      return axios.get(resourceSpecUrl).then(response => {
-        const resourceSpec = response.data;
-        const schema = JSON.parse(baseJson);
+function appendPropertyTypes(schema, propertyTypes) {
+  Object.keys(propertyTypes)
+    .sort()
+    .forEach(propertyName => {
+      const property = propertyTypes[propertyName];
+      const resourceTypeName = propertyName.split(".")[0];
 
-        schema.description += ` automatically generated with resource specification version ${
-          resourceSpec.ResourceSpecificationVersion
-        } ${resourceSpecUrl}`;
+      const p = {
+        title: propertyName,
+        description: property.Documentation,
+        type: "object",
+        required: [],
+        properties: {},
+        additionalProperties: false
+      };
 
-        Object.keys(resourceSpec.PropertyTypes)
-          .sort()
-          .forEach(propertyName => {
-            const property = resourceSpec.PropertyTypes[propertyName];
-            const resourceTypeName = propertyName.split(".")[0];
+      schema.properties.Resources.definitions.propertyTypes[propertyName] = p;
 
-            const p = {
-              title: propertyName,
-              description: property.Documentation,
-              type: "object",
-              required: [],
-              properties: {},
-              additionalProperties: false
-            };
+      Object.entries(property.Properties).forEach(
+        ([subPropertyName, subProperty]) => {
+          appendProperty(p, subPropertyName, subProperty, resourceTypeName);
+        }
+      );
+    });
+}
 
-            schema.properties.Resources.definitions.propertyTypes[
-              propertyName
-            ] = p;
+function appendResourceTypes(schema, resourceTypes) {
+  Object.keys(resourceTypes)
+    .sort()
+    .forEach(resourceTypeName => {
+      const resourceType = resourceTypes[resourceTypeName];
 
-            Object.entries(property.Properties).forEach(
-              ([subPropertyName, subProperty]) => {
-                appendProperty(
-                  p,
-                  subPropertyName,
-                  subProperty,
-                  resourceTypeName
-                );
+      const rt = {
+        title: resourceTypeName,
+        description: resourceType.Documentation,
+        type: "object",
+        required: [],
+        properties: {},
+        additionalProperties: false
+      };
+
+      schema.properties.Resources.definitions.resourcePropertyTypes[
+        resourceTypeName
+      ] = rt;
+
+      Object.entries(resourceType.Properties).forEach(
+        ([propertyName, property]) => {
+          appendProperty(rt, propertyName, property, resourceTypeName);
+        }
+      );
+
+      schema.properties.Resources.definitions.resourceTypes[
+        resourceTypeName
+      ] = {
+        title: resourceTypeName,
+        description: resourceType.Documentation,
+
+        allOf: [
+          { $ref: "#/properties/Resources/definitions/resourceTypeBase" },
+          {
+            required: Object.values(resourceType.Properties).some(
+              p => p.Required
+            )
+              ? ["Type", "Properties"]
+              : ["Type"],
+            properties: {
+              Type: {
+                enum: [resourceTypeName]
+              },
+              Properties: {
+                $ref: `#/properties/Resources/definitions/resourcePropertyTypes/${resourceTypeName}`
               }
-            );
-          });
+            }
+          }
+        ]
+      };
 
-        Object.keys(resourceSpec.ResourceTypes)
-          .sort()
-          .forEach(resourceTypeName => {
-            const resourceType = resourceSpec.ResourceTypes[resourceTypeName];
-
-            const rt = {
-              title: resourceTypeName,
-              description: resourceType.Documentation,
-              type: "object",
-              required: [],
-              properties: {},
-              additionalProperties: false
-            };
-
-            schema.properties.Resources.definitions.resourcePropertyTypes[
-              resourceTypeName
-            ] = rt;
-
-            Object.entries(resourceType.Properties).forEach(
-              ([propertyName, property]) => {
-                appendProperty(rt, propertyName, property, resourceTypeName);
-              }
-            );
-
-            schema.properties.Resources.definitions.resourceTypes[
-              resourceTypeName
-            ] = {
-              title: resourceTypeName,
-              description: resourceType.Documentation,
-
-              allOf: [
-                { $ref: "#/properties/Resources/definitions/resourceTypeBase" },
-                {
-                  required: Object.values(resourceType.Properties).some(
-                    p => p.Required
-                  )
-                    ? ["Type", "Properties"]
-                    : ["Type"],
-                  properties: {
-                    Type: {
-                      enum: [resourceTypeName]
-                    },
-                    Properties: {
-                      $ref: `#/properties/Resources/definitions/resourcePropertyTypes/${resourceTypeName}`
-                    }
-                  }
-                }
-              ]
-            };
-
-            schema.properties.Resources.additionalProperties.oneOf.push({
-              $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`
-            });
-          });
-
-        return Promise.all([
-          writeFileAsync(
-            join(outputPath, `${region}.json`),
-            JSON.stringify(schema, undefined, 2) + "\n"
-          ),
-
-          writeFileAsync(
-            join(outputPath, `${region}.min.json`),
-            JSON.stringify(schema)
-          )
-        ]);
+      schema.properties.Resources.additionalProperties.oneOf.push({
+        $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`
       });
+    });
+}
+
+async function buildSchema(schema, resourceSpecUrl) {
+  const resourceSpecResponse = await axios.get(resourceSpecUrl);
+  const resourceSpec = resourceSpecResponse.data;
+
+  schema.description += ` automatically generated with resource specification version ${
+    resourceSpec.ResourceSpecificationVersion
+  } ${resourceSpecUrl}`;
+
+  appendPropertyTypes(schema, resourceSpec.PropertyTypes);
+  appendResourceTypes(schema, resourceSpec.ResourceTypes);
+
+  return schema;
+}
+
+async function main() {
+  const baseJson = await readFileAsync(baseSchemaPath);
+
+  await Promise.all(
+    Object.entries(resourceSpecUrls).map(async ([region, resourceSpecUrl]) => {
+      const schema = await buildSchema(JSON.parse(baseJson), resourceSpecUrl);
+
+      await Promise.all([
+        writeFileAsync(
+          join(outputPath, `${region}.json`),
+          JSON.stringify(schema, undefined, 2) + "\n"
+        ),
+
+        writeFileAsync(
+          join(outputPath, `${region}.min.json`),
+          JSON.stringify(schema)
+        )
+      ]);
     })
   );
-});
+}
+
+main().then(() => console.log("done."));
