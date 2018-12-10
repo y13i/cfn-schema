@@ -140,18 +140,11 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
   }
 }
 
-async function buildSchema(schema, resourceSpecUrl) {
-  const resourceSpecResponse = await axios.get(resourceSpecUrl);
-  const resourceSpec = resourceSpecResponse.data;
-
-  schema.description += ` automatically generated with resource specification version ${
-    resourceSpec.ResourceSpecificationVersion
-  } ${resourceSpecUrl}`;
-
-  Object.keys(resourceSpec.PropertyTypes)
+function appendPropertyTypes(schema, propertyTypes) {
+  Object.keys(propertyTypes)
     .sort()
     .forEach(propertyName => {
-      const property = resourceSpec.PropertyTypes[propertyName];
+      const property = propertyTypes[propertyName];
       const resourceTypeName = propertyName.split(".")[0];
 
       const p = {
@@ -171,11 +164,13 @@ async function buildSchema(schema, resourceSpecUrl) {
         }
       );
     });
+}
 
-  Object.keys(resourceSpec.ResourceTypes)
+function appendResourceTypes(schema, resourceTypes) {
+  Object.keys(resourceTypes)
     .sort()
     .forEach(resourceTypeName => {
-      const resourceType = resourceSpec.ResourceTypes[resourceTypeName];
+      const resourceType = resourceTypes[resourceTypeName];
 
       const rt = {
         title: resourceTypeName,
@@ -226,6 +221,18 @@ async function buildSchema(schema, resourceSpecUrl) {
         $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`
       });
     });
+}
+
+async function buildSchema(schema, resourceSpecUrl) {
+  const resourceSpecResponse = await axios.get(resourceSpecUrl);
+  const resourceSpec = resourceSpecResponse.data;
+
+  schema.description += ` automatically generated with resource specification version ${
+    resourceSpec.ResourceSpecificationVersion
+  } ${resourceSpecUrl}`;
+
+  appendPropertyTypes(schema, resourceSpec.PropertyTypes);
+  appendResourceTypes(schema, resourceSpec.ResourceTypes);
 
   return schema;
 }
