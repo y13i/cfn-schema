@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.17.0 https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.18.0 https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -1226,6 +1226,35 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AmazonMQ::ConfigurationAssociation": {
+            "title": "AWS::AmazonMQ::ConfigurationAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html",
+            "type": "object",
+            "required": [
+              "Broker",
+              "Configuration"
+            ],
+            "properties": {
+              "Broker": {
+                "title": "Broker",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-broker",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Configuration": {
+                "title": "Configuration",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-configuration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId"
               }
             },
             "additionalProperties": false
@@ -17356,6 +17385,165 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoTAnalytics::Channel": {
+            "title": "AWS::IoTAnalytics::Channel",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ChannelName": {
+                "title": "ChannelName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-channelname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RetentionPeriod": {
+                "title": "RetentionPeriod",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-retentionperiod",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Channel.RetentionPeriod"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset": {
+            "title": "AWS::IoTAnalytics::Dataset",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html",
+            "type": "object",
+            "required": [
+              "Actions"
+            ],
+            "properties": {
+              "Actions": {
+                "title": "Actions",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-actions",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.Action"
+                }
+              },
+              "DatasetName": {
+                "title": "DatasetName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-datasetname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Triggers": {
+                "title": "Triggers",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.Trigger"
+                }
+              },
+              "RetentionPeriod": {
+                "title": "RetentionPeriod",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-retentionperiod",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.RetentionPeriod"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Datastore": {
+            "title": "AWS::IoTAnalytics::Datastore",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DatastoreName": {
+                "title": "DatastoreName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RetentionPeriod": {
+                "title": "RetentionPeriod",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-retentionperiod",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Datastore.RetentionPeriod"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline": {
+            "title": "AWS::IoTAnalytics::Pipeline",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html",
+            "type": "object",
+            "required": [
+              "PipelineActivities"
+            ],
+            "properties": {
+              "PipelineName": {
+                "title": "PipelineName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelinename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
+              "PipelineActivities": {
+                "title": "PipelineActivities",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelineactivities",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.Activity"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::KMS::Alias": {
             "title": "AWS::KMS::Alias",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html",
@@ -23939,8 +24127,7 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html",
             "type": "object",
             "required": [
-              "ExecutionRoleArn",
-              "PrimaryContainer"
+              "ExecutionRoleArn"
             ],
             "properties": {
               "ExecutionRoleArn": {
@@ -23976,6 +24163,14 @@
                 "title": "VpcConfig",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SageMaker::Model.VpcConfig"
+              },
+              "Containers": {
+                "title": "Containers",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SageMaker::Model.ContainerDefinition"
+                }
               },
               "Tags": {
                 "title": "Tags",
@@ -26313,6 +26508,42 @@
               "Password": {
                 "title": "Password",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-password",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId": {
+            "title": "AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html",
+            "type": "object",
+            "required": [
+              "Revision",
+              "Id"
+            ],
+            "properties": {
+              "Revision": {
+                "title": "Revision",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-revision",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Id": {
+                "title": "Id",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-id",
                 "oneOf": [
                   {
                     "type": "string"
@@ -49280,6 +49511,1047 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoTAnalytics::Channel.RetentionPeriod": {
+            "title": "AWS::IoTAnalytics::Channel.RetentionPeriod",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-retentionperiod.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "NumberOfDays": {
+                "title": "NumberOfDays",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-retentionperiod.html#cfn-iotanalytics-channel-retentionperiod-numberofdays",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Unlimited": {
+                "title": "Unlimited",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-retentionperiod.html#cfn-iotanalytics-channel-retentionperiod-unlimited",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.Action": {
+            "title": "AWS::IoTAnalytics::Dataset.Action",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html",
+            "type": "object",
+            "required": [
+              "ActionName"
+            ],
+            "properties": {
+              "ActionName": {
+                "title": "ActionName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-actionname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ContainerAction": {
+                "title": "ContainerAction",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-containeraction",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.ContainerAction"
+              },
+              "QueryAction": {
+                "title": "QueryAction",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-queryaction",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.QueryAction"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.ContainerAction": {
+            "title": "AWS::IoTAnalytics::Dataset.ContainerAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html",
+            "type": "object",
+            "required": [
+              "ExecutionRoleArn",
+              "Image",
+              "ResourceConfiguration"
+            ],
+            "properties": {
+              "Variables": {
+                "title": "Variables",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-variables",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.Variable"
+                }
+              },
+              "ExecutionRoleArn": {
+                "title": "ExecutionRoleArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-executionrolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Image": {
+                "title": "Image",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-image",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourceConfiguration": {
+                "title": "ResourceConfiguration",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-resourceconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.ResourceConfiguration"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.DatasetContentVersionValue": {
+            "title": "AWS::IoTAnalytics::Dataset.DatasetContentVersionValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-datasetcontentversionvalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DatasetName": {
+                "title": "DatasetName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-datasetcontentversionvalue.html#cfn-iotanalytics-dataset-variable-datasetcontentversionvalue-datasetname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.DeltaTime": {
+            "title": "AWS::IoTAnalytics::Dataset.DeltaTime",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html",
+            "type": "object",
+            "required": [
+              "TimeExpression",
+              "OffsetSeconds"
+            ],
+            "properties": {
+              "TimeExpression": {
+                "title": "TimeExpression",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-timeexpression",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "OffsetSeconds": {
+                "title": "OffsetSeconds",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-offsetseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.Filter": {
+            "title": "AWS::IoTAnalytics::Dataset.Filter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DeltaTime": {
+                "title": "DeltaTime",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html#cfn-iotanalytics-dataset-filter-deltatime",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.DeltaTime"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.OutputFileUriValue": {
+            "title": "AWS::IoTAnalytics::Dataset.OutputFileUriValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-outputfileurivalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "FileName": {
+                "title": "FileName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-outputfileurivalue.html#cfn-iotanalytics-dataset-variable-outputfileurivalue-filename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.QueryAction": {
+            "title": "AWS::IoTAnalytics::Dataset.QueryAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html",
+            "type": "object",
+            "required": [
+              "SqlQuery"
+            ],
+            "properties": {
+              "Filters": {
+                "title": "Filters",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-filters",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.Filter"
+                }
+              },
+              "SqlQuery": {
+                "title": "SqlQuery",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-sqlquery",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.ResourceConfiguration": {
+            "title": "AWS::IoTAnalytics::Dataset.ResourceConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html",
+            "type": "object",
+            "required": [
+              "VolumeSizeInGB",
+              "ComputeType"
+            ],
+            "properties": {
+              "VolumeSizeInGB": {
+                "title": "VolumeSizeInGB",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html#cfn-iotanalytics-dataset-resourceconfiguration-volumesizeingb",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ComputeType": {
+                "title": "ComputeType",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html#cfn-iotanalytics-dataset-resourceconfiguration-computetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.RetentionPeriod": {
+            "title": "AWS::IoTAnalytics::Dataset.RetentionPeriod",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html",
+            "type": "object",
+            "required": [
+              "NumberOfDays",
+              "Unlimited"
+            ],
+            "properties": {
+              "NumberOfDays": {
+                "title": "NumberOfDays",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html#cfn-iotanalytics-dataset-retentionperiod-numberofdays",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Unlimited": {
+                "title": "Unlimited",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html#cfn-iotanalytics-dataset-retentionperiod-unlimited",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.Schedule": {
+            "title": "AWS::IoTAnalytics::Dataset.Schedule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger-schedule.html",
+            "type": "object",
+            "required": [
+              "ScheduleExpression"
+            ],
+            "properties": {
+              "ScheduleExpression": {
+                "title": "ScheduleExpression",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger-schedule.html#cfn-iotanalytics-dataset-trigger-schedule-scheduleexpression",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.Trigger": {
+            "title": "AWS::IoTAnalytics::Dataset.Trigger",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Schedule": {
+                "title": "Schedule",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-schedule",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.Schedule"
+              },
+              "TriggeringDataset": {
+                "title": "TriggeringDataset",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-triggeringdataset",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.TriggeringDataset"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.TriggeringDataset": {
+            "title": "AWS::IoTAnalytics::Dataset.TriggeringDataset",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html",
+            "type": "object",
+            "required": [
+              "DatasetName"
+            ],
+            "properties": {
+              "DatasetName": {
+                "title": "DatasetName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html#cfn-iotanalytics-dataset-triggeringdataset-datasetname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Dataset.Variable": {
+            "title": "AWS::IoTAnalytics::Dataset.Variable",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html",
+            "type": "object",
+            "required": [
+              "VariableName"
+            ],
+            "properties": {
+              "DatasetContentVersionValue": {
+                "title": "DatasetContentVersionValue",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-datasetcontentversionvalue",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.DatasetContentVersionValue"
+              },
+              "DoubleValue": {
+                "title": "DoubleValue",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-doublevalue",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "OutputFileUriValue": {
+                "title": "OutputFileUriValue",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-outputfileurivalue",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Dataset.OutputFileUriValue"
+              },
+              "VariableName": {
+                "title": "VariableName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-variablename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StringValue": {
+                "title": "StringValue",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-stringvalue",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Datastore.RetentionPeriod": {
+            "title": "AWS::IoTAnalytics::Datastore.RetentionPeriod",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "NumberOfDays": {
+                "title": "NumberOfDays",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html#cfn-iotanalytics-datastore-retentionperiod-numberofdays",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Unlimited": {
+                "title": "Unlimited",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html#cfn-iotanalytics-datastore-retentionperiod-unlimited",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.Activity": {
+            "title": "AWS::IoTAnalytics::Pipeline.Activity",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "SelectAttributes": {
+                "title": "SelectAttributes",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-selectattributes",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.SelectAttributes"
+              },
+              "Datastore": {
+                "title": "Datastore",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-datastore",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.Datastore"
+              },
+              "Filter": {
+                "title": "Filter",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-filter",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.Filter"
+              },
+              "AddAttributes": {
+                "title": "AddAttributes",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-addattributes",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.AddAttributes"
+              },
+              "Channel": {
+                "title": "Channel",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-channel",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.Channel"
+              },
+              "DeviceShadowEnrich": {
+                "title": "DeviceShadowEnrich",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceshadowenrich",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich"
+              },
+              "Math": {
+                "title": "Math",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-math",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.Math"
+              },
+              "Lambda": {
+                "title": "Lambda",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-lambda",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.Lambda"
+              },
+              "DeviceRegistryEnrich": {
+                "title": "DeviceRegistryEnrich",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceregistryenrich",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich"
+              },
+              "RemoveAttributes": {
+                "title": "RemoveAttributes",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-removeattributes",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTAnalytics::Pipeline.RemoveAttributes"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.AddAttributes": {
+            "title": "AWS::IoTAnalytics::Pipeline.AddAttributes",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Attributes": {
+                "title": "Attributes",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-attributes",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.Channel": {
+            "title": "AWS::IoTAnalytics::Pipeline.Channel",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ChannelName": {
+                "title": "ChannelName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-channelname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.Datastore": {
+            "title": "AWS::IoTAnalytics::Pipeline.Datastore",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DatastoreName": {
+                "title": "DatastoreName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html#cfn-iotanalytics-pipeline-datastore-datastorename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html#cfn-iotanalytics-pipeline-datastore-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich": {
+            "title": "AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Attribute": {
+                "title": "Attribute",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-attribute",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ThingName": {
+                "title": "ThingName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-thingname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich": {
+            "title": "AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Attribute": {
+                "title": "Attribute",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-attribute",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ThingName": {
+                "title": "ThingName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-thingname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.Filter": {
+            "title": "AWS::IoTAnalytics::Pipeline.Filter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Filter": {
+                "title": "Filter",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-filter",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.Lambda": {
+            "title": "AWS::IoTAnalytics::Pipeline.Lambda",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "BatchSize": {
+                "title": "BatchSize",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-batchsize",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "LambdaName": {
+                "title": "LambdaName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-lambdaname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.Math": {
+            "title": "AWS::IoTAnalytics::Pipeline.Math",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Attribute": {
+                "title": "Attribute",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-attribute",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Math": {
+                "title": "Math",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-math",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.RemoveAttributes": {
+            "title": "AWS::IoTAnalytics::Pipeline.RemoveAttributes",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Attributes": {
+                "title": "Attributes",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-attributes",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTAnalytics::Pipeline.SelectAttributes": {
+            "title": "AWS::IoTAnalytics::Pipeline.SelectAttributes",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Next": {
+                "title": "Next",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-next",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Attributes": {
+                "title": "Attributes",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-attributes",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Kinesis::Stream.StreamEncryption": {
             "title": "AWS::Kinesis::Stream.StreamEncryption",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html",
@@ -56556,6 +57828,18 @@
                   }
                 ]
               },
+              "AcceleratorType": {
+                "title": "AcceleratorType",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "InitialVariantWeight": {
                 "title": "InitialVariantWeight",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight",
@@ -58316,6 +59600,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AmazonMQ::Configuration"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AmazonMQ::ConfigurationAssociation": {
+            "title": "AWS::AmazonMQ::ConfigurationAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AmazonMQ::ConfigurationAssociation"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AmazonMQ::ConfigurationAssociation"
                   }
                 }
               }
@@ -63536,6 +64845,104 @@
               }
             ]
           },
+          "AWS::IoTAnalytics::Channel": {
+            "title": "AWS::IoTAnalytics::Channel",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoTAnalytics::Channel"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoTAnalytics::Channel"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::IoTAnalytics::Dataset": {
+            "title": "AWS::IoTAnalytics::Dataset",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoTAnalytics::Dataset"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoTAnalytics::Dataset"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::IoTAnalytics::Datastore": {
+            "title": "AWS::IoTAnalytics::Datastore",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoTAnalytics::Datastore"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoTAnalytics::Datastore"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::IoTAnalytics::Pipeline": {
+            "title": "AWS::IoTAnalytics::Pipeline",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoTAnalytics::Pipeline"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoTAnalytics::Pipeline"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::KMS::Alias": {
             "title": "AWS::KMS::Alias",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html",
@@ -66459,6 +67866,9 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AmazonMQ::Configuration"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AmazonMQ::ConfigurationAssociation"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGateway::Account"
           },
           {
@@ -67087,6 +68497,18 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT::TopicRule"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoTAnalytics::Channel"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoTAnalytics::Dataset"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoTAnalytics::Datastore"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoTAnalytics::Pipeline"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::KMS::Alias"

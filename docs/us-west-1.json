@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.17.0 https://d68hl49wbnanq.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.18.0 https://d68hl49wbnanq.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -1226,6 +1226,35 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AmazonMQ::ConfigurationAssociation": {
+            "title": "AWS::AmazonMQ::ConfigurationAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html",
+            "type": "object",
+            "required": [
+              "Broker",
+              "Configuration"
+            ],
+            "properties": {
+              "Broker": {
+                "title": "Broker",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-broker",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Configuration": {
+                "title": "Configuration",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-configuration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId"
               }
             },
             "additionalProperties": false
@@ -21779,6 +21808,42 @@
               "Password": {
                 "title": "Password",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-password",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId": {
+            "title": "AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html",
+            "type": "object",
+            "required": [
+              "Revision",
+              "Id"
+            ],
+            "properties": {
+              "Revision": {
+                "title": "Revision",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-revision",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Id": {
+                "title": "Id",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-id",
                 "oneOf": [
                   {
                     "type": "string"
@@ -47045,6 +47110,31 @@
               }
             ]
           },
+          "AWS::AmazonMQ::ConfigurationAssociation": {
+            "title": "AWS::AmazonMQ::ConfigurationAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AmazonMQ::ConfigurationAssociation"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AmazonMQ::ConfigurationAssociation"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::ApiGateway::Account": {
             "title": "AWS::ApiGateway::Account",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html",
@@ -53439,6 +53529,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AmazonMQ::Configuration"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AmazonMQ::ConfigurationAssociation"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGateway::Account"
