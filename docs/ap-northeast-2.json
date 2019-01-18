@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.19.0 https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.20.0 https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -7586,7 +7586,7 @@
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom",
                 "oneOf": [
                   {
-                    "type": "integer"
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -7630,7 +7630,7 @@
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil",
                 "oneOf": [
                   {
-                    "type": "integer"
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -15463,9 +15463,7 @@
             "title": "AWS::Inspector::AssessmentTarget",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html",
             "type": "object",
-            "required": [
-              "ResourceGroupArn"
-            ],
+            "required": [],
             "properties": {
               "AssessmentTargetName": {
                 "title": "AssessmentTargetName",
@@ -16439,6 +16437,67 @@
                 "title": "Content",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-content",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::LayerVersion.Content"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::LayerVersionPermission": {
+            "title": "AWS::Lambda::LayerVersionPermission",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "LayerVersionArn",
+              "Principal"
+            ],
+            "properties": {
+              "Action": {
+                "title": "Action",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-action",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "LayerVersionArn": {
+                "title": "LayerVersionArn",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-layerversionarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "OrganizationId": {
+                "title": "OrganizationId",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-organizationid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Principal": {
+                "title": "Principal",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-principal",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -22710,7 +22769,7 @@
               },
               "HealthCheckCustomConfig": {
                 "title": "HealthCheckCustomConfig",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckcustomconfig",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckcustomconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ServiceDiscovery::Service.HealthCheckCustomConfig"
               },
               "DnsConfig": {
@@ -51855,13 +51914,16 @@
           },
           "Tag": {
             "title": "Tag",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-tag.html",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html",
             "type": "object",
-            "required": [],
+            "required": [
+              "Key",
+              "Value"
+            ],
             "properties": {
-              "Value": {
-                "title": "Value",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-tag.html#cfn-cloudfront-streamingdistribution-tag-value",
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key",
                 "oneOf": [
                   {
                     "type": "string"
@@ -51871,9 +51933,9 @@
                   }
                 ]
               },
-              "Key": {
-                "title": "Key",
-                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-tag.html#cfn-cloudfront-streamingdistribution-tag-key",
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -56387,8 +56449,7 @@
               },
               {
                 "required": [
-                  "Type",
-                  "Properties"
+                  "Type"
                 ],
                 "properties": {
                   "Type": {
@@ -56821,6 +56882,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Lambda::LayerVersion"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Lambda::LayerVersionPermission": {
+            "title": "AWS::Lambda::LayerVersionPermission",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Lambda::LayerVersionPermission"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Lambda::LayerVersionPermission"
                   }
                 }
               }
@@ -59391,6 +59477,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Lambda::LayerVersion"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Lambda::LayerVersionPermission"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Lambda::Permission"
