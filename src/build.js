@@ -98,45 +98,57 @@ function appendProperty(root, propertyName, property, resourceTypeName) {
     root.required.push(propertyName);
   }
 
-  if (property.PrimitiveType) {
-    p.oneOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
+  if (
+    property.PrimitiveType ||
+    property.Type === "List" ||
+    property.Type === "Map"
+  ) {
+    appendPremitiveOrListOrMap(p, resourceTypeName, property);
+  } else if (property.Type) {
+    p.$ref = referPropertyType(resourceTypeName, property.Type);
+  }
+}
 
-    p.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveType));
+function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
+  if (property.PrimitiveType) {
+    root.oneOf = [{ $ref: "#/definitions/intrinsicFunctions" }];
+
+    root.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveType));
   } else if (property.Type === "List") {
-    p.type = "array";
-    p.description = `DuplicatesAllowed: ${property.DuplicatesAllowed}, ${
-      p.description
+    root.type = "array";
+    root.description = `DuplicatesAllowed: ${property.DuplicatesAllowed}, ${
+      root.description
     }`;
 
     if (property.PrimitiveItemType) {
-      p.items = {
+      root.items = {
         oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
       };
 
-      p.items.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveItemType));
+      root.items.oneOf.unshift(
+        getPrimitiveTypeSchema(property.PrimitiveItemType)
+      );
     } else if (property.ItemType) {
-      p.items = {
+      root.items = {
         $ref: referPropertyType(resourceTypeName, property.ItemType)
       };
     }
   } else if (property.Type === "Map") {
-    p.type = "object";
+    root.type = "object";
 
     if (property.PrimitiveItemType) {
-      p.additionalProperties = {
+      root.additionalProperties = {
         oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
       };
 
-      p.additionalProperties.oneOf.unshift(
+      root.additionalProperties.oneOf.unshift(
         getPrimitiveTypeSchema(property.PrimitiveItemType)
       );
     } else if (property.ItemType) {
-      p.additionalProperties = {
+      root.additionalProperties = {
         $ref: referPropertyType(resourceTypeName, property.ItemType)
       };
     }
-  } else if (property.Type) {
-    p.$ref = referPropertyType(resourceTypeName, property.Type);
   }
 }
 
@@ -148,21 +160,26 @@ function appendPropertyTypes(schema, propertyTypes) {
       const resourceTypeName = propertyName.split(".")[0];
 
       const p = {
-        title: propertyName,
-        description: property.Documentation,
-        type: "object",
-        required: [],
-        properties: {},
-        additionalProperties: false
+        title: propertyName
       };
 
-      schema.properties.Resources.definitions.propertyTypes[propertyName] = p;
+      if (property.Properties) {
+        p.type = "object";
+        p.description = property.Documentation;
+        p.required = [];
+        p.properties = {};
+        p.additionalProperties = false;
 
-      Object.entries(property.Properties).forEach(
-        ([subPropertyName, subProperty]) => {
-          appendProperty(p, subPropertyName, subProperty, resourceTypeName);
-        }
-      );
+        Object.entries(property.Properties).forEach(
+          ([subPropertyName, subProperty]) => {
+            appendProperty(p, subPropertyName, subProperty, resourceTypeName);
+          }
+        );
+      } else {
+        appendPremitiveOrListOrMap(p, resourceTypeName, property);
+      }
+
+      schema.properties.Resources.definitions.propertyTypes[propertyName] = p;
     });
 }
 
