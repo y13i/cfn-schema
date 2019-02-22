@@ -166,8 +166,8 @@ function appendPropertyTypes(schema, propertyTypes) {
       };
 
       if (property.Properties) {
-        p.type = "object";
         p.description = property.Documentation;
+        p.type = "object";
         p.required = [];
         p.properties = {};
         p.additionalProperties = false;

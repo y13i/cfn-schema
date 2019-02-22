@@ -40,6 +40,9 @@ JSON Schema for AWS CloudFormation templates.
 - EU (Paris)
   - https://y13i.github.io/cfn-schema/eu-west-3.json
   - https://y13i.github.io/cfn-schema/eu-west-3.min.json
+- EU (Stockholm)
+  - https://y13i.github.io/cfn-schema/eu-north-1.json
+  - https://y13i.github.io/cfn-schema/eu-north-1.min.json
 - South America (São Paulo)
   - https://y13i.github.io/cfn-schema/sa-east-1.json
   - https://y13i.github.io/cfn-schema/sa-east-1.min.json
