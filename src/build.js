@@ -75,10 +75,13 @@ function getPrimitiveTypeSchema(type) {
           "\\d{4}-(0\\d|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d\\.\\d{3}Z",
         default: "1970-01-01T00:00:00.000Z"
       };
+    case "Map":
     case "Json":
       return {
         type: "object"
       };
+    default:
+      console.log(`Unknown premitive type: ${type}`);
   }
 }
 
