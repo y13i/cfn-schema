@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.28.0 https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.29.0 https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -3348,6 +3348,255 @@
                 "title": "DefaultRouteSettings",
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-defaultroutesettings",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ApiGatewayV2::Stage.RouteSettings"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Mesh": {
+            "title": "AWS::AppMesh::Mesh",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html",
+            "type": "object",
+            "required": [
+              "MeshName"
+            ],
+            "properties": {
+              "MeshName": {
+                "title": "MeshName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-meshname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Spec": {
+                "title": "Spec",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-spec",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Mesh.MeshSpec"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Mesh.TagRef"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route": {
+            "title": "AWS::AppMesh::Route",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html",
+            "type": "object",
+            "required": [
+              "MeshName",
+              "VirtualRouterName",
+              "RouteName",
+              "Spec"
+            ],
+            "properties": {
+              "MeshName": {
+                "title": "MeshName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "VirtualRouterName": {
+                "title": "VirtualRouterName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-virtualroutername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RouteName": {
+                "title": "RouteName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-routename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Spec": {
+                "title": "Spec",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-spec",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.RouteSpec"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.TagRef"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode": {
+            "title": "AWS::AppMesh::VirtualNode",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html",
+            "type": "object",
+            "required": [
+              "MeshName",
+              "Spec",
+              "VirtualNodeName"
+            ],
+            "properties": {
+              "MeshName": {
+                "title": "MeshName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-meshname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Spec": {
+                "title": "Spec",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-spec",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.VirtualNodeSpec"
+              },
+              "VirtualNodeName": {
+                "title": "VirtualNodeName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-virtualnodename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.TagRef"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualRouter": {
+            "title": "AWS::AppMesh::VirtualRouter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html",
+            "type": "object",
+            "required": [
+              "MeshName",
+              "VirtualRouterName",
+              "Spec"
+            ],
+            "properties": {
+              "MeshName": {
+                "title": "MeshName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "VirtualRouterName": {
+                "title": "VirtualRouterName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-virtualroutername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Spec": {
+                "title": "Spec",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-spec",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualRouter.VirtualRouterSpec"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualRouter.TagRef"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualService": {
+            "title": "AWS::AppMesh::VirtualService",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html",
+            "type": "object",
+            "required": [
+              "MeshName",
+              "VirtualServiceName",
+              "Spec"
+            ],
+            "properties": {
+              "MeshName": {
+                "title": "MeshName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "VirtualServiceName": {
+                "title": "VirtualServiceName",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-virtualservicename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Spec": {
+                "title": "Spec",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-spec",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualService.VirtualServiceSpec"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualService.TagRef"
+                }
               }
             },
             "additionalProperties": false
@@ -11322,6 +11571,59 @@
               "SubnetId": {
                 "title": "SubnetId",
                 "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EKS::Cluster": {
+            "title": "AWS::EKS::Cluster",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html",
+            "type": "object",
+            "required": [
+              "RoleArn",
+              "ResourcesVpcConfig"
+            ],
+            "properties": {
+              "Version": {
+                "title": "Version",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourcesVpcConfig": {
+                "title": "ResourcesVpcConfig",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EKS::Cluster.ResourcesVpcConfig"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name",
                 "oneOf": [
                   {
                     "type": "string"
@@ -25083,6 +25385,840 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppMesh::Mesh.EgressFilter": {
+            "title": "AWS::AppMesh::Mesh.EgressFilter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html#cfn-appmesh-mesh-egressfilter-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Mesh.MeshSpec": {
+            "title": "AWS::AppMesh::Mesh.MeshSpec",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "EgressFilter": {
+                "title": "EgressFilter",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html#cfn-appmesh-mesh-meshspec-egressfilter",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Mesh.EgressFilter"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Mesh.TagRef": {
+            "title": "AWS::AppMesh::Mesh.TagRef",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html",
+            "type": "object",
+            "required": [
+              "Key"
+            ],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html#cfn-appmesh-mesh-tagref-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html#cfn-appmesh-mesh-tagref-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.HttpRoute": {
+            "title": "AWS::AppMesh::Route.HttpRoute",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "Match"
+            ],
+            "properties": {
+              "Action": {
+                "title": "Action",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-action",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.HttpRouteAction"
+              },
+              "Match": {
+                "title": "Match",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-match",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.HttpRouteMatch"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.HttpRouteAction": {
+            "title": "AWS::AppMesh::Route.HttpRouteAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html",
+            "type": "object",
+            "required": [
+              "WeightedTargets"
+            ],
+            "properties": {
+              "WeightedTargets": {
+                "title": "WeightedTargets",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html#cfn-appmesh-route-httprouteaction-weightedtargets",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.WeightedTarget"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.HttpRouteMatch": {
+            "title": "AWS::AppMesh::Route.HttpRouteMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html",
+            "type": "object",
+            "required": [
+              "Prefix"
+            ],
+            "properties": {
+              "Prefix": {
+                "title": "Prefix",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-prefix",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.RouteSpec": {
+            "title": "AWS::AppMesh::Route.RouteSpec",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "HttpRoute": {
+                "title": "HttpRoute",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-httproute",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.HttpRoute"
+              },
+              "TcpRoute": {
+                "title": "TcpRoute",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-tcproute",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.TcpRoute"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.TagRef": {
+            "title": "AWS::AppMesh::Route.TagRef",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html",
+            "type": "object",
+            "required": [
+              "Key"
+            ],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html#cfn-appmesh-route-tagref-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html#cfn-appmesh-route-tagref-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.TcpRoute": {
+            "title": "AWS::AppMesh::Route.TcpRoute",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html",
+            "type": "object",
+            "required": [
+              "Action"
+            ],
+            "properties": {
+              "Action": {
+                "title": "Action",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.TcpRouteAction"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.TcpRouteAction": {
+            "title": "AWS::AppMesh::Route.TcpRouteAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcprouteaction.html",
+            "type": "object",
+            "required": [
+              "WeightedTargets"
+            ],
+            "properties": {
+              "WeightedTargets": {
+                "title": "WeightedTargets",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcprouteaction.html#cfn-appmesh-route-tcprouteaction-weightedtargets",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.WeightedTarget"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.WeightedTarget": {
+            "title": "AWS::AppMesh::Route.WeightedTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html",
+            "type": "object",
+            "required": [
+              "VirtualNode",
+              "Weight"
+            ],
+            "properties": {
+              "VirtualNode": {
+                "title": "VirtualNode",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-virtualnode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Weight": {
+                "title": "Weight",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-weight",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.AccessLog": {
+            "title": "AWS::AppMesh::VirtualNode.AccessLog",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "File": {
+                "title": "File",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html#cfn-appmesh-virtualnode-accesslog-file",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.FileAccessLog"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.Backend": {
+            "title": "AWS::AppMesh::VirtualNode.Backend",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "VirtualService": {
+                "title": "VirtualService",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html#cfn-appmesh-virtualnode-backend-virtualservice",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.VirtualServiceBackend"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.DnsServiceDiscovery": {
+            "title": "AWS::AppMesh::VirtualNode.DnsServiceDiscovery",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html",
+            "type": "object",
+            "required": [
+              "Hostname"
+            ],
+            "properties": {
+              "Hostname": {
+                "title": "Hostname",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-hostname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.FileAccessLog": {
+            "title": "AWS::AppMesh::VirtualNode.FileAccessLog",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html",
+            "type": "object",
+            "required": [
+              "Path"
+            ],
+            "properties": {
+              "Path": {
+                "title": "Path",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html#cfn-appmesh-virtualnode-fileaccesslog-path",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.HealthCheck": {
+            "title": "AWS::AppMesh::VirtualNode.HealthCheck",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html",
+            "type": "object",
+            "required": [
+              "UnhealthyThreshold",
+              "HealthyThreshold",
+              "TimeoutMillis",
+              "Protocol",
+              "IntervalMillis"
+            ],
+            "properties": {
+              "Path": {
+                "title": "Path",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-path",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UnhealthyThreshold": {
+                "title": "UnhealthyThreshold",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-unhealthythreshold",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Port": {
+                "title": "Port",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-port",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "HealthyThreshold": {
+                "title": "HealthyThreshold",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-healthythreshold",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TimeoutMillis": {
+                "title": "TimeoutMillis",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-timeoutmillis",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Protocol": {
+                "title": "Protocol",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-protocol",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "IntervalMillis": {
+                "title": "IntervalMillis",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-intervalmillis",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.Listener": {
+            "title": "AWS::AppMesh::VirtualNode.Listener",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html",
+            "type": "object",
+            "required": [
+              "PortMapping"
+            ],
+            "properties": {
+              "HealthCheck": {
+                "title": "HealthCheck",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.HealthCheck"
+              },
+              "PortMapping": {
+                "title": "PortMapping",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.PortMapping"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.Logging": {
+            "title": "AWS::AppMesh::VirtualNode.Logging",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "AccessLog": {
+                "title": "AccessLog",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html#cfn-appmesh-virtualnode-logging-accesslog",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.AccessLog"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.PortMapping": {
+            "title": "AWS::AppMesh::VirtualNode.PortMapping",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html",
+            "type": "object",
+            "required": [
+              "Port",
+              "Protocol"
+            ],
+            "properties": {
+              "Port": {
+                "title": "Port",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html#cfn-appmesh-virtualnode-portmapping-port",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Protocol": {
+                "title": "Protocol",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html#cfn-appmesh-virtualnode-portmapping-protocol",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.ServiceDiscovery": {
+            "title": "AWS::AppMesh::VirtualNode.ServiceDiscovery",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html",
+            "type": "object",
+            "required": [
+              "DNS"
+            ],
+            "properties": {
+              "DNS": {
+                "title": "DNS",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-dns",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.DnsServiceDiscovery"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.TagRef": {
+            "title": "AWS::AppMesh::VirtualNode.TagRef",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html",
+            "type": "object",
+            "required": [
+              "Key"
+            ],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html#cfn-appmesh-virtualnode-tagref-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html#cfn-appmesh-virtualnode-tagref-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.VirtualNodeSpec": {
+            "title": "AWS::AppMesh::VirtualNode.VirtualNodeSpec",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Logging": {
+                "title": "Logging",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-logging",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.Logging"
+              },
+              "Backends": {
+                "title": "Backends",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backends",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.Backend"
+                }
+              },
+              "Listeners": {
+                "title": "Listeners",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-listeners",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.Listener"
+                }
+              },
+              "ServiceDiscovery": {
+                "title": "ServiceDiscovery",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-servicediscovery",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.ServiceDiscovery"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.VirtualServiceBackend": {
+            "title": "AWS::AppMesh::VirtualNode.VirtualServiceBackend",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html",
+            "type": "object",
+            "required": [
+              "VirtualServiceName"
+            ],
+            "properties": {
+              "VirtualServiceName": {
+                "title": "VirtualServiceName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-virtualservicename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualRouter.PortMapping": {
+            "title": "AWS::AppMesh::VirtualRouter.PortMapping",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-portmapping.html",
+            "type": "object",
+            "required": [
+              "Port",
+              "Protocol"
+            ],
+            "properties": {
+              "Port": {
+                "title": "Port",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-portmapping.html#cfn-appmesh-virtualrouter-portmapping-port",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Protocol": {
+                "title": "Protocol",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-portmapping.html#cfn-appmesh-virtualrouter-portmapping-protocol",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualRouter.TagRef": {
+            "title": "AWS::AppMesh::VirtualRouter.TagRef",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html",
+            "type": "object",
+            "required": [
+              "Key"
+            ],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html#cfn-appmesh-virtualrouter-tagref-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html#cfn-appmesh-virtualrouter-tagref-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualRouter.VirtualRouterListener": {
+            "title": "AWS::AppMesh::VirtualRouter.VirtualRouterListener",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html",
+            "type": "object",
+            "required": [
+              "PortMapping"
+            ],
+            "properties": {
+              "PortMapping": {
+                "title": "PortMapping",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html#cfn-appmesh-virtualrouter-virtualrouterlistener-portmapping",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualRouter.PortMapping"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualRouter.VirtualRouterSpec": {
+            "title": "AWS::AppMesh::VirtualRouter.VirtualRouterSpec",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html",
+            "type": "object",
+            "required": [
+              "Listeners"
+            ],
+            "properties": {
+              "Listeners": {
+                "title": "Listeners",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html#cfn-appmesh-virtualrouter-virtualrouterspec-listeners",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualRouter.VirtualRouterListener"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualService.TagRef": {
+            "title": "AWS::AppMesh::VirtualService.TagRef",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html",
+            "type": "object",
+            "required": [
+              "Key"
+            ],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html#cfn-appmesh-virtualservice-tagref-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html#cfn-appmesh-virtualservice-tagref-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualService.VirtualNodeServiceProvider": {
+            "title": "AWS::AppMesh::VirtualService.VirtualNodeServiceProvider",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html",
+            "type": "object",
+            "required": [
+              "VirtualNodeName"
+            ],
+            "properties": {
+              "VirtualNodeName": {
+                "title": "VirtualNodeName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html#cfn-appmesh-virtualservice-virtualnodeserviceprovider-virtualnodename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualService.VirtualRouterServiceProvider": {
+            "title": "AWS::AppMesh::VirtualService.VirtualRouterServiceProvider",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html",
+            "type": "object",
+            "required": [
+              "VirtualRouterName"
+            ],
+            "properties": {
+              "VirtualRouterName": {
+                "title": "VirtualRouterName",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html#cfn-appmesh-virtualservice-virtualrouterserviceprovider-virtualroutername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualService.VirtualServiceProvider": {
+            "title": "AWS::AppMesh::VirtualService.VirtualServiceProvider",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "VirtualNode": {
+                "title": "VirtualNode",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualnode",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualService.VirtualNodeServiceProvider"
+              },
+              "VirtualRouter": {
+                "title": "VirtualRouter",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualrouter",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualService.VirtualRouterServiceProvider"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualService.VirtualServiceSpec": {
+            "title": "AWS::AppMesh::VirtualService.VirtualServiceSpec",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Provider": {
+                "title": "Provider",
+                "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html#cfn-appmesh-virtualservice-virtualservicespec-provider",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualService.VirtualServiceProvider"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppSync::DataSource.AuthorizationConfig": {
             "title": "AWS::AppSync::DataSource.AuthorizationConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html",
@@ -38070,6 +39206,47 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EKS::Cluster.ResourcesVpcConfig": {
+            "title": "AWS::EKS::Cluster.ResourcesVpcConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html",
+            "type": "object",
+            "required": [
+              "SubnetIds"
+            ],
+            "properties": {
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-securitygroupids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SubnetIds": {
+                "title": "SubnetIds",
+                "description": "DuplicatesAllowed: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-subnetids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
               }
             },
             "additionalProperties": false
@@ -51730,7 +52907,7 @@
                 "description": "UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl",
                 "oneOf": [
                   {
-                    "type": "string"
+                    "type": "number"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -53230,6 +54407,131 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGatewayV2::Stage"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppMesh::Mesh": {
+            "title": "AWS::AppMesh::Mesh",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppMesh::Mesh"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppMesh::Mesh"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppMesh::Route": {
+            "title": "AWS::AppMesh::Route",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppMesh::Route"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppMesh::Route"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppMesh::VirtualNode": {
+            "title": "AWS::AppMesh::VirtualNode",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppMesh::VirtualNode"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppMesh::VirtualNode"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppMesh::VirtualRouter": {
+            "title": "AWS::AppMesh::VirtualRouter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppMesh::VirtualRouter"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppMesh::VirtualRouter"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::AppMesh::VirtualService": {
+            "title": "AWS::AppMesh::VirtualService",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::AppMesh::VirtualService"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AppMesh::VirtualService"
                   }
                 }
               }
@@ -55737,6 +57039,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EFS::MountTarget"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EKS::Cluster": {
+            "title": "AWS::EKS::Cluster",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EKS::Cluster"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EKS::Cluster"
                   }
                 }
               }
@@ -59588,6 +60915,21 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Stage"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppMesh::Mesh"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppMesh::Route"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppMesh::VirtualNode"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppMesh::VirtualRouter"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppMesh::VirtualService"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AppSync::DataSource"
           },
           {
@@ -59889,6 +61231,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EFS::MountTarget"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EKS::Cluster"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EMR::Cluster"
