@@ -15,6 +15,6 @@ else
   git add .
   git commit -m "rebuild"
   git push "https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-
-  exit 0
 fi
+
+exit $?
