@@ -20,5 +20,6 @@ workflow "Daily" {
 }
 
 action "Rebuild and push" {
+  uses = "."
   runs = ["sh", "scripts/rebuildPush.sh"]
 }
