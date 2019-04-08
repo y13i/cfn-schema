@@ -6,48 +6,9 @@ const axios = require("axios");
 const readFileAsync = promisify(readFile);
 const writeFileAsync = promisify(writeFile);
 
+const regionsPath = join(__dirname, "regions.json");
 const baseSchemaPath = join(__dirname, "base.json");
 const outputPath = join(__dirname, "..", "docs");
-
-// https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html
-// https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
-// https://docs.aws.amazon.com/general/latest/gr/rande.html#cfn_region
-const resourceSpecUrls = {
-  "ap-northeast-1":
-    "https://d33vqc0rt9ld30.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Tokyo)
-  "ap-northeast-2":
-    "https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Seoul)
-  "ap-northeast-3":
-    "https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Osaka-Local)
-  "ap-south-1":
-    "https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Mumbai)
-  "ap-southeast-1":
-    "https://doigdx0kgq9el.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Singapore)
-  "ap-southeast-2":
-    "https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Asia Pacific (Sydney)
-  "ca-central-1":
-    "https://d2s8ygphhesbe7.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // Canada (Central)
-  "eu-central-1":
-    "https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Frankfurt)
-  "eu-west-1":
-    "https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Ireland)
-  "eu-west-2":
-    "https://d1742qcu2c1ncx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (London)
-  "eu-west-3":
-    "https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Paris)
-  "eu-north-1":
-    "https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // EU (Stockholm)
-  "sa-east-1":
-    "https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // South America (São Paulo)
-  "us-east-1":
-    "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // US East (N. Virginia)
-  "us-east-2":
-    "https://dnwj8swjjbsbt.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // US East (Ohio)
-  "us-west-1":
-    "https://d68hl49wbnanq.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json", // US West (N. California)
-  "us-west-2":
-    "https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json" // US West (Oregon)
-};
 
 function getPrimitiveTypeSchema(type) {
   switch (type) {
@@ -260,23 +221,30 @@ async function buildSchema(schema, resourceSpecUrl) {
 }
 
 async function main() {
-  const baseJson = await readFileAsync(baseSchemaPath);
+  const [regionsJson, baseJson] = await Promise.all([
+    readFileAsync(regionsPath),
+    readFileAsync(baseSchemaPath)
+  ]);
+
+  const regions = JSON.parse(regionsJson);
 
   await Promise.all(
-    Object.entries(resourceSpecUrls).map(async ([region, resourceSpecUrl]) => {
-      const schema = await buildSchema(JSON.parse(baseJson), resourceSpecUrl);
+    regions.map(async region => {
+      const schema = await buildSchema(JSON.parse(baseJson), region.url);
 
       await Promise.all([
         writeFileAsync(
-          join(outputPath, `${region}.json`),
+          join(outputPath, `${region.code}.json`),
           JSON.stringify(schema, undefined, 2) + "\n"
         ),
 
         writeFileAsync(
-          join(outputPath, `${region}.min.json`),
+          join(outputPath, `${region.code}.min.json`),
           JSON.stringify(schema)
         )
       ]);
+
+      console.log(`Built schema for ${region.code}, ${region.name}.`);
     })
   );
 }
