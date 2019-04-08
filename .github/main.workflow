@@ -5,12 +5,12 @@ workflow "On push" {
 
 action "Only rebuild branch" {
   uses = "actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740"
-  args = "branch rebuild"
+  args = "branch rebuild/*"
 }
 
 action "Create pull request" {
   uses = "vsoch/pull-request-action@master"
-  needs = ["Only rebuild branch/*"]
+  needs = ["Only rebuild branch"]
   secrets = ["GITHUB_TOKEN"]
 }
 
