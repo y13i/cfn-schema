@@ -15,10 +15,11 @@ action "Create pull request" {
 }
 
 workflow "Daily" {
-  on = "schedule(30 0 * * *)"
+  on = "schedule(45 0 * * *)"
   resolves = ["Rebuild and push"]
 }
 
 action "Rebuild and push" {
+  uses = "./Dockerfile"
   runs = ["sh", "scripts/rebuildPush.sh"]
 }
