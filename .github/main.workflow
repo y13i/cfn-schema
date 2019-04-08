@@ -15,11 +15,12 @@ action "Create pull request" {
 }
 
 workflow "Daily" {
-  on = "schedule(33 1 * * *)"
+  on = "schedule(50 1 * * *)"
   resolves = ["Rebuild and push"]
 }
 
 action "Rebuild and push" {
   uses = "./"
   runs = ["sh", "scripts/rebuildPush.sh"]
+  secrets = ["GITHUB_TOKEN"]
 }
