@@ -102,6 +102,14 @@ See also...
 
 ## Development
 
+See [base.json](src/base.json) for the base schema. See [build.js](src/build.js) for building script which merges AWS-providing [Resource Specification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html) to the base schema.
+
+### Related Documents
+
+- [AWS CloudFormation Resource Specification - AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html)
+- [Specification Format - AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html)
+- [AWS Regions and Endpoints - Amazon Web Services](https://docs.aws.amazon.com/general/latest/gr/rande.html#cfn_region)
+
 ### Build
 
 ```sh
