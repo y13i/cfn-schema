@@ -15,7 +15,7 @@ action "Create pull request" {
 }
 
 workflow "Daily" {
-  on = "schedule(3 1 * * *)"
+  on = "schedule(20 1 * * *)"
   resolves = ["Rebuild and push"]
 }
 

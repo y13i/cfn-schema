@@ -7,6 +7,8 @@ TIMESTAMP=`date +%s | tr -d '\n'`
 
 git checkout -b rebuild/${TIMESTAMP}
 
+pwd
+
 npm run build
 
 if git diff-index --quiet HEAD --; then
