@@ -1,1 +1,15 @@
+workflow "On push" {
+  on = "push"
+  resolves = ["vsoch/pull-request-action@master"]
+}
 
+action "Only rebuild branch" {
+  uses = "actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740"
+  args = "branch rebuild"
+}
+
+action "vsoch/pull-request-action@master" {
+  uses = "vsoch/pull-request-action@master"
+  needs = ["Only rebuild branch"]
+  secrets = ["GITHUB_TOKEN"]
+}
