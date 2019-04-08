@@ -1,6 +1,6 @@
 workflow "On push" {
   on = "push"
-  resolves = ["vsoch/pull-request-action@master"]
+  resolves = ["Create pull request"]
 }
 
 action "Only rebuild branch" {
@@ -8,8 +8,17 @@ action "Only rebuild branch" {
   args = "branch rebuild"
 }
 
-action "vsoch/pull-request-action@master" {
+action "Create pull request" {
   uses = "vsoch/pull-request-action@master"
-  needs = ["Only rebuild branch"]
+  needs = ["Only rebuild branch/*"]
   secrets = ["GITHUB_TOKEN"]
+}
+
+workflow "Daily" {
+  on = "schedule(30 0 * * *)"
+  resolves = ["Rebuild and push"]
+}
+
+action "Rebuild and push" {
+  runs = ["sh", "scripts/rebuildPush.sh"]
 }
