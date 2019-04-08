@@ -20,6 +20,6 @@ workflow "Daily" {
 }
 
 action "Rebuild and push" {
-  uses = "./Dockerfile"
+  uses = "./"
   runs = ["sh", "scripts/rebuildPush.sh"]
 }
