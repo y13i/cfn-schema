@@ -55,7 +55,10 @@ function referPropertyType(resourceTypeName, itemType) {
 function appendProperty(root, propertyName, property, resourceTypeName) {
   const p = {
     title: propertyName,
-    description: `UpdateType: ${property.UpdateType}, ${property.Documentation}`
+    description: `Type: ${property.Type ||
+      property.PrimitiveType}, UpdateType: ${property.UpdateType}, ${
+      property.Documentation
+    }`
   };
 
   root.properties[propertyName] = p;
@@ -82,9 +85,11 @@ function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
     root.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveType));
   } else if (property.Type === "List") {
     root.type = "array";
-    root.description = `DuplicatesAllowed: ${property.DuplicatesAllowed}, ${
-      root.description
-    }`;
+    root.description = `${
+      property.DuplicatesAllowed === undefined
+        ? ""
+        : "DuplicatesAllowed: " + property.DuplicatesAllowed + ", "
+    }${root.description}`;
 
     if (property.PrimitiveItemType) {
       root.items = {
