@@ -1,5 +1,5 @@
 workflow "Daily" {
-  on = "schedule(15 6 * * *)"
+  on = "schedule(30 6 * * *)"
   resolves = ["Rebuild and push"]
 }
 
@@ -14,11 +14,13 @@ workflow "On push to rebuild/* branch, Create Pull Request" {
   resolves = "Create New Pull Request"
 }
 
-action "Create New Pull Request" {
-  uses = "vsoch/pull-request-action@master"
-  secrets = ["GITHUB_TOKEN"]
+action "Filters for GitHub Actions" {
+  uses = "actions/bin/filter@master"
+  args = "branch rebuild/*"
+}
 
-  env = {
-    BRANCH_PREFIX = "rebuild/"
-  }
+action "Create New Pull Request" {
+  uses = "repetitive/actions/auto-pull-request@master"
+  needs = ["Filters for GitHub Actions"]
+  secrets = ["GITHUB_TOKEN"]
 }
