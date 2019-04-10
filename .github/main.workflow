@@ -1,6 +1,6 @@
 workflow "Daily" {
-  on = "schedule(5 2 * * *)"
-  resolves = ["Create pull request"]
+  on = "schedule(13 8 * * *)"
+  resolves = ["Rebuild and push"]
 }
 
 action "Rebuild and push" {
@@ -9,8 +9,16 @@ action "Rebuild and push" {
   secrets = ["GITHUB_TOKEN"]
 }
 
-action "Create pull request" {
+workflow "On push to rebuild/* branch, Create Pull Request" {
+  on = "push"
+  resolves = "Create New Pull Request"
+}
+
+action "Create New Pull Request" {
   uses = "vsoch/pull-request-action@master"
-  needs = ["Rebuild and push"]
   secrets = ["GITHUB_TOKEN"]
+
+  env = {
+    BRANCH_PREFIX = "rebuild/"
+  }
 }
