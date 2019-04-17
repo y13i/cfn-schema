@@ -1,5 +1,5 @@
 workflow "Daily" {
-  on = "schedule(30 6 * * *)"
+  on = "schedule(0 8 * * *)"
   resolves = ["Rebuild and push"]
 }
 
