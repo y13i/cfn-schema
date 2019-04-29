@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.30.0 https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.32.0 https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -17501,6 +17501,34 @@
             },
             "additionalProperties": false
           },
+          "AWS::Greengrass::ResourceDefinition": {
+            "title": "AWS::Greengrass::ResourceDefinition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "InitialVersion": {
+                "title": "InitialVersion",
+                "description": "Type: ResourceDefinitionVersion, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html#cfn-greengrass-resourcedefinition-initialversion",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.ResourceDefinitionVersion"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html#cfn-greengrass-resourcedefinition-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Greengrass::ResourceDefinitionVersion": {
             "title": "AWS::Greengrass::ResourceDefinitionVersion",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html",
@@ -25373,6 +25401,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-tags",
+                "oneOf": [
+                  {
+                    "type": "object"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -37809,6 +37849,18 @@
               "ReplyToEmailAddress": {
                 "title": "ReplyToEmailAddress",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-replytoemailaddress",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EmailSendingAccount": {
+                "title": "EmailSendingAccount",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-emailsendingaccount",
                 "oneOf": [
                   {
                     "type": "string"
@@ -51519,10 +51571,7 @@
             "title": "AWS::Greengrass::FunctionDefinition.FunctionConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html",
             "type": "object",
-            "required": [
-              "MemorySize",
-              "Timeout"
-            ],
+            "required": [],
             "properties": {
               "MemorySize": {
                 "title": "MemorySize",
@@ -51830,10 +51879,7 @@
             "title": "AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html",
             "type": "object",
-            "required": [
-              "MemorySize",
-              "Timeout"
-            ],
+            "required": [],
             "properties": {
               "MemorySize": {
                 "title": "MemorySize",
@@ -52239,6 +52285,315 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.GroupOwnerSetting": {
+            "title": "AWS::Greengrass::ResourceDefinition.GroupOwnerSetting",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html",
+            "type": "object",
+            "required": [
+              "AutoAddGroupOwner"
+            ],
+            "properties": {
+              "AutoAddGroupOwner": {
+                "title": "AutoAddGroupOwner",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html#cfn-greengrass-resourcedefinition-groupownersetting-autoaddgroupowner",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "GroupOwner": {
+                "title": "GroupOwner",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-groupownersetting.html#cfn-greengrass-resourcedefinition-groupownersetting-groupowner",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.LocalDeviceResourceData": {
+            "title": "AWS::Greengrass::ResourceDefinition.LocalDeviceResourceData",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html",
+            "type": "object",
+            "required": [
+              "SourcePath"
+            ],
+            "properties": {
+              "SourcePath": {
+                "title": "SourcePath",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html#cfn-greengrass-resourcedefinition-localdeviceresourcedata-sourcepath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "GroupOwnerSetting": {
+                "title": "GroupOwnerSetting",
+                "description": "Type: GroupOwnerSetting, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html#cfn-greengrass-resourcedefinition-localdeviceresourcedata-groupownersetting",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.GroupOwnerSetting"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.LocalVolumeResourceData": {
+            "title": "AWS::Greengrass::ResourceDefinition.LocalVolumeResourceData",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html",
+            "type": "object",
+            "required": [
+              "SourcePath",
+              "DestinationPath"
+            ],
+            "properties": {
+              "SourcePath": {
+                "title": "SourcePath",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-sourcepath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DestinationPath": {
+                "title": "DestinationPath",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-destinationpath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "GroupOwnerSetting": {
+                "title": "GroupOwnerSetting",
+                "description": "Type: GroupOwnerSetting, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-groupownersetting",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.GroupOwnerSetting"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.ResourceDataContainer": {
+            "title": "AWS::Greengrass::ResourceDefinition.ResourceDataContainer",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "SecretsManagerSecretResourceData": {
+                "title": "SecretsManagerSecretResourceData",
+                "description": "Type: SecretsManagerSecretResourceData, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-secretsmanagersecretresourcedata",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.SecretsManagerSecretResourceData"
+              },
+              "SageMakerMachineLearningModelResourceData": {
+                "title": "SageMakerMachineLearningModelResourceData",
+                "description": "Type: SageMakerMachineLearningModelResourceData, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-sagemakermachinelearningmodelresourcedata",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.SageMakerMachineLearningModelResourceData"
+              },
+              "LocalVolumeResourceData": {
+                "title": "LocalVolumeResourceData",
+                "description": "Type: LocalVolumeResourceData, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-localvolumeresourcedata",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.LocalVolumeResourceData"
+              },
+              "LocalDeviceResourceData": {
+                "title": "LocalDeviceResourceData",
+                "description": "Type: LocalDeviceResourceData, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-localdeviceresourcedata",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.LocalDeviceResourceData"
+              },
+              "S3MachineLearningModelResourceData": {
+                "title": "S3MachineLearningModelResourceData",
+                "description": "Type: S3MachineLearningModelResourceData, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-s3machinelearningmodelresourcedata",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.S3MachineLearningModelResourceData"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.ResourceDefinitionVersion": {
+            "title": "AWS::Greengrass::ResourceDefinition.ResourceDefinitionVersion",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html",
+            "type": "object",
+            "required": [
+              "Resources"
+            ],
+            "properties": {
+              "Resources": {
+                "title": "Resources",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html#cfn-greengrass-resourcedefinition-resourcedefinitionversion-resources",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.ResourceInstance"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.ResourceInstance": {
+            "title": "AWS::Greengrass::ResourceDefinition.ResourceInstance",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html",
+            "type": "object",
+            "required": [
+              "ResourceDataContainer",
+              "Id",
+              "Name"
+            ],
+            "properties": {
+              "ResourceDataContainer": {
+                "title": "ResourceDataContainer",
+                "description": "Type: ResourceDataContainer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-resourcedatacontainer",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Greengrass::ResourceDefinition.ResourceDataContainer"
+              },
+              "Id": {
+                "title": "Id",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-id",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.S3MachineLearningModelResourceData": {
+            "title": "AWS::Greengrass::ResourceDefinition.S3MachineLearningModelResourceData",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html",
+            "type": "object",
+            "required": [
+              "DestinationPath",
+              "S3Uri"
+            ],
+            "properties": {
+              "DestinationPath": {
+                "title": "DestinationPath",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-destinationpath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "S3Uri": {
+                "title": "S3Uri",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-s3uri",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.SageMakerMachineLearningModelResourceData": {
+            "title": "AWS::Greengrass::ResourceDefinition.SageMakerMachineLearningModelResourceData",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html",
+            "type": "object",
+            "required": [
+              "DestinationPath",
+              "SageMakerJobArn"
+            ],
+            "properties": {
+              "DestinationPath": {
+                "title": "DestinationPath",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-destinationpath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SageMakerJobArn": {
+                "title": "SageMakerJobArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-sagemakerjobarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Greengrass::ResourceDefinition.SecretsManagerSecretResourceData": {
+            "title": "AWS::Greengrass::ResourceDefinition.SecretsManagerSecretResourceData",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-secretsmanagersecretresourcedata.html",
+            "type": "object",
+            "required": [
+              "ARN"
+            ],
+            "properties": {
+              "ARN": {
+                "title": "ARN",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-secretsmanagersecretresourcedata.html#cfn-greengrass-resourcedefinition-secretsmanagersecretresourcedata-arn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AdditionalStagingLabelsToDownload": {
+                "title": "AdditionalStagingLabelsToDownload",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-secretsmanagersecretresourcedata.html#cfn-greengrass-resourcedefinition-secretsmanagersecretresourcedata-additionalstaginglabelstodownload",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
               }
             },
             "additionalProperties": false
@@ -61878,16 +62233,13 @@
           },
           "Tag": {
             "title": "Tag",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationtask-tag.html",
             "type": "object",
-            "required": [
-              "Key",
-              "Value"
-            ],
+            "required": [],
             "properties": {
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key",
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationtask-tag.html#cfn-dms-replicationtask-tag-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -61897,9 +62249,9 @@
                   }
                 ]
               },
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value",
+              "Key": {
+                "title": "Key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationtask-tag.html#cfn-dms-replicationtask-tag-key",
                 "oneOf": [
                   {
                     "type": "string"
@@ -67078,6 +67430,31 @@
               }
             ]
           },
+          "AWS::Greengrass::ResourceDefinition": {
+            "title": "AWS::Greengrass::ResourceDefinition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Greengrass::ResourceDefinition"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Greengrass::ResourceDefinition"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::Greengrass::ResourceDefinitionVersion": {
             "title": "AWS::Greengrass::ResourceDefinitionVersion",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html",
@@ -70964,6 +71341,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Greengrass::LoggerDefinitionVersion"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Greengrass::ResourceDefinition"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Greengrass::ResourceDefinitionVersion"
