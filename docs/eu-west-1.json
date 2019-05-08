@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.32.0 https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 3.0.0 https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -2842,6 +2842,67 @@
             },
             "additionalProperties": false
           },
+          "AWS::ApiGatewayV2::ApiMapping": {
+            "title": "AWS::ApiGatewayV2::ApiMapping",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html",
+            "type": "object",
+            "required": [
+              "DomainName",
+              "Stage",
+              "ApiId"
+            ],
+            "properties": {
+              "DomainName": {
+                "title": "DomainName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-domainname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Stage": {
+                "title": "Stage",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-stage",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ApiMappingKey": {
+                "title": "ApiMappingKey",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apimappingkey",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ApiId": {
+                "title": "ApiId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apiid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ApiGatewayV2::Authorizer": {
             "title": "AWS::ApiGatewayV2::Authorizer",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html",
@@ -2999,6 +3060,37 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ApiGatewayV2::DomainName": {
+            "title": "AWS::ApiGatewayV2::DomainName",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html",
+            "type": "object",
+            "required": [
+              "DomainName"
+            ],
+            "properties": {
+              "DomainName": {
+                "title": "DomainName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DomainNameConfigurations": {
+                "title": "DomainNameConfigurations",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ApiGatewayV2::DomainName.DomainNameConfiguration"
+                }
               }
             },
             "additionalProperties": false
@@ -4710,7 +4802,10 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html",
             "type": "object",
             "required": [
-              "ApiId"
+              "DataSourceName",
+              "FunctionVersion",
+              "ApiId",
+              "Name"
             ],
             "properties": {
               "ResponseMappingTemplateS3Location": {
@@ -4843,6 +4938,11 @@
                 "description": "Type: UserPoolConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::GraphQLApi.UserPoolConfig"
               },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Tags, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::GraphQLApi.Tags"
+              },
               "Name": {
                 "title": "Name",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name",
@@ -4871,6 +4971,11 @@
                 "title": "LogConfig",
                 "description": "Type: LogConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::GraphQLApi.LogConfig"
+              },
+              "AdditionalAuthenticationProviders": {
+                "title": "AdditionalAuthenticationProviders",
+                "description": "Type: AdditionalAuthenticationProviders, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::GraphQLApi.AdditionalAuthenticationProviders"
               }
             },
             "additionalProperties": false
@@ -13019,66 +13124,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::EC2::TrunkInterfaceAssociation": {
-            "title": "AWS::EC2::TrunkInterfaceAssociation",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html",
-            "type": "object",
-            "required": [
-              "BranchInterfaceId",
-              "TrunkInterfaceId"
-            ],
-            "properties": {
-              "BranchInterfaceId": {
-                "title": "BranchInterfaceId",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-branchinterfaceid",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "GREKey": {
-                "title": "GREKey",
-                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-grekey",
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "TrunkInterfaceId": {
-                "title": "TrunkInterfaceId",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-trunkinterfaceid",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "VLANId": {
-                "title": "VLANId",
-                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-vlanid",
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::EC2::VPC": {
             "title": "AWS::EC2::VPC",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html",
@@ -16974,7 +17019,7 @@
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags",
                 "type": "array",
                 "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::FSx::FileSystem.TagEntry"
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               },
               "WindowsConfiguration": {
@@ -31495,6 +31540,51 @@
             },
             "additionalProperties": false
           },
+          "AWS::ApiGatewayV2::DomainName.DomainNameConfiguration": {
+            "title": "AWS::ApiGatewayV2::DomainName.DomainNameConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "EndpointType": {
+                "title": "EndpointType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CertificateName": {
+                "title": "CertificateName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CertificateArn": {
+                "title": "CertificateArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ApiGatewayV2::Route.ParameterConstraints": {
             "title": "AWS::ApiGatewayV2::Route.ParameterConstraints",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html",
@@ -33098,6 +33188,92 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppSync::GraphQLApi.AdditionalAuthenticationProvider": {
+            "title": "AWS::AppSync::GraphQLApi.AdditionalAuthenticationProvider",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html",
+            "type": "object",
+            "required": [
+              "AuthenticationType"
+            ],
+            "properties": {
+              "OpenIDConnectConfig": {
+                "title": "OpenIDConnectConfig",
+                "description": "Type: OpenIDConnectConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-openidconnectconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::GraphQLApi.OpenIDConnectConfig"
+              },
+              "UserPoolConfig": {
+                "title": "UserPoolConfig",
+                "description": "Type: CognitoUserPoolConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-userpoolconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::GraphQLApi.CognitoUserPoolConfig"
+              },
+              "AuthenticationType": {
+                "title": "AuthenticationType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-authenticationtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppSync::GraphQLApi.AdditionalAuthenticationProviders": {
+            "title": "AWS::AppSync::GraphQLApi.AdditionalAuthenticationProviders",
+            "type": "array",
+            "description": "undefined",
+            "items": {
+              "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::GraphQLApi.AdditionalAuthenticationProvider"
+            }
+          },
+          "AWS::AppSync::GraphQLApi.CognitoUserPoolConfig": {
+            "title": "AWS::AppSync::GraphQLApi.CognitoUserPoolConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "AppIdClientRegex": {
+                "title": "AppIdClientRegex",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-appidclientregex",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UserPoolId": {
+                "title": "UserPoolId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-userpoolid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AwsRegion": {
+                "title": "AwsRegion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-awsregion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppSync::GraphQLApi.LogConfig": {
             "title": "AWS::AppSync::GraphQLApi.LogConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html",
@@ -33187,6 +33363,14 @@
               }
             },
             "additionalProperties": false
+          },
+          "AWS::AppSync::GraphQLApi.Tags": {
+            "title": "AWS::AppSync::GraphQLApi.Tags",
+            "type": "array",
+            "description": "undefined",
+            "items": {
+              "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+            }
           },
           "AWS::AppSync::GraphQLApi.UserPoolConfig": {
             "title": "AWS::AppSync::GraphQLApi.UserPoolConfig",
@@ -51954,42 +52138,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::FSx::FileSystem.TagEntry": {
-            "title": "AWS::FSx::FileSystem.TagEntry",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tagentry.html",
-            "type": "object",
-            "required": [
-              "Value",
-              "Key"
-            ],
-            "properties": {
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tagentry.html#cfn-fsx-filesystem-tagentry-value",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tagentry.html#cfn-fsx-filesystem-tagentry-key",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::FSx::FileSystem.WindowsConfiguration": {
             "title": "AWS::FSx::FileSystem.WindowsConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html",
@@ -68512,15 +68660,16 @@
           },
           "Tag": {
             "title": "Tag",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-tag.html",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tag.html",
             "type": "object",
             "required": [
+              "Value",
               "Key"
             ],
             "properties": {
               "Value": {
                 "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-tag.html#cfn-appstream-stack-tag-value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tag.html#cfn-fsx-filesystem-tag-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -68532,7 +68681,7 @@
               },
               "Key": {
                 "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-tag.html#cfn-appstream-stack-tag-key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tag.html#cfn-fsx-filesystem-tag-key",
                 "oneOf": [
                   {
                     "type": "string"
@@ -69139,6 +69288,31 @@
               }
             ]
           },
+          "AWS::ApiGatewayV2::ApiMapping": {
+            "title": "AWS::ApiGatewayV2::ApiMapping",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ApiGatewayV2::ApiMapping"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGatewayV2::ApiMapping"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::ApiGatewayV2::Authorizer": {
             "title": "AWS::ApiGatewayV2::Authorizer",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html",
@@ -69184,6 +69358,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGatewayV2::Deployment"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::ApiGatewayV2::DomainName": {
+            "title": "AWS::ApiGatewayV2::DomainName",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ApiGatewayV2::DomainName"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGatewayV2::DomainName"
                   }
                 }
               }
@@ -72216,31 +72415,6 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TransitGatewayRouteTablePropagation"
-                  }
-                }
-              }
-            ]
-          },
-          "AWS::EC2::TrunkInterfaceAssociation": {
-            "title": "AWS::EC2::TrunkInterfaceAssociation",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html",
-            "allOf": [
-              {
-                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
-              },
-              {
-                "required": [
-                  "Type",
-                  "Properties"
-                ],
-                "properties": {
-                  "Type": {
-                    "enum": [
-                      "AWS::EC2::TrunkInterfaceAssociation"
-                    ]
-                  },
-                  "Properties": {
-                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrunkInterfaceAssociation"
                   }
                 }
               }
@@ -78214,10 +78388,16 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Api"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::ApiMapping"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Authorizer"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Deployment"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::DomainName"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Integration"
@@ -78584,9 +78764,6 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TransitGatewayRouteTablePropagation"
-          },
-          {
-            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrunkInterfaceAssociation"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPC"

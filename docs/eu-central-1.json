@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 2.32.0 https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 3.0.0 https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -2791,6 +2791,67 @@
             },
             "additionalProperties": false
           },
+          "AWS::ApiGatewayV2::ApiMapping": {
+            "title": "AWS::ApiGatewayV2::ApiMapping",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html",
+            "type": "object",
+            "required": [
+              "DomainName",
+              "Stage",
+              "ApiId"
+            ],
+            "properties": {
+              "DomainName": {
+                "title": "DomainName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-domainname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Stage": {
+                "title": "Stage",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-stage",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ApiMappingKey": {
+                "title": "ApiMappingKey",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apimappingkey",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ApiId": {
+                "title": "ApiId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apiid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ApiGatewayV2::Authorizer": {
             "title": "AWS::ApiGatewayV2::Authorizer",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html",
@@ -2948,6 +3009,37 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ApiGatewayV2::DomainName": {
+            "title": "AWS::ApiGatewayV2::DomainName",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html",
+            "type": "object",
+            "required": [
+              "DomainName"
+            ],
+            "properties": {
+              "DomainName": {
+                "title": "DomainName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DomainNameConfigurations": {
+                "title": "DomainNameConfigurations",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ApiGatewayV2::DomainName.DomainNameConfiguration"
+                }
               }
             },
             "additionalProperties": false
@@ -4612,7 +4704,10 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html",
             "type": "object",
             "required": [
-              "ApiId"
+              "DataSourceName",
+              "FunctionVersion",
+              "ApiId",
+              "Name"
             ],
             "properties": {
               "ResponseMappingTemplateS3Location": {
@@ -12426,66 +12521,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::EC2::TrunkInterfaceAssociation": {
-            "title": "AWS::EC2::TrunkInterfaceAssociation",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html",
-            "type": "object",
-            "required": [
-              "BranchInterfaceId",
-              "TrunkInterfaceId"
-            ],
-            "properties": {
-              "BranchInterfaceId": {
-                "title": "BranchInterfaceId",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-branchinterfaceid",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "GREKey": {
-                "title": "GREKey",
-                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-grekey",
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "TrunkInterfaceId": {
-                "title": "TrunkInterfaceId",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-trunkinterfaceid",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "VLANId": {
-                "title": "VLANId",
-                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-vlanid",
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::EC2::VPC": {
             "title": "AWS::EC2::VPC",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html",
@@ -18670,6 +18705,130 @@
                       "$ref": "#/definitions/intrinsicFunctions"
                     }
                   ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Inspector::AssessmentTarget": {
+            "title": "AWS::Inspector::AssessmentTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "AssessmentTargetName": {
+                "title": "AssessmentTargetName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-assessmenttargetname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourceGroupArn": {
+                "title": "ResourceGroupArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-resourcegrouparn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Inspector::AssessmentTemplate": {
+            "title": "AWS::Inspector::AssessmentTemplate",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html",
+            "type": "object",
+            "required": [
+              "AssessmentTargetArn",
+              "DurationInSeconds",
+              "RulesPackageArns"
+            ],
+            "properties": {
+              "AssessmentTargetArn": {
+                "title": "AssessmentTargetArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-assessmenttargetarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DurationInSeconds": {
+                "title": "DurationInSeconds",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-durationinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AssessmentTemplateName": {
+                "title": "AssessmentTemplateName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-assessmenttemplatename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RulesPackageArns": {
+                "title": "RulesPackageArns",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-rulespackagearns",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "UserAttributesForFindings": {
+                "title": "UserAttributesForFindings",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-userattributesforfindings",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Inspector::ResourceGroup": {
+            "title": "AWS::Inspector::ResourceGroup",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html",
+            "type": "object",
+            "required": [
+              "ResourceGroupTags"
+            ],
+            "properties": {
+              "ResourceGroupTags": {
+                "title": "ResourceGroupTags",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               }
             },
@@ -29340,6 +29499,51 @@
                 "oneOf": [
                   {
                     "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ApiGatewayV2::DomainName.DomainNameConfiguration": {
+            "title": "AWS::ApiGatewayV2::DomainName.DomainNameConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "EndpointType": {
+                "title": "EndpointType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CertificateName": {
+                "title": "CertificateName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CertificateArn": {
+                "title": "CertificateArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatearn",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -61332,6 +61536,18 @@
                   }
                 ]
               },
+              "DisableTemplateValidation": {
+                "title": "DisableTemplateValidation",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Info": {
                 "title": "Info",
                 "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info",
@@ -62885,6 +63101,31 @@
               }
             ]
           },
+          "AWS::ApiGatewayV2::ApiMapping": {
+            "title": "AWS::ApiGatewayV2::ApiMapping",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ApiGatewayV2::ApiMapping"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGatewayV2::ApiMapping"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::ApiGatewayV2::Authorizer": {
             "title": "AWS::ApiGatewayV2::Authorizer",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html",
@@ -62930,6 +63171,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGatewayV2::Deployment"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::ApiGatewayV2::DomainName": {
+            "title": "AWS::ApiGatewayV2::DomainName",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ApiGatewayV2::DomainName"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ApiGatewayV2::DomainName"
                   }
                 }
               }
@@ -65768,31 +66034,6 @@
               }
             ]
           },
-          "AWS::EC2::TrunkInterfaceAssociation": {
-            "title": "AWS::EC2::TrunkInterfaceAssociation",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html",
-            "allOf": [
-              {
-                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
-              },
-              {
-                "required": [
-                  "Type",
-                  "Properties"
-                ],
-                "properties": {
-                  "Type": {
-                    "enum": [
-                      "AWS::EC2::TrunkInterfaceAssociation"
-                    ]
-                  },
-                  "Properties": {
-                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrunkInterfaceAssociation"
-                  }
-                }
-              }
-            ]
-          },
           "AWS::EC2::VPC": {
             "title": "AWS::EC2::VPC",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html",
@@ -67950,6 +68191,80 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IAM::UserToGroupAddition"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Inspector::AssessmentTarget": {
+            "title": "AWS::Inspector::AssessmentTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Inspector::AssessmentTarget"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Inspector::AssessmentTarget"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Inspector::AssessmentTemplate": {
+            "title": "AWS::Inspector::AssessmentTemplate",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Inspector::AssessmentTemplate"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Inspector::AssessmentTemplate"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Inspector::ResourceGroup": {
+            "title": "AWS::Inspector::ResourceGroup",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Inspector::ResourceGroup"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Inspector::ResourceGroup"
                   }
                 }
               }
@@ -70840,10 +71155,16 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Api"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::ApiMapping"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Authorizer"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Deployment"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::DomainName"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ApiGatewayV2::Integration"
@@ -71188,9 +71509,6 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TransitGatewayRouteTablePropagation"
           },
           {
-            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrunkInterfaceAssociation"
-          },
-          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPC"
           },
           {
@@ -71450,6 +71768,15 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IAM::UserToGroupAddition"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Inspector::AssessmentTarget"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Inspector::AssessmentTemplate"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Inspector::ResourceGroup"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT1Click::Device"
