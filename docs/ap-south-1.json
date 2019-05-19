@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 3.0.0 https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 3.2.0 https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -3862,7 +3862,10 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html",
             "type": "object",
             "required": [
-              "ApiId"
+              "DataSourceName",
+              "FunctionVersion",
+              "ApiId",
+              "Name"
             ],
             "properties": {
               "ResponseMappingTemplateS3Location": {
@@ -14451,6 +14454,11 @@
                 "description": "Type: JsonClassifier, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-jsonclassifier",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::Classifier.JsonClassifier"
               },
+              "CsvClassifier": {
+                "title": "CsvClassifier",
+                "description": "Type: CsvClassifier, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-csvclassifier",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::Classifier.CsvClassifier"
+              },
               "GrokClassifier": {
                 "title": "GrokClassifier",
                 "description": "Type: GrokClassifier, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-grokclassifier",
@@ -14576,6 +14584,18 @@
                 "description": "Type: Targets, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::Crawler.Targets"
               },
+              "CrawlerSecurityConfiguration": {
+                "title": "CrawlerSecurityConfiguration",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-crawlersecurityconfiguration",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "TablePrefix": {
                 "title": "TablePrefix",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix",
@@ -14588,9 +14608,50 @@
                   }
                 ]
               },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tags",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Name": {
                 "title": "Name",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::DataCatalogEncryptionSettings": {
+            "title": "AWS::Glue::DataCatalogEncryptionSettings",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html",
+            "type": "object",
+            "required": [
+              "DataCatalogEncryptionSettings",
+              "CatalogId"
+            ],
+            "properties": {
+              "DataCatalogEncryptionSettings": {
+                "title": "DataCatalogEncryptionSettings",
+                "description": "Type: DataCatalogEncryptionSettings, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::DataCatalogEncryptionSettings.DataCatalogEncryptionSettings"
+              },
+              "CatalogId": {
+                "title": "CatalogId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-catalogid",
                 "oneOf": [
                   {
                     "type": "string"
@@ -14637,7 +14698,6 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html",
             "type": "object",
             "required": [
-              "PublicKey",
               "RoleArn"
             ],
             "properties": {
@@ -14713,6 +14773,18 @@
                   }
                 ]
               },
+              "SecurityConfiguration": {
+                "title": "SecurityConfiguration",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-securityconfiguration",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "SecurityGroupIds": {
                 "title": "SecurityGroupIds",
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-securitygroupids",
@@ -14734,6 +14806,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-tags",
+                "oneOf": [
+                  {
+                    "type": "object"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -14839,6 +14923,30 @@
                 "description": "Type: ExecutionProperty, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-executionproperty",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::Job.ExecutionProperty"
               },
+              "SecurityConfiguration": {
+                "title": "SecurityConfiguration",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-securityconfiguration",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-tags",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Name": {
                 "title": "Name",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-name",
@@ -14905,6 +15013,35 @@
                 "title": "PartitionInput",
                 "description": "Type: PartitionInput, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-partitioninput",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::Partition.PartitionInput"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::SecurityConfiguration": {
+            "title": "AWS::Glue::SecurityConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html",
+            "type": "object",
+            "required": [
+              "EncryptionConfiguration",
+              "Name"
+            ],
+            "properties": {
+              "EncryptionConfiguration": {
+                "title": "EncryptionConfiguration",
+                "description": "Type: EncryptionConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::SecurityConfiguration.EncryptionConfiguration"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html#cfn-glue-securityconfiguration-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -14998,6 +15135,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-tags",
+                "oneOf": [
+                  {
+                    "type": "object"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -21882,9 +22031,33 @@
                   }
                 ]
               },
+              "Policies": {
+                "title": "Policies",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-policies",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "AllowedPattern": {
                 "title": "AllowedPattern",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tier": {
+                "title": "Tier",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-tier",
                 "oneOf": [
                   {
                     "type": "string"
@@ -44476,6 +44649,102 @@
             },
             "additionalProperties": false
           },
+          "AWS::Glue::Classifier.CsvClassifier": {
+            "title": "AWS::Glue::Classifier.CsvClassifier",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "QuoteSymbol": {
+                "title": "QuoteSymbol",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ContainsHeader": {
+                "title": "ContainsHeader",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Delimiter": {
+                "title": "Delimiter",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Header": {
+                "title": "Header",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "AllowSingleColumn": {
+                "title": "AllowSingleColumn",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DisableValueTrimming": {
+                "title": "DisableValueTrimming",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Glue::Classifier.GrokClassifier": {
             "title": "AWS::Glue::Classifier.GrokClassifier",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html",
@@ -44906,6 +45175,91 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::Crawler.JdbcTarget"
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::DataCatalogEncryptionSettings.ConnectionPasswordEncryption": {
+            "title": "AWS::Glue::DataCatalogEncryptionSettings.ConnectionPasswordEncryption",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ReturnConnectionPasswordEncrypted": {
+                "title": "ReturnConnectionPasswordEncrypted",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-returnconnectionpasswordencrypted",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "KmsKeyId": {
+                "title": "KmsKeyId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::DataCatalogEncryptionSettings.DataCatalogEncryptionSettings": {
+            "title": "AWS::Glue::DataCatalogEncryptionSettings.DataCatalogEncryptionSettings",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ConnectionPasswordEncryption": {
+                "title": "ConnectionPasswordEncryption",
+                "description": "Type: ConnectionPasswordEncryption, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::DataCatalogEncryptionSettings.ConnectionPasswordEncryption"
+              },
+              "EncryptionAtRest": {
+                "title": "EncryptionAtRest",
+                "description": "Type: EncryptionAtRest, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::DataCatalogEncryptionSettings.EncryptionAtRest"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::DataCatalogEncryptionSettings.EncryptionAtRest": {
+            "title": "AWS::Glue::DataCatalogEncryptionSettings.EncryptionAtRest",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "CatalogEncryptionMode": {
+                "title": "CatalogEncryptionMode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SseAwsKmsKeyId": {
+                "title": "SseAwsKmsKeyId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -45400,6 +45754,137 @@
             },
             "additionalProperties": false
           },
+          "AWS::Glue::SecurityConfiguration.CloudWatchEncryption": {
+            "title": "AWS::Glue::SecurityConfiguration.CloudWatchEncryption",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "KmsKeyArn": {
+                "title": "KmsKeyArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CloudWatchEncryptionMode": {
+                "title": "CloudWatchEncryptionMode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::SecurityConfiguration.EncryptionConfiguration": {
+            "title": "AWS::Glue::SecurityConfiguration.EncryptionConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "S3Encryptions": {
+                "title": "S3Encryptions",
+                "description": "Type: S3Encryptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::SecurityConfiguration.S3Encryptions"
+              },
+              "CloudWatchEncryption": {
+                "title": "CloudWatchEncryption",
+                "description": "Type: CloudWatchEncryption, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::SecurityConfiguration.CloudWatchEncryption"
+              },
+              "JobBookmarksEncryption": {
+                "title": "JobBookmarksEncryption",
+                "description": "Type: JobBookmarksEncryption, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::SecurityConfiguration.JobBookmarksEncryption"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::SecurityConfiguration.JobBookmarksEncryption": {
+            "title": "AWS::Glue::SecurityConfiguration.JobBookmarksEncryption",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "KmsKeyArn": {
+                "title": "KmsKeyArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "JobBookmarksEncryptionMode": {
+                "title": "JobBookmarksEncryptionMode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::SecurityConfiguration.S3Encryption": {
+            "title": "AWS::Glue::SecurityConfiguration.S3Encryption",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "KmsKeyArn": {
+                "title": "KmsKeyArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-kmskeyarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "S3EncryptionMode": {
+                "title": "S3EncryptionMode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-s3encryptionmode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Glue::SecurityConfiguration.S3Encryptions": {
+            "title": "AWS::Glue::SecurityConfiguration.S3Encryptions",
+            "type": "array",
+            "description": "undefined",
+            "items": {
+              "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Glue::SecurityConfiguration.S3Encryption"
+            }
+          },
           "AWS::Glue::Table.Column": {
             "title": "AWS::Glue::Table.Column",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html",
@@ -45855,6 +46340,18 @@
                 "oneOf": [
                   {
                     "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SecurityConfiguration": {
+                "title": "SecurityConfiguration",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -53047,6 +53544,18 @@
                   }
                 ]
               },
+              "DisableTemplateValidation": {
+                "title": "DisableTemplateValidation",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Info": {
                 "title": "Info",
                 "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info",
@@ -58106,6 +58615,31 @@
               }
             ]
           },
+          "AWS::Glue::DataCatalogEncryptionSettings": {
+            "title": "AWS::Glue::DataCatalogEncryptionSettings",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Glue::DataCatalogEncryptionSettings"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Glue::DataCatalogEncryptionSettings"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::Glue::Database": {
             "title": "AWS::Glue::Database",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html",
@@ -58201,6 +58735,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Glue::Partition"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Glue::SecurityConfiguration": {
+            "title": "AWS::Glue::SecurityConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Glue::SecurityConfiguration"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Glue::SecurityConfiguration"
                   }
                 }
               }
@@ -61648,6 +62207,9 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Glue::Crawler"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Glue::DataCatalogEncryptionSettings"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Glue::Database"
           },
           {
@@ -61658,6 +62220,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Glue::Partition"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Glue::SecurityConfiguration"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Glue::Table"
