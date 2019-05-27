@@ -832,7 +832,7 @@
               "type": "object",
               "description": "Resource properties are additional options that you can specify for a resource."
             },
-            "Conditions": {
+            "Condition": {
               "type": "string",
               "description": "Associate conditions with the resources or outputs that you want to conditionally create."
             },
@@ -941,16 +941,23 @@
               "properties": {
                 "AutoScalingReplacingUpdate": {
                   "type": "object",
-                  "description": "To specify how AWS CloudFormation handles replacement updates for an Auto Scaling group, use the AutoScalingReplacingUpdate policy.",
+                  "description": "To specify how AWS CloudFormation handles replacement updates for an Auto Scaling group, use the AutoScalingReplacingUpdate policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-replacingupdate",
                   "properties": {
                     "WillReplace": {
-                      "type": "boolean"
+                      "oneOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/definitions/intrinsicFunctions"
+                        }
+                      ]
                     }
                   }
                 },
                 "AutoScalingRollingUpdate": {
                   "type": "object",
-                  "description": "To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy.",
+                  "description": "To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-rollingupdate",
                   "properties": {
                     "MaxBatchSize": {
                       "oneOf": [
@@ -999,22 +1006,36 @@
                       }
                     },
                     "WaitOnResourceSignals": {
-                      "type": "boolean"
+                      "oneOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/definitions/intrinsicFunctions"
+                        }
+                      ]
                     }
                   }
                 },
                 "AutoScalingScheduledAction": {
                   "type": "object",
-                  "description": "To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy.",
+                  "description": "To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-scheduledactions",
                   "properties": {
                     "IgnoreUnmodifiedGroupSizeProperties": {
-                      "type": "object"
+                      "oneOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/definitions/intrinsicFunctions"
+                        }
+                      ]
                     }
                   }
                 },
                 "CodeDeployLambdaAliasUpdate": {
                   "type": "object",
-                  "description": "To perform an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource, use the CodeDeployLambdaAliasUpdate update policy.",
+                  "description": "To perform an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource, use the CodeDeployLambdaAliasUpdate update policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-codedeploylambdaaliasupdate",
                   "required": [
                     "ApplicationName",
                     "DeploymentGroupName"
@@ -1061,8 +1082,28 @@
                       ]
                     }
                   }
+                },
+                "UseOnlineResharding": {
+                  "description": "To modify a replication group's shards by adding or removing shards, rather than replacing the entire AWS::ElastiCache::ReplicationGroup resource, use the UseOnlineResharding update policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding",
+                  "oneOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
                 }
               }
+            },
+            "UpdateReplacePolicy": {
+              "description": "Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html",
+              "type": "string",
+              "enum": [
+                "Delete",
+                "Retain",
+                "Snapshot"
+              ]
             }
           }
         },
@@ -81931,7 +81972,7 @@
           "Value"
         ],
         "properties": {
-          "Conditions": {
+          "Condition": {
             "type": "string",
             "description": "Associate conditions with the resources or outputs that you want to conditionally create."
           },
