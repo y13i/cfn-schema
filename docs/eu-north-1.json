@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 3.4.0 https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 4.0.0 https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -5934,6 +5934,91 @@
             },
             "additionalProperties": false
           },
+          "AWS::Config::RemediationConfiguration": {
+            "title": "AWS::Config::RemediationConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html",
+            "type": "object",
+            "required": [
+              "TargetType",
+              "ConfigRuleName",
+              "TargetId"
+            ],
+            "properties": {
+              "TargetVersion": {
+                "title": "TargetVersion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targetversion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Parameters": {
+                "title": "Parameters",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-parameters",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetType": {
+                "title": "TargetType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targettype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ConfigRuleName": {
+                "title": "ConfigRuleName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-configrulename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourceType": {
+                "title": "ResourceType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-resourcetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetId": {
+                "title": "TargetId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targetid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::DMS::Certificate": {
             "title": "AWS::DMS::Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html",
@@ -9172,16 +9257,28 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html",
             "type": "object",
             "required": [
-              "VpcId",
-              "ServiceName"
+              "ServiceName",
+              "VpcId"
             ],
             "properties": {
-              "VpcId": {
-                "title": "VpcId",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid",
+              "PolicyDocument": {
+                "title": "PolicyDocument",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument",
                 "oneOf": [
                   {
-                    "type": "string"
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PrivateDnsEnabled": {
+                "title": "PrivateDnsEnabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -9190,7 +9287,22 @@
               },
               "RouteTableIds": {
                 "title": "RouteTableIds",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -9215,33 +9327,9 @@
                   }
                 ]
               },
-              "PolicyDocument": {
-                "title": "PolicyDocument",
-                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument",
-                "oneOf": [
-                  {
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "IsPrivateDnsEnabled": {
-                "title": "IsPrivateDnsEnabled",
-                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-isprivatednsenabled",
-                "oneOf": [
-                  {
-                    "type": "boolean"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
               "SubnetIds": {
                 "title": "SubnetIds",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -9254,24 +9342,21 @@
                   ]
                 }
               },
-              "SecurityGroupIds": {
-                "title": "SecurityGroupIds",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
+              "VpcEndpointType": {
+                "title": "VpcEndpointType",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
-              "VPCEndpointType": {
-                "title": "VPCEndpointType",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype",
+              "VpcId": {
+                "title": "VpcId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid",
                 "oneOf": [
                   {
                     "type": "string"
@@ -25563,6 +25648,70 @@
             },
             "additionalProperties": false
           },
+          "AWS::Config::RemediationConfiguration.RemediationParameterValue": {
+            "title": "AWS::Config::RemediationConfiguration.RemediationParameterValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ResourceValue": {
+                "title": "ResourceValue",
+                "description": "Type: ResourceValue, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-resourcevalue",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::RemediationConfiguration.ResourceValue"
+              },
+              "StaticValue": {
+                "title": "StaticValue",
+                "description": "Type: StaticValue, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-staticvalue",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::RemediationConfiguration.StaticValue"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::RemediationConfiguration.ResourceValue": {
+            "title": "AWS::Config::RemediationConfiguration.ResourceValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html#cfn-config-remediationconfiguration-resourcevalue-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::RemediationConfiguration.StaticValue": {
+            "title": "AWS::Config::RemediationConfiguration.StaticValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Values": {
+                "title": "Values",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html#cfn-config-remediationconfiguration-staticvalue-values",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::DMS::Endpoint.DynamoDbSettings": {
             "title": "AWS::DMS::Endpoint.DynamoDbSettings",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html",
@@ -28107,6 +28256,30 @@
               "MaxPrice": {
                 "title": "MaxPrice",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-maxprice",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "BlockDurationMinutes": {
+                "title": "BlockDurationMinutes",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-blockdurationminutes",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ValidUntil": {
+                "title": "ValidUntil",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-validuntil",
                 "oneOf": [
                   {
                     "type": "string"
@@ -45332,6 +45505,31 @@
               }
             ]
           },
+          "AWS::Config::RemediationConfiguration": {
+            "title": "AWS::Config::RemediationConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Config::RemediationConfiguration"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Config::RemediationConfiguration"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::DMS::Certificate": {
             "title": "AWS::DMS::Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html",
@@ -49771,6 +49969,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::DeliveryChannel"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::RemediationConfiguration"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::DMS::Certificate"

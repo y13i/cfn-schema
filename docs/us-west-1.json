@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 3.4.0 https://d68hl49wbnanq.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 4.0.0 https://d68hl49wbnanq.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -3891,7 +3891,7 @@
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-tags",
                 "type": "array",
                 "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Mesh.TagRef"
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               }
             },
@@ -3954,7 +3954,7 @@
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-tags",
                 "type": "array",
                 "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.TagRef"
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               }
             },
@@ -4004,7 +4004,7 @@
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-tags",
                 "type": "array",
                 "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.TagRef"
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               }
             },
@@ -4054,7 +4054,7 @@
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-tags",
                 "type": "array",
                 "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualRouter.TagRef"
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               }
             },
@@ -4104,7 +4104,7 @@
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-tags",
                 "type": "array",
                 "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualService.TagRef"
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               }
             },
@@ -6951,6 +6951,91 @@
               "SnsTopicARN": {
                 "title": "SnsTopicARN",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-snstopicarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::RemediationConfiguration": {
+            "title": "AWS::Config::RemediationConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html",
+            "type": "object",
+            "required": [
+              "TargetType",
+              "ConfigRuleName",
+              "TargetId"
+            ],
+            "properties": {
+              "TargetVersion": {
+                "title": "TargetVersion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targetversion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Parameters": {
+                "title": "Parameters",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-parameters",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetType": {
+                "title": "TargetType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targettype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ConfigRuleName": {
+                "title": "ConfigRuleName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-configrulename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourceType": {
+                "title": "ResourceType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-resourcetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetId": {
+                "title": "TargetId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-targetid",
                 "oneOf": [
                   {
                     "type": "string"
@@ -24104,6 +24189,138 @@
             },
             "additionalProperties": false
           },
+          "AWS::ServiceCatalog::StackSetConstraint": {
+            "title": "AWS::ServiceCatalog::StackSetConstraint",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html",
+            "type": "object",
+            "required": [
+              "Description",
+              "StackInstanceControl",
+              "PortfolioId",
+              "ProductId",
+              "RegionList",
+              "AdminRole",
+              "AccountList",
+              "ExecutionRole"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StackInstanceControl": {
+                "title": "StackInstanceControl",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-stackinstancecontrol",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AcceptLanguage": {
+                "title": "AcceptLanguage",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-acceptlanguage",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PortfolioId": {
+                "title": "PortfolioId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-portfolioid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ProductId": {
+                "title": "ProductId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-productid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RegionList": {
+                "title": "RegionList",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-regionlist",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "AdminRole": {
+                "title": "AdminRole",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-adminrole",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AccountList": {
+                "title": "AccountList",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-accountlist",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "ExecutionRole": {
+                "title": "ExecutionRole",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html#cfn-servicecatalog-stacksetconstraint-executionrole",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ServiceCatalog::TagOption": {
             "title": "AWS::ServiceCatalog::TagOption",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoption.html",
@@ -26947,41 +27164,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::AppMesh::Mesh.TagRef": {
-            "title": "AWS::AppMesh::Mesh.TagRef",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html",
-            "type": "object",
-            "required": [
-              "Key"
-            ],
-            "properties": {
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html#cfn-appmesh-mesh-tagref-value",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html#cfn-appmesh-mesh-tagref-key",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::AppMesh::Route.HttpRoute": {
             "title": "AWS::AppMesh::Route.HttpRoute",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html",
@@ -27061,41 +27243,6 @@
                 "title": "TcpRoute",
                 "description": "Type: TcpRoute, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-tcproute",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.TcpRoute"
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::AppMesh::Route.TagRef": {
-            "title": "AWS::AppMesh::Route.TagRef",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html",
-            "type": "object",
-            "required": [
-              "Key"
-            ],
-            "properties": {
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html#cfn-appmesh-route-tagref-value",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html#cfn-appmesh-route-tagref-key",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
               }
             },
             "additionalProperties": false
@@ -27181,6 +27328,86 @@
                 "title": "File",
                 "description": "Type: FileAccessLog, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html#cfn-appmesh-virtualnode-accesslog-file",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.FileAccessLog"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute": {
+            "title": "AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html",
+            "type": "object",
+            "required": [
+              "Value",
+              "Key"
+            ],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html#cfn-appmesh-virtualnode-awscloudmapinstanceattribute-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html#cfn-appmesh-virtualnode-awscloudmapinstanceattribute-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery": {
+            "title": "AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html",
+            "type": "object",
+            "required": [
+              "NamespaceName",
+              "ServiceName"
+            ],
+            "properties": {
+              "NamespaceName": {
+                "title": "NamespaceName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-namespacename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ServiceName": {
+                "title": "ServiceName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-servicename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Attributes": {
+                "title": "Attributes",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-attributes",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute"
+                }
               }
             },
             "additionalProperties": false
@@ -27425,41 +27652,11 @@
                 "title": "DNS",
                 "description": "Type: DnsServiceDiscovery, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-dns",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.DnsServiceDiscovery"
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::AppMesh::VirtualNode.TagRef": {
-            "title": "AWS::AppMesh::VirtualNode.TagRef",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html",
-            "type": "object",
-            "required": [
-              "Key"
-            ],
-            "properties": {
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html#cfn-appmesh-virtualnode-tagref-value",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
               },
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html#cfn-appmesh-virtualnode-tagref-key",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
+              "AWSCloudMap": {
+                "title": "AWSCloudMap",
+                "description": "Type: AwsCloudMapServiceDiscovery, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-awscloudmap",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery"
               }
             },
             "additionalProperties": false
@@ -27558,41 +27755,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::AppMesh::VirtualRouter.TagRef": {
-            "title": "AWS::AppMesh::VirtualRouter.TagRef",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html",
-            "type": "object",
-            "required": [
-              "Key"
-            ],
-            "properties": {
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html#cfn-appmesh-virtualrouter-tagref-value",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html#cfn-appmesh-virtualrouter-tagref-key",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::AppMesh::VirtualRouter.VirtualRouterListener": {
             "title": "AWS::AppMesh::VirtualRouter.VirtualRouterListener",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html",
@@ -27624,41 +27786,6 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::VirtualRouter.VirtualRouterListener"
                 }
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::AppMesh::VirtualService.TagRef": {
-            "title": "AWS::AppMesh::VirtualService.TagRef",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html",
-            "type": "object",
-            "required": [
-              "Key"
-            ],
-            "properties": {
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html#cfn-appmesh-virtualservice-tagref-value",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html#cfn-appmesh-virtualservice-tagref-key",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
               }
             },
             "additionalProperties": false
@@ -34663,6 +34790,70 @@
             },
             "additionalProperties": false
           },
+          "AWS::Config::RemediationConfiguration.RemediationParameterValue": {
+            "title": "AWS::Config::RemediationConfiguration.RemediationParameterValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ResourceValue": {
+                "title": "ResourceValue",
+                "description": "Type: ResourceValue, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-resourcevalue",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::RemediationConfiguration.ResourceValue"
+              },
+              "StaticValue": {
+                "title": "StaticValue",
+                "description": "Type: StaticValue, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-staticvalue",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::RemediationConfiguration.StaticValue"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::RemediationConfiguration.ResourceValue": {
+            "title": "AWS::Config::RemediationConfiguration.ResourceValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html#cfn-config-remediationconfiguration-resourcevalue-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::RemediationConfiguration.StaticValue": {
+            "title": "AWS::Config::RemediationConfiguration.StaticValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Values": {
+                "title": "Values",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html#cfn-config-remediationconfiguration-staticvalue-values",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::DAX::Cluster.SSESpecification": {
             "title": "AWS::DAX::Cluster.SSESpecification",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html",
@@ -37803,6 +37994,30 @@
               "MaxPrice": {
                 "title": "MaxPrice",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-maxprice",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "BlockDurationMinutes": {
+                "title": "BlockDurationMinutes",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-blockdurationminutes",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ValidUntil": {
+                "title": "ValidUntil",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-validuntil",
                 "oneOf": [
                   {
                     "type": "string"
@@ -57479,6 +57694,31 @@
               }
             ]
           },
+          "AWS::Config::RemediationConfiguration": {
+            "title": "AWS::Config::RemediationConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Config::RemediationConfiguration"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Config::RemediationConfiguration"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::DAX::Cluster": {
             "title": "AWS::DAX::Cluster",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html",
@@ -62469,6 +62709,31 @@
               }
             ]
           },
+          "AWS::ServiceCatalog::StackSetConstraint": {
+            "title": "AWS::ServiceCatalog::StackSetConstraint",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ServiceCatalog::StackSetConstraint"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ServiceCatalog::StackSetConstraint"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::ServiceCatalog::TagOption": {
             "title": "AWS::ServiceCatalog::TagOption",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoption.html",
@@ -63219,6 +63484,9 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::DeliveryChannel"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::RemediationConfiguration"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::DAX::Cluster"
           },
           {
@@ -63820,6 +64088,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceCatalog::PortfolioShare"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceCatalog::StackSetConstraint"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceCatalog::TagOption"
