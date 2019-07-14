@@ -141,11 +141,11 @@ function appendPropertyTypes(schema, propertyTypes) {
         p.properties = {};
         p.additionalProperties = false;
 
-        Object.entries(property.Properties).forEach(
-          ([subPropertyName, subProperty]) => {
+        Object.entries(property.Properties)
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .forEach(([subPropertyName, subProperty]) => {
             appendProperty(p, subPropertyName, subProperty, resourceTypeName);
-          }
-        );
+          });
       } else {
         appendPremitiveOrListOrMap(p, resourceTypeName, property);
       }
@@ -173,11 +173,11 @@ function appendResourceTypes(schema, resourceTypes) {
         resourceTypeName
       ] = rt;
 
-      Object.entries(resourceType.Properties).forEach(
-        ([propertyName, property]) => {
-          appendProperty(rt, propertyName, property, resourceTypeName);
-        }
-      );
+      Object.entries(resourceType.Properties)
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .forEach(([propertyName, property]) =>
+          appendProperty(rt, propertyName, property, resourceTypeName)
+        );
 
       schema.properties.Resources.definitions.resourceTypes[
         resourceTypeName
