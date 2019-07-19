@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 4.2.0 https://doigdx0kgq9el.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 4.3.0 https://doigdx0kgq9el.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -1402,6 +1402,11 @@
                   }
                 ]
               },
+              "AutoBranchCreationConfig": {
+                "title": "AutoBranchCreationConfig",
+                "description": "Type: AutoBranchCreationConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Amplify::App.AutoBranchCreationConfig"
+              },
               "BasicAuthConfig": {
                 "title": "BasicAuthConfig",
                 "description": "Type: BasicAuthConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig",
@@ -1562,6 +1567,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableAutoBuild": {
+                "title": "EnableAutoBuild",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -27638,6 +27655,37 @@
             },
             "additionalProperties": false
           },
+          "AWS::WAFRegional::ByteMatchSet": {
+            "title": "AWS::WAFRegional::ByteMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "ByteMatchTuples": {
+                "title": "ByteMatchTuples",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-bytematchtuples",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::ByteMatchSet.ByteMatchTuple"
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::WAFRegional::GeoMatchSet": {
             "title": "AWS::WAFRegional::GeoMatchSet",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html",
@@ -27657,6 +27705,37 @@
               "Name": {
                 "title": "Name",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html#cfn-wafregional-geomatchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::IPSet": {
+            "title": "AWS::WAFRegional::IPSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "IPSetDescriptors": {
+                "title": "IPSetDescriptors",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-ipsetdescriptors",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::IPSet.IPSetDescriptor"
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-name",
                 "oneOf": [
                   {
                     "type": "string"
@@ -27773,6 +27852,229 @@
                       "$ref": "#/definitions/intrinsicFunctions"
                     }
                   ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::Rule": {
+            "title": "AWS::WAFRegional::Rule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html",
+            "type": "object",
+            "required": [
+              "MetricName",
+              "Name"
+            ],
+            "properties": {
+              "MetricName": {
+                "title": "MetricName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-metricname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Predicates": {
+                "title": "Predicates",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-predicates",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::Rule.Predicate"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SizeConstraintSet": {
+            "title": "AWS::WAFRegional::SizeConstraintSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SizeConstraints": {
+                "title": "SizeConstraints",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-sizeconstraints",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SizeConstraintSet.SizeConstraint"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SqlInjectionMatchTuples": {
+                "title": "SqlInjectionMatchTuples",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuples",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACL": {
+            "title": "AWS::WAFRegional::WebACL",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html",
+            "type": "object",
+            "required": [
+              "DefaultAction",
+              "MetricName",
+              "Name"
+            ],
+            "properties": {
+              "DefaultAction": {
+                "title": "DefaultAction",
+                "description": "Type: Action, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::WebACL.Action"
+              },
+              "MetricName": {
+                "title": "MetricName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Rules": {
+                "title": "Rules",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::WebACL.Rule"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACLAssociation": {
+            "title": "AWS::WAFRegional::WebACLAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html",
+            "type": "object",
+            "required": [
+              "ResourceArn",
+              "WebACLId"
+            ],
+            "properties": {
+              "ResourceArn": {
+                "title": "ResourceArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-resourcearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "WebACLId": {
+                "title": "WebACLId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-webaclid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::XssMatchSet": {
+            "title": "AWS::WAFRegional::XssMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "XssMatchTuples": {
+                "title": "XssMatchTuples",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::XssMatchSet.XssMatchTuple"
                 }
               }
             },
@@ -28202,14 +28504,96 @@
             },
             "additionalProperties": false
           },
+          "AWS::Amplify::App.AutoBranchCreationConfig": {
+            "title": "AWS::Amplify::App.AutoBranchCreationConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "AutoBranchCreationPatterns": {
+                "title": "AutoBranchCreationPatterns",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "BasicAuthConfig": {
+                "title": "BasicAuthConfig",
+                "description": "Type: BasicAuthConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Amplify::App.BasicAuthConfig"
+              },
+              "BuildSpec": {
+                "title": "BuildSpec",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableAutoBranchCreation": {
+                "title": "EnableAutoBranchCreation",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableAutoBuild": {
+                "title": "EnableAutoBuild",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnvironmentVariables": {
+                "title": "EnvironmentVariables",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Amplify::App.EnvironmentVariable"
+                }
+              },
+              "Stage": {
+                "title": "Stage",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Amplify::App.BasicAuthConfig": {
             "title": "AWS::Amplify::App.BasicAuthConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html",
             "type": "object",
-            "required": [
-              "Password",
-              "Username"
-            ],
+            "required": [],
             "properties": {
               "EnableBasicAuth": {
                 "title": "EnableBasicAuth",
@@ -64123,6 +64507,107 @@
             },
             "additionalProperties": false
           },
+          "AWS::WAFRegional::ByteMatchSet.ByteMatchTuple": {
+            "title": "AWS::WAFRegional::ByteMatchSet.ByteMatchTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html",
+            "type": "object",
+            "required": [
+              "FieldToMatch",
+              "PositionalConstraint",
+              "TextTransformation"
+            ],
+            "properties": {
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::ByteMatchSet.FieldToMatch"
+              },
+              "PositionalConstraint": {
+                "title": "PositionalConstraint",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-positionalconstraint",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetString": {
+                "title": "TargetString",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstring",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetStringBase64": {
+                "title": "TargetStringBase64",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstringbase64",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-texttransformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::ByteMatchSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::ByteMatchSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-fieldtomatch.html#cfn-wafregional-bytematchset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-fieldtomatch.html#cfn-wafregional-bytematchset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::WAFRegional::GeoMatchSet.GeoMatchConstraint": {
             "title": "AWS::WAFRegional::GeoMatchSet.GeoMatchConstraint",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html",
@@ -64147,6 +64632,42 @@
               "Value": {
                 "title": "Value",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html#cfn-wafregional-geomatchset-geomatchconstraint-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::IPSet.IPSetDescriptor": {
+            "title": "AWS::WAFRegional::IPSet.IPSetDescriptor",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html",
+            "type": "object",
+            "required": [
+              "Type",
+              "Value"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html#cfn-wafregional-ipset-ipsetdescriptor-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html#cfn-wafregional-ipset-ipsetdescriptor-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -64196,6 +64717,338 @@
               "Type": {
                 "title": "Type",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ratebasedrule-predicate.html#cfn-wafregional-ratebasedrule-predicate-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::Rule.Predicate": {
+            "title": "AWS::WAFRegional::Rule.Predicate",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html",
+            "type": "object",
+            "required": [
+              "DataId",
+              "Negated",
+              "Type"
+            ],
+            "properties": {
+              "DataId": {
+                "title": "DataId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-dataid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Negated": {
+                "title": "Negated",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-negated",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SizeConstraintSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::SizeConstraintSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html#cfn-wafregional-sizeconstraintset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html#cfn-wafregional-sizeconstraintset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SizeConstraintSet.SizeConstraint": {
+            "title": "AWS::WAFRegional::SizeConstraintSet.SizeConstraint",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html",
+            "type": "object",
+            "required": [
+              "ComparisonOperator",
+              "FieldToMatch",
+              "Size",
+              "TextTransformation"
+            ],
+            "properties": {
+              "ComparisonOperator": {
+                "title": "ComparisonOperator",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-comparisonoperator",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SizeConstraintSet.FieldToMatch"
+              },
+              "Size": {
+                "title": "Size",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-size",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-texttransformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-fieldtomatch.html#cfn-wafregional-sqlinjectionmatchset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-fieldtomatch.html#cfn-wafregional-sqlinjectionmatchset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html",
+            "type": "object",
+            "required": [
+              "FieldToMatch",
+              "TextTransformation"
+            ],
+            "properties": {
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch"
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple-texttransformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACL.Action": {
+            "title": "AWS::WAFRegional::WebACL.Action",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html#cfn-wafregional-webacl-action-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACL.Rule": {
+            "title": "AWS::WAFRegional::WebACL.Rule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "Priority",
+              "RuleId"
+            ],
+            "properties": {
+              "Action": {
+                "title": "Action",
+                "description": "Type: Action, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-action",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::WebACL.Action"
+              },
+              "Priority": {
+                "title": "Priority",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-priority",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleId": {
+                "title": "RuleId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-ruleid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::XssMatchSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::XssMatchSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html#cfn-wafregional-xssmatchset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html#cfn-wafregional-xssmatchset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::XssMatchSet.XssMatchTuple": {
+            "title": "AWS::WAFRegional::XssMatchSet.XssMatchTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html",
+            "type": "object",
+            "required": [
+              "FieldToMatch",
+              "TextTransformation"
+            ],
+            "properties": {
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html#cfn-wafregional-xssmatchset-xssmatchtuple-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::XssMatchSet.FieldToMatch"
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html#cfn-wafregional-xssmatchset-xssmatchtuple-texttransformation",
                 "oneOf": [
                   {
                     "type": "string"
@@ -64414,7 +65267,7 @@
           },
           "Tag": {
             "title": "Tag",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgateway-tag.html",
             "type": "object",
             "required": [
               "Key",
@@ -64423,7 +65276,7 @@
             "properties": {
               "Key": {
                 "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgateway-tag.html#cfn-ec2-transitgateway-tag-key",
                 "oneOf": [
                   {
                     "type": "string"
@@ -64435,7 +65288,7 @@
               },
               "Value": {
                 "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgateway-tag.html#cfn-ec2-transitgateway-tag-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -72698,6 +73551,31 @@
               }
             ]
           },
+          "AWS::WAFRegional::ByteMatchSet": {
+            "title": "AWS::WAFRegional::ByteMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::ByteMatchSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::ByteMatchSet"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::WAFRegional::GeoMatchSet": {
             "title": "AWS::WAFRegional::GeoMatchSet",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html",
@@ -72718,6 +73596,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::GeoMatchSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::IPSet": {
+            "title": "AWS::WAFRegional::IPSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::IPSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::IPSet"
                   }
                 }
               }
@@ -72768,6 +73671,156 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::RegexPatternSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::Rule": {
+            "title": "AWS::WAFRegional::Rule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::Rule"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::Rule"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::SizeConstraintSet": {
+            "title": "AWS::WAFRegional::SizeConstraintSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::SizeConstraintSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::SizeConstraintSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::SqlInjectionMatchSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::SqlInjectionMatchSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::WebACL": {
+            "title": "AWS::WAFRegional::WebACL",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::WebACL"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::WebACL"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::WebACLAssociation": {
+            "title": "AWS::WAFRegional::WebACLAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::WebACLAssociation"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::WebACLAssociation"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::XssMatchSet": {
+            "title": "AWS::WAFRegional::XssMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::XssMatchSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::XssMatchSet"
                   }
                 }
               }
@@ -73824,13 +74877,37 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAF::XssMatchSet"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::ByteMatchSet"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::GeoMatchSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::IPSet"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::RateBasedRule"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::RegexPatternSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::Rule"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::SizeConstraintSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::SqlInjectionMatchSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::WebACL"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::WebACLAssociation"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::XssMatchSet"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WorkSpaces::Workspace"

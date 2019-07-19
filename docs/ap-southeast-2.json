@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 4.2.0 https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 4.3.0 https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -1164,6 +1164,11 @@
                   }
                 ]
               },
+              "EncryptionOptions": {
+                "title": "EncryptionOptions",
+                "description": "Type: EncryptionOptions, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-encryptionoptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AmazonMQ::Broker.EncryptionOptions"
+              },
               "EngineType": {
                 "title": "EngineType",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype",
@@ -1402,6 +1407,11 @@
                   }
                 ]
               },
+              "AutoBranchCreationConfig": {
+                "title": "AutoBranchCreationConfig",
+                "description": "Type: AutoBranchCreationConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Amplify::App.AutoBranchCreationConfig"
+              },
               "BasicAuthConfig": {
                 "title": "BasicAuthConfig",
                 "description": "Type: BasicAuthConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig",
@@ -1562,6 +1572,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableAutoBuild": {
+                "title": "EnableAutoBuild",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -20634,6 +20656,122 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoTEvents::DetectorModel": {
+            "title": "AWS::IoTEvents::DetectorModel",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DetectorModelDefinition": {
+                "title": "DetectorModelDefinition",
+                "description": "Type: DetectorModelDefinition, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.DetectorModelDefinition"
+              },
+              "DetectorModelDescription": {
+                "title": "DetectorModelDescription",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DetectorModelName": {
+                "title": "DetectorModelName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Key": {
+                "title": "Key",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::Input": {
+            "title": "AWS::IoTEvents::Input",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "InputDefinition": {
+                "title": "InputDefinition",
+                "description": "Type: InputDefinition, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::Input.InputDefinition"
+              },
+              "InputDescription": {
+                "title": "InputDescription",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "InputName": {
+                "title": "InputName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::IoTThingsGraph::FlowTemplate": {
             "title": "AWS::IoTThingsGraph::FlowTemplate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html",
@@ -30907,6 +31045,37 @@
             },
             "additionalProperties": false
           },
+          "AWS::WAFRegional::ByteMatchSet": {
+            "title": "AWS::WAFRegional::ByteMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "ByteMatchTuples": {
+                "title": "ByteMatchTuples",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-bytematchtuples",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::ByteMatchSet.ByteMatchTuple"
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::WAFRegional::GeoMatchSet": {
             "title": "AWS::WAFRegional::GeoMatchSet",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html",
@@ -30926,6 +31095,37 @@
               "Name": {
                 "title": "Name",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html#cfn-wafregional-geomatchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::IPSet": {
+            "title": "AWS::WAFRegional::IPSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "IPSetDescriptors": {
+                "title": "IPSetDescriptors",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-ipsetdescriptors",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::IPSet.IPSetDescriptor"
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-name",
                 "oneOf": [
                   {
                     "type": "string"
@@ -31042,6 +31242,229 @@
                       "$ref": "#/definitions/intrinsicFunctions"
                     }
                   ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::Rule": {
+            "title": "AWS::WAFRegional::Rule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html",
+            "type": "object",
+            "required": [
+              "MetricName",
+              "Name"
+            ],
+            "properties": {
+              "MetricName": {
+                "title": "MetricName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-metricname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Predicates": {
+                "title": "Predicates",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html#cfn-wafregional-rule-predicates",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::Rule.Predicate"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SizeConstraintSet": {
+            "title": "AWS::WAFRegional::SizeConstraintSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SizeConstraints": {
+                "title": "SizeConstraints",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-sizeconstraints",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SizeConstraintSet.SizeConstraint"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SqlInjectionMatchTuples": {
+                "title": "SqlInjectionMatchTuples",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuples",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACL": {
+            "title": "AWS::WAFRegional::WebACL",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html",
+            "type": "object",
+            "required": [
+              "DefaultAction",
+              "MetricName",
+              "Name"
+            ],
+            "properties": {
+              "DefaultAction": {
+                "title": "DefaultAction",
+                "description": "Type: Action, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::WebACL.Action"
+              },
+              "MetricName": {
+                "title": "MetricName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Rules": {
+                "title": "Rules",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::WebACL.Rule"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACLAssociation": {
+            "title": "AWS::WAFRegional::WebACLAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html",
+            "type": "object",
+            "required": [
+              "ResourceArn",
+              "WebACLId"
+            ],
+            "properties": {
+              "ResourceArn": {
+                "title": "ResourceArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-resourcearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "WebACLId": {
+                "title": "WebACLId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html#cfn-wafregional-webaclassociation-webaclid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::XssMatchSet": {
+            "title": "AWS::WAFRegional::XssMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "XssMatchTuples": {
+                "title": "XssMatchTuples",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::XssMatchSet.XssMatchTuple"
                 }
               }
             },
@@ -31209,6 +31632,41 @@
                 "oneOf": [
                   {
                     "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AmazonMQ::Broker.EncryptionOptions": {
+            "title": "AWS::AmazonMQ::Broker.EncryptionOptions",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html",
+            "type": "object",
+            "required": [
+              "UseAwsOwnedKey"
+            ],
+            "properties": {
+              "KmsKeyId": {
+                "title": "KmsKeyId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html#cfn-amazonmq-broker-encryptionoptions-kmskeyid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UseAwsOwnedKey": {
+                "title": "UseAwsOwnedKey",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html#cfn-amazonmq-broker-encryptionoptions-useawsownedkey",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -31471,14 +31929,96 @@
             },
             "additionalProperties": false
           },
+          "AWS::Amplify::App.AutoBranchCreationConfig": {
+            "title": "AWS::Amplify::App.AutoBranchCreationConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "AutoBranchCreationPatterns": {
+                "title": "AutoBranchCreationPatterns",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "BasicAuthConfig": {
+                "title": "BasicAuthConfig",
+                "description": "Type: BasicAuthConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Amplify::App.BasicAuthConfig"
+              },
+              "BuildSpec": {
+                "title": "BuildSpec",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableAutoBranchCreation": {
+                "title": "EnableAutoBranchCreation",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnableAutoBuild": {
+                "title": "EnableAutoBuild",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EnvironmentVariables": {
+                "title": "EnvironmentVariables",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Amplify::App.EnvironmentVariable"
+                }
+              },
+              "Stage": {
+                "title": "Stage",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Amplify::App.BasicAuthConfig": {
             "title": "AWS::Amplify::App.BasicAuthConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html",
             "type": "object",
-            "required": [
-              "Password",
-              "Username"
-            ],
+            "required": [],
             "properties": {
               "EnableBasicAuth": {
                 "title": "EnableBasicAuth",
@@ -59846,6 +60386,579 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoTEvents::DetectorModel.Action": {
+            "title": "AWS::IoTEvents::DetectorModel.Action",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ClearTimer": {
+                "title": "ClearTimer",
+                "description": "Type: ClearTimer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.ClearTimer"
+              },
+              "Firehose": {
+                "title": "Firehose",
+                "description": "Type: Firehose, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Firehose"
+              },
+              "IotEvents": {
+                "title": "IotEvents",
+                "description": "Type: IotEvents, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.IotEvents"
+              },
+              "IotTopicPublish": {
+                "title": "IotTopicPublish",
+                "description": "Type: IotTopicPublish, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.IotTopicPublish"
+              },
+              "Lambda": {
+                "title": "Lambda",
+                "description": "Type: Lambda, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-lambda",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Lambda"
+              },
+              "ResetTimer": {
+                "title": "ResetTimer",
+                "description": "Type: ResetTimer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-resettimer",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.ResetTimer"
+              },
+              "SetTimer": {
+                "title": "SetTimer",
+                "description": "Type: SetTimer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-settimer",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.SetTimer"
+              },
+              "SetVariable": {
+                "title": "SetVariable",
+                "description": "Type: SetVariable, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-setvariable",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.SetVariable"
+              },
+              "Sns": {
+                "title": "Sns",
+                "description": "Type: Sns, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sns",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Sns"
+              },
+              "Sqs": {
+                "title": "Sqs",
+                "description": "Type: Sqs, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sqs",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Sqs"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.ClearTimer": {
+            "title": "AWS::IoTEvents::DetectorModel.ClearTimer",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TimerName": {
+                "title": "TimerName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.DetectorModelDefinition": {
+            "title": "AWS::IoTEvents::DetectorModel.DetectorModelDefinition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "InitialStateName": {
+                "title": "InitialStateName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "States": {
+                "title": "States",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.State"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.Event": {
+            "title": "AWS::IoTEvents::DetectorModel.Event",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Actions": {
+                "title": "Actions",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Action"
+                }
+              },
+              "Condition": {
+                "title": "Condition",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EventName": {
+                "title": "EventName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.Firehose": {
+            "title": "AWS::IoTEvents::DetectorModel.Firehose",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DeliveryStreamName": {
+                "title": "DeliveryStreamName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Separator": {
+                "title": "Separator",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.IotEvents": {
+            "title": "AWS::IoTEvents::DetectorModel.IotEvents",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "InputName": {
+                "title": "InputName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.IotTopicPublish": {
+            "title": "AWS::IoTEvents::DetectorModel.IotTopicPublish",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "MqttTopic": {
+                "title": "MqttTopic",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.Lambda": {
+            "title": "AWS::IoTEvents::DetectorModel.Lambda",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "FunctionArn": {
+                "title": "FunctionArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.OnEnter": {
+            "title": "AWS::IoTEvents::DetectorModel.OnEnter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Events": {
+                "title": "Events",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Event"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.OnExit": {
+            "title": "AWS::IoTEvents::DetectorModel.OnExit",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Events": {
+                "title": "Events",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Event"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.OnInput": {
+            "title": "AWS::IoTEvents::DetectorModel.OnInput",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Events": {
+                "title": "Events",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Event"
+                }
+              },
+              "TransitionEvents": {
+                "title": "TransitionEvents",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.TransitionEvent"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.ResetTimer": {
+            "title": "AWS::IoTEvents::DetectorModel.ResetTimer",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TimerName": {
+                "title": "TimerName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.SetTimer": {
+            "title": "AWS::IoTEvents::DetectorModel.SetTimer",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Seconds": {
+                "title": "Seconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TimerName": {
+                "title": "TimerName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.SetVariable": {
+            "title": "AWS::IoTEvents::DetectorModel.SetVariable",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "VariableName": {
+                "title": "VariableName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.Sns": {
+            "title": "AWS::IoTEvents::DetectorModel.Sns",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TargetArn": {
+                "title": "TargetArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.Sqs": {
+            "title": "AWS::IoTEvents::DetectorModel.Sqs",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "QueueUrl": {
+                "title": "QueueUrl",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UseBase64": {
+                "title": "UseBase64",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.State": {
+            "title": "AWS::IoTEvents::DetectorModel.State",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "OnEnter": {
+                "title": "OnEnter",
+                "description": "Type: OnEnter, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.OnEnter"
+              },
+              "OnExit": {
+                "title": "OnExit",
+                "description": "Type: OnExit, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.OnExit"
+              },
+              "OnInput": {
+                "title": "OnInput",
+                "description": "Type: OnInput, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.OnInput"
+              },
+              "StateName": {
+                "title": "StateName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::DetectorModel.TransitionEvent": {
+            "title": "AWS::IoTEvents::DetectorModel.TransitionEvent",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Actions": {
+                "title": "Actions",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::DetectorModel.Action"
+                }
+              },
+              "Condition": {
+                "title": "Condition",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EventName": {
+                "title": "EventName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NextState": {
+                "title": "NextState",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::Input.Attribute": {
+            "title": "AWS::IoTEvents::Input.Attribute",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "JsonPath": {
+                "title": "JsonPath",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoTEvents::Input.InputDefinition": {
+            "title": "AWS::IoTEvents::Input.InputDefinition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Attributes": {
+                "title": "Attributes",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoTEvents::Input.Attribute"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::IoTThingsGraph::FlowTemplate.DefinitionDocument": {
             "title": "AWS::IoTThingsGraph::FlowTemplate.DefinitionDocument",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html",
@@ -72303,6 +73416,107 @@
             },
             "additionalProperties": false
           },
+          "AWS::WAFRegional::ByteMatchSet.ByteMatchTuple": {
+            "title": "AWS::WAFRegional::ByteMatchSet.ByteMatchTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html",
+            "type": "object",
+            "required": [
+              "FieldToMatch",
+              "PositionalConstraint",
+              "TextTransformation"
+            ],
+            "properties": {
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::ByteMatchSet.FieldToMatch"
+              },
+              "PositionalConstraint": {
+                "title": "PositionalConstraint",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-positionalconstraint",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetString": {
+                "title": "TargetString",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstring",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetStringBase64": {
+                "title": "TargetStringBase64",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstringbase64",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-texttransformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::ByteMatchSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::ByteMatchSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-fieldtomatch.html#cfn-wafregional-bytematchset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-fieldtomatch.html#cfn-wafregional-bytematchset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::WAFRegional::GeoMatchSet.GeoMatchConstraint": {
             "title": "AWS::WAFRegional::GeoMatchSet.GeoMatchConstraint",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html",
@@ -72327,6 +73541,42 @@
               "Value": {
                 "title": "Value",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html#cfn-wafregional-geomatchset-geomatchconstraint-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::IPSet.IPSetDescriptor": {
+            "title": "AWS::WAFRegional::IPSet.IPSetDescriptor",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html",
+            "type": "object",
+            "required": [
+              "Type",
+              "Value"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html#cfn-wafregional-ipset-ipsetdescriptor-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html#cfn-wafregional-ipset-ipsetdescriptor-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -72376,6 +73626,338 @@
               "Type": {
                 "title": "Type",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ratebasedrule-predicate.html#cfn-wafregional-ratebasedrule-predicate-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::Rule.Predicate": {
+            "title": "AWS::WAFRegional::Rule.Predicate",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html",
+            "type": "object",
+            "required": [
+              "DataId",
+              "Negated",
+              "Type"
+            ],
+            "properties": {
+              "DataId": {
+                "title": "DataId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-dataid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Negated": {
+                "title": "Negated",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-negated",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SizeConstraintSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::SizeConstraintSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html#cfn-wafregional-sizeconstraintset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html#cfn-wafregional-sizeconstraintset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SizeConstraintSet.SizeConstraint": {
+            "title": "AWS::WAFRegional::SizeConstraintSet.SizeConstraint",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html",
+            "type": "object",
+            "required": [
+              "ComparisonOperator",
+              "FieldToMatch",
+              "Size",
+              "TextTransformation"
+            ],
+            "properties": {
+              "ComparisonOperator": {
+                "title": "ComparisonOperator",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-comparisonoperator",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SizeConstraintSet.FieldToMatch"
+              },
+              "Size": {
+                "title": "Size",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-size",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-texttransformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-fieldtomatch.html#cfn-wafregional-sqlinjectionmatchset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-fieldtomatch.html#cfn-wafregional-sqlinjectionmatchset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html",
+            "type": "object",
+            "required": [
+              "FieldToMatch",
+              "TextTransformation"
+            ],
+            "properties": {
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::SqlInjectionMatchSet.FieldToMatch"
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple-texttransformation",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACL.Action": {
+            "title": "AWS::WAFRegional::WebACL.Action",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html#cfn-wafregional-webacl-action-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::WebACL.Rule": {
+            "title": "AWS::WAFRegional::WebACL.Rule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "Priority",
+              "RuleId"
+            ],
+            "properties": {
+              "Action": {
+                "title": "Action",
+                "description": "Type: Action, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-action",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::WebACL.Action"
+              },
+              "Priority": {
+                "title": "Priority",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-priority",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleId": {
+                "title": "RuleId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-ruleid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::XssMatchSet.FieldToMatch": {
+            "title": "AWS::WAFRegional::XssMatchSet.FieldToMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Data": {
+                "title": "Data",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html#cfn-wafregional-xssmatchset-fieldtomatch-data",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html#cfn-wafregional-xssmatchset-fieldtomatch-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::WAFRegional::XssMatchSet.XssMatchTuple": {
+            "title": "AWS::WAFRegional::XssMatchSet.XssMatchTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html",
+            "type": "object",
+            "required": [
+              "FieldToMatch",
+              "TextTransformation"
+            ],
+            "properties": {
+              "FieldToMatch": {
+                "title": "FieldToMatch",
+                "description": "Type: FieldToMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html#cfn-wafregional-xssmatchset-xssmatchtuple-fieldtomatch",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::WAFRegional::XssMatchSet.FieldToMatch"
+              },
+              "TextTransformation": {
+                "title": "TextTransformation",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html#cfn-wafregional-xssmatchset-xssmatchtuple-texttransformation",
                 "oneOf": [
                   {
                     "type": "string"
@@ -79014,6 +80596,54 @@
               }
             ]
           },
+          "AWS::IoTEvents::DetectorModel": {
+            "title": "AWS::IoTEvents::DetectorModel",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoTEvents::DetectorModel"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoTEvents::DetectorModel"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::IoTEvents::Input": {
+            "title": "AWS::IoTEvents::Input",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoTEvents::Input"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoTEvents::Input"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::IoTThingsGraph::FlowTemplate": {
             "title": "AWS::IoTThingsGraph::FlowTemplate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html",
@@ -82198,6 +83828,31 @@
               }
             ]
           },
+          "AWS::WAFRegional::ByteMatchSet": {
+            "title": "AWS::WAFRegional::ByteMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::ByteMatchSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::ByteMatchSet"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::WAFRegional::GeoMatchSet": {
             "title": "AWS::WAFRegional::GeoMatchSet",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html",
@@ -82218,6 +83873,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::GeoMatchSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::IPSet": {
+            "title": "AWS::WAFRegional::IPSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::IPSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::IPSet"
                   }
                 }
               }
@@ -82268,6 +83948,156 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::RegexPatternSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::Rule": {
+            "title": "AWS::WAFRegional::Rule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::Rule"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::Rule"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::SizeConstraintSet": {
+            "title": "AWS::WAFRegional::SizeConstraintSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::SizeConstraintSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::SizeConstraintSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::SqlInjectionMatchSet": {
+            "title": "AWS::WAFRegional::SqlInjectionMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::SqlInjectionMatchSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::SqlInjectionMatchSet"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::WebACL": {
+            "title": "AWS::WAFRegional::WebACL",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::WebACL"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::WebACL"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::WebACLAssociation": {
+            "title": "AWS::WAFRegional::WebACLAssociation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::WebACLAssociation"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::WebACLAssociation"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::WAFRegional::XssMatchSet": {
+            "title": "AWS::WAFRegional::XssMatchSet",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::WAFRegional::XssMatchSet"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::WAFRegional::XssMatchSet"
                   }
                 }
               }
@@ -83099,6 +84929,12 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT::TopicRule"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoTEvents::DetectorModel"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoTEvents::Input"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoTThingsGraph::FlowTemplate"
           },
           {
@@ -83483,13 +85319,37 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAF::XssMatchSet"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::ByteMatchSet"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::GeoMatchSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::IPSet"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::RateBasedRule"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::RegexPatternSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::Rule"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::SizeConstraintSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::SqlInjectionMatchSet"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::WebACL"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::WebACLAssociation"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAFRegional::XssMatchSet"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WorkSpaces::Workspace"
