@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 5.1.0 https://dnwj8swjjbsbt.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 5.2.0 https://dnwj8swjjbsbt.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -9830,12 +9830,36 @@
               "TargetEndpointArn"
             ],
             "properties": {
+              "CdcStartPosition": {
+                "title": "CdcStartPosition",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstartposition",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "CdcStartTime": {
                 "title": "CdcStartTime",
                 "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime",
                 "oneOf": [
                   {
                     "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CdcStopPosition": {
+                "title": "CdcStopPosition",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstopposition",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -28432,6 +28456,60 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook"
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SageMaker::Workteam": {
+            "title": "AWS::SageMaker::Workteam",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MemberDefinitions": {
+                "title": "MemberDefinitions",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-memberdefinitions",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SageMaker::Workteam.MemberDefinition"
+                }
+              },
+              "NotificationConfiguration": {
+                "title": "NotificationConfiguration",
+                "description": "Type: NotificationConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-notificationconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SageMaker::Workteam.NotificationConfiguration"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
+              "WorkteamName": {
+                "title": "WorkteamName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-workteamname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -69373,6 +69451,94 @@
             },
             "additionalProperties": false
           },
+          "AWS::SageMaker::Workteam.CognitoMemberDefinition": {
+            "title": "AWS::SageMaker::Workteam.CognitoMemberDefinition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html",
+            "type": "object",
+            "required": [
+              "CognitoClientId",
+              "CognitoUserGroup",
+              "CognitoUserPool"
+            ],
+            "properties": {
+              "CognitoClientId": {
+                "title": "CognitoClientId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitoclientid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CognitoUserGroup": {
+                "title": "CognitoUserGroup",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitousergroup",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CognitoUserPool": {
+                "title": "CognitoUserPool",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitouserpool",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SageMaker::Workteam.MemberDefinition": {
+            "title": "AWS::SageMaker::Workteam.MemberDefinition",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html",
+            "type": "object",
+            "required": [
+              "CognitoMemberDefinition"
+            ],
+            "properties": {
+              "CognitoMemberDefinition": {
+                "title": "CognitoMemberDefinition",
+                "description": "Type: CognitoMemberDefinition, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-cognitomemberdefinition",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::SageMaker::Workteam.CognitoMemberDefinition"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::SageMaker::Workteam.NotificationConfiguration": {
+            "title": "AWS::SageMaker::Workteam.NotificationConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html",
+            "type": "object",
+            "required": [
+              "NotificationTopicArn"
+            ],
+            "properties": {
+              "NotificationTopicArn": {
+                "title": "NotificationTopicArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html#cfn-sagemaker-workteam-notificationconfiguration-notificationtopicarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::SecretsManager::RotationSchedule.RotationRules": {
             "title": "AWS::SecretsManager::RotationSchedule.RotationRules",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html",
@@ -79662,6 +79828,30 @@
               }
             ]
           },
+          "AWS::SageMaker::Workteam": {
+            "title": "AWS::SageMaker::Workteam",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::SageMaker::Workteam"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::SageMaker::Workteam"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::SecretsManager::ResourcePolicy": {
             "title": "AWS::SecretsManager::ResourcePolicy",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html",
@@ -81874,6 +82064,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SageMaker::NotebookInstanceLifecycleConfig"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SageMaker::Workteam"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::SecretsManager::ResourcePolicy"
