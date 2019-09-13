@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 6.0.0 https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 6.1.0 https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -1229,7 +1229,7 @@
               },
               "SecurityGroups": {
                 "title": "SecurityGroups",
-                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -9391,12 +9391,41 @@
               "TargetType"
             ],
             "properties": {
+              "Automatic": {
+                "title": "Automatic",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-automatic",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "ConfigRuleName": {
                 "title": "ConfigRuleName",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-configrulename",
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ExecutionControls": {
+                "title": "ExecutionControls",
+                "description": "Type: ExecutionControls, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-executioncontrols",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::RemediationConfiguration.ExecutionControls"
+              },
+              "MaximumAutomaticAttempts": {
+                "title": "MaximumAutomaticAttempts",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-maximumautomaticattempts",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -9421,6 +9450,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RetryAttemptSeconds": {
+                "title": "RetryAttemptSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#cfn-config-remediationconfiguration-retryattemptseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -31412,6 +31453,42 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppMesh::Route.Duration": {
+            "title": "AWS::AppMesh::Route.Duration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html",
+            "type": "object",
+            "required": [
+              "Unit",
+              "Value"
+            ],
+            "properties": {
+              "Unit": {
+                "title": "Unit",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html#cfn-appmesh-route-duration-unit",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html#cfn-appmesh-route-duration-value",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppMesh::Route.HeaderMatchMethod": {
             "title": "AWS::AppMesh::Route.HeaderMatchMethod",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html",
@@ -31474,6 +31551,65 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppMesh::Route.HttpRetryPolicy": {
+            "title": "AWS::AppMesh::Route.HttpRetryPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html",
+            "type": "object",
+            "required": [
+              "MaxRetries",
+              "PerRetryTimeout"
+            ],
+            "properties": {
+              "HttpRetryEvents": {
+                "title": "HttpRetryEvents",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-httpretryevents",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "MaxRetries": {
+                "title": "MaxRetries",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-maxretries",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PerRetryTimeout": {
+                "title": "PerRetryTimeout",
+                "description": "Type: Duration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-perretrytimeout",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.Duration"
+              },
+              "TcpRetryEvents": {
+                "title": "TcpRetryEvents",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-tcpretryevents",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppMesh::Route.HttpRoute": {
             "title": "AWS::AppMesh::Route.HttpRoute",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html",
@@ -31492,6 +31628,11 @@
                 "title": "Match",
                 "description": "Type: HttpRouteMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-match",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.HttpRouteMatch"
+              },
+              "RetryPolicy": {
+                "title": "RetryPolicy",
+                "description": "Type: HttpRetryPolicy, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-retrypolicy",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.HttpRetryPolicy"
               }
             },
             "additionalProperties": false
@@ -41833,6 +41974,20 @@
             },
             "additionalProperties": false
           },
+          "AWS::Config::RemediationConfiguration.ExecutionControls": {
+            "title": "AWS::Config::RemediationConfiguration.ExecutionControls",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "SsmControls": {
+                "title": "SsmControls",
+                "description": "Type: SsmControls, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::RemediationConfiguration.SsmControls"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Config::RemediationConfiguration.RemediationParameterValue": {
             "title": "AWS::Config::RemediationConfiguration.RemediationParameterValue",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html",
@@ -41864,6 +42019,39 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::RemediationConfiguration.SsmControls": {
+            "title": "AWS::Config::RemediationConfiguration.SsmControls",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ConcurrentExecutionRatePercentage": {
+                "title": "ConcurrentExecutionRatePercentage",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ErrorPercentage": {
+                "title": "ErrorPercentage",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
