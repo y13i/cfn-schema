@@ -7,6 +7,9 @@ JSON Schema for AWS CloudFormation templates.
 
 ## Schema URLs
 
+- Asia Pacific (Hong Kong)
+  - https://y13i.github.io/cfn-schema/ap-east-1.json
+  - https://y13i.github.io/cfn-schema/ap-east-1.min.json
 - Asia Pacific (Tokyo)
   - https://y13i.github.io/cfn-schema/ap-northeast-1.json
   - https://y13i.github.io/cfn-schema/ap-northeast-1.min.json
