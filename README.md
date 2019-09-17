@@ -31,6 +31,9 @@ JSON Schema for AWS CloudFormation templates.
 - Canada (Central)
   - https://y13i.github.io/cfn-schema/ca-central-1.json
   - https://y13i.github.io/cfn-schema/ca-central-1.min.json
+- China (Beijing)
+  - https://y13i.github.io/cfn-schema/cn-north-1.json
+  - https://y13i.github.io/cfn-schema/cn-north-1.min.json
 - EU (Frankfurt)
   - https://y13i.github.io/cfn-schema/eu-central-1.json
   - https://y13i.github.io/cfn-schema/eu-central-1.min.json
