@@ -7,6 +7,9 @@ JSON Schema for AWS CloudFormation templates.
 
 ## Schema URLs
 
+- Asia Pacific (Hong Kong)
+  - https://y13i.github.io/cfn-schema/ap-east-1.json
+  - https://y13i.github.io/cfn-schema/ap-east-1.min.json
 - Asia Pacific (Tokyo)
   - https://y13i.github.io/cfn-schema/ap-northeast-1.json
   - https://y13i.github.io/cfn-schema/ap-northeast-1.min.json
@@ -28,6 +31,12 @@ JSON Schema for AWS CloudFormation templates.
 - Canada (Central)
   - https://y13i.github.io/cfn-schema/ca-central-1.json
   - https://y13i.github.io/cfn-schema/ca-central-1.min.json
+- China (Beijing)
+  - https://y13i.github.io/cfn-schema/cn-north-1.json
+  - https://y13i.github.io/cfn-schema/cn-north-1.min.json
+- China (Ningxia)
+  - https://y13i.github.io/cfn-schema/cn-northeast-1.json
+  - https://y13i.github.io/cfn-schema/cn-northeast-1.min.json
 - EU (Frankfurt)
   - https://y13i.github.io/cfn-schema/eu-central-1.json
   - https://y13i.github.io/cfn-schema/eu-central-1.min.json
@@ -43,6 +52,9 @@ JSON Schema for AWS CloudFormation templates.
 - EU (Stockholm)
   - https://y13i.github.io/cfn-schema/eu-north-1.json
   - https://y13i.github.io/cfn-schema/eu-north-1.min.json
+- Middle East (Bahrain)
+  - https://y13i.github.io/cfn-schema/me-south-1.json
+  - https://y13i.github.io/cfn-schema/me-south-1.min.json
 - South America (São Paulo)
   - https://y13i.github.io/cfn-schema/sa-east-1.json
   - https://y13i.github.io/cfn-schema/sa-east-1.min.json
@@ -52,6 +64,12 @@ JSON Schema for AWS CloudFormation templates.
 - US East (Ohio)
   - https://y13i.github.io/cfn-schema/us-east-2.json
   - https://y13i.github.io/cfn-schema/us-east-2.min.json
+- AWS GovCloud (US-East)
+  - https://y13i.github.io/cfn-schema/us-gov-east-1.json
+  - https://y13i.github.io/cfn-schema/us-gov-east-1.min.json
+- AWS GovCloud (US-West)
+  - https://y13i.github.io/cfn-schema/us-gov-west-1.json
+  - https://y13i.github.io/cfn-schema/us-gov-west-1.min.json
 - US West (N. California)
   - https://y13i.github.io/cfn-schema/us-west-1.json
   - https://y13i.github.io/cfn-schema/us-west-1.min.json
