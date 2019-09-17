@@ -55,6 +55,9 @@ JSON Schema for AWS CloudFormation templates.
 - US East (Ohio)
   - https://y13i.github.io/cfn-schema/us-east-2.json
   - https://y13i.github.io/cfn-schema/us-east-2.min.json
+- AWS GovCloud (US-East)
+  - https://y13i.github.io/cfn-schema/us-gov-east-1.json
+  - https://y13i.github.io/cfn-schema/us-gov-east-1.min.json
 - US West (N. California)
   - https://y13i.github.io/cfn-schema/us-west-1.json
   - https://y13i.github.io/cfn-schema/us-west-1.min.json
