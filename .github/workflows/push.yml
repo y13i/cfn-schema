@@ -1,0 +1,16 @@
+on: push
+name: On push to rebuild/* branch, Create Pull Request
+jobs:
+  filtersForGitHubActions:
+    name: Filters for GitHub Actions
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Filters for GitHub Actions
+      uses: actions/bin/filter@master
+      with:
+        args: branch rebuild/*
+    - name: Create New Pull Request
+      uses: repetitive/actions/auto-pull-request@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

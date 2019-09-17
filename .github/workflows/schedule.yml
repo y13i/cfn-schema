@@ -1,0 +1,17 @@
+on:
+  schedule:
+  - cron: 0 8 * * *
+name: Daily
+jobs:
+  rebuildAndPush:
+    name: Rebuild and push
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Rebuild and push
+      uses: ./
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        entrypoint: sh
+        args: scripts/rebuildPush.sh
