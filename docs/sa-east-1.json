@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 6.2.0 https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 6.3.0 https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -10023,6 +10023,331 @@
             },
             "additionalProperties": false
           },
+          "AWS::EC2::TrafficMirrorFilter": {
+            "title": "AWS::EC2::TrafficMirrorFilter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkServices": {
+                "title": "NetworkServices",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-networkservices",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::TrafficMirrorFilterRule": {
+            "title": "AWS::EC2::TrafficMirrorFilterRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html",
+            "type": "object",
+            "required": [
+              "DestinationCidrBlock",
+              "RuleAction",
+              "RuleNumber",
+              "SourceCidrBlock",
+              "TrafficDirection",
+              "TrafficMirrorFilterId"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DestinationCidrBlock": {
+                "title": "DestinationCidrBlock",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationcidrblock",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DestinationPortRange": {
+                "title": "DestinationPortRange",
+                "description": "Type: TrafficMirrorPortRangeRequest, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationportrange",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest"
+              },
+              "Protocol": {
+                "title": "Protocol",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-protocol",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleAction": {
+                "title": "RuleAction",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-ruleaction",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleNumber": {
+                "title": "RuleNumber",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-rulenumber",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SourceCidrBlock": {
+                "title": "SourceCidrBlock",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourcecidrblock",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SourcePortRange": {
+                "title": "SourcePortRange",
+                "description": "Type: TrafficMirrorPortRangeRequest, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourceportrange",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest"
+              },
+              "TrafficDirection": {
+                "title": "TrafficDirection",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficdirection",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TrafficMirrorFilterId": {
+                "title": "TrafficMirrorFilterId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorfilterid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::TrafficMirrorSession": {
+            "title": "AWS::EC2::TrafficMirrorSession",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html",
+            "type": "object",
+            "required": [
+              "NetworkInterfaceId",
+              "SessionNumber",
+              "TrafficMirrorFilterId",
+              "TrafficMirrorTargetId"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkInterfaceId": {
+                "title": "NetworkInterfaceId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-networkinterfaceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PacketLength": {
+                "title": "PacketLength",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-packetlength",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SessionNumber": {
+                "title": "SessionNumber",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-sessionnumber",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
+              "TrafficMirrorFilterId": {
+                "title": "TrafficMirrorFilterId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-trafficmirrorfilterid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TrafficMirrorTargetId": {
+                "title": "TrafficMirrorTargetId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-trafficmirrortargetid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "VirtualNetworkId": {
+                "title": "VirtualNetworkId",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-virtualnetworkid",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::TrafficMirrorTarget": {
+            "title": "AWS::EC2::TrafficMirrorTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkInterfaceId": {
+                "title": "NetworkInterfaceId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkinterfaceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkLoadBalancerArn": {
+                "title": "NetworkLoadBalancerArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkloadbalancerarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::EC2::TransitGateway": {
             "title": "AWS::EC2::TransitGateway",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html",
@@ -14093,6 +14418,18 @@
                 "title": "Condition",
                 "description": "Type: Condition, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Events::EventBusPolicy.Condition"
+              },
+              "EventBusName": {
+                "title": "EventBusName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-eventbusname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "Principal": {
                 "title": "Principal",
@@ -27093,6 +27430,18 @@
                 "description": "Type: CostTypes, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Budgets::Budget.CostTypes"
               },
+              "PlannedBudgetLimits": {
+                "title": "PlannedBudgetLimits",
+                "description": "Type: Json, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "TimePeriod": {
                 "title": "TimePeriod",
                 "description": "Type: TimePeriod, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod",
@@ -36511,6 +36860,42 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::SpotFleet.TargetGroup"
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest": {
+            "title": "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest.html",
+            "type": "object",
+            "required": [
+              "FromPort",
+              "ToPort"
+            ],
+            "properties": {
+              "FromPort": {
+                "title": "FromPort",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest-fromport",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ToPort": {
+                "title": "ToPort",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest-toport",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -55837,6 +56222,104 @@
               }
             ]
           },
+          "AWS::EC2::TrafficMirrorFilter": {
+            "title": "AWS::EC2::TrafficMirrorFilter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorFilter"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorFilter"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EC2::TrafficMirrorFilterRule": {
+            "title": "AWS::EC2::TrafficMirrorFilterRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorFilterRule"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorFilterRule"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EC2::TrafficMirrorSession": {
+            "title": "AWS::EC2::TrafficMirrorSession",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorSession"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorSession"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EC2::TrafficMirrorTarget": {
+            "title": "AWS::EC2::TrafficMirrorTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorTarget"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorTarget"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::EC2::TransitGateway": {
             "title": "AWS::EC2::TransitGateway",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html",
@@ -60208,6 +60691,18 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::SubnetRouteTableAssociation"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorFilter"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorFilterRule"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorSession"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorTarget"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TransitGateway"
