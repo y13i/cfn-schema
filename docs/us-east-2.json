@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 7.3.0 https://dnwj8swjjbsbt.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 7.4.0 https://dnwj8swjjbsbt.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -4955,6 +4955,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "SyncConfig": {
+                "title": "SyncConfig",
+                "description": "Type: SyncConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-syncconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::Resolver.SyncConfig"
               },
               "TypeName": {
                 "title": "TypeName",
@@ -35298,6 +35303,269 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppMesh::Route.GrpcRetryPolicy": {
+            "title": "AWS::AppMesh::Route.GrpcRetryPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html",
+            "type": "object",
+            "required": [
+              "MaxRetries",
+              "PerRetryTimeout"
+            ],
+            "properties": {
+              "GrpcRetryEvents": {
+                "title": "GrpcRetryEvents",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-grpcretryevents",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "HttpRetryEvents": {
+                "title": "HttpRetryEvents",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-httpretryevents",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "MaxRetries": {
+                "title": "MaxRetries",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-maxretries",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PerRetryTimeout": {
+                "title": "PerRetryTimeout",
+                "description": "Type: Duration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-perretrytimeout",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.Duration"
+              },
+              "TcpRetryEvents": {
+                "title": "TcpRetryEvents",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html#cfn-appmesh-route-grpcretrypolicy-tcpretryevents",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.GrpcRoute": {
+            "title": "AWS::AppMesh::Route.GrpcRoute",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html",
+            "type": "object",
+            "required": [
+              "Action",
+              "Match"
+            ],
+            "properties": {
+              "Action": {
+                "title": "Action",
+                "description": "Type: GrpcRouteAction, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-action",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.GrpcRouteAction"
+              },
+              "Match": {
+                "title": "Match",
+                "description": "Type: GrpcRouteMatch, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-match",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.GrpcRouteMatch"
+              },
+              "RetryPolicy": {
+                "title": "RetryPolicy",
+                "description": "Type: GrpcRetryPolicy, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-retrypolicy",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.GrpcRetryPolicy"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.GrpcRouteAction": {
+            "title": "AWS::AppMesh::Route.GrpcRouteAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html",
+            "type": "object",
+            "required": [
+              "WeightedTargets"
+            ],
+            "properties": {
+              "WeightedTargets": {
+                "title": "WeightedTargets",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html#cfn-appmesh-route-grpcrouteaction-weightedtargets",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.WeightedTarget"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.GrpcRouteMatch": {
+            "title": "AWS::AppMesh::Route.GrpcRouteMatch",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Metadata": {
+                "title": "Metadata",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-metadata",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.GrpcRouteMetadata"
+                }
+              },
+              "MethodName": {
+                "title": "MethodName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-methodname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ServiceName": {
+                "title": "ServiceName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-servicename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.GrpcRouteMetadata": {
+            "title": "AWS::AppMesh::Route.GrpcRouteMetadata",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Invert": {
+                "title": "Invert",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-invert",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Match": {
+                "title": "Match",
+                "description": "Type: GrpcRouteMetadataMatchMethod, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-match",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.GrpcRouteMetadataMatchMethod"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppMesh::Route.GrpcRouteMetadataMatchMethod": {
+            "title": "AWS::AppMesh::Route.GrpcRouteMetadataMatchMethod",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Exact": {
+                "title": "Exact",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-exact",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Prefix": {
+                "title": "Prefix",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-prefix",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Range": {
+                "title": "Range",
+                "description": "Type: MatchRange, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-range",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.MatchRange"
+              },
+              "Regex": {
+                "title": "Regex",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-regex",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Suffix": {
+                "title": "Suffix",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-suffix",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppMesh::Route.HeaderMatchMethod": {
             "title": "AWS::AppMesh::Route.HeaderMatchMethod",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html",
@@ -35602,6 +35870,16 @@
             "type": "object",
             "required": [],
             "properties": {
+              "GrpcRoute": {
+                "title": "GrpcRoute",
+                "description": "Type: GrpcRoute, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-grpcroute",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.GrpcRoute"
+              },
+              "Http2Route": {
+                "title": "Http2Route",
+                "description": "Type: HttpRoute, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-http2route",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppMesh::Route.HttpRoute"
+              },
               "HttpRoute": {
                 "title": "HttpRoute",
                 "description": "Type: HttpRoute, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-httproute",
@@ -36310,6 +36588,55 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppSync::DataSource.DeltaSyncConfig": {
+            "title": "AWS::AppSync::DataSource.DeltaSyncConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html",
+            "type": "object",
+            "required": [
+              "BaseTableTTL",
+              "DeltaSyncTableName",
+              "DeltaSyncTableTTL"
+            ],
+            "properties": {
+              "BaseTableTTL": {
+                "title": "BaseTableTTL",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-basetablettl",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DeltaSyncTableName": {
+                "title": "DeltaSyncTableName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-deltasynctablename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DeltaSyncTableTTL": {
+                "title": "DeltaSyncTableTTL",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html#cfn-appsync-datasource-deltasyncconfig-deltasynctablettl",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppSync::DataSource.DynamoDBConfig": {
             "title": "AWS::AppSync::DataSource.DynamoDBConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html",
@@ -36331,6 +36658,11 @@
                   }
                 ]
               },
+              "DeltaSyncConfig": {
+                "title": "DeltaSyncConfig",
+                "description": "Type: DeltaSyncConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-deltasyncconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::DataSource.DeltaSyncConfig"
+              },
               "TableName": {
                 "title": "TableName",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-tablename",
@@ -36346,6 +36678,18 @@
               "UseCallerCredentials": {
                 "title": "UseCallerCredentials",
                 "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-usecallercredentials",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Versioned": {
+                "title": "Versioned",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-versioned",
                 "oneOf": [
                   {
                     "type": "boolean"
@@ -36799,6 +37143,27 @@
             },
             "additionalProperties": false
           },
+          "AWS::AppSync::Resolver.LambdaConfig": {
+            "title": "AWS::AppSync::Resolver.LambdaConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "LambdaConflictHandlerARN": {
+                "title": "LambdaConflictHandlerARN",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconfig.html#cfn-appsync-resolver-lambdaconfig-lambdaconflicthandlerarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AppSync::Resolver.PipelineConfig": {
             "title": "AWS::AppSync::Resolver.PipelineConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-pipelineconfig.html",
@@ -36819,6 +37184,46 @@
                     }
                   ]
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::AppSync::Resolver.SyncConfig": {
+            "title": "AWS::AppSync::Resolver.SyncConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html",
+            "type": "object",
+            "required": [
+              "ConflictDetection"
+            ],
+            "properties": {
+              "ConflictDetection": {
+                "title": "ConflictDetection",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflictdetection",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ConflictHandler": {
+                "title": "ConflictHandler",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflicthandler",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "LambdaConfig": {
+                "title": "LambdaConfig",
+                "description": "Type: LambdaConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-lambdaconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AppSync::Resolver.LambdaConfig"
               }
             },
             "additionalProperties": false
@@ -46315,44 +46720,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::DLM::LifecyclePolicy.FastRestoreRule": {
-            "title": "AWS::DLM::LifecyclePolicy.FastRestoreRule",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html",
-            "type": "object",
-            "required": [
-              "Count"
-            ],
-            "properties": {
-              "AvailabilityZones": {
-                "title": "AvailabilityZones",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-availabilityzones",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
-              },
-              "Count": {
-                "title": "Count",
-                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-count",
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::DLM::LifecyclePolicy.Parameters": {
             "title": "AWS::DLM::LifecyclePolicy.Parameters",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html",
@@ -46476,11 +46843,6 @@
                 "title": "CreateRule",
                 "description": "Type: CreateRule, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-createrule",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DLM::LifecyclePolicy.CreateRule"
-              },
-              "FastRestoreRule": {
-                "title": "FastRestoreRule",
-                "description": "Type: FastRestoreRule, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-fastrestorerule",
-                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DLM::LifecyclePolicy.FastRestoreRule"
               },
               "Name": {
                 "title": "Name",
