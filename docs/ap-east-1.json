@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 8.1.0 https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 9.1.0 https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -5522,6 +5522,55 @@
             },
             "additionalProperties": false
           },
+          "AWS::CloudWatch::InsightRule": {
+            "title": "AWS::CloudWatch::InsightRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html",
+            "type": "object",
+            "required": [
+              "RuleBody",
+              "RuleName",
+              "RuleState"
+            ],
+            "properties": {
+              "RuleBody": {
+                "title": "RuleBody",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulebody",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleName": {
+                "title": "RuleName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleState": {
+                "title": "RuleState",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulestate",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::CodeBuild::Project": {
             "title": "AWS::CodeBuild::Project",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html",
@@ -7091,6 +7140,14 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
               }
             },
             "additionalProperties": false
@@ -7845,7 +7902,6 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html",
             "type": "object",
             "required": [
-              "CidrBlock",
               "NetworkAclId",
               "Protocol",
               "RuleAction",
@@ -8935,6 +8991,331 @@
             },
             "additionalProperties": false
           },
+          "AWS::EC2::TrafficMirrorFilter": {
+            "title": "AWS::EC2::TrafficMirrorFilter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkServices": {
+                "title": "NetworkServices",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-networkservices",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::TrafficMirrorFilterRule": {
+            "title": "AWS::EC2::TrafficMirrorFilterRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html",
+            "type": "object",
+            "required": [
+              "DestinationCidrBlock",
+              "RuleAction",
+              "RuleNumber",
+              "SourceCidrBlock",
+              "TrafficDirection",
+              "TrafficMirrorFilterId"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DestinationCidrBlock": {
+                "title": "DestinationCidrBlock",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationcidrblock",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DestinationPortRange": {
+                "title": "DestinationPortRange",
+                "description": "Type: TrafficMirrorPortRange, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationportrange",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange"
+              },
+              "Protocol": {
+                "title": "Protocol",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-protocol",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleAction": {
+                "title": "RuleAction",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-ruleaction",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleNumber": {
+                "title": "RuleNumber",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-rulenumber",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SourceCidrBlock": {
+                "title": "SourceCidrBlock",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourcecidrblock",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SourcePortRange": {
+                "title": "SourcePortRange",
+                "description": "Type: TrafficMirrorPortRange, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourceportrange",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange"
+              },
+              "TrafficDirection": {
+                "title": "TrafficDirection",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficdirection",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TrafficMirrorFilterId": {
+                "title": "TrafficMirrorFilterId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorfilterid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::TrafficMirrorSession": {
+            "title": "AWS::EC2::TrafficMirrorSession",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html",
+            "type": "object",
+            "required": [
+              "NetworkInterfaceId",
+              "SessionNumber",
+              "TrafficMirrorFilterId",
+              "TrafficMirrorTargetId"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkInterfaceId": {
+                "title": "NetworkInterfaceId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-networkinterfaceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PacketLength": {
+                "title": "PacketLength",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-packetlength",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SessionNumber": {
+                "title": "SessionNumber",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-sessionnumber",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
+              "TrafficMirrorFilterId": {
+                "title": "TrafficMirrorFilterId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-trafficmirrorfilterid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TrafficMirrorTargetId": {
+                "title": "TrafficMirrorTargetId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-trafficmirrortargetid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "VirtualNetworkId": {
+                "title": "VirtualNetworkId",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-virtualnetworkid",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::TrafficMirrorTarget": {
+            "title": "AWS::EC2::TrafficMirrorTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkInterfaceId": {
+                "title": "NetworkInterfaceId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkinterfaceid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NetworkLoadBalancerArn": {
+                "title": "NetworkLoadBalancerArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkloadbalancerarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::EC2::VPC": {
             "title": "AWS::EC2::VPC",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html",
@@ -9902,6 +10283,14 @@
                   }
                 ]
               },
+              "ClusterSettings": {
+                "title": "ClusterSettings",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::Cluster.ClusterSetting"
+                }
+              },
               "Tags": {
                 "title": "Tags",
                 "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags",
@@ -9917,9 +10306,7 @@
             "title": "AWS::ECS::Service",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html",
             "type": "object",
-            "required": [
-              "TaskDefinition"
-            ],
+            "required": [],
             "properties": {
               "Cluster": {
                 "title": "Cluster",
@@ -9937,6 +10324,11 @@
                 "title": "DeploymentConfiguration",
                 "description": "Type: DeploymentConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::Service.DeploymentConfiguration"
+              },
+              "DeploymentController": {
+                "title": "DeploymentController",
+                "description": "Type: DeploymentController, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::Service.DeploymentController"
               },
               "DesiredCount": {
                 "title": "DesiredCount",
@@ -10461,6 +10853,179 @@
               "Version": {
                 "title": "Version",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EKS::Nodegroup": {
+            "title": "AWS::EKS::Nodegroup",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html",
+            "type": "object",
+            "required": [
+              "ClusterName",
+              "NodeRole",
+              "Subnets"
+            ],
+            "properties": {
+              "AmiType": {
+                "title": "AmiType",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-amitype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ClusterName": {
+                "title": "ClusterName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DiskSize": {
+                "title": "DiskSize",
+                "description": "Type: Double, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-disksize",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ForceUpdateEnabled": {
+                "title": "ForceUpdateEnabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-forceupdateenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "InstanceTypes": {
+                "title": "InstanceTypes",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Labels": {
+                "title": "Labels",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NodegroupName": {
+                "title": "NodegroupName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "NodeRole": {
+                "title": "NodeRole",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ReleaseVersion": {
+                "title": "ReleaseVersion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-releaseversion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RemoteAccess": {
+                "title": "RemoteAccess",
+                "description": "Type: RemoteAccess, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-remoteaccess",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EKS::Nodegroup.RemoteAccess"
+              },
+              "ScalingConfig": {
+                "title": "ScalingConfig",
+                "description": "Type: ScalingConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-scalingconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EKS::Nodegroup.ScalingConfig"
+              },
+              "Subnets": {
+                "title": "Subnets",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-subnets",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-tags",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Version": {
+                "title": "Version",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-version",
                 "oneOf": [
                   {
                     "type": "string"
@@ -11318,7 +11883,7 @@
               },
               "AuthToken": {
                 "title": "AuthToken",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-authtoken",
+                "description": "Type: String, UpdateType: Conditional, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-authtoken",
                 "oneOf": [
                   {
                     "type": "string"
@@ -12753,6 +13318,11 @@
                   ]
                 }
               },
+              "CognitoOptions": {
+                "title": "CognitoOptions",
+                "description": "Type: CognitoOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Elasticsearch::Domain.CognitoOptions"
+              },
               "DomainName": {
                 "title": "DomainName",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname",
@@ -12777,7 +13347,7 @@
               },
               "ElasticsearchVersion": {
                 "title": "ElasticsearchVersion",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchversion",
+                "description": "Type: String, UpdateType: Conditional, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchversion",
                 "oneOf": [
                   {
                     "type": "string"
@@ -13889,6 +14459,14 @@
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IAM::User.Policy"
                 }
               },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
               "UserName": {
                 "title": "UserName",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-username",
@@ -14448,10 +15026,80 @@
                   }
                 ]
               },
+              "ProvisionedConcurrencyConfig": {
+                "title": "ProvisionedConcurrencyConfig",
+                "description": "Type: ProvisionedConcurrencyConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-provisionedconcurrencyconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::Alias.ProvisionedConcurrencyConfiguration"
+              },
               "RoutingConfig": {
                 "title": "RoutingConfig",
                 "description": "Type: AliasRoutingConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::Alias.AliasRoutingConfiguration"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::EventInvokeConfig": {
+            "title": "AWS::Lambda::EventInvokeConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html",
+            "type": "object",
+            "required": [
+              "FunctionName",
+              "Qualifier"
+            ],
+            "properties": {
+              "DestinationConfig": {
+                "title": "DestinationConfig",
+                "description": "Type: DestinationConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::EventInvokeConfig.DestinationConfig"
+              },
+              "FunctionName": {
+                "title": "FunctionName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-functionname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaximumEventAgeInSeconds": {
+                "title": "MaximumEventAgeInSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-maximumeventageinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaximumRetryAttempts": {
+                "title": "MaximumRetryAttempts",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-maximumretryattempts",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Qualifier": {
+                "title": "Qualifier",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-qualifier",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -14476,6 +15124,23 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "BisectBatchOnFunctionError": {
+                "title": "BisectBatchOnFunctionError",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DestinationConfig": {
+                "title": "DestinationConfig",
+                "description": "Type: DestinationConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::EventSourceMapping.DestinationConfig"
               },
               "Enabled": {
                 "title": "Enabled",
@@ -14516,6 +15181,42 @@
               "MaximumBatchingWindowInSeconds": {
                 "title": "MaximumBatchingWindowInSeconds",
                 "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaximumRecordAgeInSeconds": {
+                "title": "MaximumRecordAgeInSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaximumRetryAttempts": {
+                "title": "MaximumRetryAttempts",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ParallelizationFactor": {
+                "title": "ParallelizationFactor",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor",
                 "oneOf": [
                   {
                     "type": "integer"
@@ -14838,6 +15539,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "ProvisionedConcurrencyConfig": {
+                "title": "ProvisionedConcurrencyConfig",
+                "description": "Type: ProvisionedConcurrencyConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-provisionedconcurrencyconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::Version.ProvisionedConcurrencyConfiguration"
               }
             },
             "additionalProperties": false
@@ -16371,6 +17077,18 @@
                     }
                   ]
                 }
+              },
+              "EnableHttpEndpoint": {
+                "title": "EnableHttpEndpoint",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablehttpendpoint",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "EnableIAMDatabaseAuthentication": {
                 "title": "EnableIAMDatabaseAuthentication",
@@ -18771,6 +19489,18 @@
                   }
                 ]
               },
+              "RedrivePolicy": {
+                "title": "RedrivePolicy",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-redrivepolicy",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Region": {
                 "title": "Region",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region",
@@ -20802,6 +21532,21 @@
               "Types": {
                 "title": "Types",
                 "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "VpcEndpointIds": {
+                "title": "VpcEndpointIds",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -24976,6 +25721,18 @@
                   }
                 ]
               },
+              "Namespace": {
+                "title": "Namespace",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-actiondeclaration-namespace",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "OutputArtifacts": {
                 "title": "OutputArtifacts",
                 "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts",
@@ -26940,6 +27697,18 @@
               "Type"
             ],
             "properties": {
+              "Count": {
+                "title": "Count",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-count",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Type": {
                 "title": "Type",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type",
@@ -29751,6 +30520,42 @@
             },
             "additionalProperties": false
           },
+          "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange": {
+            "title": "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html",
+            "type": "object",
+            "required": [
+              "FromPort",
+              "ToPort"
+            ],
+            "properties": {
+              "FromPort": {
+                "title": "FromPort",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-fromport",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ToPort": {
+                "title": "ToPort",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-toport",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::EC2::VPNConnection.VpnTunnelOptionsSpecification": {
             "title": "AWS::EC2::VPNConnection.VpnTunnelOptionsSpecification",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html",
@@ -29805,6 +30610,42 @@
               "RegistryId": {
                 "title": "RegistryId",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ECS::Cluster.ClusterSetting": {
+            "title": "AWS::ECS::Cluster.ClusterSetting",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersetting.html",
+            "type": "object",
+            "required": [
+              "Name",
+              "Value"
+            ],
+            "properties": {
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersetting.html#cfn-ecs-cluster-clustersetting-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersetting.html#cfn-ecs-cluster-clustersetting-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -29894,6 +30735,27 @@
                 "oneOf": [
                   {
                     "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ECS::Service.DeploymentController": {
+            "title": "AWS::ECS::Service.DeploymentController",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -30258,6 +31120,11 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.HostEntry"
                 }
+              },
+              "FirelensConfiguration": {
+                "title": "FirelensConfiguration",
+                "description": "Type: FirelensConfiguration, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.FirelensConfiguration"
               },
               "HealthCheck": {
                 "title": "HealthCheck",
@@ -30670,6 +31537,44 @@
             },
             "additionalProperties": false
           },
+          "AWS::ECS::TaskDefinition.FirelensConfiguration": {
+            "title": "AWS::ECS::TaskDefinition.FirelensConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html",
+            "type": "object",
+            "required": [
+              "Type"
+            ],
+            "properties": {
+              "Options": {
+                "title": "Options",
+                "description": "Type: Map, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options",
+                "type": "object",
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ECS::TaskDefinition.HealthCheck": {
             "title": "AWS::ECS::TaskDefinition.HealthCheck",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html",
@@ -30819,6 +31724,18 @@
                   }
                 ]
               },
+              "DevicePolicy": {
+                "title": "DevicePolicy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicepolicy",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "DeviceType": {
                 "title": "DeviceType",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype",
@@ -30937,9 +31854,33 @@
                   }
                 ]
               },
+              "MaxSwap": {
+                "title": "MaxSwap",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "SharedMemorySize": {
                 "title": "SharedMemorySize",
                 "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Swappiness": {
+                "title": "Swappiness",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness",
                 "oneOf": [
                   {
                     "type": "integer"
@@ -31562,6 +32503,89 @@
                     }
                   ]
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EKS::Nodegroup.RemoteAccess": {
+            "title": "AWS::EKS::Nodegroup.RemoteAccess",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html",
+            "type": "object",
+            "required": [
+              "Ec2SshKey"
+            ],
+            "properties": {
+              "Ec2SshKey": {
+                "title": "Ec2SshKey",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html#cfn-eks-nodegroup-remoteaccess-ec2sshkey",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SourceSecurityGroups": {
+                "title": "SourceSecurityGroups",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html#cfn-eks-nodegroup-remoteaccess-sourcesecuritygroups",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EKS::Nodegroup.ScalingConfig": {
+            "title": "AWS::EKS::Nodegroup.ScalingConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DesiredSize": {
+                "title": "DesiredSize",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html#cfn-eks-nodegroup-scalingconfig-desiredsize",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaxSize": {
+                "title": "MaxSize",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html#cfn-eks-nodegroup-scalingconfig-maxsize",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MinSize": {
+                "title": "MinSize",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html#cfn-eks-nodegroup-scalingconfig-minsize",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -36020,6 +37044,63 @@
             },
             "additionalProperties": false
           },
+          "AWS::Elasticsearch::Domain.CognitoOptions": {
+            "title": "AWS::Elasticsearch::Domain.CognitoOptions",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "IdentityPoolId": {
+                "title": "IdentityPoolId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-identitypoolid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "UserPoolId": {
+                "title": "UserPoolId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-userpoolid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Elasticsearch::Domain.EBSOptions": {
             "title": "AWS::Elasticsearch::Domain.EBSOptions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html",
@@ -39693,6 +40774,29 @@
             },
             "additionalProperties": false
           },
+          "AWS::Lambda::Alias.ProvisionedConcurrencyConfiguration": {
+            "title": "AWS::Lambda::Alias.ProvisionedConcurrencyConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-provisionedconcurrencyconfiguration.html",
+            "type": "object",
+            "required": [
+              "ProvisionedConcurrentExecutions"
+            ],
+            "properties": {
+              "ProvisionedConcurrentExecutions": {
+                "title": "ProvisionedConcurrentExecutions",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-provisionedconcurrencyconfiguration.html#cfn-lambda-alias-provisionedconcurrencyconfiguration-provisionedconcurrentexecutions",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Lambda::Alias.VersionWeight": {
             "title": "AWS::Lambda::Alias.VersionWeight",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html",
@@ -39720,6 +40824,110 @@
                 "oneOf": [
                   {
                     "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::EventInvokeConfig.DestinationConfig": {
+            "title": "AWS::Lambda::EventInvokeConfig.DestinationConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "OnFailure": {
+                "title": "OnFailure",
+                "description": "Type: OnFailure, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::EventInvokeConfig.OnFailure"
+              },
+              "OnSuccess": {
+                "title": "OnSuccess",
+                "description": "Type: OnSuccess, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::EventInvokeConfig.OnSuccess"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::EventInvokeConfig.OnFailure": {
+            "title": "AWS::Lambda::EventInvokeConfig.OnFailure",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onfailure.html",
+            "type": "object",
+            "required": [
+              "Destination"
+            ],
+            "properties": {
+              "Destination": {
+                "title": "Destination",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onfailure.html#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure-destination",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::EventInvokeConfig.OnSuccess": {
+            "title": "AWS::Lambda::EventInvokeConfig.OnSuccess",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onsuccess.html",
+            "type": "object",
+            "required": [
+              "Destination"
+            ],
+            "properties": {
+              "Destination": {
+                "title": "Destination",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onsuccess.html#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess-destination",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::EventSourceMapping.DestinationConfig": {
+            "title": "AWS::Lambda::EventSourceMapping.DestinationConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html",
+            "type": "object",
+            "required": [
+              "OnFailure"
+            ],
+            "properties": {
+              "OnFailure": {
+                "title": "OnFailure",
+                "description": "Type: OnFailure, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::EventSourceMapping.OnFailure"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::EventSourceMapping.OnFailure": {
+            "title": "AWS::Lambda::EventSourceMapping.OnFailure",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html",
+            "type": "object",
+            "required": [
+              "Destination"
+            ],
+            "properties": {
+              "Destination": {
+                "title": "Destination",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -39890,6 +41098,29 @@
                     }
                   ]
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::Version.ProvisionedConcurrencyConfiguration": {
+            "title": "AWS::Lambda::Version.ProvisionedConcurrencyConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-provisionedconcurrencyconfiguration.html",
+            "type": "object",
+            "required": [
+              "ProvisionedConcurrentExecutions"
+            ],
+            "properties": {
+              "ProvisionedConcurrentExecutions": {
+                "title": "ProvisionedConcurrentExecutions",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-provisionedconcurrencyconfiguration.html#cfn-lambda-version-provisionedconcurrencyconfiguration-provisionedconcurrentexecutions",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -46161,6 +47392,31 @@
               }
             ]
           },
+          "AWS::CloudWatch::InsightRule": {
+            "title": "AWS::CloudWatch::InsightRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::CloudWatch::InsightRule"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::CloudWatch::InsightRule"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::CodeBuild::Project": {
             "title": "AWS::CodeBuild::Project",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html",
@@ -47227,6 +48483,104 @@
               }
             ]
           },
+          "AWS::EC2::TrafficMirrorFilter": {
+            "title": "AWS::EC2::TrafficMirrorFilter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorFilter"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorFilter"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EC2::TrafficMirrorFilterRule": {
+            "title": "AWS::EC2::TrafficMirrorFilterRule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorFilterRule"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorFilterRule"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EC2::TrafficMirrorSession": {
+            "title": "AWS::EC2::TrafficMirrorSession",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorSession"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorSession"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EC2::TrafficMirrorTarget": {
+            "title": "AWS::EC2::TrafficMirrorTarget",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EC2::TrafficMirrorTarget"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EC2::TrafficMirrorTarget"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::EC2::VPC": {
             "title": "AWS::EC2::VPC",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html",
@@ -47659,8 +49013,7 @@
               },
               {
                 "required": [
-                  "Type",
-                  "Properties"
+                  "Type"
                 ],
                 "properties": {
                   "Type": {
@@ -47768,6 +49121,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EKS::Cluster"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::EKS::Nodegroup": {
+            "title": "AWS::EKS::Nodegroup",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EKS::Nodegroup"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EKS::Nodegroup"
                   }
                 }
               }
@@ -48933,6 +50311,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Lambda::Alias"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Lambda::EventInvokeConfig": {
+            "title": "AWS::Lambda::EventInvokeConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Lambda::EventInvokeConfig"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Lambda::EventInvokeConfig"
                   }
                 }
               }
@@ -50558,6 +51961,9 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CloudWatch::Dashboard"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CloudWatch::InsightRule"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CodeBuild::Project"
           },
           {
@@ -50687,6 +52093,18 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::SubnetRouteTableAssociation"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorFilter"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorFilterRule"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorSession"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::TrafficMirrorTarget"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EC2::VPC"
           },
           {
@@ -50751,6 +52169,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EKS::Cluster"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EKS::Nodegroup"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EMR::Cluster"
@@ -50892,6 +52313,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Lambda::Alias"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Lambda::EventInvokeConfig"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Lambda::EventSourceMapping"
