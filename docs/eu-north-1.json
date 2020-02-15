@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 10.5.0 https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.0.0 https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -41644,6 +41644,11 @@
                 "description": "Type: FixedResponseConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::Listener.FixedResponseConfig"
               },
+              "ForwardConfig": {
+                "title": "ForwardConfig",
+                "description": "Type: ForwardConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::Listener.ForwardConfig"
+              },
               "Order": {
                 "title": "Order",
                 "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-order",
@@ -42019,6 +42024,28 @@
             },
             "additionalProperties": false
           },
+          "AWS::ElasticLoadBalancingV2::Listener.ForwardConfig": {
+            "title": "AWS::ElasticLoadBalancingV2::Listener.ForwardConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TargetGroups": {
+                "title": "TargetGroups",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::Listener.TargetGroupTuple"
+                }
+              },
+              "TargetGroupStickinessConfig": {
+                "title": "TargetGroupStickinessConfig",
+                "description": "Type: TargetGroupStickinessConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ElasticLoadBalancingV2::Listener.RedirectConfig": {
             "title": "AWS::ElasticLoadBalancingV2::Listener.RedirectConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html",
@@ -42102,6 +42129,72 @@
             },
             "additionalProperties": false
           },
+          "AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig": {
+            "title": "AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DurationSeconds": {
+                "title": "DurationSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-durationseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ElasticLoadBalancingV2::Listener.TargetGroupTuple": {
+            "title": "AWS::ElasticLoadBalancingV2::Listener.TargetGroupTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TargetGroupArn": {
+                "title": "TargetGroupArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-targetgrouparn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Weight": {
+                "title": "Weight",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-weight",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ElasticLoadBalancingV2::ListenerCertificate.Certificate": {
             "title": "AWS::ElasticLoadBalancingV2::ListenerCertificate.Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html",
@@ -42145,6 +42238,11 @@
                 "title": "FixedResponseConfig",
                 "description": "Type: FixedResponseConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::ListenerRule.FixedResponseConfig"
+              },
+              "ForwardConfig": {
+                "title": "ForwardConfig",
+                "description": "Type: ForwardConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig"
               },
               "Order": {
                 "title": "Order",
@@ -42500,6 +42598,28 @@
             },
             "additionalProperties": false
           },
+          "AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig": {
+            "title": "AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TargetGroups": {
+                "title": "TargetGroups",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple"
+                }
+              },
+              "TargetGroupStickinessConfig": {
+                "title": "TargetGroupStickinessConfig",
+                "description": "Type: TargetGroupStickinessConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig": {
             "title": "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html",
@@ -42827,6 +42947,72 @@
                     }
                   ]
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig": {
+            "title": "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DurationSeconds": {
+                "title": "DurationSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-durationseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple": {
+            "title": "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "TargetGroupArn": {
+                "title": "TargetGroupArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Weight": {
+                "title": "Weight",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-weight",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
