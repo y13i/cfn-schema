@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.4.0 https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.5.0 https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -3442,6 +3442,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "TlsConfig": {
+                "title": "TlsConfig",
+                "description": "Type: TlsConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-tlsconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ApiGatewayV2::Integration.TlsConfig"
               }
             },
             "additionalProperties": false
@@ -19546,6 +19551,11 @@
                   }
                 ]
               },
+              "LoggingInfo": {
+                "title": "LoggingInfo",
+                "description": "Type: LoggingInfo, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-logginginfo",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.LoggingInfo"
+              },
               "NumberOfBrokerNodes": {
                 "title": "NumberOfBrokerNodes",
                 "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes",
@@ -29062,6 +29072,27 @@
             },
             "additionalProperties": false
           },
+          "AWS::ApiGatewayV2::Integration.TlsConfig": {
+            "title": "AWS::ApiGatewayV2::Integration.TlsConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ServerNameToVerify": {
+                "title": "ServerNameToVerify",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html#cfn-apigatewayv2-integration-tlsconfig-servernametoverify",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ApiGatewayV2::Route.ParameterConstraints": {
             "title": "AWS::ApiGatewayV2::Route.ParameterConstraints",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html",
@@ -32662,6 +32693,11 @@
                 "description": "Type: Logging, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::Distribution.Logging"
               },
+              "OriginGroups": {
+                "title": "OriginGroups",
+                "description": "Type: OriginGroups, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::Distribution.OriginGroups"
+              },
               "Origins": {
                 "title": "Origins",
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins",
@@ -32815,6 +32851,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "IncludeBody": {
+                "title": "IncludeBody",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -32985,6 +33033,143 @@
             },
             "additionalProperties": false
           },
+          "AWS::CloudFront::Distribution.OriginGroup": {
+            "title": "AWS::CloudFront::Distribution.OriginGroup",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html",
+            "type": "object",
+            "required": [
+              "FailoverCriteria",
+              "Id",
+              "Members"
+            ],
+            "properties": {
+              "FailoverCriteria": {
+                "title": "FailoverCriteria",
+                "description": "Type: OriginGroupFailoverCriteria, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::Distribution.OriginGroupFailoverCriteria"
+              },
+              "Id": {
+                "title": "Id",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Members": {
+                "title": "Members",
+                "description": "Type: OriginGroupMembers, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::Distribution.OriginGroupMembers"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::Distribution.OriginGroupFailoverCriteria": {
+            "title": "AWS::CloudFront::Distribution.OriginGroupFailoverCriteria",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html",
+            "type": "object",
+            "required": [
+              "StatusCodes"
+            ],
+            "properties": {
+              "StatusCodes": {
+                "title": "StatusCodes",
+                "description": "Type: StatusCodes, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::Distribution.StatusCodes"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::Distribution.OriginGroupMember": {
+            "title": "AWS::CloudFront::Distribution.OriginGroupMember",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html",
+            "type": "object",
+            "required": [
+              "OriginId"
+            ],
+            "properties": {
+              "OriginId": {
+                "title": "OriginId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::Distribution.OriginGroupMembers": {
+            "title": "AWS::CloudFront::Distribution.OriginGroupMembers",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html",
+            "type": "object",
+            "required": [
+              "Items",
+              "Quantity"
+            ],
+            "properties": {
+              "Items": {
+                "title": "Items",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::Distribution.OriginGroupMember"
+                }
+              },
+              "Quantity": {
+                "title": "Quantity",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::Distribution.OriginGroups": {
+            "title": "AWS::CloudFront::Distribution.OriginGroups",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html",
+            "type": "object",
+            "required": [
+              "Quantity"
+            ],
+            "properties": {
+              "Items": {
+                "title": "Items",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::Distribution.OriginGroup"
+                }
+              },
+              "Quantity": {
+                "title": "Quantity",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::CloudFront::Distribution.Restrictions": {
             "title": "AWS::CloudFront::Distribution.Restrictions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html",
@@ -33013,6 +33198,45 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::Distribution.StatusCodes": {
+            "title": "AWS::CloudFront::Distribution.StatusCodes",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html",
+            "type": "object",
+            "required": [
+              "Items",
+              "Quantity"
+            ],
+            "properties": {
+              "Items": {
+                "title": "Items",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Quantity": {
+                "title": "Quantity",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -53160,6 +53384,30 @@
             },
             "additionalProperties": false
           },
+          "AWS::MSK::Cluster.BrokerLogs": {
+            "title": "AWS::MSK::Cluster.BrokerLogs",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "CloudWatchLogs": {
+                "title": "CloudWatchLogs",
+                "description": "Type: CloudWatchLogs, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-cloudwatchlogs",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.CloudWatchLogs"
+              },
+              "Firehose": {
+                "title": "Firehose",
+                "description": "Type: Firehose, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-firehose",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.Firehose"
+              },
+              "S3": {
+                "title": "S3",
+                "description": "Type: S3, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-s3",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.S3"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::MSK::Cluster.BrokerNodeGroupInfo": {
             "title": "AWS::MSK::Cluster.BrokerNodeGroupInfo",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html",
@@ -53241,6 +53489,41 @@
                 "title": "Tls",
                 "description": "Type: Tls, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.Tls"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::MSK::Cluster.CloudWatchLogs": {
+            "title": "AWS::MSK::Cluster.CloudWatchLogs",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html",
+            "type": "object",
+            "required": [
+              "Enabled"
+            ],
+            "properties": {
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "LogGroup": {
+                "title": "LogGroup",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-loggroup",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -53377,6 +53660,41 @@
             },
             "additionalProperties": false
           },
+          "AWS::MSK::Cluster.Firehose": {
+            "title": "AWS::MSK::Cluster.Firehose",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html",
+            "type": "object",
+            "required": [
+              "Enabled"
+            ],
+            "properties": {
+              "DeliveryStream": {
+                "title": "DeliveryStream",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html#cfn-msk-cluster-firehose-deliverystream",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html#cfn-msk-cluster-firehose-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::MSK::Cluster.JmxExporter": {
             "title": "AWS::MSK::Cluster.JmxExporter",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html",
@@ -53396,6 +53714,22 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::MSK::Cluster.LoggingInfo": {
+            "title": "AWS::MSK::Cluster.LoggingInfo",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html",
+            "type": "object",
+            "required": [
+              "BrokerLogs"
+            ],
+            "properties": {
+              "BrokerLogs": {
+                "title": "BrokerLogs",
+                "description": "Type: BrokerLogs, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.BrokerLogs"
               }
             },
             "additionalProperties": false
@@ -53454,6 +53788,53 @@
                 "title": "NodeExporter",
                 "description": "Type: NodeExporter, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-nodeexporter",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.NodeExporter"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::MSK::Cluster.S3": {
+            "title": "AWS::MSK::Cluster.S3",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html",
+            "type": "object",
+            "required": [
+              "Enabled"
+            ],
+            "properties": {
+              "Bucket": {
+                "title": "Bucket",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html#cfn-msk-cluster-s3-bucket",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html#cfn-msk-cluster-s3-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Prefix": {
+                "title": "Prefix",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html#cfn-msk-cluster-s3-prefix",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
