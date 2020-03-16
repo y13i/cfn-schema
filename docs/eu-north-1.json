@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.4.0 https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.5.0 https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -3442,6 +3442,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "TlsConfig": {
+                "title": "TlsConfig",
+                "description": "Type: TlsConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-tlsconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ApiGatewayV2::Integration.TlsConfig"
               }
             },
             "additionalProperties": false
@@ -5126,6 +5131,92 @@
               "Type": {
                 "title": "Type",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Keyspace": {
+            "title": "AWS::Cassandra::Keyspace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "KeyspaceName": {
+                "title": "KeyspaceName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table": {
+            "title": "AWS::Cassandra::Table",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html",
+            "type": "object",
+            "required": [
+              "KeyspaceName",
+              "PartitionKeyColumns"
+            ],
+            "properties": {
+              "BillingMode": {
+                "title": "BillingMode",
+                "description": "Type: BillingMode, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.BillingMode"
+              },
+              "ClusteringKeyColumns": {
+                "title": "ClusteringKeyColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.ClusteringKeyColumn"
+                }
+              },
+              "KeyspaceName": {
+                "title": "KeyspaceName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PartitionKeyColumns": {
+                "title": "PartitionKeyColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+                }
+              },
+              "RegularColumns": {
+                "title": "RegularColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+                }
+              },
+              "TableName": {
+                "title": "TableName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename",
                 "oneOf": [
                   {
                     "type": "string"
@@ -28274,6 +28365,27 @@
             },
             "additionalProperties": false
           },
+          "AWS::ApiGatewayV2::Integration.TlsConfig": {
+            "title": "AWS::ApiGatewayV2::Integration.TlsConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ServerNameToVerify": {
+                "title": "ServerNameToVerify",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html#cfn-apigatewayv2-integration-tlsconfig-servernametoverify",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ApiGatewayV2::Route.ParameterConstraints": {
             "title": "AWS::ApiGatewayV2::Route.ParameterConstraints",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html",
@@ -30192,6 +30304,134 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.BillingMode": {
+            "title": "AWS::Cassandra::Table.BillingMode",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html",
+            "type": "object",
+            "required": [
+              "Mode"
+            ],
+            "properties": {
+              "Mode": {
+                "title": "Mode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ProvisionedThroughput": {
+                "title": "ProvisionedThroughput",
+                "description": "Type: ProvisionedThroughput, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.ProvisionedThroughput"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.ClusteringKeyColumn": {
+            "title": "AWS::Cassandra::Table.ClusteringKeyColumn",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html",
+            "type": "object",
+            "required": [
+              "Column"
+            ],
+            "properties": {
+              "Column": {
+                "title": "Column",
+                "description": "Type: Column, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+              },
+              "OrderBy": {
+                "title": "OrderBy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.Column": {
+            "title": "AWS::Cassandra::Table.Column",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html",
+            "type": "object",
+            "required": [
+              "ColumnName",
+              "ColumnType"
+            ],
+            "properties": {
+              "ColumnName": {
+                "title": "ColumnName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ColumnType": {
+                "title": "ColumnType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.ProvisionedThroughput": {
+            "title": "AWS::Cassandra::Table.ProvisionedThroughput",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html",
+            "type": "object",
+            "required": [
+              "ReadCapacityUnits",
+              "WriteCapacityUnits"
+            ],
+            "properties": {
+              "ReadCapacityUnits": {
+                "title": "ReadCapacityUnits",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "WriteCapacityUnits": {
+                "title": "WriteCapacityUnits",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -60486,6 +60726,55 @@
               }
             ]
           },
+          "AWS::Cassandra::Keyspace": {
+            "title": "AWS::Cassandra::Keyspace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Cassandra::Keyspace"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Cassandra::Keyspace"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Cassandra::Table": {
+            "title": "AWS::Cassandra::Table",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Cassandra::Table"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Cassandra::Table"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::CertificateManager::Certificate": {
             "title": "AWS::CertificateManager::Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html",
@@ -67130,6 +67419,12 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Batch::ComputeEnvironment"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Cassandra::Keyspace"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Cassandra::Table"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CertificateManager::Certificate"
