@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.5.0 https://s3.us-gov-west-1.amazonaws.com/cfn-resource-specifications-us-gov-west-1-prod/latest/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.6.0 https://s3.us-gov-west-1.amazonaws.com/cfn-resource-specifications-us-gov-west-1-prod/latest/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -20879,6 +20879,54 @@
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ResourceGroups::Group": {
+            "title": "AWS::ResourceGroups::Group",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html",
+            "type": "object",
+            "required": [
+              "Name"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ResourceQuery": {
+                "title": "ResourceQuery",
+                "description": "Type: ResourceQuery, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ResourceGroups::Group.ResourceQuery"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ResourceGroups::Group.Json"
                 }
               }
             },
@@ -49027,6 +49075,112 @@
             },
             "additionalProperties": false
           },
+          "AWS::ResourceGroups::Group.Query": {
+            "title": "AWS::ResourceGroups::Group.Query",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ResourceTypeFilters": {
+                "title": "ResourceTypeFilters",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "StackIdentifier": {
+                "title": "StackIdentifier",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TagFilters": {
+                "title": "TagFilters",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ResourceGroups::Group.TagFilter"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ResourceGroups::Group.ResourceQuery": {
+            "title": "AWS::ResourceGroups::Group.ResourceQuery",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Query": {
+                "title": "Query",
+                "description": "Type: Query, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ResourceGroups::Group.Query"
+              },
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ResourceGroups::Group.TagFilter": {
+            "title": "AWS::ResourceGroups::Group.TagFilter",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Key": {
+                "title": "Key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Values": {
+                "title": "Values",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Route53::HealthCheck.AlarmIdentifier": {
             "title": "AWS::Route53::HealthCheck.AlarmIdentifier",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html",
@@ -60334,6 +60488,31 @@
               }
             ]
           },
+          "AWS::ResourceGroups::Group": {
+            "title": "AWS::ResourceGroups::Group",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::ResourceGroups::Group"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::ResourceGroups::Group"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::Route53::HealthCheck": {
             "title": "AWS::Route53::HealthCheck",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html",
@@ -62005,6 +62184,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Redshift::ClusterSubnetGroup"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ResourceGroups::Group"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Route53::HealthCheck"

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.5.0 https://cfn-resource-specifications-cn-northwest-1-prod.s3.cn-northwest-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.6.0 https://cfn-resource-specifications-cn-northwest-1-prod.s3.cn-northwest-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -5762,6 +5762,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "KafkaSettings": {
+                "title": "KafkaSettings",
+                "description": "Type: KafkaSettings, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kafkasettings",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DMS::Endpoint.KafkaSettings"
               },
               "KinesisSettings": {
                 "title": "KinesisSettings",
@@ -26859,6 +26864,39 @@
               "ServiceAccessRoleArn": {
                 "title": "ServiceAccessRoleArn",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-serviceaccessrolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::DMS::Endpoint.KafkaSettings": {
+            "title": "AWS::DMS::Endpoint.KafkaSettings",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Broker": {
+                "title": "Broker",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-broker",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Topic": {
+                "title": "Topic",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-topic",
                 "oneOf": [
                   {
                     "type": "string"
