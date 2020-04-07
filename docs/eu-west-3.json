@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 11.6.0 https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 12.1.0 https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -3527,6 +3527,18 @@
                   }
                 ]
               },
+              "ConnectionId": {
+                "title": "ConnectionId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectionid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "ConnectionType": {
                 "title": "ConnectionType",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectiontype",
@@ -4640,6 +4652,18 @@
                   ]
                 }
               },
+              "MaxInstanceLifetime": {
+                "title": "MaxInstanceLifetime",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxinstancelifetime",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "MaxSize": {
                 "title": "MaxSize",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize",
@@ -5494,6 +5518,92 @@
               "State": {
                 "title": "State",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Keyspace": {
+            "title": "AWS::Cassandra::Keyspace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "KeyspaceName": {
+                "title": "KeyspaceName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table": {
+            "title": "AWS::Cassandra::Table",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html",
+            "type": "object",
+            "required": [
+              "KeyspaceName",
+              "PartitionKeyColumns"
+            ],
+            "properties": {
+              "BillingMode": {
+                "title": "BillingMode",
+                "description": "Type: BillingMode, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.BillingMode"
+              },
+              "ClusteringKeyColumns": {
+                "title": "ClusteringKeyColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.ClusteringKeyColumn"
+                }
+              },
+              "KeyspaceName": {
+                "title": "KeyspaceName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PartitionKeyColumns": {
+                "title": "PartitionKeyColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+                }
+              },
+              "RegularColumns": {
+                "title": "RegularColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+                }
+              },
+              "TableName": {
+                "title": "TableName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename",
                 "oneOf": [
                   {
                     "type": "string"
@@ -6631,6 +6741,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Tags, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-tags",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudWatch::InsightRule.Tags"
               }
             },
             "additionalProperties": false
@@ -6845,6 +6960,14 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
               },
               "Type": {
                 "title": "Type",
@@ -8205,6 +8328,75 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::DataPipeline::Pipeline.PipelineTag"
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Detective::Graph": {
+            "title": "AWS::Detective::Graph",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html",
+            "type": "object",
+            "required": [],
+            "properties": {},
+            "additionalProperties": false
+          },
+          "AWS::Detective::MemberInvitation": {
+            "title": "AWS::Detective::MemberInvitation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html",
+            "type": "object",
+            "required": [
+              "GraphArn",
+              "MemberEmailAddress",
+              "MemberId"
+            ],
+            "properties": {
+              "GraphArn": {
+                "title": "GraphArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MemberEmailAddress": {
+                "title": "MemberEmailAddress",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MemberId": {
+                "title": "MemberId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Message": {
+                "title": "Message",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -12323,6 +12515,18 @@
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MultiAttachEnabled": {
+                "title": "MultiAttachEnabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-multiattachenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -25379,6 +25583,18 @@
                   }
                 ]
               },
+              "DataType": {
+                "title": "DataType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-datatype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "Description": {
                 "title": "Description",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description",
@@ -32187,9 +32403,7 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html",
             "type": "object",
             "required": [
-              "Image",
-              "Memory",
-              "Vcpus"
+              "Image"
             ],
             "properties": {
               "Command": {
@@ -32762,6 +32976,134 @@
               "Order": {
                 "title": "Order",
                 "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-order",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.BillingMode": {
+            "title": "AWS::Cassandra::Table.BillingMode",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html",
+            "type": "object",
+            "required": [
+              "Mode"
+            ],
+            "properties": {
+              "Mode": {
+                "title": "Mode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ProvisionedThroughput": {
+                "title": "ProvisionedThroughput",
+                "description": "Type: ProvisionedThroughput, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.ProvisionedThroughput"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.ClusteringKeyColumn": {
+            "title": "AWS::Cassandra::Table.ClusteringKeyColumn",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html",
+            "type": "object",
+            "required": [
+              "Column"
+            ],
+            "properties": {
+              "Column": {
+                "title": "Column",
+                "description": "Type: Column, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+              },
+              "OrderBy": {
+                "title": "OrderBy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.Column": {
+            "title": "AWS::Cassandra::Table.Column",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html",
+            "type": "object",
+            "required": [
+              "ColumnName",
+              "ColumnType"
+            ],
+            "properties": {
+              "ColumnName": {
+                "title": "ColumnName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ColumnType": {
+                "title": "ColumnType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.ProvisionedThroughput": {
+            "title": "AWS::Cassandra::Table.ProvisionedThroughput",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html",
+            "type": "object",
+            "required": [
+              "ReadCapacityUnits",
+              "WriteCapacityUnits"
+            ],
+            "properties": {
+              "ReadCapacityUnits": {
+                "title": "ReadCapacityUnits",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "WriteCapacityUnits": {
+                "title": "WriteCapacityUnits",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits",
                 "oneOf": [
                   {
                     "type": "integer"
@@ -34671,6 +35013,14 @@
               }
             },
             "additionalProperties": false
+          },
+          "AWS::CloudWatch::InsightRule.Tags": {
+            "title": "AWS::CloudWatch::InsightRule.Tags",
+            "type": "array",
+            "description": "undefined",
+            "items": {
+              "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+            }
           },
           "AWS::CodeBuild::Project.Artifacts": {
             "title": "AWS::CodeBuild::Project.Artifacts",
@@ -38380,6 +38730,27 @@
             },
             "additionalProperties": false
           },
+          "AWS::EC2::EC2Fleet.CapacityReservationOptionsRequest": {
+            "title": "AWS::EC2::EC2Fleet.CapacityReservationOptionsRequest",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "UsageStrategy": {
+                "title": "UsageStrategy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html#cfn-ec2-ec2fleet-capacityreservationoptionsrequest-usagestrategy",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest": {
             "title": "AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html",
@@ -38388,12 +38759,12 @@
             "properties": {
               "LaunchTemplateSpecification": {
                 "title": "LaunchTemplateSpecification",
-                "description": "Type: FleetLaunchTemplateSpecificationRequest, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification",
+                "description": "Type: FleetLaunchTemplateSpecificationRequest, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::EC2Fleet.FleetLaunchTemplateSpecificationRequest"
               },
               "Overrides": {
                 "title": "Overrides",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::EC2Fleet.FleetLaunchTemplateOverridesRequest"
@@ -38410,7 +38781,7 @@
             "properties": {
               "AvailabilityZone": {
                 "title": "AvailabilityZone",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38422,7 +38793,7 @@
               },
               "InstanceType": {
                 "title": "InstanceType",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38434,7 +38805,7 @@
               },
               "MaxPrice": {
                 "title": "MaxPrice",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38444,9 +38815,14 @@
                   }
                 ]
               },
+              "Placement": {
+                "title": "Placement",
+                "description": "Type: Placement, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-placement",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::EC2Fleet.Placement"
+              },
               "Priority": {
                 "title": "Priority",
-                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority",
+                "description": "Type: Double, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority",
                 "oneOf": [
                   {
                     "type": "number"
@@ -38458,7 +38834,7 @@
               },
               "SubnetId": {
                 "title": "SubnetId",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38470,7 +38846,7 @@
               },
               "WeightedCapacity": {
                 "title": "WeightedCapacity",
-                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity",
+                "description": "Type: Double, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity",
                 "oneOf": [
                   {
                     "type": "number"
@@ -38491,7 +38867,7 @@
             "properties": {
               "LaunchTemplateId": {
                 "title": "LaunchTemplateId",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplateid",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplateid",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38503,7 +38879,7 @@
               },
               "LaunchTemplateName": {
                 "title": "LaunchTemplateName",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatename",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatename",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38515,7 +38891,7 @@
               },
               "Version": {
                 "title": "Version",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-version",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-version",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38536,7 +38912,165 @@
             "properties": {
               "AllocationStrategy": {
                 "title": "AllocationStrategy",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CapacityReservationOptions": {
+                "title": "CapacityReservationOptions",
+                "description": "Type: CapacityReservationOptionsRequest, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-capacityreservationoptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::EC2Fleet.CapacityReservationOptionsRequest"
+              },
+              "MaxTotalPrice": {
+                "title": "MaxTotalPrice",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-maxtotalprice",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MinTargetCapacity": {
+                "title": "MinTargetCapacity",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-mintargetcapacity",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SingleAvailabilityZone": {
+                "title": "SingleAvailabilityZone",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleavailabilityzone",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SingleInstanceType": {
+                "title": "SingleInstanceType",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleinstancetype",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EC2::EC2Fleet.Placement": {
+            "title": "AWS::EC2::EC2Fleet.Placement",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Affinity": {
+                "title": "Affinity",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-affinity",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AvailabilityZone": {
+                "title": "AvailabilityZone",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-availabilityzone",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "GroupName": {
+                "title": "GroupName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-groupname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "HostId": {
+                "title": "HostId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "HostResourceGroupArn": {
+                "title": "HostResourceGroupArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostresourcegrouparn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PartitionNumber": {
+                "title": "PartitionNumber",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-partitionnumber",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SpreadDomain": {
+                "title": "SpreadDomain",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-spreaddomain",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tenancy": {
+                "title": "Tenancy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-tenancy",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38557,7 +39091,7 @@
             "properties": {
               "AllocationStrategy": {
                 "title": "AllocationStrategy",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-allocationstrategy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-allocationstrategy",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38569,7 +39103,7 @@
               },
               "InstanceInterruptionBehavior": {
                 "title": "InstanceInterruptionBehavior",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instanceinterruptionbehavior",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instanceinterruptionbehavior",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38581,7 +39115,7 @@
               },
               "InstancePoolsToUseCount": {
                 "title": "InstancePoolsToUseCount",
-                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instancepoolstousecount",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instancepoolstousecount",
                 "oneOf": [
                   {
                     "type": "integer"
@@ -38590,19 +39124,10 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::EC2::EC2Fleet.TagRequest": {
-            "title": "AWS::EC2::EC2Fleet.TagRequest",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html",
-            "type": "object",
-            "required": [],
-            "properties": {
-              "Key": {
-                "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html#cfn-ec2-ec2fleet-tagrequest-key",
+              },
+              "MaxTotalPrice": {
+                "title": "MaxTotalPrice",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-maxtotalprice",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38612,12 +39137,36 @@
                   }
                 ]
               },
-              "Value": {
-                "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html#cfn-ec2-ec2fleet-tagrequest-value",
+              "MinTargetCapacity": {
+                "title": "MinTargetCapacity",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-mintargetcapacity",
                 "oneOf": [
                   {
-                    "type": "string"
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SingleAvailabilityZone": {
+                "title": "SingleAvailabilityZone",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-singleavailabilityzone",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SingleInstanceType": {
+                "title": "SingleInstanceType",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-singleinstancetype",
+                "oneOf": [
+                  {
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -38635,7 +39184,7 @@
             "properties": {
               "ResourceType": {
                 "title": "ResourceType",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-resourcetype",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-resourcetype",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38647,10 +39196,10 @@
               },
               "Tags": {
                 "title": "Tags",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-tags",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-tags",
                 "type": "array",
                 "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::EC2Fleet.TagRequest"
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
               }
             },
@@ -51406,10 +51955,25 @@
                 "description": "Type: FirehoseAction, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.FirehoseAction"
               },
+              "Http": {
+                "title": "Http",
+                "description": "Type: HttpAction, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.HttpAction"
+              },
               "IotAnalytics": {
                 "title": "IotAnalytics",
                 "description": "Type: IotAnalyticsAction, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.IotAnalyticsAction"
+              },
+              "IotEvents": {
+                "title": "IotEvents",
+                "description": "Type: IotEventsAction, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.IotEventsAction"
+              },
+              "IotSiteWise": {
+                "title": "IotSiteWise",
+                "description": "Type: IotSiteWiseAction, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.IotSiteWiseAction"
               },
               "Kinesis": {
                 "title": "Kinesis",
@@ -51445,6 +52009,132 @@
                 "title": "StepFunctions",
                 "description": "Type: StepFunctionsAction, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.StepFunctionsAction"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.AssetPropertyTimestamp": {
+            "title": "AWS::IoT::TopicRule.AssetPropertyTimestamp",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html",
+            "type": "object",
+            "required": [
+              "TimeInSeconds"
+            ],
+            "properties": {
+              "OffsetInNanos": {
+                "title": "OffsetInNanos",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TimeInSeconds": {
+                "title": "TimeInSeconds",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.AssetPropertyValue": {
+            "title": "AWS::IoT::TopicRule.AssetPropertyValue",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html",
+            "type": "object",
+            "required": [
+              "Timestamp",
+              "Value"
+            ],
+            "properties": {
+              "Quality": {
+                "title": "Quality",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Timestamp": {
+                "title": "Timestamp",
+                "description": "Type: AssetPropertyTimestamp, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.AssetPropertyTimestamp"
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: AssetPropertyVariant, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.AssetPropertyVariant"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.AssetPropertyVariant": {
+            "title": "AWS::IoT::TopicRule.AssetPropertyVariant",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "BooleanValue": {
+                "title": "BooleanValue",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DoubleValue": {
+                "title": "DoubleValue",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "IntegerValue": {
+                "title": "IntegerValue",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StringValue": {
+                "title": "StringValue",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -51869,6 +52559,104 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoT::TopicRule.HttpAction": {
+            "title": "AWS::IoT::TopicRule.HttpAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html",
+            "type": "object",
+            "required": [
+              "Url"
+            ],
+            "properties": {
+              "Auth": {
+                "title": "Auth",
+                "description": "Type: HttpAuthorization, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.HttpAuthorization"
+              },
+              "ConfirmationUrl": {
+                "title": "ConfirmationUrl",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Headers": {
+                "title": "Headers",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.HttpActionHeader"
+                }
+              },
+              "Url": {
+                "title": "Url",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.HttpActionHeader": {
+            "title": "AWS::IoT::TopicRule.HttpActionHeader",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html",
+            "type": "object",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "title": "Key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.HttpAuthorization": {
+            "title": "AWS::IoT::TopicRule.HttpAuthorization",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Sigv4": {
+                "title": "Sigv4",
+                "description": "Type: SigV4Authorization, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.SigV4Authorization"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::IoT::TopicRule.IotAnalyticsAction": {
             "title": "AWS::IoT::TopicRule.IotAnalyticsAction",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html",
@@ -51893,6 +52681,86 @@
               "RoleArn": {
                 "title": "RoleArn",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.IotEventsAction": {
+            "title": "AWS::IoT::TopicRule.IotEventsAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html",
+            "type": "object",
+            "required": [
+              "InputName",
+              "RoleArn"
+            ],
+            "properties": {
+              "InputName": {
+                "title": "InputName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MessageId": {
+                "title": "MessageId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.IotSiteWiseAction": {
+            "title": "AWS::IoT::TopicRule.IotSiteWiseAction",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html",
+            "type": "object",
+            "required": [
+              "PutAssetPropertyValueEntries",
+              "RoleArn"
+            ],
+            "properties": {
+              "PutAssetPropertyValueEntries": {
+                "title": "PutAssetPropertyValueEntries",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.PutAssetPropertyValueEntry"
+                }
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn",
                 "oneOf": [
                   {
                     "type": "string"
@@ -51974,6 +52842,73 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoT::TopicRule.PutAssetPropertyValueEntry": {
+            "title": "AWS::IoT::TopicRule.PutAssetPropertyValueEntry",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html",
+            "type": "object",
+            "required": [
+              "PropertyValues"
+            ],
+            "properties": {
+              "AssetId": {
+                "title": "AssetId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EntryId": {
+                "title": "EntryId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PropertyAlias": {
+                "title": "PropertyAlias",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PropertyId": {
+                "title": "PropertyId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PropertyValues": {
+                "title": "PropertyValues",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::TopicRule.AssetPropertyValue"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::IoT::TopicRule.PutItemInput": {
             "title": "AWS::IoT::TopicRule.PutItemInput",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html",
@@ -52006,6 +52941,18 @@
               "Topic"
             ],
             "properties": {
+              "Qos": {
+                "title": "Qos",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "RoleArn": {
                 "title": "RoleArn",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn",
@@ -52070,6 +53017,55 @@
               "RoleArn": {
                 "title": "RoleArn",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::TopicRule.SigV4Authorization": {
+            "title": "AWS::IoT::TopicRule.SigV4Authorization",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html",
+            "type": "object",
+            "required": [
+              "RoleArn",
+              "ServiceName",
+              "SigningRegion"
+            ],
+            "properties": {
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ServiceName": {
+                "title": "ServiceName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SigningRegion": {
+                "title": "SigningRegion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion",
                 "oneOf": [
                   {
                     "type": "string"
@@ -64088,6 +65084,55 @@
               }
             ]
           },
+          "AWS::Cassandra::Keyspace": {
+            "title": "AWS::Cassandra::Keyspace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Cassandra::Keyspace"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Cassandra::Keyspace"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Cassandra::Table": {
+            "title": "AWS::Cassandra::Table",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Cassandra::Table"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Cassandra::Table"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::CertificateManager::Certificate": {
             "title": "AWS::CertificateManager::Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html",
@@ -64979,6 +66024,55 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::DataPipeline::Pipeline"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Detective::Graph": {
+            "title": "AWS::Detective::Graph",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Detective::Graph"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Detective::Graph"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Detective::MemberInvitation": {
+            "title": "AWS::Detective::MemberInvitation",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Detective::MemberInvitation"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Detective::MemberInvitation"
                   }
                 }
               }
@@ -71067,6 +72161,12 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Batch::JobQueue"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Cassandra::Keyspace"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Cassandra::Table"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CertificateManager::Certificate"
           },
           {
@@ -71173,6 +72273,12 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::DataPipeline::Pipeline"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Detective::Graph"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Detective::MemberInvitation"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::DirectoryService::MicrosoftAD"
