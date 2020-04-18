@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 12.1.0 https://s3.us-gov-west-1.amazonaws.com/cfn-resource-specifications-us-gov-west-1-prod/latest/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 13.0.0 https://s3.us-gov-west-1.amazonaws.com/cfn-resource-specifications-us-gov-west-1-prod/latest/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -7110,6 +7110,50 @@
             },
             "additionalProperties": false
           },
+          "AWS::Config::AggregationAuthorization": {
+            "title": "AWS::Config::AggregationAuthorization",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html",
+            "type": "object",
+            "required": [
+              "AuthorizedAccountId",
+              "AuthorizedAwsRegion"
+            ],
+            "properties": {
+              "AuthorizedAccountId": {
+                "title": "AuthorizedAccountId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedaccountid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AuthorizedAwsRegion": {
+                "title": "AuthorizedAwsRegion",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedawsregion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Config::ConfigRule": {
             "title": "AWS::Config::ConfigRule",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html",
@@ -7175,6 +7219,50 @@
                 "title": "Source",
                 "description": "Type: Source, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::ConfigRule.Source"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::ConfigurationAggregator": {
+            "title": "AWS::Config::ConfigurationAggregator",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html",
+            "type": "object",
+            "required": [
+              "ConfigurationAggregatorName"
+            ],
+            "properties": {
+              "AccountAggregationSources": {
+                "title": "AccountAggregationSources",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::ConfigurationAggregator.AccountAggregationSource"
+                }
+              },
+              "ConfigurationAggregatorName": {
+                "title": "ConfigurationAggregatorName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "OrganizationAggregationSource": {
+                "title": "OrganizationAggregationSource",
+                "description": "Type: OrganizationAggregationSource, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Config::ConfigurationAggregator.OrganizationAggregationSource"
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
               }
             },
             "additionalProperties": false
@@ -30232,6 +30320,109 @@
               "MessageType": {
                 "title": "MessageType",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::ConfigurationAggregator.AccountAggregationSource": {
+            "title": "AWS::Config::ConfigurationAggregator.AccountAggregationSource",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html",
+            "type": "object",
+            "required": [
+              "AccountIds"
+            ],
+            "properties": {
+              "AccountIds": {
+                "title": "AccountIds",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "AllAwsRegions": {
+                "title": "AllAwsRegions",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AwsRegions": {
+                "title": "AwsRegions",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Config::ConfigurationAggregator.OrganizationAggregationSource": {
+            "title": "AWS::Config::ConfigurationAggregator.OrganizationAggregationSource",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html",
+            "type": "object",
+            "required": [
+              "RoleArn"
+            ],
+            "properties": {
+              "AllAwsRegions": {
+                "title": "AllAwsRegions",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AwsRegions": {
+                "title": "AwsRegions",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn",
                 "oneOf": [
                   {
                     "type": "string"
@@ -57035,6 +57226,31 @@
               }
             ]
           },
+          "AWS::Config::AggregationAuthorization": {
+            "title": "AWS::Config::AggregationAuthorization",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Config::AggregationAuthorization"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Config::AggregationAuthorization"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::Config::ConfigRule": {
             "title": "AWS::Config::ConfigRule",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html",
@@ -57055,6 +57271,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Config::ConfigRule"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Config::ConfigurationAggregator": {
+            "title": "AWS::Config::ConfigurationAggregator",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Config::ConfigurationAggregator"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Config::ConfigurationAggregator"
                   }
                 }
               }
@@ -62380,7 +62621,13 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CodePipeline::Pipeline"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::AggregationAuthorization"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::ConfigRule"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::ConfigurationAggregator"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Config::ConfigurationRecorder"
