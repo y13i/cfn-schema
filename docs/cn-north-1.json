@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 14.3.0 https://cfn-resource-specifications-cn-north-1-prod.s3.cn-north-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 14.4.0 https://cfn-resource-specifications-cn-north-1-prod.s3.cn-north-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -46567,10 +46567,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.BufferingHints",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html",
             "type": "object",
-            "required": [
-              "IntervalInSeconds",
-              "SizeInMBs"
-            ],
+            "required": [],
             "properties": {
               "IntervalInSeconds": {
                 "title": "IntervalInSeconds",
@@ -46695,12 +46692,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html",
             "type": "object",
-            "required": [
-              "Enabled",
-              "InputFormatConfiguration",
-              "OutputFormatConfiguration",
-              "SchemaConfiguration"
-            ],
+            "required": [],
             "properties": {
               "Enabled": {
                 "title": "Enabled",
@@ -46755,10 +46747,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.ElasticsearchBufferingHints",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html",
             "type": "object",
-            "required": [
-              "IntervalInSeconds",
-              "SizeInMBs"
-            ],
+            "required": [],
             "properties": {
               "IntervalInSeconds": {
                 "title": "IntervalInSeconds",
@@ -46792,15 +46781,9 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html",
             "type": "object",
             "required": [
-              "BufferingHints",
-              "DomainARN",
               "IndexName",
-              "IndexRotationPeriod",
-              "RetryOptions",
               "RoleARN",
-              "S3BackupMode",
-              "S3Configuration",
-              "TypeName"
+              "S3Configuration"
             ],
             "properties": {
               "BufferingHints": {
@@ -46812,6 +46795,18 @@
                 "title": "CloudWatchLoggingOptions",
                 "description": "Type: CloudWatchLoggingOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-cloudwatchloggingoptions",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions"
+              },
+              "ClusterEndpoint": {
+                "title": "ClusterEndpoint",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-clusterendpoint",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "DomainARN": {
                 "title": "DomainARN",
@@ -46899,6 +46894,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "VpcConfiguration": {
+                "title": "VpcConfiguration",
+                "description": "Type: VpcConfiguration, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-vpcconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.VpcConfiguration"
               }
             },
             "additionalProperties": false
@@ -46907,9 +46907,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchretryoptions.html",
             "type": "object",
-            "required": [
-              "DurationInSeconds"
-            ],
+            "required": [],
             "properties": {
               "DurationInSeconds": {
                 "title": "DurationInSeconds",
@@ -46958,8 +46956,6 @@
             "type": "object",
             "required": [
               "BucketARN",
-              "BufferingHints",
-              "CompressionFormat",
               "RoleARN"
             ],
             "properties": {
@@ -47096,9 +47092,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.InputFormatConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html",
             "type": "object",
-            "required": [
-              "Deserializer"
-            ],
+            "required": [],
             "properties": {
               "Deserializer": {
                 "title": "Deserializer",
@@ -47351,9 +47345,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.OutputFormatConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html",
             "type": "object",
-            "required": [
-              "Serializer"
-            ],
+            "required": [],
             "properties": {
               "Serializer": {
                 "title": "Serializer",
@@ -47478,7 +47470,6 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html",
             "type": "object",
             "required": [
-              "Parameters",
               "Type"
             ],
             "properties": {
@@ -47593,9 +47584,31 @@
                 "description": "Type: ProcessingConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration"
               },
+              "RetryOptions": {
+                "title": "RetryOptions",
+                "description": "Type: RedshiftRetryOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions"
+              },
               "RoleARN": {
                 "title": "RoleARN",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "S3BackupConfiguration": {
+                "title": "S3BackupConfiguration",
+                "description": "Type: S3DestinationConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration"
+              },
+              "S3BackupMode": {
+                "title": "S3BackupMode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode",
                 "oneOf": [
                   {
                     "type": "string"
@@ -47625,14 +47638,33 @@
             },
             "additionalProperties": false
           },
+          "AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions": {
+            "title": "AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DurationInSeconds": {
+                "title": "DurationInSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html#cfn-kinesisfirehose-deliverystream-redshiftretryoptions-durationinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration": {
             "title": "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html",
             "type": "object",
             "required": [
               "BucketARN",
-              "BufferingHints",
-              "CompressionFormat",
               "RoleARN"
             ],
             "properties": {
@@ -47718,14 +47750,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.SchemaConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html",
             "type": "object",
-            "required": [
-              "CatalogId",
-              "DatabaseName",
-              "Region",
-              "RoleARN",
-              "TableName",
-              "VersionId"
-            ],
+            "required": [],
             "properties": {
               "CatalogId": {
                 "title": "CatalogId",
@@ -47919,9 +47944,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.SplunkRetryOptions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html",
             "type": "object",
-            "required": [
-              "DurationInSeconds"
-            ],
+            "required": [],
             "properties": {
               "DurationInSeconds": {
                 "title": "DurationInSeconds",
@@ -47934,6 +47957,61 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::KinesisFirehose::DeliveryStream.VpcConfiguration": {
+            "title": "AWS::KinesisFirehose::DeliveryStream.VpcConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html",
+            "type": "object",
+            "required": [
+              "RoleARN",
+              "SecurityGroupIds",
+              "SubnetIds"
+            ],
+            "properties": {
+              "RoleARN": {
+                "title": "RoleARN",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-securitygroupids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SubnetIds": {
+                "title": "SubnetIds",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-subnetids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
               }
             },
             "additionalProperties": false
