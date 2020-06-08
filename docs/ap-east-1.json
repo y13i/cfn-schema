@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 14.4.0 https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 15.0.0 https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -11829,6 +11829,59 @@
             },
             "additionalProperties": false
           },
+          "AWS::EFS::AccessPoint": {
+            "title": "AWS::EFS::AccessPoint",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html",
+            "type": "object",
+            "required": [
+              "FileSystemId"
+            ],
+            "properties": {
+              "AccessPointTags": {
+                "title": "AccessPointTags",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EFS::AccessPoint.AccessPointTag"
+                }
+              },
+              "ClientToken": {
+                "title": "ClientToken",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FileSystemId": {
+                "title": "FileSystemId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PosixUser": {
+                "title": "PosixUser",
+                "description": "Type: PosixUser, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EFS::AccessPoint.PosixUser"
+              },
+              "RootDirectory": {
+                "title": "RootDirectory",
+                "description": "Type: RootDirectory, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EFS::AccessPoint.RootDirectory"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::EFS::FileSystem": {
             "title": "AWS::EFS::FileSystem",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html",
@@ -16219,6 +16272,11 @@
                   }
                 ]
               },
+              "OutputResources": {
+                "title": "OutputResources",
+                "description": "Type: OutputResources, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-outputresources",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ImageBuilder::Image.OutputResources"
+              },
               "Tags": {
                 "title": "Tags",
                 "description": "Type: Map, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags",
@@ -16688,6 +16746,91 @@
               "Principal": {
                 "title": "Principal",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-principal",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::ProvisioningTemplate": {
+            "title": "AWS::IoT::ProvisioningTemplate",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html",
+            "type": "object",
+            "required": [
+              "ProvisioningRoleArn",
+              "TemplateBody"
+            ],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PreProvisioningHook": {
+                "title": "PreProvisioningHook",
+                "description": "Type: ProvisioningHook, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::ProvisioningTemplate.ProvisioningHook"
+              },
+              "ProvisioningRoleArn": {
+                "title": "ProvisioningRoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::ProvisioningTemplate.Json"
+                }
+              },
+              "TemplateBody": {
+                "title": "TemplateBody",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TemplateName": {
+                "title": "TemplateName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename",
                 "oneOf": [
                   {
                     "type": "string"
@@ -17891,7 +18034,7 @@
               },
               "ConfigurationInfo": {
                 "title": "ConfigurationInfo",
-                "description": "Type: ConfigurationInfo, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-configurationinfo",
+                "description": "Type: ConfigurationInfo, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-configurationinfo",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::MSK::Cluster.ConfigurationInfo"
               },
               "EncryptionInfo": {
@@ -17913,7 +18056,7 @@
               },
               "KafkaVersion": {
                 "title": "KafkaVersion",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-kafkaversion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-kafkaversion",
                 "oneOf": [
                   {
                     "type": "string"
@@ -37876,6 +38019,165 @@
             },
             "additionalProperties": false
           },
+          "AWS::EFS::AccessPoint.AccessPointTag": {
+            "title": "AWS::EFS::AccessPoint.AccessPointTag",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Key": {
+                "title": "Key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EFS::AccessPoint.CreationInfo": {
+            "title": "AWS::EFS::AccessPoint.CreationInfo",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html",
+            "type": "object",
+            "required": [
+              "OwnerGid",
+              "OwnerUid",
+              "Permissions"
+            ],
+            "properties": {
+              "OwnerGid": {
+                "title": "OwnerGid",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "OwnerUid": {
+                "title": "OwnerUid",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Permissions": {
+                "title": "Permissions",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EFS::AccessPoint.PosixUser": {
+            "title": "AWS::EFS::AccessPoint.PosixUser",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html",
+            "type": "object",
+            "required": [
+              "Gid",
+              "Uid"
+            ],
+            "properties": {
+              "Gid": {
+                "title": "Gid",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SecondaryGids": {
+                "title": "SecondaryGids",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Uid": {
+                "title": "Uid",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EFS::AccessPoint.RootDirectory": {
+            "title": "AWS::EFS::AccessPoint.RootDirectory",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "CreationInfo": {
+                "title": "CreationInfo",
+                "description": "Type: CreationInfo, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EFS::AccessPoint.CreationInfo"
+              },
+              "Path": {
+                "title": "Path",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::EFS::FileSystem.ElasticFileSystemTag": {
             "title": "AWS::EFS::FileSystem.ElasticFileSystemTag",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html",
@@ -44226,6 +44528,101 @@
             },
             "additionalProperties": false
           },
+          "AWS::ImageBuilder::Image.Ami": {
+            "title": "AWS::ImageBuilder::Image.Ami",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Image": {
+                "title": "Image",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-image",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Region": {
+                "title": "Region",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-region",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "State": {
+                "title": "State",
+                "description": "Type: ImageState, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-state",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ImageBuilder::Image.ImageState"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ImageBuilder::Image.ImageState": {
+            "title": "AWS::ImageBuilder::Image.ImageState",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagestate.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Reason": {
+                "title": "Reason",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagestate.html#cfn-imagebuilder-image-imagestate-reason",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Status": {
+                "title": "Status",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagestate.html#cfn-imagebuilder-image-imagestate-status",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ImageBuilder::Image.ImageTestsConfiguration": {
             "title": "AWS::ImageBuilder::Image.ImageTestsConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html",
@@ -44255,6 +44652,23 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ImageBuilder::Image.OutputResources": {
+            "title": "AWS::ImageBuilder::Image.OutputResources",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-outputresources.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Amis": {
+                "title": "Amis",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-outputresources.html#cfn-imagebuilder-image-outputresources-amis",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ImageBuilder::Image.Ami"
+                }
               }
             },
             "additionalProperties": false
@@ -44524,6 +44938,39 @@
               "S3KeyPrefix": {
                 "title": "S3KeyPrefix",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::ProvisioningTemplate.ProvisioningHook": {
+            "title": "AWS::IoT::ProvisioningTemplate.ProvisioningHook",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "PayloadVersion": {
+                "title": "PayloadVersion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetArn": {
+                "title": "TargetArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn",
                 "oneOf": [
                   {
                     "type": "string"
@@ -45977,10 +46424,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.BufferingHints",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html",
             "type": "object",
-            "required": [
-              "IntervalInSeconds",
-              "SizeInMBs"
-            ],
+            "required": [],
             "properties": {
               "IntervalInSeconds": {
                 "title": "IntervalInSeconds",
@@ -46105,12 +46549,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html",
             "type": "object",
-            "required": [
-              "Enabled",
-              "InputFormatConfiguration",
-              "OutputFormatConfiguration",
-              "SchemaConfiguration"
-            ],
+            "required": [],
             "properties": {
               "Enabled": {
                 "title": "Enabled",
@@ -46165,10 +46604,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.ElasticsearchBufferingHints",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html",
             "type": "object",
-            "required": [
-              "IntervalInSeconds",
-              "SizeInMBs"
-            ],
+            "required": [],
             "properties": {
               "IntervalInSeconds": {
                 "title": "IntervalInSeconds",
@@ -46202,15 +46638,9 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html",
             "type": "object",
             "required": [
-              "BufferingHints",
-              "DomainARN",
               "IndexName",
-              "IndexRotationPeriod",
-              "RetryOptions",
               "RoleARN",
-              "S3BackupMode",
-              "S3Configuration",
-              "TypeName"
+              "S3Configuration"
             ],
             "properties": {
               "BufferingHints": {
@@ -46222,6 +46652,18 @@
                 "title": "CloudWatchLoggingOptions",
                 "description": "Type: CloudWatchLoggingOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-cloudwatchloggingoptions",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions"
+              },
+              "ClusterEndpoint": {
+                "title": "ClusterEndpoint",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-clusterendpoint",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "DomainARN": {
                 "title": "DomainARN",
@@ -46309,6 +46751,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "VpcConfiguration": {
+                "title": "VpcConfiguration",
+                "description": "Type: VpcConfiguration, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-vpcconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.VpcConfiguration"
               }
             },
             "additionalProperties": false
@@ -46317,9 +46764,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchretryoptions.html",
             "type": "object",
-            "required": [
-              "DurationInSeconds"
-            ],
+            "required": [],
             "properties": {
               "DurationInSeconds": {
                 "title": "DurationInSeconds",
@@ -46368,8 +46813,6 @@
             "type": "object",
             "required": [
               "BucketARN",
-              "BufferingHints",
-              "CompressionFormat",
               "RoleARN"
             ],
             "properties": {
@@ -46506,9 +46949,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.InputFormatConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html",
             "type": "object",
-            "required": [
-              "Deserializer"
-            ],
+            "required": [],
             "properties": {
               "Deserializer": {
                 "title": "Deserializer",
@@ -46761,9 +47202,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.OutputFormatConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html",
             "type": "object",
-            "required": [
-              "Serializer"
-            ],
+            "required": [],
             "properties": {
               "Serializer": {
                 "title": "Serializer",
@@ -46888,7 +47327,6 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html",
             "type": "object",
             "required": [
-              "Parameters",
               "Type"
             ],
             "properties": {
@@ -47003,9 +47441,31 @@
                 "description": "Type: ProcessingConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration"
               },
+              "RetryOptions": {
+                "title": "RetryOptions",
+                "description": "Type: RedshiftRetryOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions"
+              },
               "RoleARN": {
                 "title": "RoleARN",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "S3BackupConfiguration": {
+                "title": "S3BackupConfiguration",
+                "description": "Type: S3DestinationConfiguration, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration"
+              },
+              "S3BackupMode": {
+                "title": "S3BackupMode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode",
                 "oneOf": [
                   {
                     "type": "string"
@@ -47035,14 +47495,33 @@
             },
             "additionalProperties": false
           },
+          "AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions": {
+            "title": "AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DurationInSeconds": {
+                "title": "DurationInSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html#cfn-kinesisfirehose-deliverystream-redshiftretryoptions-durationinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration": {
             "title": "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html",
             "type": "object",
             "required": [
               "BucketARN",
-              "BufferingHints",
-              "CompressionFormat",
               "RoleARN"
             ],
             "properties": {
@@ -47128,14 +47607,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.SchemaConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html",
             "type": "object",
-            "required": [
-              "CatalogId",
-              "DatabaseName",
-              "Region",
-              "RoleARN",
-              "TableName",
-              "VersionId"
-            ],
+            "required": [],
             "properties": {
               "CatalogId": {
                 "title": "CatalogId",
@@ -47329,9 +47801,7 @@
             "title": "AWS::KinesisFirehose::DeliveryStream.SplunkRetryOptions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html",
             "type": "object",
-            "required": [
-              "DurationInSeconds"
-            ],
+            "required": [],
             "properties": {
               "DurationInSeconds": {
                 "title": "DurationInSeconds",
@@ -47344,6 +47814,61 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::KinesisFirehose::DeliveryStream.VpcConfiguration": {
+            "title": "AWS::KinesisFirehose::DeliveryStream.VpcConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html",
+            "type": "object",
+            "required": [
+              "RoleARN",
+              "SecurityGroupIds",
+              "SubnetIds"
+            ],
+            "properties": {
+              "RoleARN": {
+                "title": "RoleARN",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-securitygroupids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SubnetIds": {
+                "title": "SubnetIds",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-subnetids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
               }
             },
             "additionalProperties": false
@@ -47934,7 +48459,7 @@
             "properties": {
               "Arn": {
                 "title": "Arn",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html#cfn-msk-cluster-configurationinfo-arn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html#cfn-msk-cluster-configurationinfo-arn",
                 "oneOf": [
                   {
                     "type": "string"
@@ -47946,7 +48471,7 @@
               },
               "Revision": {
                 "title": "Revision",
-                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html#cfn-msk-cluster-configurationinfo-revision",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html#cfn-msk-cluster-configurationinfo-revision",
                 "oneOf": [
                   {
                     "type": "integer"
@@ -58632,6 +59157,31 @@
               }
             ]
           },
+          "AWS::EFS::AccessPoint": {
+            "title": "AWS::EFS::AccessPoint",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::EFS::AccessPoint"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::EFS::AccessPoint"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::EFS::FileSystem": {
             "title": "AWS::EFS::FileSystem",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html",
@@ -59943,6 +60493,31 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoT::PolicyPrincipalAttachment"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::IoT::ProvisioningTemplate": {
+            "title": "AWS::IoT::ProvisioningTemplate",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoT::ProvisioningTemplate"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoT::ProvisioningTemplate"
                   }
                 }
               }
@@ -62536,6 +63111,9 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ECS::TaskSet"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EFS::AccessPoint"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::EFS::FileSystem"
           },
           {
@@ -62693,6 +63271,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT::PolicyPrincipalAttachment"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT::ProvisioningTemplate"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT::Thing"
