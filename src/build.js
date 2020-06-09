@@ -10,36 +10,39 @@ const regionsPath = join(__dirname, "regions.json");
 const baseSchemaPath = join(__dirname, "base.json");
 const outputPath = join(__dirname, "..", "docs");
 
+// temporary fix: see base.json too
+// "AWS::SSM::Association.ParameterValues"
+
 function getPrimitiveTypeSchema(type) {
   switch (type) {
     case "String":
       return {
-        type: "string"
+        type: "string",
       };
     case "Long":
     case "Integer":
       return {
-        type: "integer"
+        type: "integer",
       };
     case "Double":
       return {
-        type: "number"
+        type: "number",
       };
     case "Boolean":
       return {
-        type: "boolean"
+        type: "boolean",
       };
     case "Timestamp":
       return {
         type: "string",
         pattern:
           "\\d{4}-(0\\d|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d\\.\\d{3}Z",
-        default: "1970-01-01T00:00:00.000Z"
+        default: "1970-01-01T00:00:00.000Z",
       };
     case "Map":
     case "Json":
       return {
-        type: "object"
+        type: "object",
       };
     default:
       console.log(`Unknown premitive type: ${type}`);
@@ -48,17 +51,18 @@ function getPrimitiveTypeSchema(type) {
 
 function referPropertyType(resourceTypeName, itemType) {
   return `#/properties/Resources/definitions/propertyTypes/${
-    itemType === "Tag" ? "Tag" : resourceTypeName + "." + itemType
+    itemType.match(/^(Tag|Json)$/)
+      ? itemType
+      : resourceTypeName + "." + itemType
   }`;
 }
 
 function appendProperty(root, propertyName, property, resourceTypeName) {
   const p = {
     title: propertyName,
-    description: `Type: ${property.Type ||
-      property.PrimitiveType}, UpdateType: ${property.UpdateType}, ${
-      property.Documentation
-    }`
+    description: `Type: ${
+      property.Type || property.PrimitiveType
+    }, UpdateType: ${property.UpdateType}, ${property.Documentation}`,
   };
 
   root.properties[propertyName] = p;
@@ -93,7 +97,7 @@ function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
 
     if (property.PrimitiveItemType) {
       root.items = {
-        oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
+        oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }],
       };
 
       root.items.oneOf.unshift(
@@ -101,7 +105,7 @@ function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
       );
     } else if (property.ItemType) {
       root.items = {
-        $ref: referPropertyType(resourceTypeName, property.ItemType)
+        $ref: referPropertyType(resourceTypeName, property.ItemType),
       };
     }
   } else if (property.Type === "Map") {
@@ -109,7 +113,7 @@ function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
 
     if (property.PrimitiveItemType) {
       root.additionalProperties = {
-        oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }]
+        oneOf: [{ $ref: "#/definitions/intrinsicFunctions" }],
       };
 
       root.additionalProperties.oneOf.unshift(
@@ -117,7 +121,7 @@ function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
       );
     } else if (property.ItemType) {
       root.additionalProperties = {
-        $ref: referPropertyType(resourceTypeName, property.ItemType)
+        $ref: referPropertyType(resourceTypeName, property.ItemType),
       };
     }
   }
@@ -126,12 +130,12 @@ function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
 function appendPropertyTypes(schema, propertyTypes) {
   Object.keys(propertyTypes)
     .sort()
-    .forEach(propertyName => {
+    .forEach((propertyName) => {
       const property = propertyTypes[propertyName];
       const resourceTypeName = propertyName.split(".")[0];
 
       const p = {
-        title: propertyName
+        title: propertyName,
       };
 
       if (property.Properties) {
@@ -157,7 +161,7 @@ function appendPropertyTypes(schema, propertyTypes) {
 function appendResourceTypes(schema, resourceTypes) {
   Object.keys(resourceTypes)
     .sort()
-    .forEach(resourceTypeName => {
+    .forEach((resourceTypeName) => {
       const resourceType = resourceTypes[resourceTypeName];
 
       const rt = {
@@ -166,7 +170,7 @@ function appendResourceTypes(schema, resourceTypes) {
         type: "object",
         required: [],
         properties: {},
-        additionalProperties: false
+        additionalProperties: false,
       };
 
       schema.properties.Resources.definitions.resourcePropertyTypes[
@@ -189,24 +193,24 @@ function appendResourceTypes(schema, resourceTypes) {
           { $ref: "#/properties/Resources/definitions/resourceTypeBase" },
           {
             required: Object.values(resourceType.Properties).some(
-              p => p.Required
+              (p) => p.Required
             )
               ? ["Type", "Properties"]
               : ["Type"],
             properties: {
               Type: {
-                enum: [resourceTypeName]
+                enum: [resourceTypeName],
               },
               Properties: {
-                $ref: `#/properties/Resources/definitions/resourcePropertyTypes/${resourceTypeName}`
-              }
-            }
-          }
-        ]
+                $ref: `#/properties/Resources/definitions/resourcePropertyTypes/${resourceTypeName}`,
+              },
+            },
+          },
+        ],
       };
 
       schema.properties.Resources.additionalProperties.oneOf.push({
-        $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`
+        $ref: `#/properties/Resources/definitions/resourceTypes/${resourceTypeName}`,
       });
     });
 }
@@ -215,9 +219,7 @@ async function buildSchema(schema, resourceSpecUrl) {
   const resourceSpecResponse = await axios.get(resourceSpecUrl);
   const resourceSpec = resourceSpecResponse.data;
 
-  schema.description += ` automatically generated with resource specification version ${
-    resourceSpec.ResourceSpecificationVersion
-  } ${resourceSpecUrl}`;
+  schema.description += ` automatically generated with resource specification version ${resourceSpec.ResourceSpecificationVersion} ${resourceSpecUrl}`;
 
   appendPropertyTypes(schema, resourceSpec.PropertyTypes);
   appendResourceTypes(schema, resourceSpec.ResourceTypes);
@@ -228,13 +230,13 @@ async function buildSchema(schema, resourceSpecUrl) {
 async function main() {
   const [regionsJson, baseJson] = await Promise.all([
     readFileAsync(regionsPath),
-    readFileAsync(baseSchemaPath)
+    readFileAsync(baseSchemaPath),
   ]);
 
   const regions = JSON.parse(regionsJson);
 
   await Promise.all(
-    regions.map(async region => {
+    regions.map(async (region) => {
       const schema = await buildSchema(JSON.parse(baseJson), region.url);
 
       await Promise.all([
@@ -246,7 +248,7 @@ async function main() {
         writeFileAsync(
           join(outputPath, `${region.code}.min.json`),
           JSON.stringify(schema)
-        )
+        ),
       ]);
 
       console.log(`Built schema for ${region.code}, ${region.name}.`);
