@@ -10,6 +10,9 @@ const regionsPath = join(__dirname, "regions.json");
 const baseSchemaPath = join(__dirname, "base.json");
 const outputPath = join(__dirname, "..", "docs");
 
+// temporary fix: see base.json too
+// "AWS::SSM::Association.ParameterValues"
+
 function getPrimitiveTypeSchema(type) {
   switch (type) {
     case "String":
@@ -48,7 +51,9 @@ function getPrimitiveTypeSchema(type) {
 
 function referPropertyType(resourceTypeName, itemType) {
   return `#/properties/Resources/definitions/propertyTypes/${
-    itemType === "Tag" ? "Tag" : resourceTypeName + "." + itemType
+    itemType.match(/^(Tag|Json)$/)
+      ? itemType
+      : resourceTypeName + "." + itemType
   }`;
 }
 
