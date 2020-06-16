@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 15.1.0 https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 15.2.0 https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -11936,6 +11936,18 @@
                   }
                 ]
               },
+              "FileSystemPolicy": {
+                "title": "FileSystemPolicy",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "FileSystemTags": {
                 "title": "FileSystemTags",
                 "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags",
@@ -11958,7 +11970,7 @@
               },
               "LifecyclePolicies": {
                 "title": "LifecyclePolicies",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-lifecyclepolicies",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EFS::FileSystem.LifecyclePolicy"
@@ -11978,7 +11990,7 @@
               },
               "ProvisionedThroughputInMibps": {
                 "title": "ProvisionedThroughputInMibps",
-                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-provisionedthroughputinmibps",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps",
                 "oneOf": [
                   {
                     "type": "number"
@@ -11990,7 +12002,7 @@
               },
               "ThroughputMode": {
                 "title": "ThroughputMode",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-throughputmode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode",
                 "oneOf": [
                   {
                     "type": "string"
@@ -16319,11 +16331,6 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
-              },
-              "OutputResources": {
-                "title": "OutputResources",
-                "description": "Type: OutputResources, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-outputresources",
-                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ImageBuilder::Image.OutputResources"
               },
               "Tags": {
                 "title": "Tags",
@@ -38265,7 +38272,7 @@
           },
           "AWS::EFS::FileSystem.ElasticFileSystemTag": {
             "title": "AWS::EFS::FileSystem.ElasticFileSystemTag",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html",
             "type": "object",
             "required": [
               "Key",
@@ -38274,7 +38281,7 @@
             "properties": {
               "Key": {
                 "title": "Key",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38286,7 +38293,7 @@
               },
               "Value": {
                 "title": "Value",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-value",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value",
                 "oneOf": [
                   {
                     "type": "string"
@@ -38301,7 +38308,7 @@
           },
           "AWS::EFS::FileSystem.LifecyclePolicy": {
             "title": "AWS::EFS::FileSystem.LifecyclePolicy",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticfilesystem-filesystem-lifecyclepolicy.html",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html",
             "type": "object",
             "required": [
               "TransitionToIA"
@@ -38309,7 +38316,7 @@
             "properties": {
               "TransitionToIA": {
                 "title": "TransitionToIA",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticfilesystem-filesystem-lifecyclepolicy.html#cfn-elasticfilesystem-filesystem-lifecyclepolicy-transitiontoia",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia",
                 "oneOf": [
                   {
                     "type": "string"
@@ -44683,101 +44690,6 @@
             },
             "additionalProperties": false
           },
-          "AWS::ImageBuilder::Image.Ami": {
-            "title": "AWS::ImageBuilder::Image.Ami",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html",
-            "type": "object",
-            "required": [],
-            "properties": {
-              "Description": {
-                "title": "Description",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-description",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Image": {
-                "title": "Image",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-image",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Name": {
-                "title": "Name",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-name",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Region": {
-                "title": "Region",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-region",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "State": {
-                "title": "State",
-                "description": "Type: ImageState, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ami.html#cfn-imagebuilder-image-ami-state",
-                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ImageBuilder::Image.ImageState"
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::ImageBuilder::Image.ImageState": {
-            "title": "AWS::ImageBuilder::Image.ImageState",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagestate.html",
-            "type": "object",
-            "required": [],
-            "properties": {
-              "Reason": {
-                "title": "Reason",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagestate.html#cfn-imagebuilder-image-imagestate-reason",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
-              "Status": {
-                "title": "Status",
-                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagestate.html#cfn-imagebuilder-image-imagestate-status",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
           "AWS::ImageBuilder::Image.ImageTestsConfiguration": {
             "title": "AWS::ImageBuilder::Image.ImageTestsConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html",
@@ -44807,23 +44719,6 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "AWS::ImageBuilder::Image.OutputResources": {
-            "title": "AWS::ImageBuilder::Image.OutputResources",
-            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-outputresources.html",
-            "type": "object",
-            "required": [],
-            "properties": {
-              "Amis": {
-                "title": "Amis",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-outputresources.html#cfn-imagebuilder-image-outputresources-amis",
-                "type": "array",
-                "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ImageBuilder::Image.Ami"
-                }
               }
             },
             "additionalProperties": false
