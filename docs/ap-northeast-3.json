@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 16.0.0 https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 16.1.0 https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -2892,6 +2892,18 @@
                 "title": "MixedInstancesPolicy",
                 "description": "Type: MixedInstancesPolicy, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::AutoScaling::AutoScalingGroup.MixedInstancesPolicy"
+              },
+              "NewInstancesProtectedFromScaleIn": {
+                "title": "NewInstancesProtectedFromScaleIn",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               },
               "NotificationConfigurations": {
                 "title": "NotificationConfigurations",
@@ -9964,7 +9976,7 @@
               },
               "MultiAZEnabled": {
                 "title": "MultiAZEnabled",
-                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-multiazenabled",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-multiazenabled",
                 "oneOf": [
                   {
                     "type": "boolean"
@@ -10797,6 +10809,21 @@
               "Protocol"
             ],
             "properties": {
+              "AlpnPolicy": {
+                "title": "AlpnPolicy",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
               "Certificates": {
                 "title": "Certificates",
                 "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates",
@@ -11288,10 +11315,20 @@
                   ]
                 }
               },
+              "AdvancedSecurityOptions": {
+                "title": "AdvancedSecurityOptions",
+                "description": "Type: AdvancedSecurityOptionsInput, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Elasticsearch::Domain.AdvancedSecurityOptionsInput"
+              },
               "CognitoOptions": {
                 "title": "CognitoOptions",
                 "description": "Type: CognitoOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Elasticsearch::Domain.CognitoOptions"
+              },
+              "DomainEndpointOptions": {
+                "title": "DomainEndpointOptions",
+                "description": "Type: DomainEndpointOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Elasticsearch::Domain.DomainEndpointOptions"
               },
               "DomainName": {
                 "title": "DomainName",
@@ -13183,6 +13220,14 @@
                 "title": "Environment",
                 "description": "Type: Environment, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::Function.Environment"
+              },
+              "FileSystemConfigs": {
+                "title": "FileSystemConfigs",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Lambda::Function.FileSystemConfig"
+                }
               },
               "FunctionName": {
                 "title": "FunctionName",
@@ -16817,7 +16862,7 @@
             "properties": {
               "HealthCheckConfig": {
                 "title": "HealthCheckConfig",
-                "description": "Type: HealthCheckConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig",
+                "description": "Type: HealthCheckConfig, UpdateType: Conditional, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Route53::HealthCheck.HealthCheckConfig"
               },
               "HealthCheckTags": {
@@ -33793,6 +33838,44 @@
             },
             "additionalProperties": false
           },
+          "AWS::Elasticsearch::Domain.AdvancedSecurityOptionsInput": {
+            "title": "AWS::Elasticsearch::Domain.AdvancedSecurityOptionsInput",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Enabled": {
+                "title": "Enabled",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-enabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "InternalUserDatabaseEnabled": {
+                "title": "InternalUserDatabaseEnabled",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MasterUserOptions": {
+                "title": "MasterUserOptions",
+                "description": "Type: MasterUserOptions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-masteruseroptions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Elasticsearch::Domain.MasterUserOptions"
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Elasticsearch::Domain.CognitoOptions": {
             "title": "AWS::Elasticsearch::Domain.CognitoOptions",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html",
@@ -33838,6 +33921,39 @@
               "UserPoolId": {
                 "title": "UserPoolId",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html#cfn-elasticsearch-domain-cognitooptions-userpoolid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Elasticsearch::Domain.DomainEndpointOptions": {
+            "title": "AWS::Elasticsearch::Domain.DomainEndpointOptions",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "EnforceHTTPS": {
+                "title": "EnforceHTTPS",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-enforcehttps",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TLSSecurityPolicy": {
+                "title": "TLSSecurityPolicy",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-tlssecuritypolicy",
                 "oneOf": [
                   {
                     "type": "string"
@@ -34050,6 +34166,51 @@
                 "oneOf": [
                   {
                     "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Elasticsearch::Domain.MasterUserOptions": {
+            "title": "AWS::Elasticsearch::Domain.MasterUserOptions",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "MasterUserARN": {
+                "title": "MasterUserARN",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MasterUserName": {
+                "title": "MasterUserName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masterusername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MasterUserPassword": {
+                "title": "MasterUserPassword",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserpassword",
+                "oneOf": [
+                  {
+                    "type": "string"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -38245,6 +38406,42 @@
                     }
                   ]
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Lambda::Function.FileSystemConfig": {
+            "title": "AWS::Lambda::Function.FileSystemConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html",
+            "type": "object",
+            "required": [
+              "Arn",
+              "LocalMountPath"
+            ],
+            "properties": {
+              "Arn": {
+                "title": "Arn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "LocalMountPath": {
+                "title": "LocalMountPath",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
