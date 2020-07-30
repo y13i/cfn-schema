@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 16.1.0 https://s3.us-gov-east-1.amazonaws.com/cfn-resource-specifications-us-gov-east-1-prod/latest/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 16.2.0 https://s3.us-gov-east-1.amazonaws.com/cfn-resource-specifications-us-gov-east-1-prod/latest/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -7793,12 +7793,36 @@
                   }
                 ]
               },
+              "LogFormat": {
+                "title": "LogFormat",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "LogGroupName": {
                 "title": "LogGroupName",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname",
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaxAggregationInterval": {
+                "title": "MaxAggregationInterval",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -7828,6 +7852,14 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
               },
               "TrafficType": {
                 "title": "TrafficType",
@@ -16050,6 +16082,21 @@
                   }
                 ]
               },
+              "ResourceTags": {
+                "title": "ResourceTags",
+                "description": "Type: Map, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags",
+                "type": "object",
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
               "SecurityGroupIds": {
                 "title": "SecurityGroupIds",
                 "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids",
@@ -22591,6 +22638,135 @@
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Synthetics::Canary": {
+            "title": "AWS::Synthetics::Canary",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html",
+            "type": "object",
+            "required": [
+              "ArtifactS3Location",
+              "Code",
+              "ExecutionRoleArn",
+              "Name",
+              "RuntimeVersion",
+              "Schedule",
+              "StartCanaryAfterCreation"
+            ],
+            "properties": {
+              "ArtifactS3Location": {
+                "title": "ArtifactS3Location",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Code": {
+                "title": "Code",
+                "description": "Type: Code, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Synthetics::Canary.Code"
+              },
+              "ExecutionRoleArn": {
+                "title": "ExecutionRoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FailureRetentionPeriod": {
+                "title": "FailureRetentionPeriod",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RunConfig": {
+                "title": "RunConfig",
+                "description": "Type: RunConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Synthetics::Canary.RunConfig"
+              },
+              "RuntimeVersion": {
+                "title": "RuntimeVersion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Schedule": {
+                "title": "Schedule",
+                "description": "Type: Schedule, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Synthetics::Canary.Schedule"
+              },
+              "StartCanaryAfterCreation": {
+                "title": "StartCanaryAfterCreation",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SuccessRetentionPeriod": {
+                "title": "SuccessRetentionPeriod",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
+              },
+              "VPCConfig": {
+                "title": "VPCConfig",
+                "description": "Type: VPCConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Synthetics::Canary.VPCConfig"
               }
             },
             "additionalProperties": false
@@ -42415,7 +42591,9 @@
             "title": "AWS::ImageBuilder::DistributionConfiguration.Distribution",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html",
             "type": "object",
-            "required": [],
+            "required": [
+              "Region"
+            ],
             "properties": {
               "AmiDistributionConfiguration": {
                 "title": "AmiDistributionConfiguration",
@@ -51201,6 +51379,199 @@
             },
             "additionalProperties": false
           },
+          "AWS::Synthetics::Canary.Code": {
+            "title": "AWS::Synthetics::Canary.Code",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Handler": {
+                "title": "Handler",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "S3Bucket": {
+                "title": "S3Bucket",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "S3Key": {
+                "title": "S3Key",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "S3ObjectVersion": {
+                "title": "S3ObjectVersion",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Script": {
+                "title": "Script",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Synthetics::Canary.RunConfig": {
+            "title": "AWS::Synthetics::Canary.RunConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html",
+            "type": "object",
+            "required": [
+              "TimeoutInSeconds"
+            ],
+            "properties": {
+              "MemoryInMB": {
+                "title": "MemoryInMB",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TimeoutInSeconds": {
+                "title": "TimeoutInSeconds",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Synthetics::Canary.Schedule": {
+            "title": "AWS::Synthetics::Canary.Schedule",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html",
+            "type": "object",
+            "required": [
+              "Expression"
+            ],
+            "properties": {
+              "DurationInSeconds": {
+                "title": "DurationInSeconds",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Expression": {
+                "title": "Expression",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Synthetics::Canary.VPCConfig": {
+            "title": "AWS::Synthetics::Canary.VPCConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html",
+            "type": "object",
+            "required": [
+              "SecurityGroupIds",
+              "SubnetIds"
+            ],
+            "properties": {
+              "SecurityGroupIds": {
+                "title": "SecurityGroupIds",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SubnetIds": {
+                "title": "SubnetIds",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "VpcId": {
+                "title": "VpcId",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::WAF::ByteMatchSet.ByteMatchTuple": {
             "title": "AWS::WAF::ByteMatchSet.ByteMatchTuple",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html",
@@ -57855,6 +58226,31 @@
               }
             ]
           },
+          "AWS::Synthetics::Canary": {
+            "title": "AWS::Synthetics::Canary",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Synthetics::Canary"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Synthetics::Canary"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::WAF::ByteMatchSet": {
             "title": "AWS::WAF::ByteMatchSet",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html",
@@ -58793,6 +59189,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::ServiceCatalog::CloudFormationProvisionedProduct"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Synthetics::Canary"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::WAF::ByteMatchSet"

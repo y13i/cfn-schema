@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 16.1.0 https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 16.2.0 https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -5734,12 +5734,36 @@
                   }
                 ]
               },
+              "LogFormat": {
+                "title": "LogFormat",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "LogGroupName": {
                 "title": "LogGroupName",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname",
                 "oneOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaxAggregationInterval": {
+                "title": "MaxAggregationInterval",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval",
+                "oneOf": [
+                  {
+                    "type": "integer"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -5769,6 +5793,14 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
+                }
               },
               "TrafficType": {
                 "title": "TrafficType",
