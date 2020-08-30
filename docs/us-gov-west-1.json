@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 16.2.0 https://s3.us-gov-west-1.amazonaws.com/cfn-resource-specifications-us-gov-west-1-prod/latest/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 18.1.0 https://s3.us-gov-west-1.amazonaws.com/cfn-resource-specifications-us-gov-west-1-prod/latest/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -1867,9 +1867,7 @@
             "title": "AWS::ApiGateway::DomainName",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html",
             "type": "object",
-            "required": [
-              "DomainName"
-            ],
+            "required": [],
             "properties": {
               "CertificateArn": {
                 "title": "CertificateArn",
@@ -1885,7 +1883,7 @@
               },
               "DomainName": {
                 "title": "DomainName",
-                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname",
                 "oneOf": [
                   {
                     "type": "string"
@@ -1926,7 +1924,7 @@
               },
               "Tags": {
                 "title": "Tags",
-                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
@@ -3380,6 +3378,18 @@
                   }
                 ]
               },
+              "IntegrationSubtype": {
+                "title": "IntegrationSubtype",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "IntegrationType": {
                 "title": "IntegrationType",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype",
@@ -4822,6 +4832,66 @@
             },
             "additionalProperties": false
           },
+          "AWS::Athena::NamedQuery": {
+            "title": "AWS::Athena::NamedQuery",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html",
+            "type": "object",
+            "required": [
+              "Database",
+              "QueryString"
+            ],
+            "properties": {
+              "Database": {
+                "title": "Database",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Description": {
+                "title": "Description",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "QueryString": {
+                "title": "QueryString",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::Athena::WorkGroup": {
             "title": "AWS::Athena::WorkGroup",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html",
@@ -5730,6 +5800,127 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupPlan": {
+            "title": "AWS::Backup::BackupPlan",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html",
+            "type": "object",
+            "required": [
+              "BackupPlan"
+            ],
+            "properties": {
+              "BackupPlan": {
+                "title": "BackupPlan",
+                "description": "Type: BackupPlanResourceType, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupPlan.BackupPlanResourceType"
+              },
+              "BackupPlanTags": {
+                "title": "BackupPlanTags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupSelection": {
+            "title": "AWS::Backup::BackupSelection",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html",
+            "type": "object",
+            "required": [
+              "BackupPlanId",
+              "BackupSelection"
+            ],
+            "properties": {
+              "BackupPlanId": {
+                "title": "BackupPlanId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "BackupSelection": {
+                "title": "BackupSelection",
+                "description": "Type: BackupSelectionResourceType, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupSelection.BackupSelectionResourceType"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupVault": {
+            "title": "AWS::Backup::BackupVault",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html",
+            "type": "object",
+            "required": [
+              "BackupVaultName"
+            ],
+            "properties": {
+              "AccessPolicy": {
+                "title": "AccessPolicy",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "BackupVaultName": {
+                "title": "BackupVaultName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "BackupVaultTags": {
+                "title": "BackupVaultTags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "EncryptionKeyArn": {
+                "title": "EncryptionKeyArn",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Notifications": {
+                "title": "Notifications",
+                "description": "Type: NotificationObjectType, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupVault.NotificationObjectType"
               }
             },
             "additionalProperties": false
@@ -6648,6 +6839,11 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "BuildBatchConfig": {
+                "title": "BuildBatchConfig",
+                "description": "Type: ProjectBuildBatchConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CodeBuild::Project.ProjectBuildBatchConfig"
               },
               "Cache": {
                 "title": "Cache",
@@ -12757,7 +12953,7 @@
               },
               "Tags": {
                 "title": "Tags",
-                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
@@ -12956,6 +13152,11 @@
             "type": "object",
             "required": [],
             "properties": {
+              "BackupPolicy": {
+                "title": "BackupPolicy",
+                "description": "Type: BackupPolicy, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EFS::FileSystem.BackupPolicy"
+              },
               "Encrypted": {
                 "title": "Encrypted",
                 "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted",
@@ -18054,10 +18255,45 @@
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html",
             "type": "object",
             "required": [
-              "CertificateSigningRequest",
               "Status"
             ],
             "properties": {
+              "CACertificatePem": {
+                "title": "CACertificatePem",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CertificateMode": {
+                "title": "CertificateMode",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CertificatePem": {
+                "title": "CertificatePem",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "CertificateSigningRequest": {
                 "title": "CertificateSigningRequest",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest",
@@ -18208,11 +18444,8 @@
               },
               "Tags": {
                 "title": "Tags",
-                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags",
-                "type": "array",
-                "items": {
-                  "$ref": "#/properties/Resources/definitions/propertyTypes/Json"
-                }
+                "description": "Type: Tags, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::ProvisioningTemplate.Tags"
               },
               "TemplateBody": {
                 "title": "TemplateBody",
@@ -18413,15 +18646,7 @@
               },
               "KeyPolicy": {
                 "title": "KeyPolicy",
-                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy",
-                "oneOf": [
-                  {
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
+                "description": "Type: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy"
               },
               "KeyUsage": {
                 "title": "KeyUsage",
@@ -18449,7 +18674,7 @@
               },
               "Tags": {
                 "title": "Tags",
-                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
@@ -18886,6 +19111,21 @@
                     "$ref": "#/definitions/intrinsicFunctions"
                   }
                 ]
+              },
+              "Topics": {
+                "title": "Topics",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
               }
             },
             "additionalProperties": false
@@ -23710,18 +23950,6 @@
                   }
                 ]
               },
-              "FifoTopic": {
-                "title": "FifoTopic",
-                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-fifotopic",
-                "oneOf": [
-                  {
-                    "type": "boolean"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
-              },
               "KmsMasterKeyId": {
                 "title": "KmsMasterKeyId",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-kmsmasterkeyid",
@@ -25093,6 +25321,18 @@
               "PathId": {
                 "title": "PathId",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PathName": {
+                "title": "PathName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname",
                 "oneOf": [
                   {
                     "type": "string"
@@ -26714,7 +26954,7 @@
             "properties": {
               "Types": {
                 "title": "Types",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -29816,6 +30056,343 @@
             },
             "additionalProperties": false
           },
+          "AWS::Backup::BackupPlan.BackupPlanResourceType": {
+            "title": "AWS::Backup::BackupPlan.BackupPlanResourceType",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html",
+            "type": "object",
+            "required": [
+              "BackupPlanName",
+              "BackupPlanRule"
+            ],
+            "properties": {
+              "BackupPlanName": {
+                "title": "BackupPlanName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "BackupPlanRule": {
+                "title": "BackupPlanRule",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupPlan.BackupRuleResourceType"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupPlan.BackupRuleResourceType": {
+            "title": "AWS::Backup::BackupPlan.BackupRuleResourceType",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html",
+            "type": "object",
+            "required": [
+              "RuleName",
+              "TargetBackupVault"
+            ],
+            "properties": {
+              "CompletionWindowMinutes": {
+                "title": "CompletionWindowMinutes",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CopyActions": {
+                "title": "CopyActions",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupPlan.CopyActionResourceType"
+                }
+              },
+              "Lifecycle": {
+                "title": "Lifecycle",
+                "description": "Type: LifecycleResourceType, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupPlan.LifecycleResourceType"
+              },
+              "RecoveryPointTags": {
+                "title": "RecoveryPointTags",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RuleName": {
+                "title": "RuleName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ScheduleExpression": {
+                "title": "ScheduleExpression",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StartWindowMinutes": {
+                "title": "StartWindowMinutes",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TargetBackupVault": {
+                "title": "TargetBackupVault",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupPlan.CopyActionResourceType": {
+            "title": "AWS::Backup::BackupPlan.CopyActionResourceType",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html",
+            "type": "object",
+            "required": [
+              "DestinationBackupVaultArn"
+            ],
+            "properties": {
+              "DestinationBackupVaultArn": {
+                "title": "DestinationBackupVaultArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Lifecycle": {
+                "title": "Lifecycle",
+                "description": "Type: LifecycleResourceType, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupPlan.LifecycleResourceType"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupPlan.LifecycleResourceType": {
+            "title": "AWS::Backup::BackupPlan.LifecycleResourceType",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "DeleteAfterDays": {
+                "title": "DeleteAfterDays",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MoveToColdStorageAfterDays": {
+                "title": "MoveToColdStorageAfterDays",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupSelection.BackupSelectionResourceType": {
+            "title": "AWS::Backup::BackupSelection.BackupSelectionResourceType",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html",
+            "type": "object",
+            "required": [
+              "IamRoleArn",
+              "SelectionName"
+            ],
+            "properties": {
+              "IamRoleArn": {
+                "title": "IamRoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ListOfTags": {
+                "title": "ListOfTags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Backup::BackupSelection.ConditionResourceType"
+                }
+              },
+              "Resources": {
+                "title": "Resources",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SelectionName": {
+                "title": "SelectionName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupSelection.ConditionResourceType": {
+            "title": "AWS::Backup::BackupSelection.ConditionResourceType",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html",
+            "type": "object",
+            "required": [
+              "ConditionKey",
+              "ConditionType",
+              "ConditionValue"
+            ],
+            "properties": {
+              "ConditionKey": {
+                "title": "ConditionKey",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ConditionType": {
+                "title": "ConditionType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ConditionValue": {
+                "title": "ConditionValue",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Backup::BackupVault.NotificationObjectType": {
+            "title": "AWS::Backup::BackupVault.NotificationObjectType",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html",
+            "type": "object",
+            "required": [
+              "BackupVaultEvents",
+              "SNSTopicArn"
+            ],
+            "properties": {
+              "BackupVaultEvents": {
+                "title": "BackupVaultEvents",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "SNSTopicArn": {
+                "title": "SNSTopicArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::CertificateManager::Certificate.DomainValidationOption": {
             "title": "AWS::CertificateManager::Certificate.DomainValidationOption",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html",
@@ -30377,6 +30954,42 @@
             },
             "additionalProperties": false
           },
+          "AWS::CodeBuild::Project.BatchRestrictions": {
+            "title": "AWS::CodeBuild::Project.BatchRestrictions",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ComputeTypesAllowed": {
+                "title": "ComputeTypesAllowed",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "MaximumBuildsAllowed": {
+                "title": "MaximumBuildsAllowed",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::CodeBuild::Project.BuildStatusConfig": {
             "title": "AWS::CodeBuild::Project.BuildStatusConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html",
@@ -30649,6 +31262,56 @@
                 "title": "S3Logs",
                 "description": "Type: S3LogsConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-s3logs",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CodeBuild::Project.S3LogsConfig"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CodeBuild::Project.ProjectBuildBatchConfig": {
+            "title": "AWS::CodeBuild::Project.ProjectBuildBatchConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "CombineArtifacts": {
+                "title": "CombineArtifacts",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Restrictions": {
+                "title": "Restrictions",
+                "description": "Type: BatchRestrictions, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CodeBuild::Project.BatchRestrictions"
+              },
+              "ServiceRole": {
+                "title": "ServiceRole",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TimeoutInMins": {
+                "title": "TimeoutInMins",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
               }
             },
             "additionalProperties": false
@@ -31176,6 +31839,18 @@
               "S3"
             ],
             "properties": {
+              "BranchName": {
+                "title": "BranchName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "S3": {
                 "title": "S3",
                 "description": "Type: S3, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3",
@@ -37984,6 +38659,39 @@
             },
             "additionalProperties": false
           },
+          "AWS::ECS::TaskDefinition.AuthorizationConfig": {
+            "title": "AWS::ECS::TaskDefinition.AuthorizationConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "AccessPointId": {
+                "title": "AccessPointId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-accesspointid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "IAM": {
+                "title": "IAM",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-iam",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ECS::TaskDefinition.ContainerDefinition": {
             "title": "AWS::ECS::TaskDefinition.ContainerDefinition",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html",
@@ -37992,7 +38700,7 @@
             "properties": {
               "Command": {
                 "title": "Command",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38019,7 +38727,7 @@
               },
               "DependsOn": {
                 "title": "DependsOn",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.ContainerDependency"
@@ -38039,7 +38747,7 @@
               },
               "DnsSearchDomains": {
                 "title": "DnsSearchDomains",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38054,7 +38762,7 @@
               },
               "DnsServers": {
                 "title": "DnsServers",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38084,7 +38792,7 @@
               },
               "DockerSecurityOptions": {
                 "title": "DockerSecurityOptions",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38099,7 +38807,7 @@
               },
               "EntryPoint": {
                 "title": "EntryPoint",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38120,6 +38828,14 @@
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.KeyValuePair"
                 }
               },
+              "EnvironmentFiles": {
+                "title": "EnvironmentFiles",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.EnvironmentFile"
+                }
+              },
               "Essential": {
                 "title": "Essential",
                 "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential",
@@ -38134,7 +38850,7 @@
               },
               "ExtraHosts": {
                 "title": "ExtraHosts",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.HostEntry"
@@ -38306,7 +39022,7 @@
               },
               "ResourceRequirements": {
                 "title": "ResourceRequirements",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.ResourceRequirement"
@@ -38314,7 +39030,7 @@
               },
               "Secrets": {
                 "title": "Secrets",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.Secret"
@@ -38346,7 +39062,7 @@
               },
               "SystemControls": {
                 "title": "SystemControls",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.SystemControl"
@@ -38354,7 +39070,7 @@
               },
               "Ulimits": {
                 "title": "Ulimits",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.Ulimit"
@@ -38399,10 +39115,7 @@
             "title": "AWS::ECS::TaskDefinition.ContainerDependency",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html",
             "type": "object",
-            "required": [
-              "Condition",
-              "ContainerName"
-            ],
+            "required": [],
             "properties": {
               "Condition": {
                 "title": "Condition",
@@ -38435,9 +39148,7 @@
             "title": "AWS::ECS::TaskDefinition.Device",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html",
             "type": "object",
-            "required": [
-              "HostPath"
-            ],
+            "required": [],
             "properties": {
               "ContainerPath": {
                 "title": "ContainerPath",
@@ -38556,13 +39267,115 @@
             },
             "additionalProperties": false
           },
+          "AWS::ECS::TaskDefinition.EFSVolumeConfiguration": {
+            "title": "AWS::ECS::TaskDefinition.EFSVolumeConfiguration",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html",
+            "type": "object",
+            "required": [
+              "FilesystemId"
+            ],
+            "properties": {
+              "AuthorizationConfig": {
+                "title": "AuthorizationConfig",
+                "description": "Type: AuthorizationConfig, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "FilesystemId": {
+                "title": "FilesystemId",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "RootDirectory": {
+                "title": "RootDirectory",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TransitEncryption": {
+                "title": "TransitEncryption",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TransitEncryptionPort": {
+                "title": "TransitEncryptionPort",
+                "description": "Type: Integer, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::ECS::TaskDefinition.EnvironmentFile": {
+            "title": "AWS::ECS::TaskDefinition.EnvironmentFile",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Type": {
+                "title": "Type",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-type",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Value": {
+                "title": "Value",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::ECS::TaskDefinition.FirelensConfiguration": {
             "title": "AWS::ECS::TaskDefinition.FirelensConfiguration",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html",
             "type": "object",
-            "required": [
-              "Type"
-            ],
+            "required": [],
             "properties": {
               "Options": {
                 "title": "Options",
@@ -38598,13 +39411,11 @@
             "title": "AWS::ECS::TaskDefinition.HealthCheck",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html",
             "type": "object",
-            "required": [
-              "Command"
-            ],
+            "required": [],
             "properties": {
               "Command": {
                 "title": "Command",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38672,10 +39483,7 @@
             "title": "AWS::ECS::TaskDefinition.HostEntry",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html",
             "type": "object",
-            "required": [
-              "Hostname",
-              "IpAddress"
-            ],
+            "required": [],
             "properties": {
               "Hostname": {
                 "title": "Hostname",
@@ -38766,7 +39574,7 @@
             "properties": {
               "Add": {
                 "title": "Add",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38781,7 +39589,7 @@
               },
               "Drop": {
                 "title": "Drop",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -38843,7 +39651,7 @@
               },
               "Devices": {
                 "title": "Devices",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.Device"
@@ -38899,7 +39707,7 @@
               },
               "Tmpfs": {
                 "title": "Tmpfs",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.Tmpfs"
@@ -38945,7 +39753,7 @@
               },
               "SecretOptions": {
                 "title": "SecretOptions",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.Secret"
@@ -39184,10 +39992,7 @@
             "title": "AWS::ECS::TaskDefinition.SystemControl",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html",
             "type": "object",
-            "required": [
-              "Namespace",
-              "Value"
-            ],
+            "required": [],
             "properties": {
               "Namespace": {
                 "title": "Namespace",
@@ -39273,7 +40078,7 @@
               },
               "MountOptions": {
                 "title": "MountOptions",
-                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions",
+                "description": "Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions",
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -39360,6 +40165,11 @@
                 "title": "DockerVolumeConfiguration",
                 "description": "Type: DockerVolumeConfiguration, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration",
                 "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.DockerVolumeConfiguration"
+              },
+              "EFSVolumeConfiguration": {
+                "title": "EFSVolumeConfiguration",
+                "description": "Type: EFSVolumeConfiguration, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::ECS::TaskDefinition.EFSVolumeConfiguration"
               },
               "Host": {
                 "title": "Host",
@@ -39775,6 +40585,29 @@
               "Path": {
                 "title": "Path",
                 "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::EFS::FileSystem.BackupPolicy": {
+            "title": "AWS::EFS::FileSystem.BackupPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html",
+            "type": "object",
+            "required": [
+              "Status"
+            ],
+            "properties": {
+              "Status": {
+                "title": "Status",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status",
                 "oneOf": [
                   {
                     "type": "string"
@@ -48494,6 +49327,23 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoT::ProvisioningTemplate.Tags": {
+            "title": "AWS::IoT::ProvisioningTemplate.Tags",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Json"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::IoT::Thing.AttributePayload": {
             "title": "AWS::IoT::Thing.AttributePayload",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html",
@@ -51531,9 +52381,7 @@
             "title": "AWS::Lambda::EventSourceMapping.DestinationConfig",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html",
             "type": "object",
-            "required": [
-              "OnFailure"
-            ],
+            "required": [],
             "properties": {
               "OnFailure": {
                 "title": "OnFailure",
@@ -51547,9 +52395,7 @@
             "title": "AWS::Lambda::EventSourceMapping.OnFailure",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html",
             "type": "object",
-            "required": [
-              "Destination"
-            ],
+            "required": [],
             "properties": {
               "Destination": {
                 "title": "Destination",
@@ -60663,8 +61509,7 @@
               },
               {
                 "required": [
-                  "Type",
-                  "Properties"
+                  "Type"
                 ],
                 "properties": {
                   "Type": {
@@ -61400,6 +62245,31 @@
               }
             ]
           },
+          "AWS::Athena::NamedQuery": {
+            "title": "AWS::Athena::NamedQuery",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Athena::NamedQuery"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Athena::NamedQuery"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::Athena::WorkGroup": {
             "title": "AWS::Athena::WorkGroup",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html",
@@ -61545,6 +62415,81 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::AutoScaling::ScheduledAction"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Backup::BackupPlan": {
+            "title": "AWS::Backup::BackupPlan",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Backup::BackupPlan"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Backup::BackupPlan"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Backup::BackupSelection": {
+            "title": "AWS::Backup::BackupSelection",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Backup::BackupSelection"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Backup::BackupSelection"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Backup::BackupVault": {
+            "title": "AWS::Backup::BackupVault",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Backup::BackupVault"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Backup::BackupVault"
                   }
                 }
               }
@@ -67796,6 +68741,9 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Athena::DataCatalog"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Athena::NamedQuery"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Athena::WorkGroup"
           },
           {
@@ -67812,6 +68760,15 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::AutoScaling::ScheduledAction"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Backup::BackupPlan"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Backup::BackupSelection"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Backup::BackupVault"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CertificateManager::Certificate"
