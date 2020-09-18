@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "AWS CloudFormation template",
-  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 18.1.0 https://cfn-resource-specifications-cn-northwest-1-prod.s3.cn-northwest-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
+  "description": "AWS CloudFormation template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html automatically generated with resource specification version 18.3.0 https://cfn-resource-specifications-cn-northwest-1-prod.s3.cn-northwest-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
   "type": "object",
   "required": [
     "Resources"
@@ -4094,6 +4094,92 @@
             },
             "additionalProperties": false
           },
+          "AWS::Cassandra::Keyspace": {
+            "title": "AWS::Cassandra::Keyspace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "KeyspaceName": {
+                "title": "KeyspaceName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table": {
+            "title": "AWS::Cassandra::Table",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html",
+            "type": "object",
+            "required": [
+              "KeyspaceName",
+              "PartitionKeyColumns"
+            ],
+            "properties": {
+              "BillingMode": {
+                "title": "BillingMode",
+                "description": "Type: BillingMode, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.BillingMode"
+              },
+              "ClusteringKeyColumns": {
+                "title": "ClusteringKeyColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.ClusteringKeyColumn"
+                }
+              },
+              "KeyspaceName": {
+                "title": "KeyspaceName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "PartitionKeyColumns": {
+                "title": "PartitionKeyColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+                }
+              },
+              "RegularColumns": {
+                "title": "RegularColumns",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+                }
+              },
+              "TableName": {
+                "title": "TableName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::CertificateManager::Certificate": {
             "title": "AWS::CertificateManager::Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html",
@@ -4403,6 +4489,99 @@
             "type": "object",
             "required": [],
             "properties": {},
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::CachePolicy": {
+            "title": "AWS::CloudFront::CachePolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html",
+            "type": "object",
+            "required": [
+              "CachePolicyConfig"
+            ],
+            "properties": {
+              "CachePolicyConfig": {
+                "title": "CachePolicyConfig",
+                "description": "Type: CachePolicyConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::CachePolicy.CachePolicyConfig"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::OriginRequestPolicy": {
+            "title": "AWS::CloudFront::OriginRequestPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html",
+            "type": "object",
+            "required": [
+              "OriginRequestPolicyConfig"
+            ],
+            "properties": {
+              "OriginRequestPolicyConfig": {
+                "title": "OriginRequestPolicyConfig",
+                "description": "Type: OriginRequestPolicyConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::RealtimeLogConfig": {
+            "title": "AWS::CloudFront::RealtimeLogConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html",
+            "type": "object",
+            "required": [
+              "EndPoints",
+              "Fields",
+              "Name",
+              "SamplingRate"
+            ],
+            "properties": {
+              "EndPoints": {
+                "title": "EndPoints",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::RealtimeLogConfig.EndPoint"
+                }
+              },
+              "Fields": {
+                "title": "Fields",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SamplingRate": {
+                "title": "SamplingRate",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
             "additionalProperties": false
           },
           "AWS::CloudTrail::Trail": {
@@ -8335,8 +8514,11 @@
               },
               "Ipv6Addresses": {
                 "title": "Ipv6Addresses",
-                "description": "Type: InstanceIpv6Address, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses",
-                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::NetworkInterface.InstanceIpv6Address"
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::EC2::NetworkInterface.InstanceIpv6Address"
+                }
               },
               "PrivateIpAddress": {
                 "title": "PrivateIpAddress",
@@ -10193,6 +10375,30 @@
             "type": "object",
             "required": [],
             "properties": {
+              "ImageScanningConfiguration": {
+                "title": "ImageScanningConfiguration",
+                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration",
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ImageTagMutability": {
+                "title": "ImageTagMutability",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
               "LifecyclePolicy": {
                 "title": "LifecyclePolicy",
                 "description": "Type: LifecyclePolicy, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy",
@@ -10212,19 +10418,11 @@
               },
               "RepositoryPolicyText": {
                 "title": "RepositoryPolicyText",
-                "description": "Type: Json, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext",
-                "oneOf": [
-                  {
-                    "type": "object"
-                  },
-                  {
-                    "$ref": "#/definitions/intrinsicFunctions"
-                  }
-                ]
+                "description": "Type: undefined, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext"
               },
               "Tags": {
                 "title": "Tags",
-                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags",
+                "description": "DuplicatesAllowed: false, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags",
                 "type": "array",
                 "items": {
                   "$ref": "#/properties/Resources/definitions/propertyTypes/Tag"
@@ -15767,6 +15965,87 @@
                     }
                   ]
                 }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::Authorizer": {
+            "title": "AWS::IoT::Authorizer",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html",
+            "type": "object",
+            "required": [
+              "AuthorizerFunctionArn"
+            ],
+            "properties": {
+              "AuthorizerFunctionArn": {
+                "title": "AuthorizerFunctionArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "AuthorizerName": {
+                "title": "AuthorizerName",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "SigningDisabled": {
+                "title": "SigningDisabled",
+                "description": "Type: Boolean, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Status": {
+                "title": "Status",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: Tags, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::Authorizer.Tags"
+              },
+              "TokenKeyName": {
+                "title": "TokenKeyName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "TokenSigningPublicKeys": {
+                "title": "TokenSigningPublicKeys",
+                "description": "Type: TokenSigningPublicKeys, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::IoT::Authorizer.TokenSigningPublicKeys"
               }
             },
             "additionalProperties": false
@@ -22661,7 +22940,30 @@
         },
         "propertyTypes": {
           "Json": {},
-          "AWS::SSM::Association.ParameterValues": {},
+          "AWS::SSM::Association.ParameterValues": {
+            "title": "AWS::SSM::Association.ParameterValues",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "ParameterValues": {
+                "title": "ParameterValues",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::AccessAnalyzer::Analyzer.ArchiveRule": {
             "title": "AWS::AccessAnalyzer::Analyzer.ArchiveRule",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html",
@@ -27133,6 +27435,134 @@
             },
             "additionalProperties": false
           },
+          "AWS::Cassandra::Table.BillingMode": {
+            "title": "AWS::Cassandra::Table.BillingMode",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html",
+            "type": "object",
+            "required": [
+              "Mode"
+            ],
+            "properties": {
+              "Mode": {
+                "title": "Mode",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ProvisionedThroughput": {
+                "title": "ProvisionedThroughput",
+                "description": "Type: ProvisionedThroughput, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.ProvisionedThroughput"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.ClusteringKeyColumn": {
+            "title": "AWS::Cassandra::Table.ClusteringKeyColumn",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html",
+            "type": "object",
+            "required": [
+              "Column"
+            ],
+            "properties": {
+              "Column": {
+                "title": "Column",
+                "description": "Type: Column, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::Cassandra::Table.Column"
+              },
+              "OrderBy": {
+                "title": "OrderBy",
+                "description": "Type: String, UpdateType: Immutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.Column": {
+            "title": "AWS::Cassandra::Table.Column",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html",
+            "type": "object",
+            "required": [
+              "ColumnName",
+              "ColumnType"
+            ],
+            "properties": {
+              "ColumnName": {
+                "title": "ColumnName",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ColumnType": {
+                "title": "ColumnType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::Cassandra::Table.ProvisionedThroughput": {
+            "title": "AWS::Cassandra::Table.ProvisionedThroughput",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html",
+            "type": "object",
+            "required": [
+              "ReadCapacityUnits",
+              "WriteCapacityUnits"
+            ],
+            "properties": {
+              "ReadCapacityUnits": {
+                "title": "ReadCapacityUnits",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "WriteCapacityUnits": {
+                "title": "WriteCapacityUnits",
+                "description": "Type: Integer, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits",
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "AWS::CertificateManager::Certificate.DomainValidationOption": {
             "title": "AWS::CertificateManager::Certificate.DomainValidationOption",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html",
@@ -27168,6 +27598,470 @@
               "ValidationDomain": {
                 "title": "ValidationDomain",
                 "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-validationdomain",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::CachePolicy.CachePolicyConfig": {
+            "title": "AWS::CloudFront::CachePolicy.CachePolicyConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html",
+            "type": "object",
+            "required": [
+              "MinTTL",
+              "Name"
+            ],
+            "properties": {
+              "Comment": {
+                "title": "Comment",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "DefaultTTL": {
+                "title": "DefaultTTL",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MaxTTL": {
+                "title": "MaxTTL",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "MinTTL": {
+                "title": "MinTTL",
+                "description": "Type: Double, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "ParametersInCacheKeyAndForwardedToOrigin": {
+                "title": "ParametersInCacheKeyAndForwardedToOrigin",
+                "description": "Type: ParametersInCacheKeyAndForwardedToOrigin, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::CachePolicy.ParametersInCacheKeyAndForwardedToOrigin"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::CachePolicy.CookiesConfig": {
+            "title": "AWS::CloudFront::CachePolicy.CookiesConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html",
+            "type": "object",
+            "required": [
+              "CookieBehavior"
+            ],
+            "properties": {
+              "CookieBehavior": {
+                "title": "CookieBehavior",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Cookies": {
+                "title": "Cookies",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::CachePolicy.HeadersConfig": {
+            "title": "AWS::CloudFront::CachePolicy.HeadersConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html",
+            "type": "object",
+            "required": [
+              "HeaderBehavior"
+            ],
+            "properties": {
+              "HeaderBehavior": {
+                "title": "HeaderBehavior",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Headers": {
+                "title": "Headers",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::CachePolicy.ParametersInCacheKeyAndForwardedToOrigin": {
+            "title": "AWS::CloudFront::CachePolicy.ParametersInCacheKeyAndForwardedToOrigin",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html",
+            "type": "object",
+            "required": [
+              "CookiesConfig",
+              "EnableAcceptEncodingGzip",
+              "HeadersConfig",
+              "QueryStringsConfig"
+            ],
+            "properties": {
+              "CookiesConfig": {
+                "title": "CookiesConfig",
+                "description": "Type: CookiesConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::CachePolicy.CookiesConfig"
+              },
+              "EnableAcceptEncodingGzip": {
+                "title": "EnableAcceptEncodingGzip",
+                "description": "Type: Boolean, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "HeadersConfig": {
+                "title": "HeadersConfig",
+                "description": "Type: HeadersConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::CachePolicy.HeadersConfig"
+              },
+              "QueryStringsConfig": {
+                "title": "QueryStringsConfig",
+                "description": "Type: QueryStringsConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::CachePolicy.QueryStringsConfig"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::CachePolicy.QueryStringsConfig": {
+            "title": "AWS::CloudFront::CachePolicy.QueryStringsConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html",
+            "type": "object",
+            "required": [
+              "QueryStringBehavior"
+            ],
+            "properties": {
+              "QueryStringBehavior": {
+                "title": "QueryStringBehavior",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "QueryStrings": {
+                "title": "QueryStrings",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::OriginRequestPolicy.CookiesConfig": {
+            "title": "AWS::CloudFront::OriginRequestPolicy.CookiesConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html",
+            "type": "object",
+            "required": [
+              "CookieBehavior"
+            ],
+            "properties": {
+              "CookieBehavior": {
+                "title": "CookieBehavior",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Cookies": {
+                "title": "Cookies",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::OriginRequestPolicy.HeadersConfig": {
+            "title": "AWS::CloudFront::OriginRequestPolicy.HeadersConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html",
+            "type": "object",
+            "required": [
+              "HeaderBehavior"
+            ],
+            "properties": {
+              "HeaderBehavior": {
+                "title": "HeaderBehavior",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "Headers": {
+                "title": "Headers",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig": {
+            "title": "AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html",
+            "type": "object",
+            "required": [
+              "CookiesConfig",
+              "HeadersConfig",
+              "Name",
+              "QueryStringsConfig"
+            ],
+            "properties": {
+              "Comment": {
+                "title": "Comment",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "CookiesConfig": {
+                "title": "CookiesConfig",
+                "description": "Type: CookiesConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::OriginRequestPolicy.CookiesConfig"
+              },
+              "HeadersConfig": {
+                "title": "HeadersConfig",
+                "description": "Type: HeadersConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::OriginRequestPolicy.HeadersConfig"
+              },
+              "Name": {
+                "title": "Name",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "QueryStringsConfig": {
+                "title": "QueryStringsConfig",
+                "description": "Type: QueryStringsConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::OriginRequestPolicy.QueryStringsConfig"
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::OriginRequestPolicy.QueryStringsConfig": {
+            "title": "AWS::CloudFront::OriginRequestPolicy.QueryStringsConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html",
+            "type": "object",
+            "required": [
+              "QueryStringBehavior"
+            ],
+            "properties": {
+              "QueryStringBehavior": {
+                "title": "QueryStringBehavior",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "QueryStrings": {
+                "title": "QueryStrings",
+                "description": "DuplicatesAllowed: true, Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings",
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/definitions/intrinsicFunctions"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::RealtimeLogConfig.EndPoint": {
+            "title": "AWS::CloudFront::RealtimeLogConfig.EndPoint",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html",
+            "type": "object",
+            "required": [
+              "KinesisStreamConfig",
+              "StreamType"
+            ],
+            "properties": {
+              "KinesisStreamConfig": {
+                "title": "KinesisStreamConfig",
+                "description": "Type: KinesisStreamConfig, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig",
+                "$ref": "#/properties/Resources/definitions/propertyTypes/AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig"
+              },
+              "StreamType": {
+                "title": "StreamType",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig": {
+            "title": "AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html",
+            "type": "object",
+            "required": [
+              "RoleArn",
+              "StreamArn"
+            ],
+            "properties": {
+              "RoleArn": {
+                "title": "RoleArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              "StreamArn": {
+                "title": "StreamArn",
+                "description": "Type: String, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn",
                 "oneOf": [
                   {
                     "type": "string"
@@ -45936,6 +46830,26 @@
             },
             "additionalProperties": false
           },
+          "AWS::IoT::Authorizer.Tags": {
+            "title": "AWS::IoT::Authorizer.Tags",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html",
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Tags": {
+                "title": "Tags",
+                "description": "Type: List, UpdateType: Mutable, http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags",
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/Resources/definitions/propertyTypes/Json"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "AWS::IoT::Authorizer.TokenSigningPublicKeys": {
+            "title": "AWS::IoT::Authorizer.TokenSigningPublicKeys"
+          },
           "AWS::IoT::ProvisioningTemplate.ProvisioningHook": {
             "title": "AWS::IoT::ProvisioningTemplate.ProvisioningHook",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html",
@@ -56937,6 +57851,55 @@
               }
             ]
           },
+          "AWS::Cassandra::Keyspace": {
+            "title": "AWS::Cassandra::Keyspace",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Cassandra::Keyspace"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Cassandra::Keyspace"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::Cassandra::Table": {
+            "title": "AWS::Cassandra::Table",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::Cassandra::Table"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::Cassandra::Table"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::CertificateManager::Certificate": {
             "title": "AWS::CertificateManager::Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html",
@@ -57080,6 +58043,81 @@
                   },
                   "Properties": {
                     "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::CloudFormation::WaitConditionHandle"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::CloudFront::CachePolicy": {
+            "title": "AWS::CloudFront::CachePolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::CloudFront::CachePolicy"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::CloudFront::CachePolicy"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::CloudFront::OriginRequestPolicy": {
+            "title": "AWS::CloudFront::OriginRequestPolicy",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::CloudFront::OriginRequestPolicy"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::CloudFront::OriginRequestPolicy"
+                  }
+                }
+              }
+            ]
+          },
+          "AWS::CloudFront::RealtimeLogConfig": {
+            "title": "AWS::CloudFront::RealtimeLogConfig",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::CloudFront::RealtimeLogConfig"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::CloudFront::RealtimeLogConfig"
                   }
                 }
               }
@@ -60335,6 +61373,31 @@
               }
             ]
           },
+          "AWS::IoT::Authorizer": {
+            "title": "AWS::IoT::Authorizer",
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html",
+            "allOf": [
+              {
+                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+              },
+              {
+                "required": [
+                  "Type",
+                  "Properties"
+                ],
+                "properties": {
+                  "Type": {
+                    "enum": [
+                      "AWS::IoT::Authorizer"
+                    ]
+                  },
+                  "Properties": {
+                    "$ref": "#/properties/Resources/definitions/resourcePropertyTypes/AWS::IoT::Authorizer"
+                  }
+                }
+              }
+            ]
+          },
           "AWS::IoT::Certificate": {
             "title": "AWS::IoT::Certificate",
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html",
@@ -62318,6 +63381,12 @@
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Budgets::Budget"
           },
           {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Cassandra::Keyspace"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::Cassandra::Table"
+          },
+          {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CertificateManager::Certificate"
           },
           {
@@ -62334,6 +63403,15 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CloudFormation::WaitConditionHandle"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CloudFront::CachePolicy"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CloudFront::OriginRequestPolicy"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CloudFront::RealtimeLogConfig"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::CloudTrail::Trail"
@@ -62727,6 +63805,9 @@
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IAM::UserToGroupAddition"
+          },
+          {
+            "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT::Authorizer"
           },
           {
             "$ref": "#/properties/Resources/definitions/resourceTypes/AWS::IoT::Certificate"
