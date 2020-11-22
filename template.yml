@@ -1,0 +1,33 @@
+Transform: AWS::Serverless-2016-10-31
+Parameters:
+  CertificateArn:
+    Type: String
+  DomainName:
+    Type: String
+  HostedZoneId:
+    Type: String
+Globals:
+  HttpApi:
+    Domain:
+      CertificateArn:
+        Ref: CertificateArn
+      DomainName: 
+        Ref: DomainName
+      Route53:
+        HostedZoneId:
+          Ref: HostedZoneId
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.handler
+      Runtime: nodejs12.x
+      Timeout: 15
+      MemorySize: 320
+      Events:
+        HttpApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: GET

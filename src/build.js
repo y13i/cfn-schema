@@ -1,15 +1,3 @@
-const { readFile, writeFile } = require("fs");
-const { promisify } = require("util");
-const { join } = require("path");
-const axios = require("axios");
-
-const readFileAsync = promisify(readFile);
-const writeFileAsync = promisify(writeFile);
-
-const regionsPath = join(__dirname, "regions.json");
-const baseSchemaPath = join(__dirname, "base.json");
-const outputPath = join(__dirname, "..", "docs");
-
 // temporary fix: see base.json too
 // "AWS::SSM::Association.ParameterValues"
 
@@ -50,19 +38,17 @@ function getPrimitiveTypeSchema(type) {
 }
 
 function referPropertyType(resourceTypeName, itemType) {
-  return `#/properties/Resources/definitions/propertyTypes/${
-    itemType.match(/^(Tag|Json)$/)
-      ? itemType
-      : resourceTypeName + "." + itemType
-  }`;
+  return `#/properties/Resources/definitions/propertyTypes/${itemType.match(/^(Tag|Json)$/)
+    ? itemType
+    : resourceTypeName + "." + itemType
+    }`;
 }
 
 function appendProperty(root, propertyName, property, resourceTypeName) {
   const p = {
     title: propertyName,
-    description: `Type: ${
-      property.Type || property.PrimitiveType
-    }, UpdateType: ${property.UpdateType}, ${property.Documentation}`,
+    description: `Type: ${property.Type || property.PrimitiveType
+      }, UpdateType: ${property.UpdateType}, ${property.Documentation}`,
   };
 
   root.properties[propertyName] = p;
@@ -89,11 +75,10 @@ function appendPremitiveOrListOrMap(root, resourceTypeName, property) {
     root.oneOf.unshift(getPrimitiveTypeSchema(property.PrimitiveType));
   } else if (property.Type === "List") {
     root.type = "array";
-    root.description = `${
-      property.DuplicatesAllowed === undefined
-        ? ""
-        : "DuplicatesAllowed: " + property.DuplicatesAllowed + ", "
-    }${root.description}`;
+    root.description = `${property.DuplicatesAllowed === undefined
+      ? ""
+      : "DuplicatesAllowed: " + property.DuplicatesAllowed + ", "
+      }${root.description}`;
 
     if (property.PrimitiveItemType) {
       root.items = {
@@ -215,10 +200,7 @@ function appendResourceTypes(schema, resourceTypes) {
     });
 }
 
-async function buildSchema(schema, resourceSpecUrl) {
-  const resourceSpecResponse = await axios.get(resourceSpecUrl);
-  const resourceSpec = resourceSpecResponse.data;
-
+exports.buildSchema = (schema, resourceSpec, resourceSpecUrl) => {
   schema.description += ` automatically generated with resource specification version ${resourceSpec.ResourceSpecificationVersion} ${resourceSpecUrl}`;
 
   appendPropertyTypes(schema, resourceSpec.PropertyTypes);
@@ -226,34 +208,3 @@ async function buildSchema(schema, resourceSpecUrl) {
 
   return schema;
 }
-
-async function main() {
-  const [regionsJson, baseJson] = await Promise.all([
-    readFileAsync(regionsPath),
-    readFileAsync(baseSchemaPath),
-  ]);
-
-  const regions = JSON.parse(regionsJson);
-
-  await Promise.all(
-    regions.map(async (region) => {
-      const schema = await buildSchema(JSON.parse(baseJson), region.url);
-
-      await Promise.all([
-        writeFileAsync(
-          join(outputPath, `${region.code}.json`),
-          JSON.stringify(schema, undefined, 2) + "\n"
-        ),
-
-        writeFileAsync(
-          join(outputPath, `${region.code}.min.json`),
-          JSON.stringify(schema)
-        ),
-      ]);
-
-      console.log(`Built schema for ${region.code}, ${region.name}.`);
-    })
-  );
-}
-
-main().then(() => console.log("done."));
