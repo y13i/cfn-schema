@@ -11,17 +11,29 @@ Globals:
     Domain:
       CertificateArn:
         Ref: CertificateArn
-      DomainName: 
+      DomainName:
         Ref: DomainName
       Route53:
         HostedZoneId:
           Ref: HostedZoneId
 Resources:
-  Function:
+  Redirect:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: src/
-      Handler: app.handler
+      Handler: redirect.handler
+      Runtime: nodejs12.x
+      Events:
+        HttpApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: GET
+  Schema:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: schema.handler
       Runtime: nodejs12.x
       Timeout: 15
       MemorySize: 320
@@ -29,5 +41,5 @@ Resources:
         HttpApiEvent:
           Type: HttpApi
           Properties:
-            Path: /
+            Path: /schema
             Method: GET

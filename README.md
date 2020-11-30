@@ -8,20 +8,20 @@ JSON Schema for AWS CloudFormation templates.
 ## Schema URL
 
 ```
-https://cfn-schema.y13i.com/
+https://cfn-schema.y13i.com/schema
 ```
 
 You can add query parameters to explicitly specify region and resource spec version.
 
 | Query Parameter Name | Default Value |
-|:---------------------|:--------------|
+| :------------------- | :------------ |
 | region               | us-east-1     |
 | version              | latest        |
 
 For example...
 
 ```
-https://cfn-schema.y13i.com/?region=eu-west-1&version=20.0.0
+https://cfn-schema.y13i.com/schema?region=eu-west-1&version=20.0.0
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ Open Workspace Settings by pressing **Ctrl + ,** or **⌘ + ,** and add JSON Sch
   "json.schemas": [
     {
       "fileMatch": ["*.cfn.json"],
-      "url": "https://cfn-schema.y13i.com/"
+      "url": "https://cfn-schema.y13i.com/schema"
     }
   ]
 }
@@ -48,7 +48,7 @@ If you prefer YAML, use [YAML Support by Red Hat](https://marketplace.visualstud
 ```json
 {
   "yaml.schemas": {
-    "https://cfn-schema.y13i.com/": "*.cfn.yaml"
+    "https://cfn-schema.y13i.com/schema": "*.cfn.yaml"
   }
 }
 ```
