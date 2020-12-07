@@ -808,105 +808,121 @@
       }
     },
     "Transform": {
-      "type": "string",
-      "description": "For serverless applications (also referred to as Lambda-based applications), specifies the version of the AWS Serverless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your template. The model defines the syntax that you can use and how it is processed. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html"
+      "type": "array",
+      "description": "For serverless applications (also referred to as Lambda-based applications), specifies the version of the AWS Serverless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your template. The model defines the syntax that you can use and how it is processed. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "Resources": {
+    "type": "object",
+    "description": "Specifies the stack resources and their properties, such as an Amazon Elastic Compute Cloud instance or an Amazon Simple Storage Service bucket. You can refer to resources in the Resources and Outputs sections of the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html",
+    "propertyNames": {
+      "pattern": "^[A-Za-z0-9]+$"
     },
-    "Resources": {
-      "type": "object",
-      "description": "Specifies the stack resources and their properties, such as an Amazon Elastic Compute Cloud instance or an Amazon Simple Storage Service bucket. You can refer to resources in the Resources and Outputs sections of the template. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html",
-      "propertyNames": {
-        "pattern": "^[A-Za-z0-9]+$"
-      },
-      "definitions": {
-        "resourceTypeBase": {
-          "type": "object",
-          "required": [
-            "Type"
-          ],
-          "properties": {
-            "Type": {
-              "type": "string",
-              "description": "The resource type identifies the type of resource that you are declaring."
-            },
-            "Properties": {
-              "type": "object",
-              "description": "Resource properties are additional options that you can specify for a resource."
-            },
-            "Condition": {
-              "type": "string",
-              "description": "Associate conditions with the resources or outputs that you want to conditionally create."
-            },
-            "CreationPolicy": {
-              "type": "object",
-              "description": "Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html",
-              "properties": {
-                "AutoScalingCreationPolicy": {
-                  "type": "object",
-                  "description": "For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.",
-                  "properties": {
-                    "MinSuccessfulInstancesPercent": {
-                      "oneOf": [
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ],
-                      "description": "Specifies the percentage of instances in an Auto Scaling replacement update that must signal success for the update to succeed."
-                    }
+    "definitions": {
+      "resourceTypeBase": {
+        "type": "object",
+        "required": [
+          "Type"
+        ],
+        "properties": {
+          "Type": {
+            "type": "string",
+            "description": "The resource type identifies the type of resource that you are declaring."
+          },
+          "Properties": {
+            "type": "object",
+            "description": "Resource properties are additional options that you can specify for a resource."
+          },
+          "Condition": {
+            "type": "string",
+            "description": "Associate conditions with the resources or outputs that you want to conditionally create."
+          },
+          "CreationPolicy": {
+            "type": "object",
+            "description": "Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html",
+            "properties": {
+              "AutoScalingCreationPolicy": {
+                "type": "object",
+                "description": "For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.",
+                "properties": {
+                  "MinSuccessfulInstancesPercent": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ],
+                    "description": "Specifies the percentage of instances in an Auto Scaling replacement update that must signal success for the update to succeed."
                   }
-                },
-                "ResourceSignal": {
-                  "type": "object",
-                  "description": "When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.",
-                  "properties": {
-                    "Count": {
-                      "oneOf": [
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ],
-                      "description": "The number of success signals AWS CloudFormation must receive before it sets the resource status as CREATE_COMPLETE."
-                    },
-                    "Timeout": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ],
-                      "description": "The length of time that AWS CloudFormation waits for the number of signals that was specified in the Count property."
-                    }
+                }
+              },
+              "ResourceSignal": {
+                "type": "object",
+                "description": "When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.",
+                "properties": {
+                  "Count": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ],
+                    "description": "The number of success signals AWS CloudFormation must receive before it sets the resource status as CREATE_COMPLETE."
+                  },
+                  "Timeout": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ],
+                    "description": "The length of time that AWS CloudFormation waits for the number of signals that was specified in the Count property."
                   }
                 }
               }
-            },
-            "DeletionPolicy": {
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "#/definitions/intrinsicFunctions"
-                }
-              ],
-              "description": "With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",
-              "enum": [
-                "Delete",
-                "Retain",
-                "Snapshot"
-              ]
-            },
-            "DependsOn": {
-              "description": "With the DependsOn attribute you can specify that the creation of a specific resource follows another. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html",
-              "oneOf": [
-                {
+            }
+          },
+          "DeletionPolicy": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/definitions/intrinsicFunctions"
+              }
+            ],
+            "description": "With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",
+            "enum": [
+              "Delete",
+              "Retain",
+              "Snapshot"
+            ]
+          },
+          "DependsOn": {
+            "description": "With the DependsOn attribute you can specify that the creation of a specific resource follows another. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html",
+            "oneOf": [
+              {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/intrinsicFunctions"
+                  }
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
                   "oneOf": [
                     {
                       "type": "string"
@@ -915,10 +931,151 @@
                       "$ref": "#/definitions/intrinsicFunctions"
                     }
                   ]
-                },
-                {
-                  "type": "array",
-                  "items": {
+                }
+              }
+            ]
+          },
+          "Metadata": {
+            "type": "object",
+            "description": "The Metadata attribute enables you to associate structured data with a resource. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html"
+          },
+          "UpdatePolicy": {
+            "type": "object",
+            "description": "Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup or AWS::Lambda::Alias resource. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html",
+            "properties": {
+              "AutoScalingReplacingUpdate": {
+                "type": "object",
+                "description": "To specify how AWS CloudFormation handles replacement updates for an Auto Scaling group, use the AutoScalingReplacingUpdate policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-replacingupdate",
+                "properties": {
+                  "WillReplace": {
+                    "oneOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  }
+                }
+              },
+              "AutoScalingRollingUpdate": {
+                "type": "object",
+                "description": "To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-rollingupdate",
+                "properties": {
+                  "MaxBatchSize": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  },
+                  "MinInstancesInService": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  },
+                  "MinSuccessfulInstancesPercent": {
+                    "oneOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  },
+                  "PauseTime": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  },
+                  "SuspendProcesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "WaitOnResourceSignals": {
+                    "oneOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  }
+                }
+              },
+              "AutoScalingScheduledAction": {
+                "type": "object",
+                "description": "To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-scheduledactions",
+                "properties": {
+                  "IgnoreUnmodifiedGroupSizeProperties": {
+                    "oneOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  }
+                }
+              },
+              "CodeDeployLambdaAliasUpdate": {
+                "type": "object",
+                "description": "To perform an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource, use the CodeDeployLambdaAliasUpdate update policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-codedeploylambdaaliasupdate",
+                "required": [
+                  "ApplicationName",
+                  "DeploymentGroupName"
+                ],
+                "properties": {
+                  "AfterAllowTrafficHook": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  },
+                  "ApplicationName": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  },
+                  "BeforeAllowTrafficHook": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/definitions/intrinsicFunctions"
+                      }
+                    ]
+                  },
+                  "DeploymentGroupName": {
                     "oneOf": [
                       {
                         "type": "string"
@@ -929,264 +1086,12 @@
                     ]
                   }
                 }
-              ]
-            },
-            "Metadata": {
-              "type": "object",
-              "description": "The Metadata attribute enables you to associate structured data with a resource. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html"
-            },
-            "UpdatePolicy": {
-              "type": "object",
-              "description": "Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup or AWS::Lambda::Alias resource. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html",
-              "properties": {
-                "AutoScalingReplacingUpdate": {
-                  "type": "object",
-                  "description": "To specify how AWS CloudFormation handles replacement updates for an Auto Scaling group, use the AutoScalingReplacingUpdate policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-replacingupdate",
-                  "properties": {
-                    "WillReplace": {
-                      "oneOf": [
-                        {
-                          "type": "boolean"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "AutoScalingRollingUpdate": {
-                  "type": "object",
-                  "description": "To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-rollingupdate",
-                  "properties": {
-                    "MaxBatchSize": {
-                      "oneOf": [
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    },
-                    "MinInstancesInService": {
-                      "oneOf": [
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    },
-                    "MinSuccessfulInstancesPercent": {
-                      "oneOf": [
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    },
-                    "PauseTime": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    },
-                    "SuspendProcesses": {
-                      "type": "array",
-                      "items": {
-                        "type": "object"
-                      }
-                    },
-                    "WaitOnResourceSignals": {
-                      "oneOf": [
-                        {
-                          "type": "boolean"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "AutoScalingScheduledAction": {
-                  "type": "object",
-                  "description": "To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-scheduledactions",
-                  "properties": {
-                    "IgnoreUnmodifiedGroupSizeProperties": {
-                      "oneOf": [
-                        {
-                          "type": "boolean"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "CodeDeployLambdaAliasUpdate": {
-                  "type": "object",
-                  "description": "To perform an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource, use the CodeDeployLambdaAliasUpdate update policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-codedeploylambdaaliasupdate",
-                  "required": [
-                    "ApplicationName",
-                    "DeploymentGroupName"
-                  ],
-                  "properties": {
-                    "AfterAllowTrafficHook": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    },
-                    "ApplicationName": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    },
-                    "BeforeAllowTrafficHook": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    },
-                    "DeploymentGroupName": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/definitions/intrinsicFunctions"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "UseOnlineResharding": {
-                  "description": "To modify a replication group's shards by adding or removing shards, rather than replacing the entire AWS::ElastiCache::ReplicationGroup resource, use the UseOnlineResharding update policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding",
-                  "oneOf": [
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "$ref": "#/definitions/intrinsicFunctions"
-                    }
-                  ]
-                }
-              }
-            },
-            "UpdateReplacePolicy": {
-              "description": "Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html",
-              "type": "string",
-              "enum": [
-                "Delete",
-                "Retain",
-                "Snapshot"
-              ]
-            }
-          }
-        },
-        "resourcePropertyTypes": {},
-        "propertyTypes": {
-          "Json": {},
-          "AWS::SSM::Association.ParameterValues": {}
-        },
-        "resourceTypes": {
-          "custom": {
-            "allOf": [
-              {
-                "$ref": "#/properties/Resources/definitions/resourceTypeBase"
               },
-              {
-                "required": [
-                  "Properties"
-                ],
-                "properties": {
-                  "Type": {
-                    "type": "string",
-                    "pattern": "AWS::CloudFormation::CustomResource|Custom::[A-Za-z_@-]+",
-                    "maxLength": 60
-                  },
-                  "Properties": {
-                    "type": "object"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "$ref": "#/properties/Resources/definitions/resourceTypes/custom"
-          }
-        ]
-      }
-    },
-    "Outputs": {
-      "type": "object",
-      "description": "Describes the values that are returned whenever you view your stack's properties. For example, you can declare an output for an S3 bucket name and then call the aws cloudformation describe-stacks AWS CLI command to view the name. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html",
-      "propertyNames": {
-        "pattern": "^[A-Za-z0-9]+$"
-      },
-      "additionalProperties": {
-        "type": "object",
-        "required": [
-          "Value"
-        ],
-        "properties": {
-          "Condition": {
-            "type": "string",
-            "description": "Associate conditions with the resources or outputs that you want to conditionally create."
-          },
-          "Description": {
-            "type": "string",
-            "description": "A String type that describes the output value. The description can be a maximum of 4 K in length."
-          },
-          "Value": {
-            "description": "The value of the property returned by the aws cloudformation describe-stacks command. The value of an output can include literals, parameter references, pseudo-parameters, a mapping value, or intrinsic functions.",
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/definitions/intrinsicFunctions"
-              }
-            ]
-          },
-          "Export": {
-            "type": "object",
-            "description": "The name of the resource output to be exported for a cross-stack reference.",
-            "required": [
-              "Name"
-            ],
-            "properties": {
-              "Name": {
+              "UseOnlineResharding": {
+                "description": "To modify a replication group's shards by adding or removing shards, rather than replacing the entire AWS::ElastiCache::ReplicationGroup resource, use the UseOnlineResharding update policy. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding",
                 "oneOf": [
                   {
-                    "type": "string"
+                    "type": "boolean"
                   },
                   {
                     "$ref": "#/definitions/intrinsicFunctions"
@@ -1194,9 +1099,108 @@
                 ]
               }
             }
+          },
+          "UpdateReplacePolicy": {
+            "description": "Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html",
+            "type": "string",
+            "enum": [
+              "Delete",
+              "Retain",
+              "Snapshot"
+            ]
+          }
+        }
+      },
+      "resourcePropertyTypes": {},
+      "propertyTypes": {
+        "Json": {},
+        "AWS::SSM::Association.ParameterValues": {}
+      },
+      "resourceTypes": {
+        "custom": {
+          "allOf": [
+            {
+              "$ref": "#/properties/Resources/definitions/resourceTypeBase"
+            },
+            {
+              "required": [
+                "Properties"
+              ],
+              "properties": {
+                "Type": {
+                  "type": "string",
+                  "pattern": "AWS::CloudFormation::CustomResource|Custom::[A-Za-z_@-]+",
+                  "maxLength": 60
+                },
+                "Properties": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "additionalProperties": {
+      "oneOf": [
+        {
+          "$ref": "#/properties/Resources/definitions/resourceTypes/custom"
+        }
+      ]
+    }
+  },
+  "Outputs": {
+    "type": "object",
+    "description": "Describes the values that are returned whenever you view your stack's properties. For example, you can declare an output for an S3 bucket name and then call the aws cloudformation describe-stacks AWS CLI command to view the name. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html",
+    "propertyNames": {
+      "pattern": "^[A-Za-z0-9]+$"
+    },
+    "additionalProperties": {
+      "type": "object",
+      "required": [
+        "Value"
+      ],
+      "properties": {
+        "Condition": {
+          "type": "string",
+          "description": "Associate conditions with the resources or outputs that you want to conditionally create."
+        },
+        "Description": {
+          "type": "string",
+          "description": "A String type that describes the output value. The description can be a maximum of 4 K in length."
+        },
+        "Value": {
+          "description": "The value of the property returned by the aws cloudformation describe-stacks command. The value of an output can include literals, parameter references, pseudo-parameters, a mapping value, or intrinsic functions.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/intrinsicFunctions"
+            }
+          ]
+        },
+        "Export": {
+          "type": "object",
+          "description": "The name of the resource output to be exported for a cross-stack reference.",
+          "required": [
+            "Name"
+          ],
+          "properties": {
+            "Name": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/intrinsicFunctions"
+                }
+              ]
+            }
           }
         }
       }
     }
   }
+}
 }
