@@ -767,8 +767,18 @@
       }
     },
     "Transform": {
-      "type": "string",
-      "description": "For serverless applications (also referred to as Lambda-based applications), specifies the version of the AWS Serverless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your template. The model defines the syntax that you can use and how it is processed. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html"
+      "description": "For serverless applications (also referred to as Lambda-based applications), specifies the version of the AWS Serverless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your template. The model defines the syntax that you can use and how it is processed. https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "Resources": {
       "type": "object",
